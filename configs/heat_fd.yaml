@@ -1,0 +1,19 @@
+# Reference Crank-Nicolson run for the 1D heat equation.
+# k = h here (T = L = 1, nx = nt), which an explicit scheme could not do:
+# the mesh ratio r = alpha*k/h^2 grows without bound under refinement and
+# Crank-Nicolson stays stable anyway.
+run_id: heat_fd_cn
+seed: 0
+out_dir: results
+problem:
+  name: heat1d
+  x_max: 1.0
+  t_max: 1.0
+  alpha: 0.05
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+solver:
+  name: fd_heat_cn
+  nx: 41
+  nt: 41

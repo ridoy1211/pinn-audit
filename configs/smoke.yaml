@@ -1,0 +1,16 @@
+# Tiny run used by CI to prove the whole pipeline executes. Seconds, not minutes.
+run_id: smoke
+seed: 0
+out_dir: results
+problem:
+  name: heat1d
+  x_max: 1.0
+  t_max: 1.0
+  alpha: 0.05
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+solver:
+  name: fd_heat_cn
+  nx: 21
+  nt: 21
