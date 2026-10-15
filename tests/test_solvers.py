@@ -69,7 +69,7 @@ def test_solution_shape_contract(heat_cfg: ProblemConfig) -> None:
 def _nt_for_courant(nx: int, lam: float, c: float, t_max: float, x_max: float) -> int:
     h = x_max / (nx - 1)
     k = lam * h / c
-    return int(round(t_max / k)) + 1
+    return round(t_max / k) + 1
 
 
 def test_leapfrog_is_second_order(wave_cfg: ProblemConfig) -> None:

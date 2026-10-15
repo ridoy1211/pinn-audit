@@ -26,7 +26,7 @@ from pinnaudit.solvers import CrankNicolsonHeat, LeapfrogWave
 
 def nt_for_courant(nx: int, lam: float, c: float, t_max: float, x_max: float) -> int:
     h = x_max / (nx - 1)
-    return int(round(t_max / (lam * h / c))) + 1
+    return round(t_max / (lam * h / c)) + 1
 
 
 def main(out_dir: Path) -> None:
