@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+.DS_Store
+.idea/
+.vscode/
+
+# Run outputs: regenerable, so not versioned. Keep the directories.
+results/*
+!results/.gitkeep
+figures/*
+!figures/.gitkeep
+!figures/baselines.png
+
+# LaTeX build products
+report/*.aux
+report/*.log
+report/*.out
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz

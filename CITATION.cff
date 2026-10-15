@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "pinn-audit: a reproducible audit of when physics-informed neural networks beat classical PDE solvers"
+abstract: >-
+  A single-repository benchmark testing the claim that physics-informed neural
+  networks are competitive with classical numerical methods. Forward and inverse
+  problems for the heat, wave, Burgers and Poisson equations are scored against
+  closed-form analytic solutions on accuracy, wall-clock cost, and robustness to
+  sparse and noisy observations.
+authors:
+  - family-names: Hasan
+    given-names: Ridoy
+version: 0.1.0
+license: MIT
+keywords:
+  - physics-informed neural networks
+  - scientific machine learning
+  - partial differential equations
+  - reproducibility

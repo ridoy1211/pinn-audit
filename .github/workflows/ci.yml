@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          python -m pip install -e ".[dev]"
+
+      - name: Lint
+        run: |
+          ruff check src tests scripts
+          ruff format --check src tests scripts
+
+      - name: Type check
+        run: mypy
+
+      - name: Test
+        run: pytest --cov=pinnaudit --cov-report=term-missing
+
+      - name: Smoke experiment
+        run: |
+          pinnaudit list
+          pinnaudit run --config configs/smoke.yaml
+
+      - name: Convergence study
+        run: pinnaudit convergence --config configs/heat_fd.yaml --levels 3
+
+      - name: Figures
+        run: python scripts/plot_baselines.py --out figures
+
+      - uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.12'
+        with:
+          name: day1-figures
+          path: figures/
