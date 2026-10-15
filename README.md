@@ -1,5 +1,7 @@
 # pinn-audit
 
+![ci](https://github.com/ridoy1211/pinn-audit/actions/workflows/ci.yml/badge.svg)
+
 **Neural networks are being sold as PDE solvers. This repo checks whether you should buy one.**
 
 ![Classical baselines against exact solutions](figures/baselines.png)
