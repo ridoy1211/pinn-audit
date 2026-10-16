@@ -25,7 +25,8 @@ jobs:
       - name: Install
         run: |
           python -m pip install -U pip
-          python -m pip install -e ".[dev]"
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[dev,nn]"
 
       - name: Lint
         run: |
@@ -42,6 +43,7 @@ jobs:
         run: |
           pinnaudit list
           pinnaudit run --config configs/smoke.yaml
+          pinnaudit run --config configs/pinn_smoke.yaml --no-save
 
       - name: Convergence study
         run: pinnaudit convergence --config configs/heat_fd.yaml --levels 3
