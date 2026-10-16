@@ -46,14 +46,23 @@ Wave, leapfrog, Courant number held at 0.5:
 
 Crank-Nicolson at nx = 201, nt = 11 (mesh ratio 200) stays stable, rel. L2 2.3e-3.
 
-**The lambda = 1 result.** My first wave convergence run gave errors near 1e-16
-and a nonsense "order". Not a bug. At `lambda = c k / h = 1` the stencil reduces to
-`u[j,n+1] = u[j+1,n] + u[j-1,n] - u[j,n-1]`, which is d'Alembert's solution on the
-grid, so it is exact up to rounding (4.1e-16 at nx = 21, 6.2e-16 at nx = 81).
-Convergence studies therefore use lambda = 0.5. Kept as a test so nobody
-"fixes" the config back.
+**The lambda = 1 result.** I copied `wave_fd.yaml` to a scratch file and set
+`nt: 41`, so that lambda = c*k/h = 1, then ran it with `--no-save`. The error
+was 5.3e-16, which is rounding noise. I expected a small error, similar to the
+4e-3 I got at lambda = 0.5, and instead it was about 10^13 times smaller. At
+lambda = 1 the update formula reduces to `u[j,n+1] = u[j+1,n] + u[j-1,n] - u[j,n-1]`,
+which is d'Alembert's exact solution evaluated on the grid, so the scheme is
+exact up to rounding. `test_leapfrog_is_exact_at_unit_courant` checks the same
+thing. Because of this, convergence studies run at lambda = 0.5: at lambda = 1
+the error is pure rounding noise, so a measured "order" would mean nothing.
 
-TODO: write what I expected when I ran the Courant experiment myself, and what actually happened.
+I also tried `nt: 21` (lambda = 2). The solver stopped with "CFL violated"
+instead of returning numbers, which is what I want from a baseline.
+
+Experiments I ran myself (scratch configs, `--no-save`):
+- wave, nx=41, nt=21 (lambda=2): solver refused, "CFL violated"
+- wave, nx=41, nt=41 (lambda=1): rel. L2 5.323e-16
+- heat, nx=201, nt=11 (mesh ratio 200): stable, rel. L2 2.262e-03
 
 **Open.** Score the PINN on the same grid as the FD solvers, or on a dense
 independent grid? Same grid is fairer for accuracy per second; a dense grid
