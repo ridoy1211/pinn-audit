@@ -1,0 +1,25 @@
+# Tiny PINN run for CI and quick checks. Seconds, and not expected to be accurate.
+run_id: pinn_smoke
+seed: 0
+out_dir: results
+problem:
+  name: heat1d
+  x_max: 1.0
+  t_max: 1.0
+  alpha: 0.05
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+solver:
+  name: pinn
+  nx: 21
+  nt: 21
+  neural:
+    width: 16
+    depth: 2
+    epochs: 200
+    lr: 0.001
+    n_collocation: 200
+    n_initial: 50
+    n_boundary: 50
+    log_every: 50

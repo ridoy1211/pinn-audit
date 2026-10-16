@@ -45,7 +45,8 @@ def build_record(
         "numpy": np.__version__,
     }
     record.update({f"metric_{k}": v for k, v in metrics.items()})
-    record.update({f"meta_{k}": v for k, v in solution.meta.items() if not isinstance(v, dict)})
+    scalars = {k: v for k, v in solution.meta.items() if not isinstance(v, dict | list)}
+    record.update({f"meta_{k}": v for k, v in scalars.items()})
     return record
 
 

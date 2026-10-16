@@ -1,0 +1,29 @@
+# Same vanilla PINN on the 1D wave equation, scored on the same 41 x 81 grid as
+# wave_fd.yaml. The n = 3 mode is the high-frequency component that spectral
+# bias predicts a PINN will fit last.
+run_id: pinn_wave
+seed: 0
+out_dir: results
+problem:
+  name: wave1d
+  x_max: 1.0
+  t_max: 1.0
+  c: 1.0
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+  velocity_modes: []
+solver:
+  name: pinn
+  nx: 41
+  nt: 81
+  neural:
+    width: 32
+    depth: 4
+    epochs: 5000
+    lr: 0.001
+    lbfgs_iters: 0
+    n_collocation: 2000
+    n_initial: 100
+    n_boundary: 100
+    log_every: 250

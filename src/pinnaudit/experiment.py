@@ -37,7 +37,7 @@ class RunResult:
 def run_once(cfg: RunConfig) -> RunResult:
     """Build problem and solver, solve, and score against the analytic solution."""
     problem = build_problem(cfg.problem)
-    solver = build_solver(cfg.solver)
+    solver = build_solver(cfg.solver, seed=cfg.seed)
 
     solution = solver.solve(problem, nx=cfg.solver.nx, nt=cfg.solver.nt)
     reference = problem.exact(solution.x, solution.t)

@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
 from pinnaudit import __version__
-from pinnaudit.config import load_run_config
+from pinnaudit.config import NEURAL_SOLVERS, load_run_config
 from pinnaudit.experiment import run_once
 from pinnaudit.io import append_records, build_record, dump_config
 from pinnaudit.metrics import observed_order
@@ -38,8 +39,13 @@ def list_components() -> None:
 def run(
     config: Annotated[Path, typer.Option("--config", "-c", exists=True, dir_okay=False)],
     save: Annotated[bool, typer.Option("--save/--no-save", help="Write a Parquet record.")] = True,
+    verbose: Annotated[
+        bool, typer.Option("--verbose", "-v", help="Log training progress.")
+    ] = False,
 ) -> None:
     """Run one experiment described by a YAML config."""
+    if verbose:
+        logging.basicConfig(level=logging.INFO, format="%(message)s")
     cfg = load_run_config(config)
     result = run_once(cfg)
     typer.echo(result.summary())
@@ -62,6 +68,8 @@ def convergence(
     number stay fixed and the measured order is the scheme's true order.
     """
     base = load_run_config(config)
+    if base.solver.name in NEURAL_SOLVERS:
+        raise typer.BadParameter("convergence studies apply to classical solvers only")
     errors: list[float] = []
     rows = []
 

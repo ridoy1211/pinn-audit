@@ -16,13 +16,16 @@ import yaml
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 PROBLEM_NAMES = Literal["heat1d", "wave1d"]
-SOLVER_NAMES = Literal["fd_heat_cn", "fd_wave_leapfrog"]
+SOLVER_NAMES = Literal["fd_heat_cn", "fd_wave_leapfrog", "pinn", "mlp"]
+
+# Solvers that need PyTorch. Everything else runs on numpy/scipy alone.
+NEURAL_SOLVERS = frozenset({"pinn", "mlp"})
 
 # Which solvers are mathematically applicable to which problems. Catching a
 # mismatch here turns a silent garbage result into a loud startup error.
 COMPATIBLE: dict[str, set[str]] = {
-    "heat1d": {"fd_heat_cn"},
-    "wave1d": {"fd_wave_leapfrog"},
+    "heat1d": {"fd_heat_cn", "pinn", "mlp"},
+    "wave1d": {"fd_wave_leapfrog", "pinn", "mlp"},
 }
 
 
@@ -61,14 +64,54 @@ class ProblemConfig(BaseModel):
         return self
 
 
+class NeuralConfig(BaseModel):
+    """Architecture, data and optimisation settings for ``pinn`` and ``mlp``."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    width: int = Field(default=32, ge=2, description="Neurons per hidden layer.")
+    depth: int = Field(default=4, ge=1, description="Number of hidden layers.")
+    epochs: int = Field(default=5000, ge=1, description="Adam steps.")
+    lr: float = Field(default=1e-3, gt=0.0, description="Adam learning rate.")
+    lbfgs_iters: int = Field(default=0, ge=0, description="L-BFGS iterations after Adam.")
+    n_collocation: int = Field(default=2000, ge=1, description="Random PDE-residual points.")
+    n_initial: int = Field(default=100, ge=2, description="Points on t = 0.")
+    n_boundary: int = Field(default=100, ge=2, description="Times per boundary.")
+    n_obs: int = Field(default=0, ge=0, description="Observations of the exact solution.")
+    w_pde: float = Field(default=1.0, ge=0.0)
+    w_ic: float = Field(default=1.0, ge=0.0)
+    w_bc: float = Field(default=1.0, ge=0.0)
+    w_data: float = Field(default=1.0, ge=0.0)
+    log_every: int = Field(default=100, ge=1)
+    threads: int = Field(default=1, ge=1, description="Torch CPU threads (1 = fair timing).")
+
+
 class SolverConfig(BaseModel):
-    """Discretisation of a classical solver."""
+    """A solver and the grid its solution is reported on.
+
+    For classical schemes ``nx`` and ``nt`` are the discretisation. For neural
+    solvers they are only the evaluation grid, so every method is scored on the
+    same points.
+    """
 
     model_config = ConfigDict(extra="forbid")
 
     name: SOLVER_NAMES
     nx: int = Field(ge=5, description="Number of spatial grid POINTS, including both boundaries.")
     nt: int = Field(ge=3, description="Number of time levels, including t=0.")
+    neural: NeuralConfig | None = None
+
+    @model_validator(mode="after")
+    def _neural_block_matches_solver(self) -> SolverConfig:
+        if self.name not in NEURAL_SOLVERS:
+            if self.neural is not None:
+                raise ValueError(f"solver {self.name!r} takes no 'neural' block")
+            return self
+        if self.neural is None:
+            self.neural = NeuralConfig()
+        if self.name == "mlp" and self.neural.n_obs == 0:
+            raise ValueError("solver 'mlp' learns from observations only: set neural.n_obs > 0")
+        return self
 
 
 class RunConfig(BaseModel):

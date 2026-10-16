@@ -1,0 +1,28 @@
+# Vanilla PINN on the 1D heat equation, scored on the same 41 x 41 grid as
+# heat_fd.yaml. Soft initial/boundary constraints, Adam only, no tricks:
+# this is the baseline PINN, before any of the known improvements.
+run_id: pinn_heat
+seed: 0
+out_dir: results
+problem:
+  name: heat1d
+  x_max: 1.0
+  t_max: 1.0
+  alpha: 0.05
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+solver:
+  name: pinn
+  nx: 41
+  nt: 41
+  neural:
+    width: 32
+    depth: 4
+    epochs: 5000
+    lr: 0.001
+    lbfgs_iters: 0
+    n_collocation: 2000
+    n_initial: 100
+    n_boundary: 100
+    log_every: 250
