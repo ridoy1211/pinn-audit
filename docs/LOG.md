@@ -67,3 +67,31 @@ Experiments I ran myself (scratch configs, `--no-save`):
 **Open.** Score the PINN on the same grid as the FD solvers, or on a dense
 independent grid? Same grid is fairer for accuracy per second; a dense grid
 reflects the mesh-free claim. Probably report both.
+
+
+## 2026-10-18
+
+**Aim.** First neural solvers, behind the same interface and scored on the same grid as the classical ones. Vanilla PINN: soft initial/boundary constraints, Adam only, 5000 epochs, width 32, depth 4, 2000 random collocation points, float64, one thread. One seed (0) only, so everything below is a first look and not a conclusion.
+
+**Measured.**
+
+| Problem | Method | rel. L2 | max error | time |
+|---|---|---|---|---|
+| heat | Crank-Nicolson | 5.307e-4 | 6.879e-4 | 0.80 ms |
+| heat | PINN | 2.892e-3 | 1.442e-2 | 96.5 s |
+| heat | MLP control (200 observations, no physics) | 2.113e-2 | 4.737e-2 | 50.5 s |
+| wave | leapfrog | 4.153e-3 | 6.978e-3 | 0.52 ms |
+| wave | PINN | 4.998e-1 | 7.569e-1 | 205.7 s |
+
+The finite-difference times are single runs under a millisecond, so the time ratios are order-of-magnitude only.
+
+**What the numbers say.**
+- The PINN lost to the classical solver on both problems, on accuracy and on time. Heat: about 5x larger error and about 120,000x slower. Wave: about 120x larger error and about 400,000x slower. This is one configuration and one seed, so it says nothing yet about PINNs in general.
+- The heat PINN loss went from 8.6 to 2.0e-4 and mostly fell steadily. At epoch 4000 it jumped from 3.9e-4 to 1.05e-3 and then recovered. I haven't tested whether L-BFGS or a decaying learning rate prevents that.
+- Wave: if the PINN had learned the n = 1 mode perfectly and missed the n = 3 mode entirely, the relative L2 error on this grid would be 0.447 (checked numerically, it is sqrt(0.2)). I got 0.50. That fits the spectral-bias explanation from Wang et al., but 0.50 is above 0.447, so mode 1 is imperfect too. "It missed the high-frequency mode" is a hypothesis, not a result. To test it I need to project the PINN solution onto each mode.
+- The wave loss was still creeping down at epoch 5000 (9.2e-2), so the network may be undertrained and not stuck. I can't tell which yet.
+- Heat: the PINN (no interior data) reached 2.9e-3 and the MLP (200 interior observations) reached 2.1e-2, about 7x worse. So physics alone beat 200 labelled points on this seed. This is not a clean test of the physics term, because the two methods get different information and collocation points cost nothing while observations don't. The clean test is a PINN given the same 200 observations.
+
+**What surprised me.** The wave PINN was 120x worse while the heat PINN was only 5x worse. I didn’t expect the gap between the two problems to be that big.
+
+**Open.** Five seeds with mean and spread. L-BFGS after Adam. A PINN given the same 200 observations as the MLP control. Projecting the wave solution onto its modes.
