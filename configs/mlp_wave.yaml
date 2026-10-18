@@ -1,0 +1,29 @@
+# Control: the same network and training budget as pinn_wave.yaml, but no PDE
+# residual. It sees the initial and boundary conditions plus 200 observations of
+# the exact solution, so any gap to a PINN given the same data comes from the
+# physics term alone.
+run_id: mlp_wave
+seed: 0
+out_dir: results
+problem:
+  name: wave1d
+  x_max: 1.0
+  t_max: 1.0
+  c: 1.0
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+  velocity_modes: []
+solver:
+  name: mlp
+  nx: 41
+  nt: 81
+  neural:
+    width: 32
+    depth: 4
+    epochs: 5000
+    lr: 0.001
+    n_initial: 100
+    n_boundary: 100
+    n_obs: 200
+    log_every: 250

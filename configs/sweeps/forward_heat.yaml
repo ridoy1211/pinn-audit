@@ -1,0 +1,47 @@
+# Forward heat problem: classical cost/accuracy curve plus four neural variants.
+#   fd_*          Crank-Nicolson at five resolutions (nt = nx)
+#   pinn          the vanilla PINN from configs/pinn_heat.yaml
+#   pinn_lbfgs    same, with 500 L-BFGS iterations after Adam
+#   pinn_data200  same, but also shown 200 observations of the exact solution
+#   mlp_data200   no physics term, same 200 observations (the control)
+# Five seeds each. Interrupt and re-run freely: finished runs are skipped.
+name: forward_heat
+seeds: [0, 1, 2, 3, 4]
+variants:
+  - label: fd_21
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 21
+      solver.nt: 21
+  - label: fd_41
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 41
+      solver.nt: 41
+  - label: fd_81
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 81
+      solver.nt: 81
+  - label: fd_161
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 161
+      solver.nt: 161
+  - label: fd_321
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 321
+      solver.nt: 321
+  - label: pinn
+    config: configs/pinn_heat.yaml
+  - label: pinn_lbfgs
+    config: configs/pinn_heat.yaml
+    overrides:
+      solver.neural.lbfgs_iters: 500
+  - label: pinn_data200
+    config: configs/pinn_heat.yaml
+    overrides:
+      solver.neural.n_obs: 200
+  - label: mlp_data200
+    config: configs/mlp_heat.yaml

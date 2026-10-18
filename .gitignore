@@ -21,6 +21,8 @@ results/*
 figures/*
 !figures/.gitkeep
 !figures/baselines.png
+!figures/accuracy_vs_time.png
+!figures/wave_modes.png
 
 # LaTeX build products
 report/*.aux

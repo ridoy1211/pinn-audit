@@ -188,6 +188,15 @@ def test_different_seeds_give_different_solutions(heat_cfg: ProblemConfig) -> No
     assert not np.allclose(a.u, b.u, atol=1e-6)
 
 
+def test_lbfgs_phase_never_makes_the_loss_worse(heat_cfg: ProblemConfig) -> None:
+    """Same seed means the same Adam trajectory, so L-BFGS starts from the same point."""
+    problem = Heat1D(heat_cfg)
+    adam_only = PINNSolver(_tiny(epochs=40), seed=4).solve(problem, nx=11, nt=11)
+    with_lbfgs = PINNSolver(_tiny(epochs=40, lbfgs_iters=15), seed=4).solve(problem, nx=11, nt=11)
+    assert with_lbfgs.meta["lbfgs_iters"] == 15
+    assert with_lbfgs.meta["final_loss"] <= adam_only.meta["final_loss"] * (1 + 1e-9)
+
+
 def test_pinn_and_mlp_see_the_same_observations(heat_cfg: ProblemConfig) -> None:
     problem = Heat1D(heat_cfg)
     cfg = _tiny(n_obs=30)
