@@ -6,6 +6,7 @@ import logging
 from pathlib import Path
 from typing import Annotated
 
+import polars as pl
 import typer
 
 from pinnaudit import __version__
@@ -15,6 +16,8 @@ from pinnaudit.io import append_records, build_record, dump_config
 from pinnaudit.metrics import observed_order
 from pinnaudit.problems import available_problems
 from pinnaudit.solvers import available_solvers
+from pinnaudit.summary import summarise, to_markdown
+from pinnaudit.sweep import load_sweep_config, run_sweep
 
 app = typer.Typer(
     add_completion=False,
@@ -92,6 +95,41 @@ def convergence(
 
     path = append_records(rows, base.out_dir, name="convergence")
     typer.echo(f"wrote {path}")
+
+
+@app.command()
+def sweep(
+    config: Annotated[Path, typer.Option("--config", "-c", exists=True, dir_okay=False)],
+    n_seeds: Annotated[int | None, typer.Option(min=1, help="Use only the first N seeds.")] = None,
+    only: Annotated[list[str] | None, typer.Option(help="Run only these variant labels.")] = None,
+) -> None:
+    """Run every variant over every seed. Safe to interrupt and re-run."""
+    sweep_cfg = load_sweep_config(config)
+    try:
+        outcome = run_sweep(sweep_cfg, n_seeds=n_seeds, only=only, echo=typer.echo)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+    typer.echo("")
+    typer.echo(
+        f"ran {outcome.ran}, skipped {outcome.skipped} already done, failed {outcome.failed}"
+    )
+    if outcome.results_path.exists():
+        typer.echo(f"results: {outcome.results_path}")
+        typer.echo("")
+        typer.echo(to_markdown(summarise(pl.read_parquet(outcome.results_path))))
+
+
+@app.command()
+def summary(
+    name: Annotated[str, typer.Option("--name", "-n", help="Sweep name.")],
+    results: Annotated[Path, typer.Option(help="Results directory.")] = Path("results"),
+) -> None:
+    """Print the across-seed summary table for a finished sweep."""
+    path = results / f"sweep_{name}.parquet"
+    if not path.exists():
+        raise typer.BadParameter(f"no results at {path}; run the sweep first")
+    typer.echo(to_markdown(summarise(pl.read_parquet(path))))
 
 
 if __name__ == "__main__":  # pragma: no cover
