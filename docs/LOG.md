@@ -92,6 +92,64 @@ The finite-difference times are single runs under a millisecond, so the time rat
 - The wave loss was still creeping down at epoch 5000 (9.2e-2), so the network may be undertrained and not stuck. I can't tell which yet.
 - Heat: the PINN (no interior data) reached 2.9e-3 and the MLP (200 interior observations) reached 2.1e-2, about 7x worse. So physics alone beat 200 labelled points on this seed. This is not a clean test of the physics term, because the two methods get different information and collocation points cost nothing while observations don't. The clean test is a PINN given the same 200 observations.
 
-**What surprised me.** The wave PINN was 120x worse while the heat PINN was only 5x worse. I didn’t expect the gap between the two problems to be that big.
+**What surprised me.** The wave PINN was 120x worse while the heat PINN was only 5x worse. I did not expect the gap between the two problems to be that big.
 
 **Open.** Five seeds with mean and spread. L-BFGS after Adam. A PINN given the same 200 observations as the MLP control. Projecting the wave solution onto its modes.
+
+## 2026-10-19
+
+**Aim.** Replace the single-seed first look with five seeds per variant, and find out what the PINN's optimiser and its data are worth. New this round: a resumable sweep runner (`pinnaudit sweep`), an across-seed summary, and a Fourier-mode decomposition of the error. 90 runs: 2 problems x 9 variants x 5 seeds (0-4).
+
+**Variants.** `fd_N`: finite differences on an N-point grid, which gives the classical cost/accuracy curve. `pinn`: the vanilla PINN from before. `pinn_lbfgs`: the same, plus 500 L-BFGS iterations after Adam. `pinn_data200`: the same PINN, also shown 200 exact observations. `mlp_data200`: no physics term, same 200 observations (the control). Neural solvers are scored on the 41-point grid (heat 41 x 41, wave 41 x 81).
+
+**Heat.**
+
+| variant | rel. L2 mean | std | min to max | mean time |
+|---|---|---|---|---|
+| fd_21 | 2.12e-3 | 0 | | 0.64 ms |
+| fd_41 | 5.31e-4 | 0 | | 1.0 ms |
+| fd_81 | 1.33e-4 | 0 | | 1.6 ms |
+| fd_161 | 3.34e-5 | 0 | | 3.5 ms |
+| fd_321 | 8.37e-6 | 0 | | 8.6 ms |
+| pinn | 3.14e-3 | 1.56e-3 | 1.40e-3 to 5.01e-3 | 147 s |
+| pinn_lbfgs | 4.12e-4 | 1.19e-4 | 2.80e-4 to 5.97e-4 | 175 s |
+| pinn_data200 | 3.84e-3 | 1.52e-3 | 1.82e-3 to 5.36e-3 | 180 s |
+| mlp_data200 | 2.28e-2 | 9.09e-3 | 1.08e-2 to 3.35e-2 | 27 s |
+
+**Wave.**
+
+| variant | rel. L2 mean | std | min to max | mean time |
+|---|---|---|---|---|
+| fd_21 | 1.65e-2 | 0 | | 0.28 ms |
+| fd_41 | 4.15e-3 | 0 | | 0.72 ms |
+| fd_81 | 1.04e-3 | 0 | | 1.2 ms |
+| fd_161 | 2.61e-4 | 0 | | 2.3 ms |
+| fd_321 | 6.55e-5 | 0 | | 5.1 ms |
+| pinn | 5.10e-1 | 3.92e-2 | 4.84e-1 to 5.80e-1 | 230 s |
+| pinn_lbfgs | 3.63e-1 | 5.83e-2 | 2.87e-1 to 4.40e-1 | 268 s |
+| pinn_data200 | 4.44e-1 | 2.05e-2 | 4.24e-1 to 4.74e-1 | 234 s |
+| mlp_data200 | 8.38e-2 | 3.20e-2 | 5.29e-2 to 1.35e-1 | 36 s |
+
+**Heat findings.**
+- Finite differences win. The coarsest grid (21 points, 0.64 ms) has a lower mean error than the vanilla PINN (2.1e-3 vs 3.1e-3) in over 200,000x less time. The best neural variant (PINN + L-BFGS, 4.1e-4) lands between the 41-point and 81-point grids, which take 1.0 to 1.6 ms, against 175 s.
+- L-BFGS cut the mean error 7.6x (3.1e-3 to 4.1e-4) for roughly 20% more wall-clock, which is within the timing noise noted below. It was better in all five seeds and the ranges do not overlap. So much of the vanilla PINN's error comes from the optimiser, not from the architecture.
+- 200 exact observations did not help the heat PINN: 3.1e-3 vs 3.8e-3, better in 2 of 5 seeds and worse in 3, well inside the seed spread. Hypothesis, not tested: the PDE plus initial and boundary conditions already pin down the forward solution, so exact data adds little and optimisation is the bottleneck.
+- At equal data, physics helps on heat: `pinn_data200` (3.8e-3) beats `mlp_data200` (2.3e-2) by about 6x, and the ranges do not overlap.
+
+**Wave findings.**
+- Finite differences win by more. The best neural mean (PINN + L-BFGS, 3.6e-1) is about 22x worse than the coarsest FD grid (1.65e-2) and takes about 10^6 times longer (268 s vs 0.28 ms). The best single run was 2.9e-1.
+- L-BFGS lowered the mean error 29% (5.1e-1 to 3.6e-1) and 200 observations lowered it 13% (to 4.4e-1). Both were better in 5 of 5 seeds with non-overlapping ranges. Both are modest.
+- The physics term hurts here. At equal data, `pinn_data200` (4.4e-1) is about 5x worse than `mlp_data200` (8.4e-2), and all five PINN runs are worse than all five MLP runs. This is the opposite sign to heat. It is a statement about this configuration only: loss weights all 1, 5000 Adam steps, width 32 x depth 4. I have not tried loss weighting or longer training. One guess, untested: the wave residual loss starts about 30x larger than the heat one (about 249 vs 8.6 at epoch 0), so with equal weights it may dominate the optimisation.
+- Arithmetic from the mode amplitudes: a solver that missed mode 3 completely would have relative L2 error 0.447, because mode 3 holds 20% of the energy. So any run below 0.447 must have learned part of mode 3. Vanilla PINN: 0 of 5 runs below (0.484 to 0.580). PINN + L-BFGS: 5 of 5 below. `pinn_data200`: 3 of 5 below. This is consistent with the spectral-bias explanation for the vanilla PINN, but it does not prove it.
+
+- Mode analysis (from the mode figure): in the vanilla PINN mode 3 holds about three-quarters of the squared error (its share of the relative error is 0.44, almost exactly the 0.447 you get by dropping mode 3 entirely) and mode 1 about a quarter (0.24: its oscillation lags the exact one). In the seed-0 example run the mode-3 amplitude is nearly flat instead of oscillating, and at t = 0 it starts near 0.1 (read off the figure) instead of 0.5, so the network did not even fit that mode of the initial condition. L-BFGS lowers both (mode 1: 0.10, mode 3: 0.34) but mode 3 still holds about 90% of the squared error. Giving the PINN the 200 observations barely changed mode 3 (0.43). The data-only MLP, same network and same observations, has mode 3 at 0.04 with its small error spread over many modes, so this network can learn that mode in this training budget. That weakens a pure spectral-bias explanation. What fits better is that, at equal weights, the physics residual overpowers the initial-condition and data terms (Wang et al. discuss this kind of imbalance between loss terms), but I have not tested that. Next: raise the data and initial-condition weights and see whether mode 3 comes back.
+
+**Reproducibility.** FD error is identical across seeds (std 0), so seeds only change its timing. Seed 0 reproduces the same error to four digits in separate invocations: heat PINN 2.892e-3, wave PINN 4.998e-1 and heat MLP 2.113e-2 all matched between the single runs and the sweep.
+
+**Caveats.**
+- Five seeds is small. I report spread and ranges and run no significance tests.
+- Wall-clock is noisy. The heat PINN at seed 0 took 96 s in the single run and 184 s in the pilot with identical work, and the 41-point FD solve took 0.6 to 2.6 ms across invocations. Treat all time ratios as order-of-magnitude.
+- Neural solvers are scored on the 41-point grid and the FD solvers on their own grids, each against the exact solution on its own grid.
+- One architecture, fixed random collocation points, equal loss weights, no learning-rate schedule. This is the plain PINN, not a tuned one.
+
+**Open.** A tuned PINN (loss weighting, learning-rate decay, longer training, resampled points) before drawing any general conclusion. Burgers' equation, where the solution develops a shock. Inverse problems under noise and sparse data. A Gaussian-process baseline.
