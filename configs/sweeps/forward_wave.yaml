@@ -57,3 +57,10 @@ variants:
     overrides:
       solver.neural.w_ic: 1000.0
       solver.neural.w_bc: 1000.0
+  # Best shot: the best loss weight from above combined with L-BFGS.
+  - label: pinn_w100_lbfgs
+    config: configs/pinn_wave.yaml
+    overrides:
+      solver.neural.w_ic: 100.0
+      solver.neural.w_bc: 100.0
+      solver.neural.lbfgs_iters: 500

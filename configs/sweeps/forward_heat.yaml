@@ -45,3 +45,10 @@ variants:
       solver.neural.n_obs: 200
   - label: mlp_data200
     config: configs/mlp_heat.yaml
+  # Best shot: the loss weight that worked on the wave problem, combined with L-BFGS.
+  - label: pinn_w100_lbfgs
+    config: configs/pinn_heat.yaml
+    overrides:
+      solver.neural.w_ic: 100.0
+      solver.neural.w_bc: 100.0
+      solver.neural.lbfgs_iters: 500

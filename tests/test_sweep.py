@@ -105,7 +105,7 @@ def test_sweep_name_must_be_filename_safe(tmp_path: Path) -> None:
 
 @pytest.mark.parametrize(
     ("path", "n_runs"),
-    [("configs/sweeps/forward_heat.yaml", 45), ("configs/sweeps/forward_wave.yaml", 60)],
+    [("configs/sweeps/forward_heat.yaml", 50), ("configs/sweeps/forward_wave.yaml", 65)],
 )
 def test_shipped_sweeps_are_valid(path: str, n_runs: int) -> None:
     runs = expand(load_sweep_config(path))
@@ -164,3 +164,13 @@ def test_a_failed_run_is_recorded_and_the_sweep_continues(tmp_path: Path) -> Non
     failures = (tmp_path / "sweep_t_failures.txt").read_text(encoding="utf-8")
     assert "bad_seed0" in failures
     assert "CFL" in failures
+
+
+@pytest.mark.parametrize(
+    "path", ["configs/sweeps/forward_heat.yaml", "configs/sweeps/forward_wave.yaml"]
+)
+def test_sweeps_have_a_best_shot_variant(path: str) -> None:
+    by_label = {label: cfg for label, cfg in expand(load_sweep_config(path))}
+    neural = by_label["pinn_w100_lbfgs"].solver.neural
+    assert neural is not None
+    assert (neural.w_ic, neural.w_bc, neural.lbfgs_iters) == (100.0, 100.0, 500)
