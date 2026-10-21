@@ -193,3 +193,34 @@ The finite-difference times are single runs under a millisecond, so the time rat
 - The `pinn_w10` mean time (6291 s) is not real. At least one run paused, most likely the laptop sleeping, so I am not using that time until I re-run it. The errors are unaffected.
 
 **Next.** Combine the best weight with L-BFGS on both problems to get a final best-effort PINN number. Then the inverse problem, which is the second half of my bet and the PINN's best chance.
+
+## 2026-10-20 (best shot)
+
+**Prediction, written before running.** Combining weight 100 with L-BFGS (`pinn_w100_lbfgs`) should lower the wave error below 0.177, since L-BFGS alone gave about 29% on the wave, but it will still be more than 5 times above the coarsest finite-difference grid (1.65e-2). On heat I expect it to match or beat plain L-BFGS (4.1e-4). In both cases I expect it to stay at least 10^5 times slower than the finite-difference grid with the same error.
+
+## 2026-10-21 (best shot, wave)
+
+**Note on the order.** I drafted the prediction below before running anything, but I did not commit it first, so the commit history cannot prove the order. Treat it as drafted before, not verified before.
+
+**Prediction (drafted before the runs).** Combining weight 100 with L-BFGS (`pinn_w100_lbfgs`) should lower the wave error below 0.177, since L-BFGS alone gave about 29% on the wave, but it will still be more than 5 times above the coarsest finite-difference grid (1.65e-2). On heat I expect it to match or beat plain L-BFGS (4.1e-4). In both cases I expect it to stay at least 10^5 times slower than the finite-difference grid with the same error.
+
+**Wave result.**
+
+| variant | rel. L2 mean | std | min to max | mean time |
+|---|---|---|---|---|
+| pinn | 5.10e-1 | 3.92e-2 | 4.84e-1 to 5.80e-1 | 230 s |
+| pinn_lbfgs | 3.63e-1 | 5.83e-2 | 2.87e-1 to 4.40e-1 | 268 s |
+| pinn_w100 | 1.77e-1 | 1.72e-2 | 1.49e-1 to 1.97e-1 | 310 s |
+| pinn_w100_lbfgs | 3.34e-2 | 2.08e-2 | 2.11e-2 to 7.01e-2 | 255 s |
+
+Per seed for `pinn_w100_lbfgs` (seeds 0 to 4): 7.0e-2, 2.1e-2, 2.3e-2, 3.0e-2, 2.3e-2.
+
+**Against the prediction.**
+- Right: the error is below 0.177 (0.033). The PINN is still about 9 x 10^5 times slower than the coarsest finite-difference grid (255 s against 0.28 ms), so "at least 10^5" holds.
+- Wrong: I said it would stay more than 5 times above the coarsest grid (1.65e-2). The mean (3.34e-2) is about 2.0 times above it and the median (2.3e-2) is about 1.4 times. Four of five seeds lie between 2.1e-2 and 3.0e-2, and seed 0 (7.0e-2) pulls the mean up. I underestimated how well the two fixes would combine.
+- The two fixes interact. Loss weights alone: 2.9 times lower error (0.510 to 0.177). L-BFGS alone: 1.4 times (0.510 to 0.363). Together: 15 times (0.510 to 0.033). They are not additive, because L-BFGS gains much more once the loss terms are balanced. My untested guess is that an imbalanced loss makes the landscape too ill-conditioned for L-BFGS to use.
+- Still not competitive: the coarsest grid (21 points, 0.28 ms) beats the best-shot PINN's median, and the 41-point grid (4.15e-3) is about 8 times better than its mean.
+
+**Caveats.** I chose the weight using the exact error, which a real user would not have. Only three weights and one L-BFGS setting were tried, one architecture, five seeds. The `pinn_w10` seed 0 re-run (after a laptop sleep) reproduced the earlier result exactly: the five-seed row returned to its earlier values (mean 2.83e-1, std 8.76e-2).
+
+**Open.** The heat best shot is still running. Mode analysis of `pinn_w100_lbfgs`.
