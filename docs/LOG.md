@@ -153,3 +153,15 @@ The finite-difference times are single runs under a millisecond, so the time rat
 - One architecture, fixed random collocation points, equal loss weights, no learning-rate schedule. This is the plain PINN, not a tuned one.
 
 **Open.** A tuned PINN (loss weighting, learning-rate decay, longer training, resampled points) before drawing any general conclusion. Burgers' equation, where the solution develops a shock. Inverse problems under noise and sparse data. A Gaussian-process baseline.
+
+## 2026-10-20
+
+**Day 3 plan: give the PINN a fair shot on the wave problem.** Written before running anything.
+
+**What I know.** On the wave problem the vanilla PINN loses mode 3 (share of the error 0.44, against 0.24 for mode 1), while a no-physics network with the same architecture learns it (0.04). In the seed-0 example the PINN's mode-3 amplitude even starts near 0.1 at t = 0 instead of 0.5, so it does not fit that part of the initial condition.
+
+**Two explanations.** H1, loss imbalance: with every weight at 1 the PDE residual dominates the loss and drags the solution away from the initial condition. H2, spectral bias: the network learns the fast mode too slowly whatever the weights. The data-only network learning mode 3 in the same budget argues against H2 being the whole story, but does not rule it out.
+
+**Test.** Raise the initial and boundary weights (w_ic = w_bc) to 10, 100 and 1000 with the PDE weight fixed at 1. Five seeds each. Nothing else changes.
+
+**Prediction.** If H1 is right, at the best weight the mean relative L2 error falls below 0.25 (it is 0.51 now) and mode 3's share falls below 0.25. I expect a U shape: weight 1000 should be worse than 100, because the PDE term then barely matters. If mode 3's share stays above 0.4 at every weight, H1 is rejected as the main cause and the next test is Fourier features, a direct test of H2. Anything in between is a partial effect and I will say so.
