@@ -165,3 +165,31 @@ The finite-difference times are single runs under a millisecond, so the time rat
 **Test.** Raise the initial and boundary weights (w_ic = w_bc) to 10, 100 and 1000 with the PDE weight fixed at 1. Five seeds each. Nothing else changes.
 
 **Prediction.** If H1 is right, at the best weight the mean relative L2 error falls below 0.25 (it is 0.51 now) and mode 3's share falls below 0.25. I expect a U shape: weight 1000 should be worse than 100, because the PDE term then barely matters. If mode 3's share stays above 0.4 at every weight, H1 is rejected as the main cause and the next test is Fourier features, a direct test of H2. Anything in between is a partial effect and I will say so.
+
+## 2026-10-20 (result)
+
+**Day 3 result.** The prediction above is unchanged.
+
+| variant | w_ic = w_bc | rel. L2 mean | std | min to max | mode 1 | mode 3 |
+|---|---|---|---|---|---|---|
+| pinn | 1 | 5.10e-1 | 3.92e-2 | 4.84e-1 to 5.80e-1 | 0.240 | 0.442 |
+| pinn_w10 | 10 | 2.83e-1 | 8.76e-2 | 2.04e-1 to 4.20e-1 | 0.069 | 0.260 |
+| pinn_w100 | 100 | 1.77e-1 | 1.72e-2 | 1.49e-1 to 1.97e-1 | 0.025 | 0.156 |
+| pinn_w1000 | 1000 | 1.84e-1 | 2.08e-2 | 1.67e-1 to 2.17e-1 | 0.020 | 0.170 |
+
+(Mode columns are each mode's share of the relative L2 error, mean over five seeds. Wave problem.)
+
+**Against the prediction.**
+- Supported. At the best weight (100) the mean error is 0.177 (below 0.25) and mode 3's share is 0.156 (below 0.25). Every run at weight 10, 100 or 1000 beat every vanilla run, since the ranges do not overlap (the worst weight-10 run, 0.420, is below the best vanilla run, 0.484). So loss imbalance is the main reason the vanilla wave PINN fails.
+- Wrong. I expected a U shape, with weight 1000 worse than 100. It is 0.184 against 0.177, a difference far smaller than the seed spread (about 0.02), so this is a plateau from 100 to 1000.
+
+**What is still open.**
+- H2 (spectral bias) is not ruled out. Mode 1 is nearly fixed (0.240 to 0.025), but mode 3 still holds about 85% of the remaining squared error in modes 1 to 6, and at 0.156 it is about 3.6 times the data-only network's 0.043. Leakage into mode 5 also went up (0.037 to 0.055).
+- The classical solver still wins. The tuned PINN (0.177, about 310 s) is about 11 times less accurate than the coarsest finite-difference grid (1.65e-2) and about a million times slower (0.28 ms).
+
+**Caveats.**
+- I chose the weight using the exact error, which a real user would not have, so this flatters the PINN.
+- Only three weights, one architecture, no learning-rate schedule. The tuning effort for the PINN was a lot more than the classical solver needed, which needed none.
+- The `pinn_w10` mean time (6291 s) is not real. At least one run paused, most likely the laptop sleeping, so I am not using that time until I re-run it. The errors are unaffected.
+
+**Next.** Combine the best weight with L-BFGS on both problems to get a final best-effort PINN number. Then the inverse problem, which is the second half of my bet and the PINN's best chance.
