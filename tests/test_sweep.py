@@ -104,11 +104,12 @@ def test_sweep_name_must_be_filename_safe(tmp_path: Path) -> None:
 
 
 @pytest.mark.parametrize(
-    "path", ["configs/sweeps/forward_heat.yaml", "configs/sweeps/forward_wave.yaml"]
+    ("path", "n_runs"),
+    [("configs/sweeps/forward_heat.yaml", 45), ("configs/sweeps/forward_wave.yaml", 60)],
 )
-def test_shipped_sweeps_are_valid(path: str) -> None:
+def test_shipped_sweeps_are_valid(path: str, n_runs: int) -> None:
     runs = expand(load_sweep_config(path))
-    assert len(runs) == 45
+    assert len(runs) == n_runs
     by_label = {label: cfg for label, cfg in runs}
     assert by_label["pinn_lbfgs"].solver.neural is not None
     assert by_label["pinn_lbfgs"].solver.neural.lbfgs_iters == 500
@@ -116,6 +117,16 @@ def test_shipped_sweeps_are_valid(path: str) -> None:
     assert by_label["pinn_data200"].solver.neural.n_obs == 200
     assert by_label["mlp_data200"].solver.name == "mlp"
     assert by_label["fd_321"].solver.nx == 321
+
+
+def test_wave_sweep_has_the_loss_weight_variants() -> None:
+    by_label = {
+        label: cfg for label, cfg in expand(load_sweep_config("configs/sweeps/forward_wave.yaml"))
+    }
+    for label, weight in (("pinn_w10", 10.0), ("pinn_w100", 100.0), ("pinn_w1000", 1000.0)):
+        neural = by_label[label].solver.neural
+        assert neural is not None
+        assert (neural.w_ic, neural.w_bc, neural.w_pde) == (weight, weight, 1.0)
 
 
 # -------------------------------------------------------------- running -----

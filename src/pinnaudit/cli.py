@@ -14,7 +14,8 @@ from pinnaudit.config import NEURAL_SOLVERS, load_run_config
 from pinnaudit.experiment import run_once
 from pinnaudit.io import append_records, build_record, dump_config
 from pinnaudit.metrics import observed_order
-from pinnaudit.problems import available_problems
+from pinnaudit.modes import load_mode_contributions
+from pinnaudit.problems import available_problems, build_problem
 from pinnaudit.solvers import available_solvers
 from pinnaudit.summary import summarise, to_markdown
 from pinnaudit.sweep import load_sweep_config, run_sweep
@@ -130,6 +131,40 @@ def summary(
     if not path.exists():
         raise typer.BadParameter(f"no results at {path}; run the sweep first")
     typer.echo(to_markdown(summarise(pl.read_parquet(path))))
+
+
+@app.command()
+def modes(
+    name: Annotated[str, typer.Option("--name", "-n", help="Sweep name.")],
+    problem_config: Annotated[
+        Path,
+        typer.Option(help="Run config that defines the problem.", exists=True, dir_okay=False),
+    ] = Path("configs/pinn_wave.yaml"),
+    variant: Annotated[
+        list[str] | None, typer.Option(help="Variant to show (repeatable). Default: all neural.")
+    ] = None,
+    n_modes: Annotated[int, typer.Option("--modes", min=1, help="Modes to report.")] = 6,
+    results: Annotated[Path, typer.Option(help="Results directory.")] = Path("results"),
+) -> None:
+    """Show which Fourier modes carry each variant's error (mean over seeds)."""
+    path = results / f"sweep_{name}.parquet"
+    if not path.exists():
+        raise typer.BadParameter(f"no results at {path}; run the sweep first")
+    df = pl.read_parquet(path)
+    problem = build_problem(load_run_config(problem_config).problem)
+
+    labels = variant or [
+        v for v in df["variant"].unique(maintain_order=True).to_list() if not v.startswith("fd_")
+    ]
+    header = "  ".join(f"mode{n}".rjust(6) for n in range(1, n_modes + 1))
+    typer.echo(f"variant        runs  {header}")
+    for label in labels:
+        files = df.filter(pl.col("variant") == label).sort("seed")["solution_file"].to_list()
+        if not files:
+            typer.echo(f"{label:<14} no runs")
+            continue
+        mean = load_mode_contributions(files, problem, n_modes).mean(axis=0)
+        typer.echo(f"{label:<14} {len(files):>4}  " + "  ".join(f"{v:6.3f}" for v in mean))
 
 
 if __name__ == "__main__":  # pragma: no cover

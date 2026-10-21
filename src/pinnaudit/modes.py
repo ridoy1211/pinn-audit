@@ -14,9 +14,12 @@ number.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
+from pathlib import Path
+
 import numpy as np
 
-from pinnaudit.problems.base import Array
+from pinnaudit.problems.base import Array, Problem
 
 
 def mode_amplitudes(u: Array, x: Array, n_modes: int) -> Array:
@@ -56,3 +59,13 @@ def mode_error_contributions(u: Array, u_ref: Array, x: Array, n_modes: int) -> 
     if scale == 0.0:
         raise ValueError("reference has no energy in the requested modes")
     return np.sqrt(np.sum((a - a_ref) ** 2, axis=0)) / scale
+
+
+def load_mode_contributions(paths: Sequence[str | Path], problem: Problem, n_modes: int) -> Array:
+    """Mode contributions for saved solutions (``.npz`` with x, t, u), one row per run."""
+    rows = []
+    for path in paths:
+        with np.load(path) as saved:
+            x, t, u = saved["x"], saved["t"], saved["u"]
+        rows.append(mode_error_contributions(u, problem.exact(x, t), x, n_modes))
+    return np.array(rows)

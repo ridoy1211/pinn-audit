@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pytest
 
 from pinnaudit.config import ProblemConfig, SineMode
 from pinnaudit.metrics import relative_l2
-from pinnaudit.modes import mode_amplitudes, mode_error_contributions
+from pinnaudit.modes import load_mode_contributions, mode_amplitudes, mode_error_contributions
 from pinnaudit.problems import Heat1D, Wave1D
 from pinnaudit.solvers import CrankNicolsonHeat, LeapfrogWave
 
@@ -72,3 +74,21 @@ def test_a_reference_with_no_energy_is_rejected() -> None:
     zeros = np.zeros((T.size, X.size))
     with pytest.raises(ValueError, match="no energy"):
         mode_error_contributions(zeros, zeros, X, n_modes=4)
+
+
+def test_contributions_can_be_loaded_from_saved_solutions(
+    tmp_path: Path, wave_cfg: ProblemConfig
+) -> None:
+    only_mode_1 = Wave1D(
+        ProblemConfig(name="wave1d", displacement_modes=[SineMode(n=1, amplitude=1.0)])
+    ).exact(X, T)
+    paths = []
+    for i in range(2):
+        path = tmp_path / f"run{i}.npz"
+        np.savez_compressed(path, x=X, t=T, u=only_mode_1)
+        paths.append(path)
+
+    parts = load_mode_contributions(paths, Wave1D(wave_cfg), n_modes=8)
+    assert parts.shape == (2, 8)
+    assert np.allclose(parts[0], parts[1])
+    assert parts[0, 2] == pytest.approx(np.sqrt(0.2), abs=1e-6)
