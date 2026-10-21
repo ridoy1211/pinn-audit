@@ -40,3 +40,20 @@ variants:
       solver.neural.n_obs: 200
   - label: mlp_data200
     config: configs/mlp_wave.yaml
+  # Loss balance: raise the initial/boundary weights against the PDE residual (weight 1).
+  # Tests the hypothesis that the residual overpowers the initial condition.
+  - label: pinn_w10
+    config: configs/pinn_wave.yaml
+    overrides:
+      solver.neural.w_ic: 10.0
+      solver.neural.w_bc: 10.0
+  - label: pinn_w100
+    config: configs/pinn_wave.yaml
+    overrides:
+      solver.neural.w_ic: 100.0
+      solver.neural.w_bc: 100.0
+  - label: pinn_w1000
+    config: configs/pinn_wave.yaml
+    overrides:
+      solver.neural.w_ic: 1000.0
+      solver.neural.w_bc: 1000.0

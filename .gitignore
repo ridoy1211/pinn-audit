@@ -23,6 +23,7 @@ figures/*
 !figures/baselines.png
 !figures/accuracy_vs_time.png
 !figures/wave_modes.png
+!figures/wave_modes_weights.png
 
 # LaTeX build products
 report/*.aux

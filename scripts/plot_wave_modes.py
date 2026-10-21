@@ -83,6 +83,7 @@ def main(
     n_modes: int,
     results: Path,
     out_dir: Path,
+    filename: str = "wave_modes.png",
 ) -> None:
     import polars as pl
 
@@ -121,7 +122,7 @@ def main(
         mode_amplitudes(u, x, n_modes),
         f"{show} (seed 0)",
         contributions,
-        out_dir / "wave_modes.png",
+        out_dir / filename,
     )
 
 
@@ -136,5 +137,6 @@ if __name__ == "__main__":
     ap.add_argument("--modes", type=int, default=8)
     ap.add_argument("--results", type=Path, default=Path("results"))
     ap.add_argument("--out", type=Path, default=Path("figures"))
+    ap.add_argument("--filename", default="wave_modes.png")
     a = ap.parse_args()
-    main(a.name, a.problem_config, a.variants, a.show, a.modes, a.results, a.out)
+    main(a.name, a.problem_config, a.variants, a.show, a.modes, a.results, a.out, a.filename)
