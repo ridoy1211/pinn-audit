@@ -4,7 +4,7 @@
 
 **Neural networks are being sold as PDE solvers. This repo checks whether you should buy one.**
 
-![Classical baselines against exact solutions](figures/baselines.png)
+![Accuracy against cost for classical and neural solvers](figures/accuracy_vs_time.png)
 
 ## The problem
 
@@ -30,10 +30,10 @@ the neural network actually win?**
 > **inverse** problems (recovering unknown physical parameters) or when data
 > is sparse and noisy.
 
-I think the first half is right and I'm not sure about the second. The most
-recent comparison I found (Jekic et al., 2025) has the classical method
-winning on noisy inverse problems too. So this is a test I can lose, and the
-repo is built so that anyone can see if I do.
+So far the first half holds on the two problems tested. The second half is
+untested. The most recent comparison I found (Jekic et al., 2025) has the
+classical method winning on noisy inverse problems too, so this is a test I can
+lose, and the repo is built so that anyone can see if I do.
 
 ## How the test works
 
@@ -41,44 +41,65 @@ A fair fight needs a referee nobody can argue with.
 
 - **Exact answers.** Every test problem has a closed-form solution, so error
   is measured against the truth, not against another approximation.
-- **Strong baselines.** A challenger only means something if the incumbent is
-  good. Each classical scheme must reproduce its theoretical convergence order
-  before it is allowed to judge anything.
-- **One scoreboard.** Relative L2 error, worst-case error, and wall-clock
-  time, the same for every method, on the same machine.
-- **Repeats.** Neural results get several seeds and are reported with spread,
-  because a single lucky training run proves nothing.
+- **Strong baselines.** Each classical scheme must reproduce its theoretical
+  convergence order before it is allowed to judge anything, and is run at five
+  grid sizes so the PINN is compared with a cost/accuracy curve, not one point.
+- **One scoreboard.** Relative L2 error and wall-clock time, the same for every
+  method, on one CPU thread.
+- **Repeats.** Every neural result is five seeds, reported with spread.
+- **Controls.** A network with no physics term, and a PINN given the same
+  observations, show what the physics is actually worth.
 - **One config per run.** A result is fully determined by a YAML file and a
-  seed, and the file is saved next to the result.
+  seed, and finished runs are skipped on re-run.
 
-## Where it stands
+## What I found so far
 
-The referee is built and checked. Two classical solvers are done: Crank-Nicolson
-for heat flow, leapfrog for waves. Halve the grid spacing and the error drops
-by a factor of four, which is what theory predicts for a second-order scheme.
+Mean over five seeds, neural solvers scored on a 41-point grid:
 
-| Problem | Method | Observed order | Relative L2 error, h = 1/160 |
-|---|---|---|---|
-| 1D heat | Crank-Nicolson | 1.996 | 3.3e-5 |
-| 1D wave | Leapfrog | 1.996 | 2.6e-4 |
+| Method | Heat error | Heat time | Wave error | Wave time |
+|---|---|---|---|---|
+| Finite differences, 41 points | 5.3e-4 | 1.0 ms | 4.2e-3 | 0.7 ms |
+| PINN | 3.1e-3 | 147 s | 5.1e-1 | 230 s |
+| PINN + L-BFGS | 4.1e-4 | 175 s | 3.6e-1 | 268 s |
+| PINN + 200 observations | 3.8e-3 | 180 s | 4.4e-1 | 234 s |
+| PINN + loss weight 100 + L-BFGS | 1.2e-3 | 174 s | 3.3e-2 | 255 s |
+| Network with no physics, 200 observations | 2.3e-2 | 27 s | 8.4e-2 | 36 s |
 
-Two details I found while checking, both now covered by tests:
+- **The classical solver wins on both forward problems, even against a tuned
+  PINN.** On the wave equation the best tuned PINN reaches an error about twice
+  that of the coarsest finite-difference grid I ran (21 points, 0.28 ms) and
+  takes about a million times longer. On heat, the best PINN is matched by a
+  41-point grid that runs in about a millisecond, against 175 s of training.
+- **Tuning matters enormously, and it does not transfer.** On the wave
+  equation, rebalancing the loss weights and adding L-BFGS together cut the
+  error 15 times (0.51 to 0.033), far more than either change alone (2.9 and
+  1.4 times). The same weights made the heat PINN 2.8 times worse than plain
+  L-BFGS. Each problem needs its own tuning, and the classical solvers needed
+  none.
+- **Why the wave PINN failed: loss balance, not the fast mode.** Splitting the
+  error into Fourier modes shows the plain PINN misses mode 3 almost completely
+  (share 0.44). With balanced weights and L-BFGS the same network learns it
+  (share 0.013, better than the no-physics network's 0.043).
+- **Exact data did not help the heat PINN,** and at equal data the physics term
+  helps on heat but hurts on the wave equation until the loss is rebalanced.
 
-- Crank-Nicolson stays stable at a mesh ratio of 200, where the simple
-  explicit scheme blows up beyond 0.5.
-- At Courant number exactly 1, the leapfrog scheme reproduces the exact wave
-  solution to machine precision (4e-16). That looks great and is a trap: it
-  makes convergence studies meaningless, so they run at 0.5.
+![Which Fourier modes carry the error on the wave problem](figures/wave_modes_weights.png)
+
+Caveats: the loss weights were chosen using the exact error, which a real user
+would not have; five seeds; one architecture; wall-clock times are noisy, so
+read time ratios as orders of magnitude. I wrote predictions down and several
+turned out wrong. Details and dead ends are in [`docs/LOG.md`](docs/LOG.md).
 
 ## Roadmap
 
 | Milestone | Status |
 |---|---|
 | Exact solutions and classical baselines, verified | done |
-| PINN and plain-MLP solvers behind the same interface | next |
+| PINN and no-physics control, five-seed sweeps | done |
+| Give the PINN its best shot (loss weights, L-BFGS) | done |
+| Inverse problems under noise and sparse data | next |
 | Burgers' equation (shocks) and 2D Poisson | planned |
-| Inverse problems under noise and sparse data | planned |
-| Accuracy versus cost plots, written report | planned |
+| Written report | planned |
 
 ## Try it
 
@@ -89,32 +110,33 @@ git clone https://github.com/ridoy1211/pinn-audit
 cd pinn-audit
 python -m venv .venv
 .venv\Scripts\activate            # macOS / Linux: source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e ".[dev,nn]"
 
-pytest                            # tests, including the convergence-order checks
+pytest                            # tests, including convergence-order and autograd checks
 pinnaudit convergence --config configs/heat_fd.yaml
+pinnaudit sweep --config configs/sweeps/forward_heat.yaml --n-seeds 1
+pinnaudit summary --name forward_heat
+python scripts/plot_pareto.py --name forward_heat forward_wave
 ```
 
-The last command refines the grid four times and reports:
-
-```
-observed orders: 1.994, 1.996, 1.998
-asymptotic order: 1.998
-```
-
-Regenerate the figure above with `python scripts/plot_baselines.py`.
+The classical runs take milliseconds. Each neural run takes minutes on a laptop
+CPU, so a full five-seed sweep takes a while. Sweeps are resumable, so you can
+stop and restart them.
 
 ## What's in the repo
 
 ```
 src/pinnaudit/
   problems/     PDEs with exact solutions (the ground truth)
-  solvers/      classical schemes; neural solvers will implement the same interface
+  solvers/      finite differences, PINN, no-physics control, one shared interface
   metrics.py    error measures and observed convergence order
+  modes.py      Fourier-mode breakdown of a solver's error
+  sweep.py      resumable multi-seed experiments
   config.py     validated run configuration
-  cli.py        pinnaudit run | convergence | list
-configs/        one YAML file per experiment
-tests/          analytic solutions, convergence order, stability, config validation
+  cli.py        pinnaudit run | sweep | summary | convergence | list
+configs/        one YAML file per experiment, and configs/sweeps/ for the sweeps
+tests/          exact solutions, convergence order, autograd residuals, sweeps
+scripts/        figure generation
 docs/LOG.md     dated lab notes, including dead ends
 docs/REFERENCES.md  the five papers behind the design
 ```
