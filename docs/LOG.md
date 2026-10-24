@@ -245,3 +245,17 @@ Per seed for `pinn_w100_lbfgs`: 1.2e-3, 1.6e-3, 7.9e-4, 1.4e-3, 8.7e-4.
 **Caveats.** I chose the weights using the exact error, which a real user would not have. I applied the wave's best weight to heat without tuning it there. Only three weights and one L-BFGS setting were tried, one architecture, five seeds. The `pinn_w10` re-run finished: its five-seed row matches the earlier one to three digits (mean 2.83e-1, std 8.76e-2) and its mean time is now 322 s.
 
 **Open.** The inverse problem, the second half of my bet. Burgers' equation.
+
+## 2026-10-22
+
+**Inverse problem: plan and prediction.** Written before running any PINN fit.
+
+The bet has two halves. The forward half is tested. This tests the inverse half, where PINNs are meant to be strongest: recover the heat diffusivity alpha (true value 0.05) from noisy observations at random points. Setting A: the initial condition is known. Setting B: it is unknown, so the classical fit also estimates six sine-mode amplitudes (the true shape lies inside that family, which favours the classical method) and the PINN drops its initial-condition term. Observations: 10, 50 or 200. Noise: 0, 5 or 10% of the signal's standard deviation. Five seeds. Both methods start from alpha = 0.2 and see identical data. The classical method is nonlinear least squares on a Crank-Nicolson model. The PINN uses Adam then L-BFGS with a learnable log(alpha), a 10 times larger learning rate for alpha, and a data weight of 10. This is one configuration, fixed before seeing any PINN result, and I will not retune it after seeing results unless I say so here.
+
+**Predictions.**
+1. Setting A: in every cell (observations x noise) the classical median error is lower than the PINN's.
+2. Setting A: the PINN's wall-clock is at least 100 times the classical method's in every cell.
+3. Setting B: the classical method is also better in every cell except possibly 10 observations with noise, where it has seven parameters for ten noisy points and I expect it to fail (error above 10%). That is the one cell where the PINN could win.
+4. Setting A, noise above zero: the ratio of PINN error to classical error is smaller at 200 observations than at 10, so the gap narrows with more data, as Jekic et al. (2025) report.
+
+**What would change my mind.** If the PINN's median error is below the classical one in any cell other than the one named in 3, I will report that cell and count prediction 1 or 3 as wrong.
