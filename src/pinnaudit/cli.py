@@ -12,12 +12,13 @@ import typer
 from pinnaudit import __version__
 from pinnaudit.config import NEURAL_SOLVERS, load_run_config
 from pinnaudit.experiment import run_once
+from pinnaudit.inverse import load_inverse_config, run_inverse
 from pinnaudit.io import append_records, build_record, dump_config
 from pinnaudit.metrics import observed_order
 from pinnaudit.modes import load_mode_contributions
 from pinnaudit.problems import available_problems, build_problem
 from pinnaudit.solvers import available_solvers
-from pinnaudit.summary import summarise, to_markdown
+from pinnaudit.summary import inverse_to_markdown, summarise, summarise_inverse, to_markdown
 from pinnaudit.sweep import load_sweep_config, run_sweep
 
 app = typer.Typer(
@@ -165,6 +166,48 @@ def modes(
             continue
         mean = load_mode_contributions(files, problem, n_modes).mean(axis=0)
         typer.echo(f"{label:<14} {len(files):>4}  " + "  ".join(f"{v:6.3f}" for v in mean))
+
+
+@app.command()
+def inverse(
+    config: Annotated[Path, typer.Option("--config", "-c", exists=True, dir_okay=False)],
+    n_seeds: Annotated[int | None, typer.Option(min=1, help="Use only the first N seeds.")] = None,
+    method: Annotated[
+        list[str] | None, typer.Option(help="Run only this method (repeatable): lsq or pinn.")
+    ] = None,
+    verbose: Annotated[
+        bool, typer.Option("--verbose", "-v", help="Log training progress.")
+    ] = False,
+) -> None:
+    """Recover alpha from noisy observations with each method. Safe to interrupt and re-run."""
+    if verbose:
+        logging.basicConfig(level=logging.INFO, format="%(message)s")
+    cfg = load_inverse_config(config)
+    try:
+        outcome = run_inverse(cfg, n_seeds=n_seeds, methods=method, echo=typer.echo)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+    typer.echo("")
+    typer.echo(
+        f"ran {outcome.ran}, skipped {outcome.skipped} already done, failed {outcome.failed}"
+    )
+    if outcome.results_path.exists():
+        typer.echo(f"results: {outcome.results_path}")
+        typer.echo("")
+        typer.echo(inverse_to_markdown(summarise_inverse(pl.read_parquet(outcome.results_path))))
+
+
+@app.command()
+def inverse_summary(
+    name: Annotated[str, typer.Option("--name", "-n", help="Inverse sweep name.")],
+    results: Annotated[Path, typer.Option(help="Results directory.")] = Path("results"),
+) -> None:
+    """Print the across-seed summary table for a finished inverse sweep."""
+    path = results / f"inverse_{name}.parquet"
+    if not path.exists():
+        raise typer.BadParameter(f"no results at {path}; run the inverse sweep first")
+    typer.echo(inverse_to_markdown(summarise_inverse(pl.read_parquet(path))))
 
 
 if __name__ == "__main__":  # pragma: no cover

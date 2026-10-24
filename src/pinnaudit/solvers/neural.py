@@ -88,8 +88,13 @@ def _d(y: torch.Tensor, x: torch.Tensor) -> torch.Tensor:
     return grad
 
 
-def heat_residual(u_fn: UFn, x: torch.Tensor, t: torch.Tensor, alpha: float) -> torch.Tensor:
-    """u_t - alpha * u_xx at the points (x, t); shapes are (N, 1)."""
+def heat_residual(
+    u_fn: UFn, x: torch.Tensor, t: torch.Tensor, alpha: float | torch.Tensor
+) -> torch.Tensor:
+    """u_t - alpha * u_xx at the points (x, t); shapes are (N, 1).
+
+    ``alpha`` may be a tensor, so it can be a learnable parameter (inverse problems).
+    """
     x = x.detach().clone().requires_grad_(True)
     t = t.detach().clone().requires_grad_(True)
     u = u_fn(x, t)
