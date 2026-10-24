@@ -4,7 +4,7 @@ Dated and append-only. Includes the things that went wrong.
 
 ---
 
-## 2026-10-14
+## 2026-10-16
 
 **Aim.** Build the referee before any neural network exists. If the classical
 baselines are weak, "PINNs lose to finite differences" means nothing.
@@ -96,7 +96,7 @@ The finite-difference times are single runs under a millisecond, so the time rat
 
 **Open.** Five seeds with mean and spread. L-BFGS after Adam. A PINN given the same 200 observations as the MLP control. Projecting the wave solution onto its modes.
 
-## 2026-10-19
+## 2026-10-20
 
 **Aim.** Replace the single-seed first look with five seeds per variant, and find out what the PINN's optimiser and its data are worth. New this round: a resumable sweep runner (`pinnaudit sweep`), an across-seed summary, and a Fourier-mode decomposition of the error. 90 runs: 2 problems x 9 variants x 5 seeds (0-4).
 
@@ -154,9 +154,9 @@ The finite-difference times are single runs under a millisecond, so the time rat
 
 **Open.** A tuned PINN (loss weighting, learning-rate decay, longer training, resampled points) before drawing any general conclusion. Burgers' equation, where the solution develops a shock. Inverse problems under noise and sparse data. A Gaussian-process baseline.
 
-## 2026-10-20
+## 2026-10-21
 
-**Plan: give the PINN a fair shot on the wave problem.** ORDER_NOTE
+**Plan: give the PINN a fair shot on the wave problem.** Written and committed before running anything.
 
 **What I know.** On the wave problem the vanilla PINN loses mode 3 (share of the error 0.44, against 0.24 for mode 1), while a no-physics network with the same architecture learns it (0.04). In the seed-0 example the PINN's mode-3 amplitude even starts near 0.1 at t = 0 instead of 0.5, so it does not fit that part of the initial condition.
 
@@ -192,7 +192,7 @@ The finite-difference times are single runs under a millisecond, so the time rat
 
 **Next.** Combine the best weight with L-BFGS on both problems to get a final best-effort PINN number. Then the inverse problem, which is the second half of my bet and the PINN's best chance.
 
-## 2026-10-21
+## 2026-10-22
 
 **Best shot: the best weight plus L-BFGS.**
 
@@ -246,7 +246,7 @@ Per seed for `pinn_w100_lbfgs`: 1.2e-3, 1.6e-3, 7.9e-4, 1.4e-3, 8.7e-4.
 
 **Open.** The inverse problem, the second half of my bet. Burgers' equation.
 
-## 2026-10-22
+## 2026-10-24
 
 **Inverse problem: plan and prediction.** Written before running any PINN fit.
 
@@ -259,3 +259,69 @@ The bet has two halves. The forward half is tested. This tests the inverse half,
 4. Setting A, noise above zero: the ratio of PINN error to classical error is smaller at 200 observations than at 10, so the gap narrows with more data, as Jekic et al. (2025) report.
 
 **What would change my mind.** If the PINN's median error is below the classical one in any cell other than the one named in 3, I will report that cell and count prediction 1 or 3 as wrong.
+
+## 2026-10-25 (inverse result)
+
+**Inverse problem result.** I wrote and committed the predictions below before running any PINN fit. I had already seen the expected classical error table when I wrote them, so statements about the classical method alone (for example that it fails at 10 noisy observations in setting B) were not predictions. The predictions concern how the PINN compares with it.
+
+Recover the heat diffusivity alpha (true 0.05) from noisy observations. Median error over five seeds. Both methods start from alpha = 0.2 and see identical data.
+
+**Setting A, initial condition known.**
+
+| observations | noise | classical | PINN | PINN / classical | PINN time / classical time |
+|---|---|---|---|---|---|
+| 10 | 0% | 0.00156% | 0.19% | 122 | 1,100 |
+| 10 | 5% | 1.14% | 2.38% | 2.1 | 930 |
+| 10 | 10% | 2.26% | 4.89% | 2.2 | 940 |
+| 50 | 0% | 0.00563% | 0.187% | 33 | 1,380 |
+| 50 | 5% | 0.812% | 0.992% | 1.2 | 1,050 |
+| 50 | 10% | 1.63% | 2.09% | 1.3 | 1,080 |
+| 200 | 0% | 0.0057% | 0.0607% | 11 | 1,240 |
+| 200 | 5% | 0.389% | 0.645% | 1.7 | 1,010 |
+| 200 | 10% | 0.774% | 1.22% | 1.6 | 1,100 |
+
+**Setting B, initial condition unknown** (the classical fit also estimates six sine-mode amplitudes; the PINN drops its initial-condition term).
+
+| observations | noise | classical | PINN | PINN / classical | PINN time / classical time |
+|---|---|---|---|---|---|
+| 10 | 0% | 0.00644% | 7.28% | 1,130 | 300 |
+| 10 | 5% | 25.4% | 12.4% | 0.49 | 150 |
+| 10 | 10% | 34.8% | 20.6% | 0.59 | 96 |
+| 50 | 0% | 0.00436% | 1.33% | 305 | 380 |
+| 50 | 5% | 0.398% | 0.767% | 1.9 | 320 |
+| 50 | 10% | 0.752% | 2.3% | 3.1 | 310 |
+| 200 | 0% | 0.0104% | 0.355% | 34 | 440 |
+| 200 | 5% | 0.905% | 1.03% | 1.1 | 340 |
+| 200 | 10% | 1.84% | 1.83% | 0.99 | 300 |
+
+**Predictions, scored.**
+1. Setting A: classical median error lower than the PINN's in every cell. Right, 9 of 9.
+2. Setting A: PINN at least 100 times slower in every cell. Right, 930 to 1,380 times.
+3. Setting B: classical better in every cell except possibly 10 noisy observations, where I expected it to fail. Wrong on the letter. The classical fit did fail there (25.4% and 34.8%) and the PINN had the lower median in both cells, as allowed. But the PINN also had a lower median at 200 observations with 10% noise (1.83% against 1.84%). That is a tie in practice, but my rule said any other cell counts as wrong.
+4. Setting A, noise above zero: the PINN-to-classical ratio smaller at 200 observations than at 10. Right (2.1 to 1.7 at 5% noise, 2.2 to 1.6 at 10%), though not smoothly: at 50 observations it is 1.2 and 1.3.
+
+**What this says.**
+- With the forward model fully specified, the classical fit wins every cell and the PINN is about a thousand times slower. On clean data the PINN stops 11 to 122 times above the classical error. With noise both are limited by the noise and the PINN is within 1.2 to 2.2 times of the classical error.
+- With the initial condition unknown, the PINN's median error was lower only in the two cells with 10 noisy observations, where both are poor (12.4% and 20.6% against 25.4% and 34.8%) and the min to max ranges overlap. Elsewhere the classical fit was equal or better, up to 3 times better at 50 observations with 10% noise.
+- For the second promise made for PINNs (better with sparse, noisy data) this is a partial result: a PINN earns a place only in a narrow regime, very sparse noisy data with an unknown model, and even there both methods are unreliable.
+- The one-seed pilot suggested the PINN would beat the classical fit in 4 of 6 noisy cells of setting A. With five seeds it wins none. A single seed misleads.
+
+**Caveats.**
+- The classical fit in setting B is unregularised with seven parameters. A regularised or lower-dimensional fit might beat the PINN at 10 observations. I did not try that, so the PINN's advantage there may reflect a weak baseline and not a property of PINNs.
+- One PINN configuration, fixed in advance and not tuned (data weight 10, Adam then L-BFGS, 3000 epochs). Given how much tuning changed the forward results, a tuned PINN might do better.
+- Both methods are given the correct PDE and the known boundary values. The PINN's seed-to-seed spread is wide (for example 0.5% to 10.6% at 10 observations and 10% noise in setting A).
+- Five seeds, one equation, one parameter. Noise is relative to the signal's standard deviation. PINN runs are single-thread CPU in float64.
+
+**Open.** A regularised classical fit for setting B. A seed-by-seed paired comparison. Then the dimension study and the report.
+
+## 2026-10-25 (consolidation)
+**Consolidation: scope, corrections and plan.** From here the project follows one question: when does a PINN beat a classical solver, in accuracy per unit of compute, on forward problems, on inverse problems and as the dimension grows. Scope so far: smooth linear PDEs in one dimension (heat and wave) and one inverse parameter. `docs/PROTOCOL.md` records what was fixed in advance and what was decided after seeing data. `scripts/check_chronology.py` checks the commit times of predictions against the run timestamps.
+
+**Corrections to earlier entries.** The earlier entries stay as written. These statements supersede them.
+- "Each problem needs its own tuning" (best-shot entry) is too strong. One weight tuned on the wave problem made the heat PINN worse than L-BFGS alone, and heat was not tuned separately. That shows this weight did not carry over, not that every problem needs its own.
+- "H2 (spectral bias) is rejected" (best-shot entry) applies to the third harmonic only, for this problem and training budget. Higher frequencies were not tested.
+- "Best shot: done" overstated it. The wave problem got three weights and one L-BFGS setting. Heat got plain L-BFGS and the transferred weight. This is limited tuning, not an exhaustive search.
+- The prediction in the best-shot entry was drafted before the runs but committed together with the results, so its order cannot be verified.
+- Section dates were typed by hand and several were one to two days early. On 2026-10-25 each header was set to the date of the commit that first added the section, because the git history is the authority: the first entry 2026-10-14 to 2026-10-16, the five-seed entry 2026-10-19 to 2026-10-20, the loss-weight entry 2026-10-20 to 2026-10-21, the best-shot entry 2026-10-21 to 2026-10-22, and the inverse-problem plan 2026-10-22 to 2026-10-24.
+
+**Plan.** (1) Confirm the headline settings on held-out seeds 5 to 9, with bootstrap statistics. (2) A regularised classical baseline for the unknown-initial-condition inverse setting. (3) A dimension study: Poisson in 1 to 5 dimensions. (4) The written report. Burgers' equation is future work. From now on seeds 0 to 4 are for development and tuning only.
