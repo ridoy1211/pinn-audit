@@ -24,6 +24,7 @@ figures/*
 !figures/accuracy_vs_time.png
 !figures/wave_modes.png
 !figures/wave_modes_weights.png
+!figures/inverse_error_vs_noise.png
 
 # LaTeX build products
 report/*.aux

@@ -1,0 +1,36 @@
+# Inverse problem, setting B: the initial condition is unknown.
+# Same task as setting A, but neither method is told the initial shape. The classical fit
+# now estimates the amplitudes of the first six sine modes along with alpha (seven
+# parameters); the true initial condition lies inside that family, which favours the
+# classical method. The PINN drops its initial-condition term (w_ic = 0) and must infer the
+# shape from the data, the PDE and the known boundary values.
+name: heat_alpha_unknown
+ic_known: false
+lsq_ic_modes: 6
+problem:
+  name: heat1d
+  x_max: 1.0
+  t_max: 1.0
+  alpha: 0.05
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+n_obs: [10, 50, 200]
+noise: [0.0, 0.05, 0.10]
+seeds: [0, 1, 2, 3, 4]
+methods: [lsq, pinn]
+alpha0: 0.2
+neural:
+  width: 32
+  depth: 4
+  epochs: 3000
+  lr: 0.001
+  lbfgs_iters: 300
+  n_collocation: 2000
+  n_initial: 100
+  n_boundary: 100
+  w_pde: 1.0
+  w_ic: 0.0
+  w_bc: 1.0
+  w_data: 10.0
+  log_every: 250

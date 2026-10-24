@@ -1,0 +1,36 @@
+# Inverse problem, setting A: the forward model is fully specified.
+# Recover the heat diffusivity alpha (true value 0.05) from noisy observations of the
+# exact solution, with the initial and boundary conditions known. The classical method
+# is a nonlinear least-squares fit of a Crank-Nicolson forward model; the PINN learns the
+# solution and alpha together. Both start from alpha = 0.2 (four times too large) and see
+# identical data. Noise is relative: 0.05 means 5% of the standard deviation of the signal.
+# The PINN's data weight is 10 because the observations are the only information about alpha.
+name: heat_alpha_known
+ic_known: true
+problem:
+  name: heat1d
+  x_max: 1.0
+  t_max: 1.0
+  alpha: 0.05
+  displacement_modes:
+    - {n: 1, amplitude: 1.0}
+    - {n: 3, amplitude: 0.5}
+n_obs: [10, 50, 200]
+noise: [0.0, 0.05, 0.10]
+seeds: [0, 1, 2, 3, 4]
+methods: [lsq, pinn]
+alpha0: 0.2
+neural:
+  width: 32
+  depth: 4
+  epochs: 3000
+  lr: 0.001
+  lbfgs_iters: 300
+  n_collocation: 2000
+  n_initial: 100
+  n_boundary: 100
+  w_pde: 1.0
+  w_ic: 1.0
+  w_bc: 1.0
+  w_data: 10.0
+  log_every: 250
