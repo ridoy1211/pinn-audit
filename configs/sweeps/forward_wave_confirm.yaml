@@ -1,0 +1,32 @@
+# Confirmation run on HELD-OUT seeds 5 to 14 (ten seeds; development used seeds 0 to 4).
+# No settings were chosen or changed using these seeds. The classical grids keep the
+# Courant number at 0.5 and are included so their timings come from the same session.
+#   pinn              the plain PINN, exactly as configured in forward_wave.yaml
+#   pinn_w100_lbfgs   the best wave PINN found on the development seeds
+# Predictions for this run are recorded in docs/LOG.md and committed before it is started.
+name: forward_wave_confirm
+seeds: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+variants:
+  - label: fd_21
+    config: configs/wave_fd.yaml
+    overrides:
+      solver.nx: 21
+      solver.nt: 41
+  - label: fd_41
+    config: configs/wave_fd.yaml
+    overrides:
+      solver.nx: 41
+      solver.nt: 81
+  - label: fd_81
+    config: configs/wave_fd.yaml
+    overrides:
+      solver.nx: 81
+      solver.nt: 161
+  - label: pinn
+    config: configs/pinn_wave.yaml
+  - label: pinn_w100_lbfgs
+    config: configs/pinn_wave.yaml
+    overrides:
+      solver.neural.w_ic: 100.0
+      solver.neural.w_bc: 100.0
+      solver.neural.lbfgs_iters: 500

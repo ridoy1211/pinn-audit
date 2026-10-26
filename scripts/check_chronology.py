@@ -65,6 +65,20 @@ CHECKS = [
         "method",
         ("pinn",),
     ),
+    Check(
+        "confirmation on held-out seeds (heat)",
+        "Write down the confirmation-run predictions before running them",
+        "results/sweep_forward_heat_confirm.parquet",
+        "variant",
+        ("pinn", "pinn_lbfgs"),
+    ),
+    Check(
+        "confirmation on held-out seeds (wave)",
+        "Write down the confirmation-run predictions before running them",
+        "results/sweep_forward_wave_confirm.parquet",
+        "variant",
+        ("pinn", "pinn_w100_lbfgs"),
+    ),
 ]
 
 

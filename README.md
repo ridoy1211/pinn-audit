@@ -111,7 +111,8 @@ amplitudes and the PINN drops its initial-condition term. Median over five seeds
 
 - Scope: two linear problems in 1D and one inverse parameter (see the top of this page).
 - Settings were chosen by looking at seeds 0 to 4 and reported on the same seeds. A
-  confirmation run on held-out seeds 5 to 9 is planned.
+  confirmation run on ten held-out seeds (5 to 14) is in progress; the tables above come
+  from the development seeds and will be re-reported against it.
 - The PINN received more tuning than the classical solvers, which needed none.
 - Timings come from one machine and vary by up to about two-fold between sessions, so
   time ratios are orders of magnitude.
@@ -128,7 +129,9 @@ The full list, with how each was or will be handled, is in
 | Forward heat and wave, classical against PINN, five seeds | done |
 | What helps the PINN: optimiser, data, loss weights | done |
 | Inverse problem, initial condition known and unknown | done |
-| Confirmation on held-out seeds, bootstrap statistics, regularised classical baseline | next |
+| Confirmation of the headline forward results on ten held-out seeds (5 to 14) | in progress |
+| Bootstrap statistics and generated tables | next |
+| Regularised classical baseline for the unknown-initial-condition inverse setting | next |
 | Dimension study: Poisson in 1 to 5 dimensions | next |
 | Written report | planned |
 | Burgers' equation (shocks) | optional, future work |

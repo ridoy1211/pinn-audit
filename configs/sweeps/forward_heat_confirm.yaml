@@ -1,0 +1,30 @@
+# Confirmation run on HELD-OUT seeds 5 to 14 (ten seeds; development used seeds 0 to 4).
+# No settings were chosen or changed using these seeds. The classical grids are included
+# so their timings are measured in the same session as the PINN runs.
+#   pinn        the plain PINN, exactly as configured in forward_heat.yaml
+#   pinn_lbfgs  the best heat PINN found on the development seeds
+# Predictions for this run are recorded in docs/LOG.md and committed before it is started.
+name: forward_heat_confirm
+seeds: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+variants:
+  - label: fd_21
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 21
+      solver.nt: 21
+  - label: fd_41
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 41
+      solver.nt: 41
+  - label: fd_81
+    config: configs/heat_fd.yaml
+    overrides:
+      solver.nx: 81
+      solver.nt: 81
+  - label: pinn
+    config: configs/pinn_heat.yaml
+  - label: pinn_lbfgs
+    config: configs/pinn_heat.yaml
+    overrides:
+      solver.neural.lbfgs_iters: 500

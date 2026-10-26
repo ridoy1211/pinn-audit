@@ -45,6 +45,7 @@ triggered it.
 | P5 | An unknown-initial-condition inverse setting | The classical fit in the known setting was so strong that a fair test needed a case with a partly unspecified model. Added after seeing classical results, before any PINN inverse result |
 | P6 | Scope changes | The oscillator inverse problem was replaced by a heat inverse problem, to keep one equation throughout. Poisson in 2D and a Gaussian-process baseline were dropped. Burgers' equation became optional. A dimension study was added after reading Grossmann et al., PINNacle and Rathore et al. (see `docs/REFERENCES.md`) |
 | P7 | One timing run excluded | A run of the weight-10 variant took far longer than the others because the laptop went to sleep. It was dropped and re-run; the error for the same seed was identical |
+| P8 | Held-out confirmation on ten seeds, 5 to 14 | The development results were selected and reported on the same five seeds. With only five pairs the smallest possible p-value of a paired test is 0.0625, so ten seeds are used. The variants, settings and predictions are fixed in the log and committed before the run. It covers the headline variants only (plain PINN and the best variant per problem, plus three classical grids timed in the same session) |
 
 ## 4. Pre-registration record
 
@@ -59,12 +60,14 @@ the lab notes says so, and the result is reported as exploratory.
 | Loss-weight test (wave) | "Write down the Day 3 hypothesis and prediction before running it" |
 | Best shot (wave and heat) | none: the prediction was drafted in the notes but committed together with the results |
 | Inverse problem | "Write down the inverse-problem prediction before running the PINN" |
+| Confirmation on held-out seeds | "Write down the confirmation-run predictions before running them" |
 
 ## 5. Known threats to validity
 
 - **Selection on the evaluation seeds.** Settings were chosen by looking at seeds 0
-  to 4 and reported on the same seeds, which is optimistic for the PINN. The planned
-  fix is a confirmation run on seeds 5 to 9, which are held out from now on.
+  to 4 and reported on the same seeds, which is optimistic for the PINN. The fix is a
+  confirmation run on ten held-out seeds (5 to 14), whose design and predictions are
+  committed before it starts.
 - **Tuning used the exact error,** which a real user would not have.
 - **Unequal tuning effort.** The PINN received several rounds of tuning and the
   classical solvers none. The heat PINN was not tuned separately from the wave one.
@@ -75,16 +78,17 @@ the lab notes says so, and the result is reported as exploratory.
 - **The unknown-initial-condition classical fit is unregularised.** A regularised or
   lower-dimensional fit might do better at 10 observations. A regularised baseline is
   planned.
-- **Five seeds** support medians and ranges, not significance claims. A bootstrap
-  analysis and a confirmation run on more seeds are planned.
+- **Five seeds** support medians and ranges, not significance claims. The confirmation
+  run uses ten, and bootstrap intervals and paired tests are planned for it.
 - **Scope.** See section 1.
 
 ## 6. Conventions from now on
 
 1. Each new experiment gets its prediction committed first. Check it with
    `python scripts/check_chronology.py`.
-2. Seeds 0 to 4 are for development and tuning. Seeds 5 to 9 are held out and used
-   only to report.
+2. Seeds 0 to 4 are for development and tuning. Seeds 5 to 14 are held out and used
+   only to report. `tests/test_confirm_sweeps.py` fails if a confirmation sweep uses a
+   development seed.
 3. Every change to the plan is entered in section 3 on the day it is made, with the
    reason.
 4. Tables in the README and the report are generated from the saved results.
