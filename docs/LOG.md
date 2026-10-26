@@ -325,3 +325,21 @@ Recover the heat diffusivity alpha (true 0.05) from noisy observations. Median e
 - Section dates were typed by hand and several were one to two days early. On 2026-10-25 each header was set to the date of the commit that first added the section, because the git history is the authority: the first entry 2026-10-14 to 2026-10-16, the five-seed entry 2026-10-19 to 2026-10-20, the loss-weight entry 2026-10-20 to 2026-10-21, the best-shot entry 2026-10-21 to 2026-10-22, and the inverse-problem plan 2026-10-22 to 2026-10-24.
 
 **Plan.** (1) Confirm the headline settings on held-out seeds 5 to 9, with bootstrap statistics. (2) A regularised classical baseline for the unknown-initial-condition inverse setting. (3) A dimension study: Poisson in 1 to 5 dimensions. (4) The written report. Burgers' equation is future work. From now on seeds 0 to 4 are for development and tuning only.
+
+## 2026-10-26
+
+**Confirmation on held-out seeds: plan and predictions.** Written before the run.
+
+**Why.** The development results were selected and reported on the same five seeds (0 to 4), which is optimistic for the PINN. This run repeats the headline forward settings on ten held-out seeds, 5 to 14. That widens the held-out set from seeds 5 to 9, as written in the consolidation entry, because five pairs cannot reach p < 0.05 in an exact paired test. No setting is changed using these seeds.
+
+**What runs.** Heat: the plain PINN and the PINN with L-BFGS (the best heat variant on the development seeds), plus classical grids of 21, 41 and 81 points. Wave: the plain PINN and the PINN with loss weight 100 plus L-BFGS (the best wave variant), plus the same three classical grids. Sweeps `forward_heat_confirm` and `forward_wave_confirm`. The configurations are identical to the development sweeps (a test checks this). The classical grids are timed in the same session as the PINN runs.
+
+**Development reference (seeds 0 to 4, median and min to max).** Heat plain PINN 2.89e-3 (1.41e-3 to 5.02e-3). Heat PINN with L-BFGS 4.08e-4 (2.80e-4 to 5.97e-4). Wave plain PINN 0.495 (0.484 to 0.580). Wave PINN with weight 100 plus L-BFGS 2.30e-2 (2.12e-2 to 7.01e-2). Classical errors: heat 2.12e-3, 5.31e-4 and 1.33e-4 for 21, 41 and 81 points; wave 1.65e-2, 4.15e-3 and 1.04e-3.
+
+**Predictions.**
+1. For each of the four PINN variants the held-out median error lies inside the min to max range seen on the development seeds.
+2. Wave: the held-out median of the tuned PINN (weight 100 plus L-BFGS) is above the coarsest classical grid's error (1.65e-2), so even the tuned PINN does not beat a 21-point grid.
+3. Heat: the held-out median of the PINN with L-BFGS lies between the 81-point and the 41-point classical errors (1.33e-4 and 5.31e-4).
+4. On the same held-out seeds, the PINN with L-BFGS (heat) and the PINN with weight 100 plus L-BFGS (wave) each beat the plain PINN in at least 9 of 10 seeds.
+
+**What would change my mind.** A prediction that fails is reported as failed, and the README and conclusions are rewritten to match. If prediction 2 fails, the claim that the classical solver wins on the wave problem is weakened to a statement about cost only.
