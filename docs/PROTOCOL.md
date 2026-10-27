@@ -46,6 +46,7 @@ triggered it.
 | P6 | Scope changes | The oscillator inverse problem was replaced by a heat inverse problem, to keep one equation throughout. Poisson in 2D and a Gaussian-process baseline were dropped. Burgers' equation became optional. A dimension study was added after reading Grossmann et al., PINNacle and Rathore et al. (see `docs/REFERENCES.md`) |
 | P7 | One timing run excluded | A run of the weight-10 variant took far longer than the others because the laptop went to sleep. It was dropped and re-run; the error for the same seed was identical |
 | P8 | Held-out confirmation on ten seeds, 5 to 14 | The development results were selected and reported on the same five seeds. With only five pairs the smallest possible p-value of a paired test is 0.0625, so ten seeds are used. The variants, settings and predictions are fixed in the log and committed before the run. It covers the headline variants only (plain PINN and the best variant per problem, plus three classical grids timed in the same session) |
+| P9 | One timing run excluded in the confirmation run | A run of the tuned wave PINN (seed 12) took 6,761 s because the laptop went to sleep. It was dropped and re-run, as in P7. The error is unaffected, and neural timings are reported as medians |
 
 ## 4. Pre-registration record
 
@@ -65,9 +66,10 @@ the lab notes says so, and the result is reported as exploratory.
 ## 5. Known threats to validity
 
 - **Selection on the evaluation seeds.** Settings were chosen by looking at seeds 0
-  to 4 and reported on the same seeds, which is optimistic for the PINN. The fix is a
-  confirmation run on ten held-out seeds (5 to 14), whose design and predictions are
-  committed before it starts.
+  to 4 and reported on the same seeds, which is optimistic for the PINN. The fix was a
+  confirmation run on ten held-out seeds (5 to 14), whose predictions were committed before
+  it started. It confirmed the headline results and showed the optimism: the tuned wave
+  PINN's median error was 0.043 on held-out seeds against 0.023 on the development seeds.
 - **Tuning used the exact error,** which a real user would not have.
 - **Unequal tuning effort.** The PINN received several rounds of tuning and the
   classical solvers none. The heat PINN was not tuned separately from the wave one.
@@ -78,8 +80,9 @@ the lab notes says so, and the result is reported as exploratory.
 - **The unknown-initial-condition classical fit is unregularised.** A regularised or
   lower-dimensional fit might do better at 10 observations. A regularised baseline is
   planned.
-- **Five seeds** support medians and ranges, not significance claims. The confirmation
-  run uses ten, and bootstrap intervals and paired tests are planned for it.
+- **Development results use five seeds,** which support medians and ranges, not
+  significance claims. The confirmation run uses ten, with bootstrap intervals and exact
+  paired tests (`scripts/confirm_report.py`). Ten seeds still give wide intervals.
 - **Scope.** See section 1.
 
 ## 6. Conventions from now on

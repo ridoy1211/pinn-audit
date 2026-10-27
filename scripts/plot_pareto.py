@@ -82,7 +82,9 @@ def draw_panel(ax: Axes, title: str, groups: Groups) -> None:
     ax.legend(fontsize=8)
 
 
-def main(names: list[str], results: Path, out_dir: Path) -> None:
+def main(
+    names: list[str], results: Path, out_dir: Path, filename: str = "accuracy_vs_time.png"
+) -> None:
     fig, axes = plt.subplots(1, len(names), figsize=(6.5 * len(names), 5.2), squeeze=False)
     for ax, name in zip(axes[0], names, strict=True):
         problem, groups = load_groups(results / f"sweep_{name}.parquet")
@@ -90,7 +92,7 @@ def main(names: list[str], results: Path, out_dir: Path) -> None:
     fig.suptitle("Where does each method land? (bottom-left is better)", fontsize=12)
     fig.tight_layout()
     out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / "accuracy_vs_time.png"
+    path = out_dir / filename
     fig.savefig(path, dpi=150)
     print(f"wrote {path}")
 
@@ -100,5 +102,6 @@ if __name__ == "__main__":
     ap.add_argument("--name", nargs="+", required=True, help="sweep names")
     ap.add_argument("--results", type=Path, default=Path("results"))
     ap.add_argument("--out", type=Path, default=Path("figures"))
+    ap.add_argument("--filename", default="accuracy_vs_time.png")
     args = ap.parse_args()
-    main(args.name, args.results, args.out)
+    main(args.name, args.results, args.out, args.filename)

@@ -11,7 +11,7 @@ wave), and one inverse parameter (the heat diffusivity). Nothing here yet covers
 nonlinear PDEs, shocks, complex geometry or high dimension, and the conclusions below
 should not be read beyond that.
 
-![Accuracy against cost for classical and neural solvers](figures/accuracy_vs_time.png)
+![Accuracy against cost on held-out seeds](figures/accuracy_vs_time_heldout.png)
 
 ## The question
 
@@ -30,7 +30,7 @@ the runs and scored afterwards.
 
 | Promise | Result on smooth linear 1D problems |
 |---|---|
-| Better forward solver | **No.** The classical solver wins on accuracy per second by roughly 10^3 to 10^6 |
+| Better forward solver | **No.** The classical solver wins on accuracy per second by roughly 10^5 to 10^6 |
 | Better with sparse, noisy data (inverse problems) | **Mostly no.** Classical wins when the model is fully specified. A PINN had the lower median error in one regime only (10 noisy observations, initial condition unknown), where both methods were unreliable |
 | Better as dimension grows | **Not yet tested** (next) |
 
@@ -43,8 +43,9 @@ the runs and scored afterwards.
   cost-and-accuracy curve and not one point.
 - **One scoreboard.** Relative L2 error and wall-clock time, on one CPU thread in
   float64, for every method.
-- **Repeats and controls.** Five seeds per setting. A network with no physics term, and
-  a PINN given the same observations, show what the physics is worth.
+- **Repeats and controls.** Five development seeds per setting, and ten held-out seeds for
+  the headline forward results. A network with no physics term, and a PINN given the same
+  observations, show what the physics is worth.
 - **Written predictions.** Predictions are recorded before runs and scored afterwards,
   wrong ones included. [`docs/PROTOCOL.md`](docs/PROTOCOL.md) separates what was fixed
   in advance from what was decided after seeing data, and
@@ -52,32 +53,45 @@ the runs and scored afterwards.
 
 ## Forward problems
 
-Mean over five seeds. Neural solvers are scored on a 41-point grid.
+Median over ten held-out seeds (5 to 14), which were not used to choose any setting.
+Neural solvers are scored on a 41-point grid. The classical solvers were timed in the same
+session.
 
 | Method | Heat error | Heat time | Wave error | Wave time |
 |---|---|---|---|---|
-| Finite differences, 41 points | 5.3e-4 | 1.0 ms | 4.2e-3 | 0.7 ms |
-| PINN | 3.1e-3 | 147 s | 5.1e-1 | 230 s |
-| PINN + L-BFGS | 4.1e-4 | 175 s | 3.6e-1 | 268 s |
-| PINN + 200 observations | 3.8e-3 | 180 s | 4.4e-1 | 234 s |
-| PINN + loss weight 100 + L-BFGS | 1.2e-3 | 174 s | 3.3e-2 | 255 s |
-| Network with no physics, 200 observations | 2.3e-2 | 27 s | 8.4e-2 | 36 s |
+| Finite differences, 21 points | 2.12e-3 | 0.66 ms | 1.65e-2 | 0.27 ms |
+| Finite differences, 41 points | 5.31e-4 | 0.74 ms | 4.15e-3 | 0.49 ms |
+| Finite differences, 81 points | 1.33e-4 | 1.4 ms | 1.04e-3 | 1.0 ms |
+| PINN | 1.86e-3 | 147 s | 0.501 | 227 s |
+| Best PINN variant (L-BFGS on heat; loss weight 100 + L-BFGS on wave) | 3.55e-4 | 175 s | 4.30e-2 | 271 s |
 
-- **The classical solver wins on both problems.** On heat, the best PINN (L-BFGS, 4.1e-4
-  in 175 s) is matched by a 41-point grid (5.3e-4 in 1 ms). On the wave equation, the
-  best tuned PINN has about twice the error of the coarsest grid I ran (21 points,
-  0.28 ms) and takes about a million times longer.
-- **Optimiser and loss balance matter a great deal.** On the wave problem,
-  rebalancing the loss weights and adding L-BFGS together cut the error 15 times
-  (0.51 to 0.033), more than the product of the separate effects (2.9 and 1.4 times).
-  That L-BFGS helps PINN training is known (Rathore et al., 2024); whether this
-  interaction with the loss weights holds more generally is untested here. A weight
-  tuned on the wave problem made the heat PINN worse than L-BFGS alone, and heat was
-  not tuned separately.
-- **The wave failure is concentrated in one mode.** The plain PINN misses the third
-  harmonic (its share of the error is 0.44). With balanced weights and L-BFGS it is
-  learned (0.013, better than the no-physics network's 0.043), so the failure was one
-  of loss balance for that mode. Higher frequencies were not tested.
+- **The classical solver wins on both problems.** On heat, the best PINN (3.55e-4 in 175 s)
+  is beaten by an 81-point grid (1.33e-4 in 1.4 ms), about 10^5 times faster. On the wave
+  equation, the best tuned PINN has a median error 2.6 times that of the coarsest grid I ran
+  (0.043 against 0.0165; 21 points, 0.27 ms) and takes about a million times longer.
+- **The optimiser and the loss balance matter a great deal.** L-BFGS cut the heat error 5.2
+  times (1.86e-3 to 3.55e-4), and on the wave problem loss weight 100 plus L-BFGS cut the
+  mean error about 11 times (0.50 to 0.045). Each beat the plain PINN in all ten seeds
+  (exact paired p = 0.002). That L-BFGS helps PINN training is known (Rathore et al., 2024).
+- **The development seeds were optimistic.** The tuned wave PINN's median was 0.023 on the
+  seeds used to choose its settings and 0.043 on held-out seeds, as expected when settings are
+  selected and reported on the same seeds. Ten seeds still leave wide intervals (95% bootstrap
+  0.024 to 0.060 for that median).
+
+Exploratory results from the development seeds (0 to 4), not re-run on held-out seeds:
+
+- On the wave problem, rebalancing the loss weights and adding L-BFGS together cut the mean
+  error 15 times (0.51 to 0.033), more than the product of the separate effects (2.9 and 1.4
+  times). Only the combined effect was re-measured on held-out seeds (about 11 times).
+- A weight tuned on the wave problem made the heat PINN worse than L-BFGS alone (1.2e-3
+  against 4.1e-4), and heat was not tuned separately.
+- 200 exact observations did not help the heat PINN. A network with no physics term was
+  worse than the PINN on heat (2.3e-2) but better on the wave (8.4e-2) until the loss
+  weights were rebalanced.
+- The plain wave PINN misses the third harmonic (its share of the error is 0.44). With
+  balanced weights and L-BFGS it is learned (0.013, better than the no-physics network's
+  0.043), so the failure was one of loss balance for that mode. Higher frequencies were not
+  tested.
 
 ![Which Fourier modes carry the error on the wave problem](figures/wave_modes_weights.png)
 
@@ -110,13 +124,14 @@ amplitudes and the PINN drops its initial-condition term. Median over five seeds
 ## Limitations
 
 - Scope: two linear problems in 1D and one inverse parameter (see the top of this page).
-- Settings were chosen by looking at seeds 0 to 4 and reported on the same seeds. A
-  confirmation run on ten held-out seeds (5 to 14) is in progress; the tables above come
-  from the development seeds and will be re-reported against it.
+- Settings were chosen on seeds 0 to 4. The headline forward results held on ten held-out
+  seeds (5 to 14), but the tuned wave PINN's error was about twice its development estimate.
+  The inverse results and the exploratory forward results are still development-seed results.
 - The PINN received more tuning than the classical solvers, which needed none.
-- Timings come from one machine and vary by up to about two-fold between sessions, so
-  time ratios are orders of magnitude.
-- Five seeds support medians and ranges, not significance claims.
+- Timings come from one machine and vary by up to about two-fold between sessions. Neural
+  timings are medians, because one run was paused while the laptop slept, so read time
+  ratios as orders of magnitude.
+- Ten seeds give medians with wide bootstrap intervals, not strong significance claims.
 
 The full list, with how each was or will be handled, is in
 [`docs/PROTOCOL.md`](docs/PROTOCOL.md).
@@ -126,11 +141,10 @@ The full list, with how each was or will be handled, is in
 | Step | Status |
 |---|---|
 | Exact solutions and verified classical baselines | done |
-| Forward heat and wave, classical against PINN, five seeds | done |
+| Forward heat and wave, classical against PINN, five development seeds | done |
 | What helps the PINN: optimiser, data, loss weights | done |
 | Inverse problem, initial condition known and unknown | done |
-| Confirmation of the headline forward results on ten held-out seeds (5 to 14) | in progress |
-| Bootstrap statistics and generated tables | next |
+| Confirmation of the headline forward results on ten held-out seeds (5 to 14) | done |
 | Regularised classical baseline for the unknown-initial-condition inverse setting | next |
 | Dimension study: Poisson in 1 to 5 dimensions | next |
 | Written report | planned |

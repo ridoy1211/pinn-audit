@@ -22,6 +22,7 @@ figures/*
 !figures/.gitkeep
 !figures/baselines.png
 !figures/accuracy_vs_time.png
+!figures/accuracy_vs_time_heldout.png
 !figures/wave_modes.png
 !figures/wave_modes_weights.png
 !figures/inverse_error_vs_noise.png
