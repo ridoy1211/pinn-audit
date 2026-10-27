@@ -343,3 +343,37 @@ Recover the heat diffusivity alpha (true 0.05) from noisy observations. Median e
 4. On the same held-out seeds, the PINN with L-BFGS (heat) and the PINN with weight 100 plus L-BFGS (wave) each beat the plain PINN in at least 9 of 10 seeds.
 
 **What would change my mind.** A prediction that fails is reported as failed, and the README and conclusions are rewritten to match. If prediction 2 fails, the claim that the classical solver wins on the wave problem is weakened to a statement about cost only.
+
+## YYYY-MM-DD (confirmation result)
+
+**Confirmation on held-out seeds 5 to 14: result.** The predictions are in the entry above. The chronology check (`scripts/check_chronology.py`) reports that they were committed before the first run of each sweep. Scored by `scripts/confirm_report.py`.
+
+**Predictions, scored.**
+1. For each of the four PINN variants the held-out median lies inside the development range. Right, four of four: heat plain 1.86e-3 (development range 1.40e-3 to 5.01e-3), heat with L-BFGS 3.55e-4 (2.80e-4 to 5.97e-4), wave plain 0.501 (0.484 to 0.580), wave tuned 0.043 (0.0211 to 0.0701).
+2. Wave: the tuned PINN's held-out median is above the coarsest classical grid's error. Right: 0.043 against 0.0165.
+3. Heat: the L-BFGS PINN's held-out median lies between the 81- and 41-point classical errors. Right: 3.55e-4, between 1.33e-4 and 5.31e-4.
+4. The tuned variant beats the plain PINN in at least 9 of 10 seeds. Right, 10 of 10 for both heat and wave (exact paired p = 0.0020, the smallest value ten pairs can give).
+
+**Held-out results (median, 95% bootstrap interval, range).**
+
+| problem | variant | median | 95% bootstrap interval | range | development median |
+|---|---|---|---|---|---|
+| heat | plain PINN | 1.86e-3 | 1.58e-3 to 2.83e-3 | 1.18e-3 to 4.12e-3 | 2.89e-3 |
+| heat | PINN with L-BFGS | 3.55e-4 | 2.75e-4 to 4.44e-4 | 2.27e-4 to 6.62e-4 | 4.08e-4 |
+| wave | plain PINN | 0.501 | 0.493 to 0.507 | 0.488 to 0.528 | 0.495 |
+| wave | PINN with weight 100 and L-BFGS | 0.043 | 0.0235 to 0.0604 | 0.0139 to 0.0939 | 0.023 |
+
+Classical errors, timed in the same session as these runs: heat 2.12e-3, 5.31e-4 and 1.33e-4 for 21, 41 and 81 points (0.66, 0.74 and 1.35 ms); wave 1.65e-2, 4.15e-3 and 1.04e-3 (0.27, 0.49 and 1.03 ms). Median PINN times: heat 147 s and 175 s; wave 227 s and 271 s.
+
+**What this says.**
+- The headline forward results reproduce on held-out seeds, and all four predictions held.
+- The development estimate for the tuned wave PINN was optimistic. Its median was 0.023 on the seeds used to choose its settings and 0.043 on held-out seeds, which is what selecting and reporting on the same seeds is expected to do. The held-out median is 2.6 times the coarsest classical grid's error (0.0165) and about 10 times the 41-point grid's (0.00415). The wave statement in the README ("about twice") is replaced by these.
+- The combined effect of weight 100 and L-BFGS on the wave problem reproduced at a smaller size: mean error 0.502 to 0.0451, about 11 times, against 15 times on the development seeds. The two separate effects (2.9 and 1.4 times) were measured on development seeds only, so the claim that the combination exceeds their product (4.1) rests on those seeds.
+- Heat: L-BFGS cut the median error 5.2 times (1.86e-3 to 3.55e-4), in 10 of 10 seeds. An 81-point classical grid is more accurate (1.33e-4) and takes about 1.4 ms against 175 s, roughly 10^5 times faster.
+- Wave: the 21-point classical grid is more accurate than the tuned PINN (0.0165 against 0.043) and about a million times faster (0.27 ms against 271 s).
+
+**Timing.** One run of the tuned wave PINN (seed 12) took 6,761 s because the laptop went to sleep. I dropped it and re-ran it; the re-run reproduced the error of the dropped run to four digits and took a normal time. Neural times above are medians, which the slow run does not affect; the mean time (915 s) did.
+
+**Caveats.** The confirmation covers the headline variants only. The data variants, the no-physics network, the separate effects of weight and L-BFGS, and the mode analysis are still development-seed results. Ten seeds leave wide intervals (for the tuned wave PINN 0.024 to 0.060). One machine.
+
+**Open.** A regularised classical baseline for the unknown-initial-condition inverse setting, then the dimension study and the report.
