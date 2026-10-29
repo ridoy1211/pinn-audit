@@ -89,7 +89,7 @@ def test_prediction_4_needs_nine_of_ten_paired_wins() -> None:
 
 def test_prediction_4_reports_the_exact_p_value_for_ten_wins() -> None:
     dev, held = make()
-    detail = [d for s, _, d in cr.evaluate(dev, held) if s.startswith("P4  heat")][0]
+    detail = next(d for s, _, d in cr.evaluate(dev, held) if s.startswith("P4  heat"))
     assert "10 of 10" in detail
     assert "0.0020" in detail
 
