@@ -23,7 +23,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pinnaudit.config import RunConfig
 from pinnaudit.experiment import run_once
-from pinnaudit.io import append_records, build_record
+from pinnaudit.io import append_records, build_record, dump_config, execution_fingerprint
 from pinnaudit.solvers.base import Solution
 
 
@@ -121,13 +121,18 @@ def expand(
 def _done_fingerprints(path: Path) -> set[str]:
     if not path.exists():
         return set()
-    return set(pl.read_parquet(path, columns=["fingerprint"])["fingerprint"].to_list())
+    frame = pl.read_parquet(path)
+    # Old result rows have config-only fingerprints. They cannot safely prove
+    # that the current source revision produced them, so re-run those jobs.
+    if "execution_fingerprint" not in frame.columns:
+        return set()
+    return set(frame["execution_fingerprint"].to_list())
 
 
 def _save_solution(sweep: SweepConfig, cfg: RunConfig, solution: Solution) -> Path:
     folder = sweep.out_dir / "solutions" / sweep.name
     folder.mkdir(parents=True, exist_ok=True)
-    path = folder / f"{cfg.run_id}.npz"
+    path = folder / f"{cfg.run_id}_{execution_fingerprint(cfg.fingerprint())}.npz"
     np.savez_compressed(path, x=solution.x, t=solution.t, u=solution.u)
     return path
 
@@ -147,11 +152,12 @@ def run_sweep(
 
     ran = skipped = failed = 0
     for i, (label, cfg) in enumerate(runs, start=1):
-        if cfg.fingerprint() in done:
+        if execution_fingerprint(cfg.fingerprint()) in done:
             skipped += 1
             continue
 
         echo(f"[{i}/{len(runs)}] {cfg.run_id} ...")
+        config_path = dump_config(cfg, sweep.out_dir)
         start = time.perf_counter()
         try:
             result = run_once(cfg)
@@ -168,6 +174,7 @@ def run_sweep(
         record.update(
             sweep=sweep.name,
             variant=label,
+            config_file=str(config_path),
             solution_file=str(_save_solution(sweep, cfg, result.solution)),
         )
         append_records([record], sweep.out_dir, name=name)

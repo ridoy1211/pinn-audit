@@ -1,3 +1,9 @@
 * text=auto eol=lf
 *.png binary
 *.parquet binary
+
+# Preserve original scientific evidence bytes, including Windows line endings.
+*.npz binary
+results/my_classical_pilot_v1/** -text
+audit/user_run_evidence/** -text
+day1_environment.txt -text

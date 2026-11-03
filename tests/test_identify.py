@@ -109,7 +109,7 @@ def test_unknown_initial_condition_is_recovered_from_clean_data(heat_cfg: Proble
 
 
 def test_sparse_noisy_data_breaks_the_unknown_ic_fit(heat_cfg: ProblemConfig) -> None:
-    """Seven parameters against ten noisy points is badly underdetermined."""
+    """Ten observations and seven parameters can still be poorly conditioned."""
     problem = Heat1D(heat_cfg)
     sparse = _median_error(problem, 10, 0.05, range(3), 6)  # measured 0.25
     dense = _median_error(problem, 200, 0.05, range(3), 6)  # measured 0.008

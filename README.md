@@ -1,5 +1,10 @@
 # pinn-audit
 
+> Supervision repair, 3 November 2026: this working copy adds a regularized spectral
+> inverse baseline and provenance safeguards. Historical tables below have not been
+> independently regenerated in this audit. See [the repair/evidence note](docs/SUPERVISOR_AUDIT.md)
+> before treating old chronology or the new classical-only pilot as confirmed evidence.
+
 ![ci](https://github.com/ridoy1211/pinn-audit/actions/workflows/ci.yml/badge.svg)
 
 **When does a physics-informed neural network beat a classical solver?**
@@ -209,3 +214,11 @@ hype ends by measuring it myself. Disagree with a baseline or think a test probl
 missing? Open an issue.
 
 Ridoy Hasan · [LinkedIn](https://www.linkedin.com/in/ridoy-hasan7/) · MIT licence
+
+## Reproducibility audit and regularized inverse pilot (2026-11-03)
+
+See [the audit checkpoint](docs/REGULARIZED_INVERSE_AUDIT.md) for provenance repairs,
+the 180-test validation record, complete small pilot dataset, and limitations.
+This continues the regularized inverse baseline already listed as open in the lab
+log. A lower median error concealed a 98% error on one dataset; this is exploratory
+evidence, not a PINN superiority or confirmation claim.

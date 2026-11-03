@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pinnaudit.config import NeuralConfig, ProblemConfig
 from pinnaudit.identify import IdentResult, Observations, fit_lsq, make_observations
-from pinnaudit.io import append_records
+from pinnaudit.io import append_records, current_code_revision
 from pinnaudit.problems.heat import Heat1D
 
 Method = Literal["lsq", "pinn"]
@@ -88,6 +88,7 @@ def job_key(cfg: InverseConfig, method: str, n_obs: int, noise: float, seed: int
         "n_obs": n_obs,
         "noise": noise,
         "seed": seed,
+        "code_revision": current_code_revision(),
     }
     if method == "pinn":
         payload["neural"] = cfg.neural.model_dump(mode="json")
@@ -145,6 +146,13 @@ def run_inverse(
     name = f"inverse_{cfg.name}"
     results_path = cfg.out_dir / f"{name}.parquet"
     failures_path = cfg.out_dir / f"{name}_failures.txt"
+    config_payload = cfg.model_dump(mode="json")
+    config_blob = json.dumps(config_payload, sort_keys=True, separators=(",", ":"))
+    config_fingerprint = hashlib.sha256(config_blob.encode("utf-8")).hexdigest()[:16]
+    cfg.out_dir.mkdir(parents=True, exist_ok=True)
+    config_path = cfg.out_dir / f"config_{cfg.name}_{config_fingerprint}.json"
+    if not config_path.exists():
+        config_path.write_text(json.dumps(config_payload, indent=2), encoding="utf-8")
     done = _done_jobs(results_path)
 
     ran = skipped = failed = 0
@@ -156,6 +164,7 @@ def run_inverse(
 
         label = f"{method} N={n} noise={noise:g} seed={seed}"
         echo(f"[{i}/{len(jobs)}] {label} ...")
+        run_started_utc = dt.datetime.now(dt.UTC).isoformat()
         obs = make_observations(problem, n, noise, seed)
         try:
             result = _fit(cfg, problem, obs, method, seed)
@@ -169,10 +178,14 @@ def run_inverse(
             continue
 
         alpha_true = cfg.problem.alpha
+        completed_utc = dt.datetime.now(dt.UTC).isoformat()
         record: dict[str, Any] = {
             "sweep": cfg.name,
             "job": key,
-            "timestamp_utc": dt.datetime.now(dt.UTC).isoformat(),
+            "config_fingerprint": config_fingerprint,
+            "code_revision": current_code_revision(),
+            "run_started_utc": run_started_utc,
+            "completed_utc": completed_utc,
             "method": method,
             "ic_known": cfg.ic_known,
             "n_obs": n,
@@ -184,6 +197,7 @@ def run_inverse(
             "rel_err": abs(result.alpha_hat - alpha_true) / alpha_true,
             "wall_time_s": result.wall_time_s,
         }
+        record["timestamp_utc"] = completed_utc
         scalars = {k: v for k, v in result.meta.items() if not isinstance(v, dict | list)}
         record.update({f"meta_{k}": v for k, v in scalars.items()})
         append_records([record], cfg.out_dir, name=name)
