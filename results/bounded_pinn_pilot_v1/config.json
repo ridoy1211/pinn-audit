@@ -1,0 +1,43 @@
+{
+  "stage": "exploratory_feasibility_pilot",
+  "data_directory": "results/data_only_tuning_development_v1",
+  "datasets": [
+    [
+      10,
+      1000
+    ],
+    [
+      50,
+      2000
+    ]
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "alpha0": 0.2,
+  "width": 32,
+  "depth": 3,
+  "adam_steps": 2000,
+  "lr": 0.001,
+  "alpha_lr_factor": 10.0,
+  "lbfgs_iters": 200,
+  "lbfgs_max_eval": 250,
+  "lbfgs_history_size": 50,
+  "tolerance_grad": 1e-12,
+  "tolerance_change": 1e-14,
+  "data_weight": 10.0,
+  "pde_weight": 1.0,
+  "collocation_points": 512,
+  "collocation_seed": 314159,
+  "residual_eval_points": 2048,
+  "residual_eval_seed": 271828,
+  "grid_points": 401,
+  "trace_every": 250,
+  "max_train_seconds": 600.0
+}

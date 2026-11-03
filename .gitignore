@@ -60,3 +60,7 @@ report/*.synctex.gz
 # Fixed-case neural feasibility pilot.
 !results/bounded_pinn_pilot_v1/
 !results/bounded_pinn_pilot_v1/**
+
+# One declared optimizer-budget sensitivity check.
+!results/bounded_pinn_budget_check_v1/
+!results/bounded_pinn_budget_check_v1/**

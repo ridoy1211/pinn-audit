@@ -18,3 +18,5 @@ audit/data_only_tuning_review.json -text
 audit/bounded_pinn_smoke/** -text
 results/bounded_pinn_pilot_v1/** -text
 *.pt binary
+audit/bounded_pinn_pilot_review.json -text
+results/bounded_pinn_budget_check_v1/** -text

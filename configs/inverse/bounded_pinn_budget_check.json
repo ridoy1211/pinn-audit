@@ -1,0 +1,47 @@
+{
+  "stage": "exploratory_lbfgs_budget_sensitivity",
+  "data_directory": "results/data_only_tuning_development_v1",
+  "datasets": [
+    [
+      10,
+      1000
+    ],
+    [
+      50,
+      2000
+    ]
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "alpha0": 0.2,
+  "width": 32,
+  "depth": 3,
+  "adam_steps": 2000,
+  "lr": 0.001,
+  "alpha_lr_factor": 10.0,
+  "lbfgs_iters": 1000,
+  "lbfgs_max_eval": 1250,
+  "lbfgs_history_size": 50,
+  "tolerance_grad": 1e-12,
+  "tolerance_change": 1e-14,
+  "data_weight": 10.0,
+  "pde_weight": 1.0,
+  "collocation_points": 512,
+  "collocation_seed": 314159,
+  "residual_eval_points": 2048,
+  "residual_eval_seed": 271828,
+  "grid_points": 401,
+  "trace_every": 250,
+  "max_train_seconds": 600.0,
+  "protocol_note": "docs/PINN_BUDGET_CHECK_PLAN.md",
+  "protocol_sha256": "2eba9f76ea91add31b984beea7e3471138808e99632bb4270ae37ba84d3bfa62",
+  "original_config_sha256": "18688cf57702c1debe0ba82efd22343c28b1a53a9554a530b2bd4da7ae657287",
+  "original_result_manifest_sha256": "15d59de9e2e65c6095cabc80ca867913e501d41e4fd32577edc3bb3d0faab131"
+}

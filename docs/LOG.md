@@ -490,3 +490,25 @@ It retains the historical neural solver unchanged, supplies no initial truth to
 the trainer, enforces known zero boundaries, and uses the classical alpha bounds.
 The six planned fits are two saved development cases times three initialization
 seeds. They are an implementation/runtime pilot, not a tuned method comparison.
+
+## 2026-11-03 (bounded PINN pilot results and optimizer budget check)
+
+The user completed all six fits at commit c9e0eb7 on two fixed development
+datasets with three initializations each. All source/input/output hashes matched.
+The assistant reloaded every saved state and reproduced the complete field grids,
+coefficient and field/initial-trace metrics, independent PDE residuals, and training
+objectives without refitting. Numerical details are in
+`audit/bounded_pinn_pilot_review.json`; interpretation is in the dated pilot review.
+
+For N=10 / seed 1000, regularized classical fitting beats every neural start;
+PINNs beat the unregularized comparator. For N=50 / seed 2000, all neural starts
+beat both classical comparators on the three recovery metrics. These are two
+illustrative development cases, not a universal ranking or independent six-case
+confirmation. The classical family contains the true initial shape exactly.
+
+All six L-BFGS optimizers used their 200-iteration budget, with final gradients
+above the configured gradient tolerance. Specify one larger-budget diagnostic
+(1000 iterations / 1250 evaluations), preserving every other numeric setting and
+all six cases. Report both budgets without truth-based selection. See
+`docs/PINN_BUDGET_CHECK_PLAN.md`. After this check, move to a bounded broader
+comparison design rather than indefinitely extending these same examples.
