@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-11-03T07:20:19.513441+00:00",
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "classification": "Post-hoc derived evaluation of saved fits; no new fitting or tuning",
+  "reference": "alpha=0.05; IC=sin(pi*x)+0.5*sin(3*pi*x); x,t in [0,1]",
+  "quadrature": "Tensor-product trapezoidal weights on 201 and 401 point grids",
+  "input_and_scorer_sha256": {
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\records.json": "7e83a2090ab497edac36271fe9ab1f562ab593c0177e31cc1221bcb15dcb294d",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\diagnostic_config.json": "7315862619ed1af717b586f266ec32d3b668d3561d6bbe5fc8ff7e480aed2597",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\scripts\\score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\observations_n10_seed0.npz": "f0ba15228e429115cc811e3b3338558b96fb5e8a1acfeaa689e5b3969f955f29",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\observations_n10_seed1.npz": "5b65e92917d355d8b7f303bf6015b5575e397311472bd02edfeb056086514584",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed0_ridge0_low0.001_p401.npz": "3b49082f6edaed008ef0ccb1db7917ad4a374da3635e912c61d35365e0680189",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed0_ridge0_low0.0001_p401.npz": "c98b1ee925428711d428d0cbcd932ec38f5c8c4efd70369f59908e803df5dab9",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed0_ridge0_low1e-05_p401.npz": "efb16c21a7538623f3e687a654d02d33940e1dd108a6ed9f3c2af75054ebaf48",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed0_ridge1e-06_low0.001_p401.npz": "ddc16eeeebbd8e67af5ec9f4fa6a9dd676a3955cf9a7253dec3cac54b2b0d094",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed0_ridge1e-06_low0.0001_p401.npz": "6dba70337bf3fe7bad916f5a552863b08b7ca9990a999c31bf7d1465efd379bb",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed0_ridge1e-06_low1e-05_p401.npz": "4ff30ba95564c8f8977b92067f72fbd110dd65867828e5220825210fbca6fc35",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge0_low0.001_p401.npz": "9d12827d4a7879310e4cca5039f2ca3d6622ef4bfb5dece155ce0893326ffa08",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge0_low0.0001_p401.npz": "e1b1c02575a55928918227ead29c2dcc8069bebd546d2978a3a6ceba4f866b64",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge0_low1e-05_p401.npz": "3bcbf9a7f36a8d5f02358328ba9fabf1ebc92f8ab0cccd38450dfed4abc1c147",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge0_low1e-05_p1601.npz": "39ca584e24aab3c1cf1a7c125301cd6867bc90b7b8fdcfe0e98334ace7b42c7f",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge1e-06_low0.001_p401.npz": "36777c695013c5d0d14027d093fac229c5d1ad0afdadd4a957a3f06aebdd597c",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge1e-06_low0.0001_p401.npz": "886ef0bcd6869e95323b979e605df919d5bdadf5d6bd77907f4056bd9c2ab8dc",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge1e-06_low1e-05_p401.npz": "5b15f65508a0440b747e67908ffa4eb6eed17a4a9556cee59fcd5b46bb35dc4f",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\profile_seed1_ridge1e-06_low1e-05_p1601.npz": "0790680ab4527fbf966319401a2c68b0f8cdb7cdd726735ff0bdbae11e5b8066"
+  }
+}

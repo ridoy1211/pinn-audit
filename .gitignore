@@ -40,3 +40,11 @@ report/*.synctex.gz
 !results/my_classical_pilot_v1/**
 /work_test_temp*/
 /work/
+
+# Archive the selected-example inverse diagnostic separately.
+!results/sparse_inverse_diagnostic_v1/
+!results/sparse_inverse_diagnostic_v1/**
+
+# Derived field evaluation of those archived fits.
+!results/sparse_inverse_field_analysis_v1/
+!results/sparse_inverse_field_analysis_v1/**

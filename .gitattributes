@@ -7,3 +7,7 @@
 results/my_classical_pilot_v1/** -text
 audit/user_run_evidence/** -text
 day1_environment.txt -text
+
+# Preserve the exploratory diagnostic output bytes.
+results/sparse_inverse_diagnostic_v1/** -text
+results/sparse_inverse_field_analysis_v1/** -text

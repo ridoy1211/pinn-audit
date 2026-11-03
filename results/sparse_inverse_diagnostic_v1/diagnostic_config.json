@@ -1,0 +1,24 @@
+{
+  "status": "post_hoc_exploratory_selected_examples",
+  "n_obs": 10,
+  "data_seeds": [
+    0,
+    1
+  ],
+  "modes": 6,
+  "ridges": [
+    0.0,
+    1e-06
+  ],
+  "alpha_lower_bounds": [
+    0.001,
+    0.0001,
+    1e-05
+  ],
+  "alpha_upper_bound": 1.0,
+  "profile_points": 401,
+  "grid_check_points": 1601,
+  "alpha_true_for_reporting_only": 0.05,
+  "length": 1.0,
+  "input_results_directory": "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1"
+}

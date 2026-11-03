@@ -412,3 +412,33 @@ source hashes and an import manifest recording its relationship to this checkout
 **Next.** Inspect bound/search sensitivity, select regularization using available
 data rather than true alpha, and define shared priors, independent dataset/training
 replication, evaluation, and a frozen protocol before confirmation.
+
+## 2026-11-03 (sparse inverse bound sensitivity and field evaluation)
+
+**Status.** Post-hoc exploratory investigation of two selected development
+datasets; not preregistration or an independent confirmation. No PINNs trained.
+
+**User experiment.** Reused the saved N=10 observations for seeds 0 and 1, six
+unknown initial-field modes, lambda=0/1e-6, lower alpha bounds 1e-3/1e-4/1e-5,
+and upper bound 1. Fourteen fits include two 401-to-1601-point search-grid checks.
+The user ran the diagnostic in the canonical checkout with Python 3.14.6.
+All original observations, profiles, source/input hashes, and the figure are saved.
+
+**Finding.** Seed 0 estimates are stable across these bounds. Seed 1 estimates
+track smaller lower bounds for both objectives, including the unregularized one.
+At lower bound 1e-5 both coefficient errors are 99.98%; denser grids give the same
+boundary estimates/objectives at reported precision. This does not establish
+structural non-identifiability or prove global optimality.
+
+**Derived evaluation.** The assistant scored saved fits without refitting, using
+an independently checked analytical reference and 201/401-point trapezoidal
+quadrature. Seed-1 unpenalized measurement MSE falls from 4.556e-5 to 2.361e-5
+when widening the interval, while full-field error rises from 16.00% to 39.48%.
+Seed 0 with lambda=1e-6 has 0.91% coefficient and 1.43% full-field error. Different
+targets need separate metrics; selected examples cannot establish failure rates.
+
+**Evidence and next.** See `docs/SPARSE_INVERSE_DIAGNOSTIC_REVIEW.md` and the
+two archived `results/sparse_inverse_*_v1` directories. The separate scoring
+manifest records Python 3.12.14 and all input/scorer hashes. Next compare fits to
+clean and noisy values at identical saved observation coordinates, then develop
+data-only selection and shared priors before independent confirmation.
