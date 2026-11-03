@@ -14,3 +14,7 @@ results/sparse_inverse_field_analysis_v1/** -text
 results/clean_noisy_control_v1/** -text
 results/data_only_tuning_development_v1/** -text
 audit/data_only_tuning_smoke/** -text
+audit/data_only_tuning_review.json -text
+audit/bounded_pinn_smoke/** -text
+results/bounded_pinn_pilot_v1/** -text
+*.pt binary

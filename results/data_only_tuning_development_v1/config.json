@@ -1,0 +1,103 @@
+{
+  "status": "exploratory_development",
+  "datasets": [
+    [
+      10,
+      1000
+    ],
+    [
+      10,
+      1001
+    ],
+    [
+      10,
+      1002
+    ],
+    [
+      10,
+      1003
+    ],
+    [
+      10,
+      1004
+    ],
+    [
+      10,
+      1005
+    ],
+    [
+      10,
+      1006
+    ],
+    [
+      10,
+      1007
+    ],
+    [
+      10,
+      1008
+    ],
+    [
+      10,
+      1009
+    ],
+    [
+      50,
+      2000
+    ],
+    [
+      50,
+      2001
+    ],
+    [
+      50,
+      2002
+    ],
+    [
+      50,
+      2003
+    ],
+    [
+      50,
+      2004
+    ],
+    [
+      50,
+      2005
+    ],
+    [
+      50,
+      2006
+    ],
+    [
+      50,
+      2007
+    ],
+    [
+      50,
+      2008
+    ],
+    [
+      50,
+      2009
+    ]
+  ],
+  "ridges": [
+    0.0,
+    1e-08,
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "modes": 6,
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "profile_points": 401,
+  "noise_fraction_of_sample_clean_std": 0.05,
+  "fold_seed_offset": 30000,
+  "folds": 5,
+  "selection": "minimum pooled validation MSE; exact tie: smaller lambda",
+  "alpha_true_scoring_and_generation_only": 0.05
+}

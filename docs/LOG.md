@@ -469,3 +469,24 @@ alpha bounds. `docs/DATA_ONLY_TUNING_PLAN.md` declares seeds, fitting/selection
 rules, metrics, and retention before the default study is run. This remains
 development, not held-out confirmation. Separate smoke seeds and validation-
 exclusion tests verify the workflow; they are not pooled into study results.
+
+## 2026-11-03 (data-only tuning results and neural feasibility design)
+
+The user completed the declared 20-dataset development study at commit 4a9927a,
+retaining all 600 fits. The assistant verified eight source hashes, 64 output
+hashes, config/record counts, and all 500 held-out fold predictions and 20 lambda
+selections from saved fits. No new fits or truth-based selections were made in
+this review. See `docs/DATA_ONLY_TUNING_REVIEW.md` and its JSON audit evidence.
+
+At N=10, CV improves field error in 10/10 datasets but coefficient error in 7/10.
+Median field error falls from 44.44% to 3.99%; median coefficient error from 7.57%
+to 3.98%. The fixed penalty has stronger aggregate medians in this condition.
+CV's worst sparse case still has 26.84% field and 95.02% initial-field error.
+At N=50 the CV/unregularized median differences are small. These descriptive
+development results establish neither a generally optimal penalty nor novelty.
+
+Prepared an isolated bounded PINN feasibility script and complete pilot config.
+It retains the historical neural solver unchanged, supplies no initial truth to
+the trainer, enforces known zero boundaries, and uses the classical alpha bounds.
+The six planned fits are two saved development cases times three initialization
+seeds. They are an implementation/runtime pilot, not a tuned method comparison.

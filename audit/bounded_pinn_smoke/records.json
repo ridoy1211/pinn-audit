@@ -1,0 +1,31 @@
+[
+  {
+    "n_obs": 10,
+    "data_seed": 987000,
+    "training_seed": 91,
+    "run_started_utc": "2026-11-03T17:04:20.201064+00:00",
+    "status": "completed_budget",
+    "n_parameters": 106,
+    "alpha_hat": 0.15118829510437118,
+    "relative_alpha_error": 2.0237659020874235,
+    "field_relative_l2": 0.8393600288699753,
+    "ic_relative_l2": 0.9512544228258584,
+    "data_mse": 0.10704609500763615,
+    "independent_pde_mse": 0.18853358702327933,
+    "boundary_max_abs": 0.0,
+    "training_elapsed_s": 0.11774159999913536,
+    "final_training_trace": {
+      "stage": "completed_budget",
+      "adam_steps": 3,
+      "lbfgs_closure_calls": 3,
+      "alpha": 0.15118829510437118,
+      "loss": 1.3351135548744635,
+      "data_mse": 0.10704609500763614,
+      "pde_mse": 0.26465260479810226,
+      "elapsed_s": 0.112403400009498
+    },
+    "at_bound": false,
+    "checkpoint_reload_verified": true,
+    "completed_utc": "2026-11-03T17:04:20.363976+00:00"
+  }
+]

@@ -56,3 +56,7 @@ report/*.synctex.gz
 # Declared data-only regularization development study.
 !results/data_only_tuning_development_v1/
 !results/data_only_tuning_development_v1/**
+
+# Fixed-case neural feasibility pilot.
+!results/bounded_pinn_pilot_v1/
+!results/bounded_pinn_pilot_v1/**
