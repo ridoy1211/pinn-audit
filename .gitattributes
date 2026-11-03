@@ -7,3 +7,17 @@
 results/my_classical_pilot_v1/** -text
 audit/user_run_evidence/** -text
 day1_environment.txt -text
+
+# Preserve the exploratory diagnostic output bytes.
+results/sparse_inverse_diagnostic_v1/** -text
+results/sparse_inverse_field_analysis_v1/** -text
+results/clean_noisy_control_v1/** -text
+results/data_only_tuning_development_v1/** -text
+audit/data_only_tuning_smoke/** -text
+audit/data_only_tuning_review.json -text
+audit/bounded_pinn_smoke/** -text
+results/bounded_pinn_pilot_v1/** -text
+*.pt binary
+audit/bounded_pinn_pilot_review.json -text
+results/bounded_pinn_budget_check_v1/** -text
+results/pinn_budget_review_v1/** -text

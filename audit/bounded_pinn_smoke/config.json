@@ -1,0 +1,37 @@
+{
+  "stage": "software_smoke_only",
+  "data_directory": "audit/data_only_tuning_smoke",
+  "datasets": [
+    [
+      10,
+      987000
+    ]
+  ],
+  "training_seeds": [
+    91
+  ],
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "alpha0": 0.2,
+  "width": 8,
+  "depth": 2,
+  "adam_steps": 3,
+  "lr": 0.001,
+  "alpha_lr_factor": 10.0,
+  "lbfgs_iters": 2,
+  "lbfgs_max_eval": 5,
+  "lbfgs_history_size": 50,
+  "tolerance_grad": 1e-12,
+  "tolerance_change": 1e-14,
+  "data_weight": 10.0,
+  "pde_weight": 1.0,
+  "collocation_points": 16,
+  "collocation_seed": 314159,
+  "residual_eval_points": 64,
+  "residual_eval_seed": 271828,
+  "grid_points": 21,
+  "trace_every": 1,
+  "max_train_seconds": 60.0
+}

@@ -40,3 +40,31 @@ report/*.synctex.gz
 !results/my_classical_pilot_v1/**
 /work_test_temp*/
 /work/
+
+# Archive the selected-example inverse diagnostic separately.
+!results/sparse_inverse_diagnostic_v1/
+!results/sparse_inverse_diagnostic_v1/**
+
+# Derived field evaluation of those archived fits.
+!results/sparse_inverse_field_analysis_v1/
+!results/sparse_inverse_field_analysis_v1/**
+
+# Paired clean/noisy development-data control.
+!results/clean_noisy_control_v1/
+!results/clean_noisy_control_v1/**
+
+# Declared data-only regularization development study.
+!results/data_only_tuning_development_v1/
+!results/data_only_tuning_development_v1/**
+
+# Fixed-case neural feasibility pilot.
+!results/bounded_pinn_pilot_v1/
+!results/bounded_pinn_pilot_v1/**
+
+# One declared optimizer-budget sensitivity check.
+!results/bounded_pinn_budget_check_v1/
+!results/bounded_pinn_budget_check_v1/**
+
+# Derived paired review, with no new training.
+!results/pinn_budget_review_v1/
+!results/pinn_budget_review_v1/**

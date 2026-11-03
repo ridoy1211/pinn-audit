@@ -1,0 +1,26 @@
+{
+  "status": "exploratory_selected_development_datasets",
+  "seeds": [
+    0,
+    1
+  ],
+  "targets": [
+    "clean",
+    "noisy"
+  ],
+  "modes": 6,
+  "ridges": [
+    0.0,
+    1e-06
+  ],
+  "lower_bounds": [
+    0.001,
+    0.0001,
+    1e-05
+  ],
+  "upper_bound": 1.0,
+  "profile_points": 401,
+  "field_quadrature_points": 401,
+  "alpha_true_diagnostic_and_scoring_only": 0.05,
+  "known_alpha_candidate_is_not_used_to_select_fit": true
+}

@@ -1,0 +1,21 @@
+{
+  "started_utc": "2026-11-03T07:07:14.152978+00:00",
+  "code_revision": "d1de65e0d4ad0d75783883f23136b6e836f52c5f+src-c6bd4a7b1978af07",
+  "estimator_source_file": "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\src\\pinnaudit\\spectral_inverse.py",
+  "script_status": "Exploratory working script; exact script/plan hashes are recorded below",
+  "python": "3.14.6",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_sha256": {
+    "scripts\\diagnose_sparse_fit.py": "5fbed56fc18f7d0304007d8bba0d7a07354c31dce9bae3ecfcec9609d2a3fc22",
+    "src\\pinnaudit\\spectral_inverse.py": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81",
+    "docs\\SPARSE_INVERSE_DIAGNOSTIC_PLAN.md": "aa39e570d77e9d94949d1658884f4697e38d331142bcadb2a8d20c2def59c380"
+  },
+  "input_sha256": {
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\config.json": "4008c2ae4e9d34b53bc46b4fbd62f6eefc827c10d73a14e50023ce22524d4aae",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\observations_n10_seed0.npz": "f0ba15228e429115cc811e3b3338558b96fb5e8a1acfeaa689e5b3969f955f29",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\observations_n10_seed1.npz": "5b65e92917d355d8b7f303bf6015b5575e397311472bd02edfeb056086514584"
+  },
+  "completed_utc": "2026-11-03T07:07:19.025177+00:00"
+}

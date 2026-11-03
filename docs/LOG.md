@@ -412,3 +412,125 @@ source hashes and an import manifest recording its relationship to this checkout
 **Next.** Inspect bound/search sensitivity, select regularization using available
 data rather than true alpha, and define shared priors, independent dataset/training
 replication, evaluation, and a frozen protocol before confirmation.
+
+## 2026-11-03 (sparse inverse bound sensitivity and field evaluation)
+
+**Status.** Post-hoc exploratory investigation of two selected development
+datasets; not preregistration or an independent confirmation. No PINNs trained.
+
+**User experiment.** Reused the saved N=10 observations for seeds 0 and 1, six
+unknown initial-field modes, lambda=0/1e-6, lower alpha bounds 1e-3/1e-4/1e-5,
+and upper bound 1. Fourteen fits include two 401-to-1601-point search-grid checks.
+The user ran the diagnostic in the canonical checkout with Python 3.14.6.
+All original observations, profiles, source/input hashes, and the figure are saved.
+
+**Finding.** Seed 0 estimates are stable across these bounds. Seed 1 estimates
+track smaller lower bounds for both objectives, including the unregularized one.
+At lower bound 1e-5 both coefficient errors are 99.98%; denser grids give the same
+boundary estimates/objectives at reported precision. This does not establish
+structural non-identifiability or prove global optimality.
+
+**Derived evaluation.** The assistant scored saved fits without refitting, using
+an independently checked analytical reference and 201/401-point trapezoidal
+quadrature. Seed-1 unpenalized measurement MSE falls from 4.556e-5 to 2.361e-5
+when widening the interval, while full-field error rises from 16.00% to 39.48%.
+Seed 0 with lambda=1e-6 has 0.91% coefficient and 1.43% full-field error. Different
+targets need separate metrics; selected examples cannot establish failure rates.
+
+**Evidence and next.** See `docs/SPARSE_INVERSE_DIAGNOSTIC_REVIEW.md` and the
+two archived `results/sparse_inverse_*_v1` directories. The separate scoring
+manifest records Python 3.12.14 and all input/scorer hashes. Next compare fits to
+clean and noisy values at identical saved observation coordinates, then develop
+data-only selection and shared priors before independent confirmation.
+
+## 2026-11-03 (preparation of paired clean/noisy control)
+
+The user archived the preceding diagnostic at commit ce0146a. Prepared
+`scripts/compare_clean_noisy.py` and `docs/CLEAN_NOISY_CONTROL_PLAN.md` to compare
+saved clean/noisy values at identical coordinates using 24 fixed classical fits.
+The assistant verified all cases on the same development data in a separate work
+directory; see `audit/clean_noisy_implementation_check.md`. This is exploratory
+implementation verification. A subsequent user run is reproduction, not unseen
+confirmation. No user-run control results are claimed in this entry.
+
+## 2026-11-03 (user clean/noisy reproduction and next development design)
+
+**Completed control.** The user reproduced all 24 clean/noisy fits on Python
+3.14.6 at 09:04 UTC; hashes and environment are in the saved manifest. Unpenalized
+clean fits recover alpha=0.05 to numerical precision for both selected seeds.
+Fixed lambda=1e-6 has approximately 0.417%/1.362% clean coefficient error. Noisy
+fits reproduce the earlier boundary behavior, with no feasible-candidate search
+warnings. See `docs/CLEAN_NOISY_CONTROL_REVIEW.md`. This establishes the effect of
+the realized noise in these examples, not a general rate or structural claim.
+
+**Next design.** Specify data-only five-fold selection among five lambdas on
+20 newly generated development datasets (10 each at N=10/50), with shared wide
+alpha bounds. `docs/DATA_ONLY_TUNING_PLAN.md` declares seeds, fitting/selection
+rules, metrics, and retention before the default study is run. This remains
+development, not held-out confirmation. Separate smoke seeds and validation-
+exclusion tests verify the workflow; they are not pooled into study results.
+
+## 2026-11-03 (data-only tuning results and neural feasibility design)
+
+The user completed the declared 20-dataset development study at commit 4a9927a,
+retaining all 600 fits. The assistant verified eight source hashes, 64 output
+hashes, config/record counts, and all 500 held-out fold predictions and 20 lambda
+selections from saved fits. No new fits or truth-based selections were made in
+this review. See `docs/DATA_ONLY_TUNING_REVIEW.md` and its JSON audit evidence.
+
+At N=10, CV improves field error in 10/10 datasets but coefficient error in 7/10.
+Median field error falls from 44.44% to 3.99%; median coefficient error from 7.57%
+to 3.98%. The fixed penalty has stronger aggregate medians in this condition.
+CV's worst sparse case still has 26.84% field and 95.02% initial-field error.
+At N=50 the CV/unregularized median differences are small. These descriptive
+development results establish neither a generally optimal penalty nor novelty.
+
+Prepared an isolated bounded PINN feasibility script and complete pilot config.
+It retains the historical neural solver unchanged, supplies no initial truth to
+the trainer, enforces known zero boundaries, and uses the classical alpha bounds.
+The six planned fits are two saved development cases times three initialization
+seeds. They are an implementation/runtime pilot, not a tuned method comparison.
+
+## 2026-11-03 (bounded PINN pilot results and optimizer budget check)
+
+The user completed all six fits at commit c9e0eb7 on two fixed development
+datasets with three initializations each. All source/input/output hashes matched.
+The assistant reloaded every saved state and reproduced the complete field grids,
+coefficient and field/initial-trace metrics, independent PDE residuals, and training
+objectives without refitting. Numerical details are in
+`audit/bounded_pinn_pilot_review.json`; interpretation is in the dated pilot review.
+
+For N=10 / seed 1000, regularized classical fitting beats every neural start;
+PINNs beat the unregularized comparator. For N=50 / seed 2000, all neural starts
+beat both classical comparators on the three recovery metrics. These are two
+illustrative development cases, not a universal ranking or independent six-case
+confirmation. The classical family contains the true initial shape exactly.
+
+All six L-BFGS optimizers used their 200-iteration budget, with final gradients
+above the configured gradient tolerance. Specify one larger-budget diagnostic
+(1000 iterations / 1250 evaluations), preserving every other numeric setting and
+all six cases. Report both budgets without truth-based selection. See
+`docs/PINN_BUDGET_CHECK_PLAN.md`. After this check, move to a bounded broader
+comparison design rather than indefinitely extending these same examples.
+
+## 2026-11-04 (budget-check review and broader design draft)
+
+The user completed the six longer-budget fits at commit d98bacb. A later attempt
+to repeat the command hit the intended FileExistsError before training; existing
+results remained intact. The preceding pilot/plan were already committed, while
+the new budget-results directory had not yet been staged by the repeated commands.
+
+Source/input/output hashes match for both budgets. The assistant reproduced all
+six Adam endpoints and larger-budget checkpoint grids, recovery metrics, residual
+arrays and objectives without training new models. All six training losses fall;
+all three recovery metrics improve in every sparse-case start and worsen in
+every denser-case start. See `docs/PINN_BUDGET_CHECK_REVIEW.md` and the paired
+analysis/figure in `results/pinn_budget_review_v1`. Neither budget is certified
+converged and neither is selected using truth error.
+
+The selected-case phase is closed. A proposed broader design now addresses
+regularization, basis capacity and both fixed neural budgets on fresh data, with
+paired IC-family controls and explicit failure/statistical rules. It is a draft
+pending implementation verification and a final prospective freeze; its proposed
+evaluation seeds have not been generated or inspected. No new experiment is
+requested merely to replace the already-completed budget check.

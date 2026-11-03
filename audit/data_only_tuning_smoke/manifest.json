@@ -1,0 +1,33 @@
+{
+  "started_utc": "2026-11-03T11:23:55.672577+00:00",
+  "status": "complete",
+  "code_revision": "ce0146a1bcc0f1905a3f0736f68bf82fd64c5aa5+src-c6bd4a7b1978af07",
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_sha256": {
+    "scripts\\development_cv.py": "a85d9b6068c1301a2cfbad5d99c5a7a590f829ef4ff6b479a1dffae1f94720f6",
+    "scripts\\score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "docs\\DATA_ONLY_TUNING_PLAN.md": "51d1054f792accedb9fc7474b8606af09a55526f10b0ee93145e40c401cc6fd5",
+    "src\\pinnaudit\\config.py": "4de5c1123a96278db9082c59ddb164231a8b7c2757d5d4af51b93e0b399b5983",
+    "src\\pinnaudit\\identify.py": "4318d6c2a5ad752befbc29a3eddb208d6010646092ff4fdd0abc932f98557ef3",
+    "src\\pinnaudit\\spectral_inverse.py": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81",
+    "src\\pinnaudit\\io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "src\\pinnaudit\\problems\\heat.py": "9ea84253def6bc78fcb4b306e7ed6f8f7a8328eb7cdb284bcab1c9f677698211"
+  },
+  "config_sha256": "909bd98d773cd9ef9c7934b1032880df71ad1a104877be333cb957fa2e945744",
+  "completed_utc": "2026-11-03T11:24:04.681091+00:00",
+  "output_sha256": {
+    "config.json": "909bd98d773cd9ef9c7934b1032880df71ad1a104877be333cb957fa2e945744",
+    "fits_n10_seed987000.npz": "5eba5babfe65ea0fa70e0064c7c5847f3355d223a82393b7cf16b26e83b45fce",
+    "fits_n50_seed987001.npz": "d4d699c44bb5ccd8cd73fc649b0919dda3cb1032764622f852a39eb2bf87dfae",
+    "fold_scores_n10_seed987000.json": "b475d4e719d65aeaf6e89b9559044db7e3b1ae70dee4637327644a6acda60b30",
+    "fold_scores_n50_seed987001.json": "0dadd17a00f528a381ac12df5639421d6044e9623dacc136cb1821033c30ea62",
+    "observations_n10_seed987000.npz": "03a31f8330bf306b4d82155409a0cfdcb0fb8c33deb6dd3022158dd535cde540",
+    "observations_n50_seed987001.npz": "fbfb212c5732e8fa6db94b9611188e554572a99884ad7498c3f53b3062937b4f",
+    "records.json": "339d83dfca307b9f6693e75b119a3d2f8710159abf040211e1746968a829414e",
+    "selections.json": "de13fdbfdc28492ed93a1502faf9d0cda52901643787309d612887978676d816",
+    "summary.md": "9ea00ae6c1600ce21d299b848e6e3e88bd72e4d5fa6f647cadb6517289432104"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "started_utc": "2026-11-03T17:40:04.798349+00:00",
+  "status": "complete",
+  "code_revision": "d98bacb630a3f4190cdfb999a50f3dd1cd91e733+src-c6bd4a7b1978af07",
+  "python": "3.14.6",
+  "numpy": "2.5.4",
+  "torch": "2.15.0+cpu",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "device": "cpu",
+  "dtype": "float64",
+  "torch_threads": 1,
+  "deterministic_algorithms": true,
+  "source_sha256": {
+    "scripts\\pilot_bounded_pinn.py": "3053d118344c84ce2f3e5b76e4ebae5ea69bba0b3c043887004b2bfd2db7299b",
+    "configs\\inverse\\bounded_pinn_budget_check.json": "1d1e74bca836a5850e438e0777385385152186bee8dae6980fcfaeed4c630d95",
+    "scripts\\score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "src\\pinnaudit\\solvers\\neural.py": "76fdc3f5f10429a7fe377c66ef40d70a73466183e16eccce1bdbc6c440395f26",
+    "src\\pinnaudit\\io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "docs\\BOUNDED_PINN_PILOT_PLAN.md": "1a25534d87066b3c9991891dca7bd6978c648aae8834c47162ea39c0a34345e4"
+  },
+  "input_sha256": {
+    "results\\data_only_tuning_development_v1\\observations_n10_seed1000.npz": "31ec71a0c416d701d5731268698df6d80034450590811fdad615cd415713ce40",
+    "results\\data_only_tuning_development_v1\\observations_n50_seed2000.npz": "796e45e4d270e597cf13788a6d35b93f499847507beb977a626b3df9e6f95bcd",
+    "results\\data_only_tuning_development_v1\\records.json": "803179d91e876163de3408efd9eee2fc032d07de614370f5a52197938c400210"
+  },
+  "completed_utc": "2026-11-03T17:44:49.264435+00:00",
+  "output_sha256": {
+    "classical_context.json": "89687ebfc97568ffec51082895f0d0ac0946a1b406723ba7eeddfe46b672e6b1",
+    "config.json": "51d7dc0cf354d6494abb58c0bbea0ae8074ab6fb14ce1ce8a9bab363e55acd1d",
+    "n10_data1000_train0\\checkpoint.pt": "b6a00d4ebd685f46190ef85b95410f64171ed317c323f53bb50ea79685886b1f",
+    "n10_data1000_train0\\predictions.npz": "e45a4d00d2309e6d017027bee8f21f35ef5206d8aeb41c4b0bcdba48ec1aaefb",
+    "n10_data1000_train0\\trace.json": "4abf94604006c75306e999c617a9858d4c919e4e351ab87e202ab3acfc33cf01",
+    "n10_data1000_train1\\checkpoint.pt": "6726574deb6025dee2ec64a9a0844c092940a98568e32e55e8dad36a55718e3a",
+    "n10_data1000_train1\\predictions.npz": "4353c095a091577988fae3982113741787c7e7c1357000bdd7ebac78b1746422",
+    "n10_data1000_train1\\trace.json": "2c0c27baa3f905fae37fd8033126a7dac0c1ddcfa0040d6e08fc2179a80640d8",
+    "n10_data1000_train2\\checkpoint.pt": "3321524b29d859cdb6f71fd27483965646506301202cd7a59f799ae777f99a02",
+    "n10_data1000_train2\\predictions.npz": "6c52a4c0f43bbb134cedb152293b3227f9843b3db4fa12e4edce705e50a1a3a7",
+    "n10_data1000_train2\\trace.json": "6b5812624ec9a1f4d4df2a1f36eb98f048579f116030f78ca791bb5a9166340c",
+    "n50_data2000_train0\\checkpoint.pt": "2c112da951d0e1cea9764fea7404ac94b15a61b98e88ebba2880cd354f9164e7",
+    "n50_data2000_train0\\predictions.npz": "e5b8d1a92ca5713219c84ecee92770ce98ba7b21f5f7c28db1997ca6f429e7c0",
+    "n50_data2000_train0\\trace.json": "576ae89e44707ef408259858007cd5ab5abf5a319aeb7401aa7c24a110cf8e20",
+    "n50_data2000_train1\\checkpoint.pt": "d623d1ce165a11e49f0b470e21b82072638b2778bd6ebdb11b2b523baa71bbf0",
+    "n50_data2000_train1\\predictions.npz": "82725ff25c0985429bbf412371b991e313e738cdfbcb985dc55161ea1418c5fb",
+    "n50_data2000_train1\\trace.json": "f18df1d1cff18f84f7d91daba99cedb4331ddc77d1b7d14ae852c44a9c1dddc7",
+    "n50_data2000_train2\\checkpoint.pt": "5adfe03d2df6a0fd865c1bd0db8da2da0611a163b87885d2402c8d38bf2f36bf",
+    "n50_data2000_train2\\predictions.npz": "8b1d7533964e2d63172ed1a42ae4c836f05ba1dea3d88bfc07ac0b6b7f92e8ee",
+    "n50_data2000_train2\\trace.json": "4f3836904fb852e5f1470d1e621a0e71861fb995d3ec255a4c2f34be7873505c",
+    "pde_points.npz": "acf34799cc17fcc6a4dad72cc1a2f0cef3ae558469f8c13836043acbe22c5c3c",
+    "records.json": "ec14d80a25f85db9b080925a65518beb82cc5bb84d89667c6174ef00d2e85acf",
+    "summary.md": "6869fe8316d8450ca797693c12614a3968a82b517e86546ce4c57587461dd148"
+  }
+}

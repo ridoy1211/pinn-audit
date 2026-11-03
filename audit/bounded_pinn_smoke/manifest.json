@@ -1,0 +1,36 @@
+{
+  "started_utc": "2026-11-03T17:04:20.034024+00:00",
+  "status": "complete",
+  "code_revision": "4a9927a8915c1531b688b289fdca81612591198c+src-c6bd4a7b1978af07",
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "torch": "2.15.0+cpu",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "device": "cpu",
+  "dtype": "float64",
+  "torch_threads": 1,
+  "deterministic_algorithms": true,
+  "source_sha256": {
+    "scripts\\pilot_bounded_pinn.py": "3053d118344c84ce2f3e5b76e4ebae5ea69bba0b3c043887004b2bfd2db7299b",
+    "configs\\inverse\\bounded_pinn_pilot.json": "18688cf57702c1debe0ba82efd22343c28b1a53a9554a530b2bd4da7ae657287",
+    "scripts\\score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "src\\pinnaudit\\solvers\\neural.py": "76fdc3f5f10429a7fe377c66ef40d70a73466183e16eccce1bdbc6c440395f26",
+    "src\\pinnaudit\\io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "docs\\BOUNDED_PINN_PILOT_PLAN.md": "1a25534d87066b3c9991891dca7bd6978c648aae8834c47162ea39c0a34345e4"
+  },
+  "input_sha256": {
+    "audit\\data_only_tuning_smoke\\observations_n10_seed987000.npz": "03a31f8330bf306b4d82155409a0cfdcb0fb8c33deb6dd3022158dd535cde540",
+    "audit\\data_only_tuning_smoke\\records.json": "339d83dfca307b9f6693e75b119a3d2f8710159abf040211e1746968a829414e"
+  },
+  "completed_utc": "2026-11-03T17:04:20.368851+00:00",
+  "output_sha256": {
+    "classical_context.json": "2b8adb5c9f12094c041068900614a28c6aa62f2fcbfb1fe550734c9f8f465039",
+    "config.json": "6e704d8f5f3163c63fe27a491c64a347871afefb2f0e391ee0bcd44327e0c12b",
+    "n10_data987000_train91\\checkpoint.pt": "23aea82c96666e8125216a32960b3e56896913ffa94396e82ea91b98ee0b4465",
+    "n10_data987000_train91\\predictions.npz": "94ce710dfeb23db195fc671c7650b60ed2b31c28721dba41bc2f9afc81a55328",
+    "n10_data987000_train91\\trace.json": "fae918489a2674ce45fbecdb8258c9ca0bc429f6756985883578e24110a539bc",
+    "pde_points.npz": "c28e2bede8fca937ce66cc691c2a68d17f6fbb962efa908977a7ddd2b09b1c44",
+    "records.json": "b0fc1a0ea8274761d185e9cb2f156fd6608d9e73a8d1b3cc238feedba9efb667",
+    "summary.md": "8566bd9b739f54982148ab30a9f777fef57d214a884e92e6fd87333f9ab3e1f1"
+  }
+}

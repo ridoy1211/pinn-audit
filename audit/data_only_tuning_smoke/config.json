@@ -1,0 +1,31 @@
+{
+  "status": "software_smoke_only",
+  "datasets": [
+    [
+      10,
+      987000
+    ],
+    [
+      50,
+      987001
+    ]
+  ],
+  "ridges": [
+    0.0,
+    1e-08,
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "modes": 6,
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "profile_points": 401,
+  "noise_fraction_of_sample_clean_std": 0.05,
+  "fold_seed_offset": 30000,
+  "folds": 5,
+  "selection": "minimum pooled validation MSE; exact tie: smaller lambda",
+  "alpha_true_scoring_and_generation_only": 0.05
+}

@@ -1,0 +1,23 @@
+{
+  "started_utc": "2026-11-03T09:04:34.525601+00:00",
+  "status": "complete",
+  "code_revision": "ce0146a1bcc0f1905a3f0736f68bf82fd64c5aa5+src-c6bd4a7b1978af07",
+  "python": "3.14.6",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_sha256": {
+    "scripts\\compare_clean_noisy.py": "4dd3d80360403cb48607086acf6a654b825a9a0bc8f56669056098474d23760a",
+    "scripts\\score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "src\\pinnaudit\\spectral_inverse.py": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81",
+    "src\\pinnaudit\\io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "docs\\CLEAN_NOISY_CONTROL_PLAN.md": "aed242e943f9bc0a5da4fedfe046ff2b98ef6ad4c0f9625ea75b9011f3b53221"
+  },
+  "input_sha256": {
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\config.json": "4008c2ae4e9d34b53bc46b4fbd62f6eefc827c10d73a14e50023ce22524d4aae",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\sparse_inverse_diagnostic_v1\\records.json": "7e83a2090ab497edac36271fe9ab1f562ab593c0177e31cc1221bcb15dcb294d",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\observations_n10_seed0.npz": "f0ba15228e429115cc811e3b3338558b96fb5e8a1acfeaa689e5b3969f955f29",
+    "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\pinn-audit-git\\pinn-audit-git\\results\\my_classical_pilot_v1\\observations_n10_seed1.npz": "5b65e92917d355d8b7f303bf6015b5575e397311472bd02edfeb056086514584"
+  },
+  "completed_utc": "2026-11-03T09:04:39.596784+00:00"
+}
