@@ -11,3 +11,6 @@ day1_environment.txt -text
 # Preserve the exploratory diagnostic output bytes.
 results/sparse_inverse_diagnostic_v1/** -text
 results/sparse_inverse_field_analysis_v1/** -text
+results/clean_noisy_control_v1/** -text
+results/data_only_tuning_development_v1/** -text
+audit/data_only_tuning_smoke/** -text

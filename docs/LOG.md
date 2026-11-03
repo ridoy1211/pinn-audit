@@ -442,3 +442,30 @@ two archived `results/sparse_inverse_*_v1` directories. The separate scoring
 manifest records Python 3.12.14 and all input/scorer hashes. Next compare fits to
 clean and noisy values at identical saved observation coordinates, then develop
 data-only selection and shared priors before independent confirmation.
+
+## 2026-11-03 (preparation of paired clean/noisy control)
+
+The user archived the preceding diagnostic at commit ce0146a. Prepared
+`scripts/compare_clean_noisy.py` and `docs/CLEAN_NOISY_CONTROL_PLAN.md` to compare
+saved clean/noisy values at identical coordinates using 24 fixed classical fits.
+The assistant verified all cases on the same development data in a separate work
+directory; see `audit/clean_noisy_implementation_check.md`. This is exploratory
+implementation verification. A subsequent user run is reproduction, not unseen
+confirmation. No user-run control results are claimed in this entry.
+
+## 2026-11-03 (user clean/noisy reproduction and next development design)
+
+**Completed control.** The user reproduced all 24 clean/noisy fits on Python
+3.14.6 at 09:04 UTC; hashes and environment are in the saved manifest. Unpenalized
+clean fits recover alpha=0.05 to numerical precision for both selected seeds.
+Fixed lambda=1e-6 has approximately 0.417%/1.362% clean coefficient error. Noisy
+fits reproduce the earlier boundary behavior, with no feasible-candidate search
+warnings. See `docs/CLEAN_NOISY_CONTROL_REVIEW.md`. This establishes the effect of
+the realized noise in these examples, not a general rate or structural claim.
+
+**Next design.** Specify data-only five-fold selection among five lambdas on
+20 newly generated development datasets (10 each at N=10/50), with shared wide
+alpha bounds. `docs/DATA_ONLY_TUNING_PLAN.md` declares seeds, fitting/selection
+rules, metrics, and retention before the default study is run. This remains
+development, not held-out confirmation. Separate smoke seeds and validation-
+exclusion tests verify the workflow; they are not pooled into study results.
