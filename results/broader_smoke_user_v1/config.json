@@ -1,0 +1,104 @@
+{
+  "study_id": "joint_heat_software_smoke",
+  "length": 1.0,
+  "final_time": 1.0,
+  "alpha_true_generation_and_scoring_only": 0.05,
+  "families": {
+    "A": [
+      {
+        "n": 1,
+        "amplitude": 1.0
+      },
+      {
+        "n": 3,
+        "amplitude": 0.5
+      }
+    ],
+    "B": [
+      {
+        "n": 1,
+        "amplitude": 1.0
+      },
+      {
+        "n": 3,
+        "amplitude": 0.5
+      },
+      {
+        "n": 7,
+        "amplitude": 0.25
+      }
+    ]
+  },
+  "designs": {
+    "10": [
+      987100
+    ],
+    "50": [
+      987101
+    ]
+  },
+  "noise_sigma_absolute": 0.01,
+  "fold_seed_offset": 30000,
+  "folds": 5,
+  "ridges": [
+    1e-10,
+    1e-08,
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "classical_modes": [
+    6,
+    12
+  ],
+  "fixed_ridge": 1e-06,
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "profile_points": 21,
+  "training_seeds": [
+    901,
+    902,
+    903
+  ],
+  "neural_budgets": {
+    "pinn_200": {
+      "lbfgs_iters": 2,
+      "lbfgs_max_eval": 5
+    },
+    "pinn_1000": {
+      "lbfgs_iters": 4,
+      "lbfgs_max_eval": 7
+    }
+  },
+  "neural": {
+    "alpha_bounds": [
+      1e-05,
+      1.0
+    ],
+    "alpha0": 0.2,
+    "width": 8,
+    "depth": 2,
+    "adam_steps": 3,
+    "lr": 0.001,
+    "alpha_lr_factor": 10.0,
+    "lbfgs_history_size": 50,
+    "tolerance_grad": 1e-12,
+    "tolerance_change": 1e-14,
+    "data_weight": 10.0,
+    "pde_weight": 1.0,
+    "trace_every": 1,
+    "max_train_seconds": 60
+  },
+  "collocation_seed": 314159,
+  "collocation_points": 16,
+  "residual_eval_seed": 271828,
+  "residual_eval_points": 64,
+  "grid_points": 21,
+  "refinement_grid_points": 41,
+  "save_dense_fields_for_first_design_only": true,
+  "bootstrap_reps": 10000,
+  "bootstrap_seed_offset": 42000,
+  "min_complete_pairs": 10
+}

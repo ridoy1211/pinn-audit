@@ -1,0 +1,3200 @@
+{
+  "methods": [
+    "unreg6",
+    "fixed6",
+    "cv6",
+    "cv12",
+    "pinn_200",
+    "pinn_1000"
+  ],
+  "neural_methods": [
+    "pinn_200",
+    "pinn_1000"
+  ],
+  "baseline_method": "cv12",
+  "score_metrics": [
+    "relative_alpha_error",
+    "field_relative_l2",
+    "ic_relative_l2"
+  ],
+  "training_seeds": [
+    901,
+    902,
+    903
+  ],
+  "analysis_rules": {
+    "neural_dataset_score": "median of all three valid completed starts; otherwise incomplete",
+    "accuracy_summaries": "conditional on completion; no unconditional superiority inferred",
+    "paired_difference_units": "percentage points of raw relative error fractions",
+    "bootstrap": {
+      "reps": 10000,
+      "seed": "bootstrap_seed_offset + n_obs",
+      "seed_offset": 42000,
+      "minimum_complete_pairs": 10,
+      "statistic": "median of paired differences, resampling dataset cases within each family stratum"
+    }
+  },
+  "independent_design_counts": {
+    "dataset_case_count": 4,
+    "independent_design_count": 2,
+    "by_n_obs": {
+      "10": {
+        "dataset_case_count": 2,
+        "independent_design_count": 1
+      },
+      "50": {
+        "dataset_case_count": 2,
+        "independent_design_count": 1
+      }
+    },
+    "counting_rule": "unique (n_obs, data_seed); IC-family cases sharing a design count once"
+  },
+  "completeness_ledger": [
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "unreg6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.2345887669772012,
+            "field_relative_l2": 0.6159343267228464,
+            "ic_relative_l2": 2.0819984938206058
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "fixed6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.041173445205301695,
+            "field_relative_l2": 0.07632350063751682,
+            "ic_relative_l2": 0.18114377278630928
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "cv6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.041173445205301695,
+            "field_relative_l2": 0.07632350063751682,
+            "ic_relative_l2": 0.18114377278630928
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "cv12",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.041208357202311974,
+            "field_relative_l2": 0.07633794991802538,
+            "ic_relative_l2": 0.18117289795713679
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "pinn_200",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.6681891295069942,
+            "field_relative_l2": 0.5877225295947831,
+            "ic_relative_l2": 0.8382599903642945
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 2.660596982248605,
+            "field_relative_l2": 0.33622447773564723,
+            "ic_relative_l2": 0.5939712174405143
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.7660561067809901,
+            "field_relative_l2": 0.5588199594245177,
+            "ic_relative_l2": 0.7855702045353287
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "pinn_1000",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.662831938183572,
+            "field_relative_l2": 0.2963902556128042,
+            "ic_relative_l2": 0.5485739424754664
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.1614736184303675,
+            "field_relative_l2": 0.22415139324678818,
+            "ic_relative_l2": 0.4741841484727821
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.04792421521509757,
+            "field_relative_l2": 0.2355502298974143,
+            "ic_relative_l2": 0.46408541445358087
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "unreg6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.23485978190706483,
+            "field_relative_l2": 0.622774583484037,
+            "ic_relative_l2": 2.0630523441222373
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "fixed6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.03772332688630434,
+            "field_relative_l2": 0.09190350170315094,
+            "ic_relative_l2": 0.2801210429102806
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "cv6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.03772332688630434,
+            "field_relative_l2": 0.09190350170315094,
+            "ic_relative_l2": 0.2801210429102806
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "cv12",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.03775814265091576,
+            "field_relative_l2": 0.09175070599758094,
+            "ic_relative_l2": 0.27923086367797334
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "pinn_200",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.6682412516686824,
+            "field_relative_l2": 0.5892129079187073,
+            "ic_relative_l2": 0.8467197728802351
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 2.6606611497391586,
+            "field_relative_l2": 0.3397818984642997,
+            "ic_relative_l2": 0.6192026152670267
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.7659717107559076,
+            "field_relative_l2": 0.5603971656322851,
+            "ic_relative_l2": 0.7966108367919702
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "pinn_1000",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.6629998764403263,
+            "field_relative_l2": 0.30045901721914736,
+            "ic_relative_l2": 0.5777232261321537
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.1612063682994734,
+            "field_relative_l2": 0.2298746795139935,
+            "ic_relative_l2": 0.5112058437270929
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.04790862614032804,
+            "field_relative_l2": 0.24093828293738317,
+            "ic_relative_l2": 0.5021885358834357
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "unreg6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.014710189770033855,
+            "field_relative_l2": 0.006947730039728549,
+            "ic_relative_l2": 0.014685893759224824
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "fixed6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.01811805214535625,
+            "field_relative_l2": 0.0072330836172700905,
+            "ic_relative_l2": 0.014880121222996007
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "cv6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.01811805214535625,
+            "field_relative_l2": 0.0072330836172700905,
+            "ic_relative_l2": 0.014880121222996007
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "cv12",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.018064449080753137,
+            "field_relative_l2": 0.007177623731585867,
+            "ic_relative_l2": 0.014741939533238664
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "pinn_200",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.792712030701475,
+            "field_relative_l2": 0.6888796732013505,
+            "ic_relative_l2": 0.8467447743405987
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 2.5839422564346615,
+            "field_relative_l2": 0.2276965033436269,
+            "ic_relative_l2": 0.4761609021030369
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.8659975157065807,
+            "field_relative_l2": 0.4483466661484837,
+            "ic_relative_l2": 0.5514393447291881
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "pinn_1000",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.122895647310576,
+            "field_relative_l2": 0.3208344021606173,
+            "ic_relative_l2": 0.5363253800738531
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.3472395734924058,
+            "field_relative_l2": 0.20698181777190935,
+            "ic_relative_l2": 0.4418364756696791
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.3512521773716809,
+            "field_relative_l2": 0.21186125137137704,
+            "ic_relative_l2": 0.43736569123652813
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "unreg6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.004633702343119078,
+            "field_relative_l2": 0.06428632693802118,
+            "ic_relative_l2": 0.24830268024564137
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "fixed6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.00214334725662943,
+            "field_relative_l2": 0.06425575775059712,
+            "ic_relative_l2": 0.24728861728413046
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "cv6",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.00214334725662943,
+            "field_relative_l2": 0.06425575775059712,
+            "ic_relative_l2": 0.24728861728413046
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "cv12",
+      "expected_jobs": 1,
+      "observed_jobs": 1,
+      "valid_completed_jobs": 1,
+      "complete": true,
+      "status_counts": {
+        "completed": 1
+      },
+      "jobs": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.012756666741630257,
+            "field_relative_l2": 0.03600006893096975,
+            "ic_relative_l2": 0.13884821140196243
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "pinn_200",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.790614502949955,
+            "field_relative_l2": 0.6851085951376685,
+            "ic_relative_l2": 0.8503446168293349
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 2.5846799689129627,
+            "field_relative_l2": 0.22753415764104568,
+            "ic_relative_l2": 0.5072220204304349
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.859959017757722,
+            "field_relative_l2": 0.44595715984731965,
+            "ic_relative_l2": 0.5735564969424902
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "pinn_1000",
+      "expected_jobs": 3,
+      "observed_jobs": 3,
+      "valid_completed_jobs": 3,
+      "complete": true,
+      "status_counts": {
+        "completed": 3
+      },
+      "jobs": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 1.1049862136870996,
+            "field_relative_l2": 0.3159153439375699,
+            "ic_relative_l2": 0.5592898483629882
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.3492603575195524,
+            "field_relative_l2": 0.21333425886579646,
+            "ic_relative_l2": 0.480891576564143
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "valid_scores": true,
+          "scores": {
+            "relative_alpha_error": 0.362835369694163,
+            "field_relative_l2": 0.21932783425703178,
+            "ic_relative_l2": 0.47919335166407984
+          }
+        }
+      ]
+    }
+  ],
+  "method_summaries": [
+    {
+      "n_obs": 10,
+      "family": "A",
+      "method": "unreg6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.2345887669772012,
+          "mean": 0.2345887669772012,
+          "max": 0.2345887669772012
+        },
+        "field_relative_l2": {
+          "median": 0.6159343267228464,
+          "mean": 0.6159343267228464,
+          "max": 0.6159343267228464
+        },
+        "ic_relative_l2": {
+          "median": 2.0819984938206058,
+          "mean": 2.0819984938206058,
+          "max": 2.0819984938206058
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.013478999986546114,
+          "mean_per_observed_job_s": 0.013478999986546114
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.009469399985391647,
+          "mean_per_observed_job_s": 0.009469399985391647
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.032704200013540685,
+          "mean_per_observed_job_s": 0.032704200013540685
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "A",
+      "method": "fixed6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.041173445205301695,
+          "mean": 0.041173445205301695,
+          "max": 0.041173445205301695
+        },
+        "field_relative_l2": {
+          "median": 0.07632350063751682,
+          "mean": 0.07632350063751682,
+          "max": 0.07632350063751682
+        },
+        "ic_relative_l2": {
+          "median": 0.18114377278630928,
+          "mean": 0.18114377278630928,
+          "max": 0.18114377278630928
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.015652300004148856,
+          "mean_per_observed_job_s": 0.015652300004148856
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.00978890000260435,
+          "mean_per_observed_job_s": 0.00978890000260435
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.03439369998523034,
+          "mean_per_observed_job_s": 0.03439369998523034
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "A",
+      "method": "cv6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.041173445205301695,
+          "mean": 0.041173445205301695,
+          "max": 0.041173445205301695
+        },
+        "field_relative_l2": {
+          "median": 0.07632350063751682,
+          "mean": 0.07632350063751682,
+          "max": 0.07632350063751682
+        },
+        "ic_relative_l2": {
+          "median": 0.18114377278630928,
+          "mean": 0.18114377278630928,
+          "max": 0.18114377278630928
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.012210599990794435,
+          "mean_per_observed_job_s": 0.012210599990794435
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.30768820000230335,
+          "mean_per_observed_job_s": 0.30768820000230335
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.009661799995228648,
+          "mean_per_observed_job_s": 0.009661799995228648
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.9652688000060152,
+          "mean_per_observed_job_s": 0.9652688000060152
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "A",
+      "method": "cv12",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.041208357202311974,
+          "mean": 0.041208357202311974,
+          "max": 0.041208357202311974
+        },
+        "field_relative_l2": {
+          "median": 0.07633794991802538,
+          "mean": 0.07633794991802538,
+          "max": 0.07633794991802538
+        },
+        "ic_relative_l2": {
+          "median": 0.18117289795713679,
+          "mean": 0.18117289795713679,
+          "max": 0.18117289795713679
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.01083799998741597,
+          "mean_per_observed_job_s": 0.01083799998741597
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.42103559998213314,
+          "mean_per_observed_job_s": 0.42103559998213314
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.006285400013439357,
+          "mean_per_observed_job_s": 0.006285400013439357
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 1.0531399000028614,
+          "mean_per_observed_job_s": 1.0531399000028614
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "A",
+      "method": "pinn_200",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 1.7660561067809901,
+          "mean": 1.7660561067809901,
+          "max": 1.7660561067809901
+        },
+        "field_relative_l2": {
+          "median": 0.5588199594245177,
+          "mean": 0.5588199594245177,
+          "max": 0.5588199594245177
+        },
+        "ic_relative_l2": {
+          "median": 0.7855702045353287,
+          "mean": 0.7855702045353287,
+          "max": 0.7855702045353287
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.4655390999978408,
+          "mean_per_observed_job_s": 0.15517969999928027
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.053645199979655445,
+          "mean_per_observed_job_s": 0.017881733326551814
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.6711754999996629,
+          "mean_per_observed_job_s": 0.2237251666665543
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "A",
+      "method": "pinn_1000",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.1614736184303675,
+          "mean": 0.1614736184303675,
+          "max": 0.1614736184303675
+        },
+        "field_relative_l2": {
+          "median": 0.2355502298974143,
+          "mean": 0.2355502298974143,
+          "max": 0.2355502298974143
+        },
+        "ic_relative_l2": {
+          "median": 0.4741841484727821,
+          "mean": 0.4741841484727821,
+          "max": 0.4741841484727821
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.512578800029587,
+          "mean_per_observed_job_s": 0.17085960000986233
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.06147180002881214,
+          "mean_per_observed_job_s": 0.020490600009604048
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.7179410000098869,
+          "mean_per_observed_job_s": 0.23931366666996232
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "method": "unreg6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.23485978190706483,
+          "mean": 0.23485978190706483,
+          "max": 0.23485978190706483
+        },
+        "field_relative_l2": {
+          "median": 0.622774583484037,
+          "mean": 0.622774583484037,
+          "max": 0.622774583484037
+        },
+        "ic_relative_l2": {
+          "median": 2.0630523441222373,
+          "mean": 2.0630523441222373,
+          "max": 2.0630523441222373
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.024033599998801947,
+          "mean_per_observed_job_s": 0.024033599998801947
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0073278000054415315,
+          "mean_per_observed_job_s": 0.0073278000054415315
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.04373269999632612,
+          "mean_per_observed_job_s": 0.04373269999632612
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "method": "fixed6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.03772332688630434,
+          "mean": 0.03772332688630434,
+          "max": 0.03772332688630434
+        },
+        "field_relative_l2": {
+          "median": 0.09190350170315094,
+          "mean": 0.09190350170315094,
+          "max": 0.09190350170315094
+        },
+        "ic_relative_l2": {
+          "median": 0.2801210429102806,
+          "mean": 0.2801210429102806,
+          "max": 0.2801210429102806
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.011867500026710331,
+          "mean_per_observed_job_s": 0.011867500026710331
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.008861899987095967,
+          "mean_per_observed_job_s": 0.008861899987095967
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.028854800009867176,
+          "mean_per_observed_job_s": 0.028854800009867176
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "method": "cv6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.03772332688630434,
+          "mean": 0.03772332688630434,
+          "max": 0.03772332688630434
+        },
+        "field_relative_l2": {
+          "median": 0.09190350170315094,
+          "mean": 0.09190350170315094,
+          "max": 0.09190350170315094
+        },
+        "ic_relative_l2": {
+          "median": 0.2801210429102806,
+          "mean": 0.2801210429102806,
+          "max": 0.2801210429102806
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.00883189999149181,
+          "mean_per_observed_job_s": 0.00883189999149181
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.3440665999951307,
+          "mean_per_observed_job_s": 0.3440665999951307
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.007045900012599304,
+          "mean_per_observed_job_s": 0.007045900012599304
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.9089498999819625,
+          "mean_per_observed_job_s": 0.9089498999819625
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "method": "cv12",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.03775814265091576,
+          "mean": 0.03775814265091576,
+          "max": 0.03775814265091576
+        },
+        "field_relative_l2": {
+          "median": 0.09175070599758094,
+          "mean": 0.09175070599758094,
+          "max": 0.09175070599758094
+        },
+        "ic_relative_l2": {
+          "median": 0.27923086367797334,
+          "mean": 0.27923086367797334,
+          "max": 0.27923086367797334
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.012653300014790148,
+          "mean_per_observed_job_s": 0.012653300014790148
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.32129309998708777,
+          "mean_per_observed_job_s": 0.32129309998708777
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.006319200008874759,
+          "mean_per_observed_job_s": 0.006319200008874759
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.8131839999987278,
+          "mean_per_observed_job_s": 0.8131839999987278
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "method": "pinn_200",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 1.7659717107559076,
+          "mean": 1.7659717107559076,
+          "max": 1.7659717107559076
+        },
+        "field_relative_l2": {
+          "median": 0.5603971656322851,
+          "mean": 0.5603971656322851,
+          "max": 0.5603971656322851
+        },
+        "ic_relative_l2": {
+          "median": 0.7966108367919702,
+          "mean": 0.7966108367919702,
+          "max": 0.7966108367919702
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.35255949999555014,
+          "mean_per_observed_job_s": 0.11751983333185005
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.04537410000921227,
+          "mean_per_observed_job_s": 0.015124700003070757
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.5314611999783665,
+          "mean_per_observed_job_s": 0.17715373332612216
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "method": "pinn_1000",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.1612063682994734,
+          "mean": 0.1612063682994734,
+          "max": 0.1612063682994734
+        },
+        "field_relative_l2": {
+          "median": 0.24093828293738317,
+          "mean": 0.24093828293738317,
+          "max": 0.24093828293738317
+        },
+        "ic_relative_l2": {
+          "median": 0.5112058437270929,
+          "mean": 0.5112058437270929,
+          "max": 0.5112058437270929
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.4143684000009671,
+          "mean_per_observed_job_s": 0.13812280000032237
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.04477380000753328,
+          "mean_per_observed_job_s": 0.014924600002511093
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.5883108000271022,
+          "mean_per_observed_job_s": 0.19610360000903407
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "method": "unreg6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.014710189770033855,
+          "mean": 0.014710189770033855,
+          "max": 0.014710189770033855
+        },
+        "field_relative_l2": {
+          "median": 0.006947730039728549,
+          "mean": 0.006947730039728549,
+          "max": 0.006947730039728549
+        },
+        "ic_relative_l2": {
+          "median": 0.014685893759224824,
+          "mean": 0.014685893759224824,
+          "max": 0.014685893759224824
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.011313299997709692,
+          "mean_per_observed_job_s": 0.011313299997709692
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.006997399992542341,
+          "mean_per_observed_job_s": 0.006997399992542341
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.02696829999331385,
+          "mean_per_observed_job_s": 0.02696829999331385
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "method": "fixed6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.01811805214535625,
+          "mean": 0.01811805214535625,
+          "max": 0.01811805214535625
+        },
+        "field_relative_l2": {
+          "median": 0.0072330836172700905,
+          "mean": 0.0072330836172700905,
+          "max": 0.0072330836172700905
+        },
+        "ic_relative_l2": {
+          "median": 0.014880121222996007,
+          "mean": 0.014880121222996007,
+          "max": 0.014880121222996007
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.009013500006403774,
+          "mean_per_observed_job_s": 0.009013500006403774
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.007974600011948496,
+          "mean_per_observed_job_s": 0.007974600011948496
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.0242316999938339,
+          "mean_per_observed_job_s": 0.0242316999938339
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "method": "cv6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.01811805214535625,
+          "mean": 0.01811805214535625,
+          "max": 0.01811805214535625
+        },
+        "field_relative_l2": {
+          "median": 0.0072330836172700905,
+          "mean": 0.0072330836172700905,
+          "max": 0.0072330836172700905
+        },
+        "ic_relative_l2": {
+          "median": 0.014880121222996007,
+          "mean": 0.014880121222996007,
+          "max": 0.014880121222996007
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.007223900000099093,
+          "mean_per_observed_job_s": 0.007223900000099093
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.20198430001619272,
+          "mean_per_observed_job_s": 0.20198430001619272
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.005829400004586205,
+          "mean_per_observed_job_s": 0.005829400004586205
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.626275299990084,
+          "mean_per_observed_job_s": 0.626275299990084
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "method": "cv12",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.018064449080753137,
+          "mean": 0.018064449080753137,
+          "max": 0.018064449080753137
+        },
+        "field_relative_l2": {
+          "median": 0.007177623731585867,
+          "mean": 0.007177623731585867,
+          "max": 0.007177623731585867
+        },
+        "ic_relative_l2": {
+          "median": 0.014741939533238664,
+          "mean": 0.014741939533238664,
+          "max": 0.014741939533238664
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.008209300023736432,
+          "mean_per_observed_job_s": 0.008209300023736432
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.2823768999951426,
+          "mean_per_observed_job_s": 0.2823768999951426
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.006812300009187311,
+          "mean_per_observed_job_s": 0.006812300009187311
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.7361613000102807,
+          "mean_per_observed_job_s": 0.7361613000102807
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "method": "pinn_200",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 1.8659975157065807,
+          "mean": 1.8659975157065807,
+          "max": 1.8659975157065807
+        },
+        "field_relative_l2": {
+          "median": 0.4483466661484837,
+          "mean": 0.4483466661484837,
+          "max": 0.4483466661484837
+        },
+        "ic_relative_l2": {
+          "median": 0.5514393447291881,
+          "mean": 0.5514393447291881,
+          "max": 0.5514393447291881
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.3659392999834381,
+          "mean_per_observed_job_s": 0.12197976666114603
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.03231380000943318,
+          "mean_per_observed_job_s": 0.01077126666981106
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.5238186000206042,
+          "mean_per_observed_job_s": 0.17460620000686808
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "method": "pinn_1000",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.3512521773716809,
+          "mean": 0.3512521773716809,
+          "max": 0.3512521773716809
+        },
+        "field_relative_l2": {
+          "median": 0.21186125137137704,
+          "mean": 0.21186125137137704,
+          "max": 0.21186125137137704
+        },
+        "ic_relative_l2": {
+          "median": 0.4418364756696791,
+          "mean": 0.4418364756696791,
+          "max": 0.4418364756696791
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.3971342999720946,
+          "mean_per_observed_job_s": 0.1323780999906982
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.035871700005372986,
+          "mean_per_observed_job_s": 0.011957233335124329
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.5574417000170797,
+          "mean_per_observed_job_s": 0.18581390000569323
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "method": "unreg6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.004633702343119078,
+          "mean": 0.004633702343119078,
+          "max": 0.004633702343119078
+        },
+        "field_relative_l2": {
+          "median": 0.06428632693802118,
+          "mean": 0.06428632693802118,
+          "max": 0.06428632693802118
+        },
+        "ic_relative_l2": {
+          "median": 0.24830268024564137,
+          "mean": 0.24830268024564137,
+          "max": 0.24830268024564137
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.012612600025022402,
+          "mean_per_observed_job_s": 0.012612600025022402
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.006475100002717227,
+          "mean_per_observed_job_s": 0.006475100002717227
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.026924100005999207,
+          "mean_per_observed_job_s": 0.026924100005999207
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "method": "fixed6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.00214334725662943,
+          "mean": 0.00214334725662943,
+          "max": 0.00214334725662943
+        },
+        "field_relative_l2": {
+          "median": 0.06425575775059712,
+          "mean": 0.06425575775059712,
+          "max": 0.06425575775059712
+        },
+        "ic_relative_l2": {
+          "median": 0.24728861728413046,
+          "mean": 0.24728861728413046,
+          "max": 0.24728861728413046
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.010272799991071224,
+          "mean_per_observed_job_s": 0.010272799991071224
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.007772199984174222,
+          "mean_per_observed_job_s": 0.007772199984174222
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.025147999986074865,
+          "mean_per_observed_job_s": 0.025147999986074865
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "method": "cv6",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.00214334725662943,
+          "mean": 0.00214334725662943,
+          "max": 0.00214334725662943
+        },
+        "field_relative_l2": {
+          "median": 0.06425575775059712,
+          "mean": 0.06425575775059712,
+          "max": 0.06425575775059712
+        },
+        "ic_relative_l2": {
+          "median": 0.24728861728413046,
+          "mean": 0.24728861728413046,
+          "max": 0.24728861728413046
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0070853000215720385,
+          "mean_per_observed_job_s": 0.0070853000215720385
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.2560673000116367,
+          "mean_per_observed_job_s": 0.2560673000116367
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.0082125999906566,
+          "mean_per_observed_job_s": 0.0082125999906566
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.6598454999912065,
+          "mean_per_observed_job_s": 0.6598454999912065
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "method": "cv12",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.012756666741630257,
+          "mean": 0.012756666741630257,
+          "max": 0.012756666741630257
+        },
+        "field_relative_l2": {
+          "median": 0.03600006893096975,
+          "mean": 0.03600006893096975,
+          "max": 0.03600006893096975
+        },
+        "ic_relative_l2": {
+          "median": 0.13884821140196243,
+          "mean": 0.13884821140196243,
+          "max": 0.13884821140196243
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 1,
+          "total_s": 0.009052799985511228,
+          "mean_per_observed_job_s": 0.009052799985511228
+        },
+        "selection_time_s": {
+          "observed_values": 1,
+          "total_s": 0.26908470000489615,
+          "mean_per_observed_job_s": 0.26908470000489615
+        },
+        "evaluation_time_s": {
+          "observed_values": 1,
+          "total_s": 0.005421100009698421,
+          "mean_per_observed_job_s": 0.005421100009698421
+        },
+        "job_elapsed_s": {
+          "observed_values": 1,
+          "total_s": 0.6554116000188515,
+          "mean_per_observed_job_s": 0.6554116000188515
+        }
+      },
+      "status_counts": {
+        "completed": 1
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "method": "pinn_200",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 1.859959017757722,
+          "mean": 1.859959017757722,
+          "max": 1.859959017757722
+        },
+        "field_relative_l2": {
+          "median": 0.44595715984731965,
+          "mean": 0.44595715984731965,
+          "max": 0.44595715984731965
+        },
+        "ic_relative_l2": {
+          "median": 0.5735564969424902,
+          "mean": 0.5735564969424902,
+          "max": 0.5735564969424902
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.3638618999684695,
+          "mean_per_observed_job_s": 0.12128729998948984
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.04194740002276376,
+          "mean_per_observed_job_s": 0.013982466674254587
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.5352469999925233,
+          "mean_per_observed_job_s": 0.17841566666417444
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "method": "pinn_1000",
+      "expected_count": 1,
+      "complete_count": 1,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median": 0.362835369694163,
+          "mean": 0.362835369694163,
+          "max": 0.362835369694163
+        },
+        "field_relative_l2": {
+          "median": 0.21932783425703178,
+          "mean": 0.21932783425703178,
+          "max": 0.21932783425703178
+        },
+        "ic_relative_l2": {
+          "median": 0.480891576564143,
+          "mean": 0.480891576564143,
+          "max": 0.480891576564143
+        }
+      },
+      "timings_all_observed_jobs": {
+        "fit_time_s": {
+          "observed_values": 3,
+          "total_s": 0.5117692000058014,
+          "mean_per_observed_job_s": 0.17058973333526714
+        },
+        "selection_time_s": {
+          "observed_values": 3,
+          "total_s": 0.0,
+          "mean_per_observed_job_s": 0.0
+        },
+        "evaluation_time_s": {
+          "observed_values": 3,
+          "total_s": 0.034733800013782457,
+          "mean_per_observed_job_s": 0.011577933337927485
+        },
+        "job_elapsed_s": {
+          "observed_values": 3,
+          "total_s": 0.6917178999574389,
+          "mean_per_observed_job_s": 0.23057263331914632
+        }
+      },
+      "status_counts": {
+        "completed": 3
+      }
+    }
+  ],
+  "dataset_scores": [
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "unreg6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.2345887669772012,
+            "field_relative_l2": 0.6159343267228464,
+            "ic_relative_l2": 2.0819984938206058
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.2345887669772012,
+        "field_relative_l2": 0.6159343267228464,
+        "ic_relative_l2": 2.0819984938206058
+      }
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "fixed6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.041173445205301695,
+            "field_relative_l2": 0.07632350063751682,
+            "ic_relative_l2": 0.18114377278630928
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.041173445205301695,
+        "field_relative_l2": 0.07632350063751682,
+        "ic_relative_l2": 0.18114377278630928
+      }
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "cv6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.041173445205301695,
+            "field_relative_l2": 0.07632350063751682,
+            "ic_relative_l2": 0.18114377278630928
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.041173445205301695,
+        "field_relative_l2": 0.07632350063751682,
+        "ic_relative_l2": 0.18114377278630928
+      }
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "cv12",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.041208357202311974,
+            "field_relative_l2": 0.07633794991802538,
+            "ic_relative_l2": 0.18117289795713679
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.041208357202311974,
+        "field_relative_l2": 0.07633794991802538,
+        "ic_relative_l2": 0.18117289795713679
+      }
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "pinn_200",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.6681891295069942,
+            "field_relative_l2": 0.5877225295947831,
+            "ic_relative_l2": 0.8382599903642945
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 2.660596982248605,
+            "field_relative_l2": 0.33622447773564723,
+            "ic_relative_l2": 0.5939712174405143
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.7660561067809901,
+            "field_relative_l2": 0.5588199594245177,
+            "ic_relative_l2": 0.7855702045353287
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 1.7660561067809901,
+        "field_relative_l2": 0.5588199594245177,
+        "ic_relative_l2": 0.7855702045353287
+      }
+    },
+    {
+      "case_id": "n10_seed987100_A",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "A",
+      "method": "pinn_1000",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.662831938183572,
+            "field_relative_l2": 0.2963902556128042,
+            "ic_relative_l2": 0.5485739424754664
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.1614736184303675,
+            "field_relative_l2": 0.22415139324678818,
+            "ic_relative_l2": 0.4741841484727821
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.04792421521509757,
+            "field_relative_l2": 0.2355502298974143,
+            "ic_relative_l2": 0.46408541445358087
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.1614736184303675,
+        "field_relative_l2": 0.2355502298974143,
+        "ic_relative_l2": 0.4741841484727821
+      }
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "unreg6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.23485978190706483,
+            "field_relative_l2": 0.622774583484037,
+            "ic_relative_l2": 2.0630523441222373
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.23485978190706483,
+        "field_relative_l2": 0.622774583484037,
+        "ic_relative_l2": 2.0630523441222373
+      }
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "fixed6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.03772332688630434,
+            "field_relative_l2": 0.09190350170315094,
+            "ic_relative_l2": 0.2801210429102806
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.03772332688630434,
+        "field_relative_l2": 0.09190350170315094,
+        "ic_relative_l2": 0.2801210429102806
+      }
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "cv6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.03772332688630434,
+            "field_relative_l2": 0.09190350170315094,
+            "ic_relative_l2": 0.2801210429102806
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.03772332688630434,
+        "field_relative_l2": 0.09190350170315094,
+        "ic_relative_l2": 0.2801210429102806
+      }
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "cv12",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.03775814265091576,
+            "field_relative_l2": 0.09175070599758094,
+            "ic_relative_l2": 0.27923086367797334
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.03775814265091576,
+        "field_relative_l2": 0.09175070599758094,
+        "ic_relative_l2": 0.27923086367797334
+      }
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "pinn_200",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.6682412516686824,
+            "field_relative_l2": 0.5892129079187073,
+            "ic_relative_l2": 0.8467197728802351
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 2.6606611497391586,
+            "field_relative_l2": 0.3397818984642997,
+            "ic_relative_l2": 0.6192026152670267
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.7659717107559076,
+            "field_relative_l2": 0.5603971656322851,
+            "ic_relative_l2": 0.7966108367919702
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 1.7659717107559076,
+        "field_relative_l2": 0.5603971656322851,
+        "ic_relative_l2": 0.7966108367919702
+      }
+    },
+    {
+      "case_id": "n10_seed987100_B",
+      "n_obs": 10,
+      "data_seed": 987100,
+      "family": "B",
+      "method": "pinn_1000",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.6629998764403263,
+            "field_relative_l2": 0.30045901721914736,
+            "ic_relative_l2": 0.5777232261321537
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.1612063682994734,
+            "field_relative_l2": 0.2298746795139935,
+            "ic_relative_l2": 0.5112058437270929
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.04790862614032804,
+            "field_relative_l2": 0.24093828293738317,
+            "ic_relative_l2": 0.5021885358834357
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.1612063682994734,
+        "field_relative_l2": 0.24093828293738317,
+        "ic_relative_l2": 0.5112058437270929
+      }
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "unreg6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.014710189770033855,
+            "field_relative_l2": 0.006947730039728549,
+            "ic_relative_l2": 0.014685893759224824
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.014710189770033855,
+        "field_relative_l2": 0.006947730039728549,
+        "ic_relative_l2": 0.014685893759224824
+      }
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "fixed6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.01811805214535625,
+            "field_relative_l2": 0.0072330836172700905,
+            "ic_relative_l2": 0.014880121222996007
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.01811805214535625,
+        "field_relative_l2": 0.0072330836172700905,
+        "ic_relative_l2": 0.014880121222996007
+      }
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "cv6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.01811805214535625,
+            "field_relative_l2": 0.0072330836172700905,
+            "ic_relative_l2": 0.014880121222996007
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.01811805214535625,
+        "field_relative_l2": 0.0072330836172700905,
+        "ic_relative_l2": 0.014880121222996007
+      }
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "cv12",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.018064449080753137,
+            "field_relative_l2": 0.007177623731585867,
+            "ic_relative_l2": 0.014741939533238664
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.018064449080753137,
+        "field_relative_l2": 0.007177623731585867,
+        "ic_relative_l2": 0.014741939533238664
+      }
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "pinn_200",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.792712030701475,
+            "field_relative_l2": 0.6888796732013505,
+            "ic_relative_l2": 0.8467447743405987
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 2.5839422564346615,
+            "field_relative_l2": 0.2276965033436269,
+            "ic_relative_l2": 0.4761609021030369
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.8659975157065807,
+            "field_relative_l2": 0.4483466661484837,
+            "ic_relative_l2": 0.5514393447291881
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 1.8659975157065807,
+        "field_relative_l2": 0.4483466661484837,
+        "ic_relative_l2": 0.5514393447291881
+      }
+    },
+    {
+      "case_id": "n50_seed987101_A",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "A",
+      "method": "pinn_1000",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.122895647310576,
+            "field_relative_l2": 0.3208344021606173,
+            "ic_relative_l2": 0.5363253800738531
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.3472395734924058,
+            "field_relative_l2": 0.20698181777190935,
+            "ic_relative_l2": 0.4418364756696791
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.3512521773716809,
+            "field_relative_l2": 0.21186125137137704,
+            "ic_relative_l2": 0.43736569123652813
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.3512521773716809,
+        "field_relative_l2": 0.21186125137137704,
+        "ic_relative_l2": 0.4418364756696791
+      }
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "unreg6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.004633702343119078,
+            "field_relative_l2": 0.06428632693802118,
+            "ic_relative_l2": 0.24830268024564137
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.004633702343119078,
+        "field_relative_l2": 0.06428632693802118,
+        "ic_relative_l2": 0.24830268024564137
+      }
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "fixed6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.00214334725662943,
+            "field_relative_l2": 0.06425575775059712,
+            "ic_relative_l2": 0.24728861728413046
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.00214334725662943,
+        "field_relative_l2": 0.06425575775059712,
+        "ic_relative_l2": 0.24728861728413046
+      }
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "cv6",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.00214334725662943,
+            "field_relative_l2": 0.06425575775059712,
+            "ic_relative_l2": 0.24728861728413046
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.00214334725662943,
+        "field_relative_l2": 0.06425575775059712,
+        "ic_relative_l2": 0.24728861728413046
+      }
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "cv12",
+      "complete": true,
+      "score_rule": "single_fit",
+      "initialization_scores": [
+        {
+          "training_seed": null,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.012756666741630257,
+            "field_relative_l2": 0.03600006893096975,
+            "ic_relative_l2": 0.13884821140196243
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.012756666741630257,
+        "field_relative_l2": 0.03600006893096975,
+        "ic_relative_l2": 0.13884821140196243
+      }
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "pinn_200",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.790614502949955,
+            "field_relative_l2": 0.6851085951376685,
+            "ic_relative_l2": 0.8503446168293349
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 2.5846799689129627,
+            "field_relative_l2": 0.22753415764104568,
+            "ic_relative_l2": 0.5072220204304349
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.859959017757722,
+            "field_relative_l2": 0.44595715984731965,
+            "ic_relative_l2": 0.5735564969424902
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 1.859959017757722,
+        "field_relative_l2": 0.44595715984731965,
+        "ic_relative_l2": 0.5735564969424902
+      }
+    },
+    {
+      "case_id": "n50_seed987101_B",
+      "n_obs": 50,
+      "data_seed": 987101,
+      "family": "B",
+      "method": "pinn_1000",
+      "complete": true,
+      "score_rule": "median_of_three_starts",
+      "initialization_scores": [
+        {
+          "training_seed": 901,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 1.1049862136870996,
+            "field_relative_l2": 0.3159153439375699,
+            "ic_relative_l2": 0.5592898483629882
+          }
+        },
+        {
+          "training_seed": 902,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.3492603575195524,
+            "field_relative_l2": 0.21333425886579646,
+            "ic_relative_l2": 0.480891576564143
+          }
+        },
+        {
+          "training_seed": 903,
+          "status": "completed",
+          "scores": {
+            "relative_alpha_error": 0.362835369694163,
+            "field_relative_l2": 0.21932783425703178,
+            "ic_relative_l2": 0.47919335166407984
+          }
+        }
+      ],
+      "scores": {
+        "relative_alpha_error": 0.362835369694163,
+        "field_relative_l2": 0.21932783425703178,
+        "ic_relative_l2": 0.480891576564143
+      }
+    }
+  ],
+  "paired_contrasts": [
+    {
+      "n_obs": 10,
+      "family": "A",
+      "neural_method": "pinn_200",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 172.4847749578678,
+          "mean_pp": 172.4847749578678,
+          "max_pp": 172.4847749578678,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 48.24820095064923,
+          "mean_pp": 48.24820095064923,
+          "max_pp": 48.24820095064923,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 60.43973065781919,
+          "mean_pp": 60.43973065781919,
+          "max_pp": 60.43973065781919,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n10_seed987100_A",
+          "data_seed": 987100,
+          "differences_pp": {
+            "relative_alpha_error": 172.4847749578678,
+            "field_relative_l2": 48.24820095064923,
+            "ic_relative_l2": 60.43973065781919
+          }
+        }
+      ]
+    },
+    {
+      "n_obs": 10,
+      "family": "A",
+      "neural_method": "pinn_1000",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 12.026526122805553,
+          "mean_pp": 12.026526122805553,
+          "max_pp": 12.026526122805553,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 15.921227997938892,
+          "mean_pp": 15.921227997938892,
+          "max_pp": 15.921227997938892,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 29.301125051564537,
+          "mean_pp": 29.301125051564537,
+          "max_pp": 29.301125051564537,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n10_seed987100_A",
+          "data_seed": 987100,
+          "differences_pp": {
+            "relative_alpha_error": 12.026526122805553,
+            "field_relative_l2": 15.921227997938892,
+            "ic_relative_l2": 29.301125051564537
+          }
+        }
+      ]
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "neural_method": "pinn_200",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 172.8213568104992,
+          "mean_pp": 172.8213568104992,
+          "max_pp": 172.8213568104992,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 46.86464596347042,
+          "mean_pp": 46.86464596347042,
+          "max_pp": 46.86464596347042,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 51.73799731139969,
+          "mean_pp": 51.73799731139969,
+          "max_pp": 51.73799731139969,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n10_seed987100_B",
+          "data_seed": 987100,
+          "differences_pp": {
+            "relative_alpha_error": 172.8213568104992,
+            "field_relative_l2": 46.86464596347042,
+            "ic_relative_l2": 51.73799731139969
+          }
+        }
+      ]
+    },
+    {
+      "n_obs": 10,
+      "family": "B",
+      "neural_method": "pinn_1000",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 12.344822564855765,
+          "mean_pp": 12.344822564855765,
+          "max_pp": 12.344822564855765,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 14.918757693980222,
+          "mean_pp": 14.918757693980222,
+          "max_pp": 14.918757693980222,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 23.197498004911953,
+          "mean_pp": 23.197498004911953,
+          "max_pp": 23.197498004911953,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n10_seed987100_B",
+          "data_seed": 987100,
+          "differences_pp": {
+            "relative_alpha_error": 12.344822564855765,
+            "field_relative_l2": 14.918757693980222,
+            "ic_relative_l2": 23.197498004911953
+          }
+        }
+      ]
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "neural_method": "pinn_200",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 184.79330666258275,
+          "mean_pp": 184.79330666258275,
+          "max_pp": 184.79330666258275,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 44.11690424168978,
+          "mean_pp": 44.11690424168978,
+          "max_pp": 44.11690424168978,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 53.669740519594946,
+          "mean_pp": 53.669740519594946,
+          "max_pp": 53.669740519594946,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n50_seed987101_A",
+          "data_seed": 987101,
+          "differences_pp": {
+            "relative_alpha_error": 184.79330666258275,
+            "field_relative_l2": 44.11690424168978,
+            "ic_relative_l2": 53.669740519594946
+          }
+        }
+      ]
+    },
+    {
+      "n_obs": 50,
+      "family": "A",
+      "neural_method": "pinn_1000",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 33.31877282909278,
+          "mean_pp": 33.31877282909278,
+          "max_pp": 33.31877282909278,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 20.468362763979115,
+          "mean_pp": 20.468362763979115,
+          "max_pp": 20.468362763979115,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 42.709453613644044,
+          "mean_pp": 42.709453613644044,
+          "max_pp": 42.709453613644044,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n50_seed987101_A",
+          "data_seed": 987101,
+          "differences_pp": {
+            "relative_alpha_error": 33.31877282909278,
+            "field_relative_l2": 20.468362763979115,
+            "ic_relative_l2": 42.709453613644044
+          }
+        }
+      ]
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "neural_method": "pinn_200",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 184.72023510160918,
+          "mean_pp": 184.72023510160918,
+          "max_pp": 184.72023510160918,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 40.99570909163499,
+          "mean_pp": 40.99570909163499,
+          "max_pp": 40.99570909163499,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 43.47082855405277,
+          "mean_pp": 43.47082855405277,
+          "max_pp": 43.47082855405277,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n50_seed987101_B",
+          "data_seed": 987101,
+          "differences_pp": {
+            "relative_alpha_error": 184.72023510160918,
+            "field_relative_l2": 40.99570909163499,
+            "ic_relative_l2": 43.47082855405277
+          }
+        }
+      ]
+    },
+    {
+      "n_obs": 50,
+      "family": "B",
+      "neural_method": "pinn_1000",
+      "baseline_method": "cv12",
+      "expected_pairs": 1,
+      "complete_pairs": 1,
+      "pairing_unit": "dataset case (same case_id); family pairs are not pooled",
+      "inference_complete": false,
+      "conditional_on_completion": true,
+      "metrics": {
+        "relative_alpha_error": {
+          "median_pp": 35.00787029525328,
+          "mean_pp": 35.00787029525328,
+          "max_pp": 35.00787029525328,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "field_relative_l2": {
+          "median_pp": 18.332776532606204,
+          "mean_pp": 18.332776532606204,
+          "max_pp": 18.332776532606204,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        },
+        "ic_relative_l2": {
+          "median_pp": 34.204336516218056,
+          "mean_pp": 34.204336516218056,
+          "max_pp": 34.204336516218056,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "bootstrap_95_percentile_ci_for_median_pp": null
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "n50_seed987101_B",
+          "data_seed": 987101,
+          "differences_pp": {
+            "relative_alpha_error": 35.00787029525328,
+            "field_relative_l2": 18.332776532606204,
+            "ic_relative_l2": 34.204336516218056
+          }
+        }
+      ]
+    }
+  ],
+  "mode": "software_smoke_only",
+  "run_status": "complete",
+  "input_manifest_sha256": "89d7b4a16ce62f9e5aaf32b844921a89a89f6887b9d8f648710e579e3cbb128d",
+  "created_utc": "2026-11-03T21:53:03.540017+00:00"
+}

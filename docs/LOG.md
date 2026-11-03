@@ -534,3 +534,37 @@ paired IC-family controls and explicit failure/statistical rules. It is a draft
 pending implementation verification and a final prospective freeze; its proposed
 evaluation seeds have not been generated or inspected. No new experiment is
 requested merely to replace the already-completed budget check.
+
+## 2026-11-04 (broader workflow implementation and software verification)
+
+Following merged PR 2 and the user's portability checkpoint 8f3ac82, implemented
+the broader data generator, two-basis observation-only CV, both fixed neural
+budgets, generic exact scoring/refinement, failure retention, integrity-checked
+resume, source/config freeze gate, and separate paired analysis. The final protocol
+is `docs/BROADER_COMPARISON_PROTOCOL.md`; commands are documented separately.
+
+The assistant ran only software seeds 987100/987101, never the reserved evaluation
+designs. Forty software jobs complete, followed by verified analysis of four cases
+from two independent designs. All ten-design bootstrap intervals are suppressed
+for this smoke run. The complete suite passed 224 tests in 33.35 seconds on the
+workspace Python 3.12.14 environment. See `audit/broader_implementation_verification.md`.
+
+Next reproduce the software workflow in the user's environment, then commit the
+verified implementation/protocol and smoke evidence, create and commit the freeze
+record, and only then generate evaluation data. No prospective result is claimed
+by this implementation entry.
+
+## 2026-11-04 (user-environment broader software validation)
+
+The user reproduced 224 passing tests in 81.82 seconds on Python 3.14.6, then
+completed all 40 software jobs and the separate analysis. The assistant verified
+all current frozen-source identities, 241 run-output and six analysis-output
+hashes, paired coordinate/noise/fold reuse, method completeness, and suppression
+of bootstrap intervals for the single design per stratum. Evidence is preserved
+in the user's two smoke folders and `audit/user_run_evidence`.
+
+These values are software diagnostics, excluded from scientific evaluation. The
+main configuration is unchanged, its 400-job schedule is defined, and the freeze
+record/main evaluation output do not yet exist. Next checkpoint the verified
+implementation and smoke evidence, create and commit the prospective freeze, then
+run the fixed evaluation without retuning or replacing unfavorable outcomes.

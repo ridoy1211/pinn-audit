@@ -68,3 +68,9 @@ report/*.synctex.gz
 # Derived paired review, with no new training.
 !results/pinn_budget_review_v1/
 !results/pinn_budget_review_v1/**
+
+# User-environment software verification before the prospective freeze.
+!results/broader_smoke_user_v1/
+!results/broader_smoke_user_v1/**
+!results/broader_smoke_analysis_user_v1/
+!results/broader_smoke_analysis_user_v1/**

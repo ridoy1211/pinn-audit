@@ -1,0 +1,29 @@
+{
+  "classification": "derived_prespecified_analysis_no_fitting",
+  "input_manifest_sha256": "89d7b4a16ce62f9e5aaf32b844921a89a89f6887b9d8f648710e579e3cbb128d",
+  "analysis_sources_sha256": {
+    "configs/inverse/broader_comparison.json": "464192e174a6205fe68b2472ade75acc5bc172d0b715730578c9193195b17488",
+    "docs/BROADER_COMPARISON_PROTOCOL.md": "ea89f7a99abbd22c9c04e8a46db6eb1be2b6fc97f8e03cf57d217abe17b88fb7",
+    "scripts/analyze_broader_study.py": "f03a40f96bc11c68c43f77d6fe46c6178f4166cd2a5c79c313dcbd401e60d11f",
+    "scripts/broader_analysis.py": "a39be143cc361ac06570c443b2ed05bf4a96b3bb094e36b23def54e90e21fbdc",
+    "scripts/broader_common.py": "29c9079ca0659949ca25af15d1497937844c4858d95d568f202671b788367616",
+    "scripts/broader_provenance.py": "5d2545def943435d12a136d575e643c242889bc142c19f35568e2f7e995f3972",
+    "scripts/freeze_broader_study.py": "17b43bfb0fa37486c84193c680fc60d2facf631ecfb4e6189292d71e2641cfb2",
+    "scripts/pilot_bounded_pinn.py": "3053d118344c84ce2f3e5b76e4ebae5ea69bba0b3c043887004b2bfd2db7299b",
+    "scripts/run_broader_study.py": "0f5b5aae4f2118c2abf84025e897b8b19a7e8e279ea340c475ab18ff051c7ad1",
+    "scripts/score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "src/pinnaudit/config.py": "4de5c1123a96278db9082c59ddb164231a8b7c2757d5d4af51b93e0b399b5983",
+    "src/pinnaudit/io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "src/pinnaudit/problems/base.py": "e4a534ecc42c29f4bd6ca7befa1b4a9cdc47d1ff87fd4c685c821c231107c293",
+    "src/pinnaudit/solvers/neural.py": "76fdc3f5f10429a7fe377c66ef40d70a73466183e16eccce1bdbc6c440395f26",
+    "src/pinnaudit/spectral_inverse.py": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81"
+  },
+  "output_sha256": {
+    "analysis.json": "74828ba6a0bb63bc94771b0a2a83065038520e3f1e7842e6ec39794790b0a41c",
+    "completeness.csv": "ac053ebbdd0ff81ea1220c44cad8ec6e403ac98e59d81bd7a543d62090d29947",
+    "dataset_scores.csv": "2a7bef1f67c1d03c72d4e3b1c386c4722dc478e975fe974f85ee74f2a7ab31b9",
+    "method_summary.csv": "f158f05677a750b70e9ac268289b4716b3901789b5085e00ab1faabf4bdd3cf8",
+    "paired_contrasts.csv": "c80d414c3f8d32efb91a2257b1fb973f925102d370cc710f9f16a4f8ea57a135",
+    "summary.md": "cd5b5123e24fd54ae318df1b68ca7151173fbfae5b3f723113acb8844c0e11a6"
+  }
+}

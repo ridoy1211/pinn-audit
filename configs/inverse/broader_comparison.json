@@ -1,0 +1,53 @@
+{
+  "study_id": "joint_heat_inverse_v1",
+  "length": 1.0,
+  "final_time": 1.0,
+  "alpha_true_generation_and_scoring_only": 0.05,
+  "families": {
+    "A": [{"n": 1, "amplitude": 1.0}, {"n": 3, "amplitude": 0.5}],
+    "B": [{"n": 1, "amplitude": 1.0}, {"n": 3, "amplitude": 0.5}, {"n": 7, "amplitude": 0.25}]
+  },
+  "designs": {
+    "10": [6000, 6001, 6002, 6003, 6004, 6005, 6006, 6007, 6008, 6009],
+    "50": [7000, 7001, 7002, 7003, 7004, 7005, 7006, 7007, 7008, 7009]
+  },
+  "noise_sigma_absolute": 0.01,
+  "fold_seed_offset": 30000,
+  "folds": 5,
+  "ridges": [1e-10, 1e-8, 1e-6, 0.0001, 0.01],
+  "classical_modes": [6, 12],
+  "fixed_ridge": 1e-6,
+  "alpha_bounds": [0.00001, 1.0],
+  "profile_points": 1601,
+  "training_seeds": [101, 102, 103],
+  "neural_budgets": {
+    "pinn_200": {"lbfgs_iters": 200, "lbfgs_max_eval": 250},
+    "pinn_1000": {"lbfgs_iters": 1000, "lbfgs_max_eval": 1250}
+  },
+  "neural": {
+    "alpha_bounds": [0.00001, 1.0],
+    "alpha0": 0.2,
+    "width": 32,
+    "depth": 3,
+    "adam_steps": 2000,
+    "lr": 0.001,
+    "alpha_lr_factor": 10.0,
+    "lbfgs_history_size": 50,
+    "tolerance_grad": 1e-12,
+    "tolerance_change": 1e-14,
+    "data_weight": 10.0,
+    "pde_weight": 1.0,
+    "trace_every": 250,
+    "max_train_seconds": 600.0
+  },
+  "collocation_seed": 314159,
+  "collocation_points": 512,
+  "residual_eval_seed": 271828,
+  "residual_eval_points": 2048,
+  "grid_points": 401,
+  "refinement_grid_points": 801,
+  "save_dense_fields_for_first_design_only": true,
+  "bootstrap_reps": 10000,
+  "bootstrap_seed_offset": 42000,
+  "min_complete_pairs": 10
+}
