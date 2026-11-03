@@ -512,3 +512,25 @@ above the configured gradient tolerance. Specify one larger-budget diagnostic
 all six cases. Report both budgets without truth-based selection. See
 `docs/PINN_BUDGET_CHECK_PLAN.md`. After this check, move to a bounded broader
 comparison design rather than indefinitely extending these same examples.
+
+## 2026-11-04 (budget-check review and broader design draft)
+
+The user completed the six longer-budget fits at commit d98bacb. A later attempt
+to repeat the command hit the intended FileExistsError before training; existing
+results remained intact. The preceding pilot/plan were already committed, while
+the new budget-results directory had not yet been staged by the repeated commands.
+
+Source/input/output hashes match for both budgets. The assistant reproduced all
+six Adam endpoints and larger-budget checkpoint grids, recovery metrics, residual
+arrays and objectives without training new models. All six training losses fall;
+all three recovery metrics improve in every sparse-case start and worsen in
+every denser-case start. See `docs/PINN_BUDGET_CHECK_REVIEW.md` and the paired
+analysis/figure in `results/pinn_budget_review_v1`. Neither budget is certified
+converged and neither is selected using truth error.
+
+The selected-case phase is closed. A proposed broader design now addresses
+regularization, basis capacity and both fixed neural budgets on fresh data, with
+paired IC-family controls and explicit failure/statistical rules. It is a draft
+pending implementation verification and a final prospective freeze; its proposed
+evaluation seeds have not been generated or inspected. No new experiment is
+requested merely to replace the already-completed budget check.

@@ -20,3 +20,4 @@ results/bounded_pinn_pilot_v1/** -text
 *.pt binary
 audit/bounded_pinn_pilot_review.json -text
 results/bounded_pinn_budget_check_v1/** -text
+results/pinn_budget_review_v1/** -text

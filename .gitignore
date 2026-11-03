@@ -64,3 +64,7 @@ report/*.synctex.gz
 # One declared optimizer-budget sensitivity check.
 !results/bounded_pinn_budget_check_v1/
 !results/bounded_pinn_budget_check_v1/**
+
+# Derived paired review, with no new training.
+!results/pinn_budget_review_v1/
+!results/pinn_budget_review_v1/**
