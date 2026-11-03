@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 import matplotlib
 import numpy as np
@@ -28,6 +28,14 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def evidence_path(base, recorded_name):
+    """Read relative manifest names recorded with either Windows or POSIX separators."""
+    relative = PureWindowsPath(recorded_name)
+    if relative.anchor or not relative.parts or ".." in relative.parts:
+        raise ValueError(f"Expected a relative evidence path: {recorded_name!r}")
+    return base.joinpath(*relative.parts)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--old", type=Path, default=Path("results/bounded_pinn_pilot_v1"))
@@ -43,16 +51,16 @@ def main():
         assert manifest["status"] == "complete"
         for section in ("source_sha256", "input_sha256"):
             for name, expected in manifest[section].items():
-                assert digest(root / name) == expected, name
+                assert digest(evidence_path(root, name)) == expected, name
         for name, expected in manifest["output_sha256"].items():
-            assert digest(folder / name) == expected, name
+            assert digest(evidence_path(folder, name)) == expected, name
         manifests.append(manifest)
     old_config, new_config = (read_json(p / "config.json") for p in (args.old, args.new))
     for key in old_config:
         if key not in ("stage", "lbfgs_iters", "lbfgs_max_eval"):
             assert old_config[key] == new_config[key], key
     assert digest(args.old / "manifest.json") == new_config["original_result_manifest_sha256"]
-    assert digest(root / new_config["protocol_note"]) == new_config["protocol_sha256"]
+    assert digest(evidence_path(root, new_config["protocol_note"])) == new_config["protocol_sha256"]
     before, after = (read_json(p / "records.json") for p in (args.old, args.new))
     assert len(before) == len(after) == 6
     torch.set_num_threads(1)
@@ -103,7 +111,9 @@ def main():
                 rtol=1e-9,
                 atol=1e-12,
             )
-        path = root / new_config["data_directory"] / f"observations_n{key[0]}_seed{key[1]}.npz"
+        path = evidence_path(root, new_config["data_directory"]) / (
+            f"observations_n{key[0]}_seed{key[1]}.npz"
+        )
         with np.load(path) as obs:
             data = (model(column(obs["x"]), column(obs["t"])) - column(obs["y"])).square().mean()
         pde = (
