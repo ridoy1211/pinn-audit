@@ -5,8 +5,27 @@ from __future__ import annotations
 import polars as pl
 
 
+def _require_unique_replicates(df: pl.DataFrame, keys: list[str]) -> None:
+    """Prevent revised/repeated jobs from being silently pooled as independent seeds."""
+    if df.select(keys).is_duplicated().any():
+        raise ValueError(
+            "duplicate replicate rows: filter one immutable experiment revision before summary"
+        )
+    group_keys = [key for key in keys if key != "seed"]
+    # New records make code/design identity explicit. Missing identity in legacy
+    # records is not reconstructed here; those need a separate evidence audit.
+    for identity in ("code_revision", "design_fingerprint", "config_fingerprint"):
+        if identity == "config_fingerprint" and "variant" in keys:
+            continue  # Forward config fingerprints include the seed.
+        if identity in df.columns:
+            counts = df.group_by(group_keys).agg(pl.col(identity).n_unique().alias("n"))
+            if counts.filter(pl.col("n") > 1).height:
+                raise ValueError("mixed experiment identities: filter one immutable revision")
+
+
 def summarise(df: pl.DataFrame) -> pl.DataFrame:
     """One row per variant: seed count, error mean/spread/range, mean time."""
+    _require_unique_replicates(df, ["variant", "seed"])
     return df.group_by("variant", maintain_order=True).agg(
         pl.col("seed").n_unique().alias("n_seeds"),
         pl.col("metric_relative_l2").mean().alias("l2_mean"),
@@ -34,6 +53,7 @@ def to_markdown(summary: pl.DataFrame) -> str:
 
 def summarise_inverse(df: pl.DataFrame) -> pl.DataFrame:
     """One row per (observations, noise, method): error in alpha across seeds, and time."""
+    _require_unique_replicates(df, ["n_obs", "noise", "method", "seed"])
     return (
         df.group_by("n_obs", "noise", "method")
         .agg(

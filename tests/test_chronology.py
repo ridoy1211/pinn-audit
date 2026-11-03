@@ -9,6 +9,8 @@ import sys
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
+import polars as pl
+
 _SPEC = importlib.util.spec_from_file_location("check_chronology", "scripts/check_chronology.py")
 assert _SPEC is not None
 assert _SPEC.loader is not None
@@ -67,3 +69,50 @@ def test_every_check_names_a_real_results_file_pattern() -> None:
         assert check.results.startswith("results/")
         assert check.results.endswith(".parquet")
         assert check.values
+
+
+def test_first_run_uses_the_explicit_start_not_the_legacy_completion(tmp_path: Path) -> None:
+    started = "2026-01-01T12:00:00+00:00"
+    completed = "2026-01-01T13:00:00+00:00"
+    path = tmp_path / "runs.parquet"
+    pl.DataFrame(
+        {
+            "variant": ["pinn"],
+            "run_started_utc": [started],
+            "completed_utc": [completed],
+            "timestamp_utc": [completed],
+        }
+    ).write_parquet(path)
+
+    result = chrono.first_run(path, "variant", ("pinn",))
+    assert result.timestamp == datetime.fromisoformat(started)
+    assert result.issue is None
+
+
+def test_legacy_rows_cannot_verify_using_completion_time(tmp_path: Path) -> None:
+    path = tmp_path / "legacy.parquet"
+    pl.DataFrame(
+        {"variant": ["pinn"], "timestamp_utc": ["2026-01-01T13:00:00+00:00"]}
+    ).write_parquet(path)
+
+    result = chrono.first_run(path, "variant", ("pinn",))
+    assert result.timestamp is None
+    assert result.issue is not None
+    assert chrono.checked_verdict(T0, result).startswith("NOT VERIFIED")
+
+
+def test_a_mixed_legacy_selection_fails_closed(tmp_path: Path) -> None:
+    path = tmp_path / "mixed.parquet"
+    pl.DataFrame(
+        {
+            "variant": ["pinn", "pinn_lbfgs"],
+            "timestamp_utc": ["2026-01-01T13:00:00+00:00"] * 2,
+            "run_started_utc": [None, "2026-01-01T12:00:00+00:00"],
+        }
+    ).write_parquet(path)
+
+    result = chrono.first_run(path, "variant", ("pinn", "pinn_lbfgs"))
+    assert result.timestamp is None
+    assert result.issue is not None
+    assert "one or more selected rows" in result.issue
+    assert chrono.checked_verdict(T0, result).startswith("NOT VERIFIED")

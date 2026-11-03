@@ -377,3 +377,38 @@ Classical errors, timed in the same session as these runs: heat 2.12e-3, 5.31e-4
 **Caveats.** The confirmation covers the headline variants only. The data variants, the no-physics network, the separate effects of weight and L-BFGS, and the mode analysis are still development-seed results. Ten seeds leave wide intervals (for the tuned wave PINN 0.024 to 0.060). One machine.
 
 **Open.** A regularised classical baseline for the unknown-initial-condition inverse setting, then the dimension study and the report.
+
+## 2026-11-03 (reproducibility audit and regularized inverse pilot)
+
+**Scope.** Continue the regularized classical baseline for the unknown-initial-
+condition heat inverse problem, already listed as open in the October entries.
+This is a continuation of the project. Session labels such as DAY1 in newly
+collected working notes do not restart the original project chronology.
+
+**Verification and provenance.** The user reproduced 180 passing tests in 55.22 s
+on Python 3.14.6. The audit found that the old chronology checker used completion
+timestamps, so its labels alone cannot certify prediction-before-start. Repairs
+add explicit starts and code/config identities; no historical starts were invented.
+Original neural run records were unavailable in the supplied snapshot.
+
+**Exploratory experiment.** Compare the existing Crank-Nicolson unregularized
+inverse estimator with an exact spectral variable-projection estimator, using six
+unknown IC amplitudes, 10/50 observations, 5% noise relative to each sampled clean
+signal standard deviation, and development data seeds 0-4. The spectral penalties
+are lambda=0, 1e-6, 1e-4, and 1e-2. Fifty classical fits were saved, along with all
+observations, profiles, configurations, and source hashes. No PINNs were trained.
+
+**Finding and caution.** At N=10, lambda=1e-6 lowers median spectral alpha error
+from 25.40% to 12.10%, but raises mean error from 21.71% to 27.16% and the worst
+observed error from 40.71% to 98.00%. It helps three datasets and worsens two; one
+estimate reaches the lower search bound. A lower median does not establish
+consistently better recovery or a validated final regularization rule.
+
+**Evidence.** See `results/my_classical_pilot_v1`, `docs/REGULARIZED_INVERSE_AUDIT.md`,
+and `audit/user_run_evidence`. The Git checkpoint is retrospective and exploratory,
+not preregistration. The original ZIP run's unknown Git revision is preserved, with
+source hashes and an import manifest recording its relationship to this checkout.
+
+**Next.** Inspect bound/search sensitivity, select regularization using available
+data rather than true alpha, and define shared priors, independent dataset/training
+replication, evaluation, and a frozen protocol before confirmation.

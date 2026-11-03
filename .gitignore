@@ -34,3 +34,9 @@ report/*.out
 report/*.fls
 report/*.fdb_latexmk
 report/*.synctex.gz
+
+# Audit checkpoint: explicitly archive the small exploratory pilot.
+!results/my_classical_pilot_v1/
+!results/my_classical_pilot_v1/**
+/work_test_temp*/
+/work/

@@ -7,6 +7,7 @@ one definition of what "running an experiment" means.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import UTC, datetime
 from typing import Any
 
 from pinnaudit import metrics as M
@@ -36,6 +37,7 @@ class RunResult:
 
 def run_once(cfg: RunConfig) -> RunResult:
     """Build problem and solver, solve, and score against the analytic solution."""
+    run_started_utc = datetime.now(UTC).isoformat()
     problem = build_problem(cfg.problem)
     solver = build_solver(cfg.solver, seed=cfg.seed)
 
@@ -48,4 +50,7 @@ def run_once(cfg: RunConfig) -> RunResult:
         "rmse": M.rmse(solution.u, reference),
         "final_time_relative_l2": M.final_time_relative_l2(solution.u, reference),
     }
+    # The record writer runs after this function returns. Preserve the true
+    # start time on the solution so every CLI path records the same boundary.
+    solution.meta["run_started_utc"] = run_started_utc
     return RunResult(config=cfg, problem=problem, solution=solution, metrics=scores)

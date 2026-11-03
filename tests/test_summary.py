@@ -5,7 +5,7 @@ from __future__ import annotations
 import polars as pl
 import pytest
 
-from pinnaudit.summary import summarise, to_markdown
+from pinnaudit.summary import summarise, summarise_inverse, to_markdown
 
 
 def _frame() -> pl.DataFrame:
@@ -46,3 +46,30 @@ def test_markdown_table_has_a_row_per_variant() -> None:
     assert len(lines) == 4
     assert "| a | 3 | 2.00e+00 | 1.00e+00 |" in lines[2]
     assert "n/a" in lines[3]
+
+
+def test_revised_or_repeated_seed_rows_are_not_silently_pooled() -> None:
+    df = _frame()
+    with pytest.raises(ValueError, match="duplicate replicate"):
+        summarise(pl.concat([df, df.head(1)]))
+
+
+def test_inverse_duplicate_seed_rows_are_not_silently_pooled() -> None:
+    df = pl.DataFrame(
+        {
+            "n_obs": [10, 10],
+            "noise": [0.05, 0.05],
+            "method": ["lsq", "lsq"],
+            "seed": [0, 0],
+            "rel_err": [0.1, 0.2],
+            "wall_time_s": [1.0, 1.0],
+        }
+    )
+    with pytest.raises(ValueError, match="duplicate replicate"):
+        summarise_inverse(df)
+
+
+def test_disjoint_seeds_from_different_code_revisions_are_not_pooled() -> None:
+    df = _frame().with_columns(pl.Series("code_revision", ["old", "new", "new", "new"]))
+    with pytest.raises(ValueError, match="mixed experiment identities"):
+        summarise(df)

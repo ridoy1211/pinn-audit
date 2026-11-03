@@ -1,5 +1,12 @@
 # Protocol
 
+> Audit correction, 3 November 2026: the original chronology checker compared
+> prediction commits with timestamps recorded at run completion. Its old VERIFIED
+> labels cannot establish commit-before-start. The revised checker requires actual
+> `run_started_utc` values and rejects selected legacy rows without them. Historical
+> chronology claims below remain subject to that limitation; no start times were
+> reconstructed or backdated. See `docs/SUPERVISOR_AUDIT.md` for the repair scope.
+
 This file records how the experiments were designed and, just as important, which
 choices were made *after* seeing data. A reader should be able to tell the
 difference between a prediction that was tested and a result that was explained

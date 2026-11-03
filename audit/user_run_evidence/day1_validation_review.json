@@ -1,0 +1,13 @@
+{
+  "review_date": "2026-11-03",
+  "evidence_basis": "User-supplied terminal transcript; tests were not rerun by the assistant in this review",
+  "python_reported": "3.14.6",
+  "test_command": "python -m pytest --basetemp work_test_temp_day1",
+  "test_result_reported": "180 passed in 55.22s",
+  "execution_timestamp": "Not present in the supplied transcript",
+  "transcript_sha256": "3c0b085d9d44bcd399fc712642d636e7daa401e05bea6b552b3a8c6602450107",
+  "environment_file_sha256": "4889f954860611f7ccf216df54ef22ab04d4eace5ce4dad057c590cc89878a4f",
+  "bundle_files_checked_excluding_audit": 87,
+  "bundle_file_differences": [],
+  "research_status": "Software validation completed; the user reproduction of the classical pilot is next; no confirmatory PINN comparison established"
+}

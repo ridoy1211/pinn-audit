@@ -2,8 +2,9 @@
 """Check that each prediction was committed before the runs it predicts.
 
 For each experiment this compares the time of the commit that recorded the
-prediction with the earliest timestamp among the runs it concerns. Result files
-are not versioned, so run this on the machine that produced them.
+prediction with the earliest recorded run start among the rows it concerns. Result
+files are not versioned, so run this on the machine that produced them. Legacy
+rows with completion timestamps only cannot verify chronology.
 
 A prediction is VERIFIED only if a commit with the expected message exists and is
 earlier than the first run. Otherwise it is reported as NOT VERIFIED, and the lab
@@ -27,6 +28,12 @@ class Check:
     results: str  # parquet file holding the runs
     column: str  # column used to pick the runs
     values: tuple[str, ...]  # values of that column that belong to this experiment
+
+
+@dataclass(frozen=True)
+class RunStart:
+    timestamp: datetime | None
+    issue: str | None = None
 
 
 CHECKS = [
@@ -99,15 +106,30 @@ def commit_times(subject: str, repo: Path = Path(".")) -> list[datetime]:
     return times
 
 
-def first_run(path: Path, column: str, values: tuple[str, ...]) -> datetime | None:
-    """Earliest ``timestamp_utc`` among the rows of ``path`` where ``column`` is in ``values``."""
+def first_run(path: Path, column: str, values: tuple[str, ...]) -> RunStart:
+    """Earliest explicit start time for selected rows, or why it is unavailable."""
     import polars as pl
 
     if not path.exists():
-        return None
-    df = pl.read_parquet(path, columns=["timestamp_utc", column])
-    stamps = df.filter(pl.col(column).is_in(list(values)))["timestamp_utc"].to_list()
-    return min(datetime.fromisoformat(s) for s in stamps) if stamps else None
+        return RunStart(None)
+    df = pl.read_parquet(path)
+    if column not in df.columns:
+        return RunStart(None, f"selection column {column!r} is missing")
+    selected = df.filter(pl.col(column).is_in(list(values)))
+    if selected.is_empty():
+        return RunStart(None)
+    if "run_started_utc" not in selected.columns:
+        return RunStart(None, "legacy rows have completion timestamps only")
+    raw_stamps = selected["run_started_utc"].to_list()
+    if any(not isinstance(stamp, str) or not stamp.strip() for stamp in raw_stamps):
+        return RunStart(None, "one or more selected rows lack a recorded run start")
+    try:
+        stamps = [datetime.fromisoformat(stamp) for stamp in raw_stamps]
+    except ValueError:
+        return RunStart(None, "one or more selected run-start timestamps are malformed")
+    if any(stamp.utcoffset() is None for stamp in stamps):
+        return RunStart(None, "one or more selected run-start timestamps lack a timezone")
+    return RunStart(min(stamps))
 
 
 def verdict(commit: datetime | None, run: datetime | None) -> str:
@@ -120,15 +142,28 @@ def verdict(commit: datetime | None, run: datetime | None) -> str:
     return "NOT VERIFIED (the commit is later than the first run)"
 
 
+def checked_verdict(commit: datetime | None, run_start: RunStart) -> str:
+    """Do not infer a run start from a legacy completion timestamp."""
+    if run_start.issue:
+        return f"NOT VERIFIED (run start unavailable: {run_start.issue})"
+    return verdict(commit, run_start.timestamp)
+
+
 def main() -> None:
     for check in CHECKS:
         commits = commit_times(check.commit_subject)
         commit = min(commits) if commits else None
-        run = first_run(Path(check.results), check.column, check.values)
+        run_start = first_run(Path(check.results), check.column, check.values)
         print(f"{check.name}")
         print(f"    prediction commit : {commit.isoformat() if commit else 'none'}")
-        print(f"    first run (UTC)   : {run.isoformat() if run else 'none'}")
-        print(f"    verdict           : {verdict(commit, run)}")
+        if run_start.timestamp:
+            run_text = run_start.timestamp.isoformat()
+        elif run_start.issue:
+            run_text = f"unavailable ({run_start.issue})"
+        else:
+            run_text = "no matching rows"
+        print(f"    first run start   : {run_text}")
+        print(f"    verdict           : {checked_verdict(commit, run_start)}")
 
 
 if __name__ == "__main__":
