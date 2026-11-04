@@ -630,3 +630,49 @@ its proposed matched-tuning design was not what the fixed evaluation implemented
 `docs/NEXT_STEPS.md` sets out reading, explanation practice and a manual Git
 checkpoint. No models, raw outcomes, frozen sources or primary analyses changed.
 The new writing files remain local until the user commits and pushes them.
+
+## 2026-11-05 (assembled manuscript body)
+
+Following the author's reading of the Introduction and Discussion, assembled
+the four existing academic sections in `docs/MANUSCRIPT_BODY_DRAFT.md`. Added
+the two existing figures and one entry for each of the five cited primary works.
+All 52 data rows across the three Results tables are preserved verbatim, with
+source hashes checked against the archived table-source record. The assembly
+script preserves subsequent author edits rather than overwriting them silently.
+Assembly inputs and the output hash are recorded in `audit/manuscript_assembly.json`.
+
+The abstract, final conclusion, author details, current journal selection and
+submission formatting remain outstanding. No experiment or primary analysis
+changed. The combined body and the SciSpace review assessment are local work
+pending a later manual Git checkpoint.
+
+## 2026-11-05 (publication route and abstract preparation)
+
+Checked current official scope and publishing routes for SN Computer Science
+and Computational and Applied Mathematics, and JOSS's distinct software scope.
+Both Springer journals state no APC for their subscription route. SN Computer
+Science is a provisional formatting candidate, not an acceptance prediction;
+COAM's explicit novelty threshold is a material concern for this narrow audit.
+See `docs/PUBLICATION_ROUTE_REVIEW.md` for sources and qualifications.
+
+Prepared a structured abstract and conclusion from the archived outcomes in
+`docs/ABSTRACT_AND_CONCLUSION_DRAFT.md`. The abstract fits the provisional
+150-250-word instruction. Author/title-page information and factual declarations
+remain outstanding. No submission, journal contact or experiment was performed.
+
+## 2026-11-05 (GitHub discrepancy audit and isolated replay)
+
+GitHub API access confirms main=99586c4 and research head=0977887, five commits
+ahead with no PR covering them and no head check runs. The current README still
+foregrounded older unverified historical tables on both branches. Local repairs
+replace the front page with the fixed-study summary, preserve historical claims
+in Git history, scope the environment record, label collection commands as
+historical, and enable pushes to the research branch in CI. No remote mutation
+was performed. See `docs/GITHUB_REPOSITORY_REVIEW.md`.
+
+An isolated archive export of the exact remote head passed 227 tests in 52.38 s.
+Analysis replay verified all 15 source and 2365 run-output hashes; all four CSVs
+and the Markdown summary are byte-identical, and scientific analysis JSON is
+identical excluding its generation time. Original evaluation models and saved
+outputs were unchanged. This completes the isolated-analysis portion of Day 7;
+author review, final packaging and submission readiness remain outstanding.

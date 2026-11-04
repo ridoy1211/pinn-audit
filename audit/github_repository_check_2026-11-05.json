@@ -1,0 +1,41 @@
+{
+  "classification": "read_only_committed_tree_replay_no_evaluation_retraining",
+  "commit": "09778874da8c14f4103d6b41dc31aff4b154aba8",
+  "source": "isolated git archive export; not a new network clone",
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "torch": "2.15.0+cpu",
+  "source_hashes_checked": 15,
+  "run_output_hashes_checked": 2365,
+  "comparisons": {
+    "completeness.csv": {
+      "byte_identical": true,
+      "sha256": "367374bb802a0f8887e00c2586bf095def93bf0b49e5b1201a6daace9730c4a6"
+    },
+    "dataset_scores.csv": {
+      "byte_identical": true,
+      "sha256": "666dea8bca8c4125b32e2e39abf3e28a7b8575e2408a076e77b406e306cb6ea0"
+    },
+    "method_summary.csv": {
+      "byte_identical": true,
+      "sha256": "cd0c57bb0d89a138547b0de06e4b07111079cb3cb74a6972cbc328ef725e8df6"
+    },
+    "paired_contrasts.csv": {
+      "byte_identical": true,
+      "sha256": "f5db35f68f496ab71a5b04bf6ab11400ffbdef1b3afc9e92105f13c029552282"
+    },
+    "summary.md": {
+      "byte_identical": true,
+      "sha256": "24a6afeacf191d623b2918a2176d22d113bdd698e7f40964c85538dd16143058"
+    }
+  },
+  "analysis_equal_except_created_utc": true,
+  "tests": {
+    "passed": 227,
+    "seconds": 52.38,
+    "scope": "full suite in isolated committed tree; includes tiny software-training tests, not retraining evaluation models"
+  },
+  "isolated_workspace": "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\work\\github_repo_audit_2026_11_05_mj9tuo3x\\committed_tree",
+  "replay_output": "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\work\\github_repo_audit_2026_11_05_mj9tuo3x\\reproduced_analysis"
+}

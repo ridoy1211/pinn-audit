@@ -1,0 +1,14 @@
+{
+  "classification": "manuscript_assembly_no_training_or_analysis_change",
+  "input_sha256": {
+    "docs/INTRODUCTION_DRAFT.md": "6840409feee565f1f1bab94c0fc4a26f18aee7911b28846278ef7218c3f941d5",
+    "docs/METHODS_DRAFT.md": "bee97ba5701f7f6caee54dba26ee30cc835f63300f418701fa6cfa6342a6c65c",
+    "docs/RESULTS_DRAFT.md": "709291c3a8b6d6034930aae456218df0a9f922b5fae9a3060eef68a945fad554",
+    "docs/DISCUSSION_DRAFT.md": "ed52b7b36706718465ab422ab3aef45dd40f24a4e470e66e5dd0ec2233f9f89d"
+  },
+  "output_sha256": "347adb8f2b07e01d71152dfe16f655e5bd8ab15c3fe8381565debcc151db2a26",
+  "preserved_table_data_rows": 52,
+  "reference_entries": 5,
+  "figures": 2,
+  "editorial_notes_from_methods": "Confirm the exact CPU model and add a concise environment table using recorded\nversions, rather than guessing hardware specifications. Add verified citations\nfor methodological precedents in the eventual related-work section. Preserve\nthe distinction between the prespecified analysis and supplementary numerical\nverification. Neither the study design nor reproducibility alone establishes\nthe contribution's publication novelty."
+}

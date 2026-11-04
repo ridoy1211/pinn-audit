@@ -1,5 +1,22 @@
 # Broader study commands
 
+**Status update, 5 November 2026:** the main collection and original analysis are
+complete and archived. The instructions below record how that work was performed;
+they are not a new task list. The original user-verification count of 224 was
+correct at that checkpoint; three subsequent post-evaluation checks bring the
+current committed suite to 227. Do not repeat a completed collection or overwrite
+its output directory.
+
+To analyze the saved outcomes again, use a fresh output location:
+
+```cmd
+python scripts/analyze_broader_study.py --results results\broader_study_v1 --out-dir results\broader_analysis_replay_01
+```
+
+This fits no evaluation models. Current artifact allowlists in `.gitignore`
+include the completed study; statements below about ignored outputs describe
+collection-time policy. Preserve the frozen protocol's original text and hashes.
+
 The implementation lives on `broader-comparison-implementation`. Run commands
 from the existing project root with its environment active. No package reinstall
 is required. The final evaluation is protected by a committed source/config freeze.

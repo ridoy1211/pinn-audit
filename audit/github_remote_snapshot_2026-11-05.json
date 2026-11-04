@@ -1,0 +1,57 @@
+{
+  "checked_date": "2026-11-05",
+  "repository": "ridoy1211/pinn-audit",
+  "default_branch": "main",
+  "branches": [
+    {
+      "name": "broader-comparison-implementation",
+      "sha": "09778874da8c14f4103d6b41dc31aff4b154aba8"
+    },
+    {
+      "name": "main",
+      "sha": "99586c4347e66fcb36aae3123c3794f161ec26aa"
+    },
+    {
+      "name": "regularized-inverse-audit",
+      "sha": "9399eb4c768d85004a4e28571de6f52ee4cd07e5"
+    },
+    {
+      "name": "sparse-inverse-diagnostic",
+      "sha": "857e730dfcde4351369312cad74a723be4031200"
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 2,
+      "state": "closed",
+      "merged_at": "2026-11-03T20:38:52Z",
+      "head": "sparse-inverse-diagnostic",
+      "sha": "857e730dfcde4351369312cad74a723be4031200"
+    },
+    {
+      "number": 1,
+      "state": "closed",
+      "merged_at": "2026-11-03T06:26:15Z",
+      "head": "regularized-inverse-audit",
+      "sha": "9399eb4c768d85004a4e28571de6f52ee4cd07e5"
+    }
+  ],
+  "comparison": {
+    "status": "ahead",
+    "ahead_by": 5,
+    "behind_by": 0,
+    "total_commits": 5,
+    "returned_changed_file_count": 300,
+    "note": "API diff file lists may be capped; source/evidence audit used the complete pinned local Git archive."
+  },
+  "reviewed_readme_blob": "dcff0223c65708ffd9169b98a82ae42f933ccd64",
+  "readme_same_on_main_and_research_head": true,
+  "pr_workflow_runs": {
+    "workflow_runs": []
+  },
+  "check_runs": {
+    "total_count": 0,
+    "check_runs": []
+  },
+  "mutations_performed": []
+}
