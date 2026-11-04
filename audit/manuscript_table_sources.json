@@ -1,0 +1,14 @@
+{
+  "classification": "post_evaluation_manuscript_tables_no_analysis_change",
+  "evidence_commit": "4a64ed4cae0991bb957c18dd2bcea26162bd4e22",
+  "input_sha256": {
+    "results/broader_analysis_v1/method_summary.csv": "cd0c57bb0d89a138547b0de06e4b07111079cb3cb74a6972cbc328ef725e8df6",
+    "results/broader_analysis_v1/paired_contrasts.csv": "f5db35f68f496ab71a5b04bf6ab11400ffbdef1b3afc9e92105f13c029552282",
+    "results/broader_results_review_v1/timing.csv": "da0d53d2a4fdc868ffb5376feb22c0e48d9be839b00dceb3cf4b9380ccf50fbf"
+  },
+  "method_table_rows": 24,
+  "paired_contrast_rows": 24,
+  "timing_table_rows": 4,
+  "rounding": "errors and paired contrasts: 3 decimals; timing: 2 decimals",
+  "results_draft_sha256": "709291c3a8b6d6034930aae456218df0a9f922b5fae9a3060eef68a945fad554"
+}

@@ -595,3 +595,38 @@ not a universal ranking, proof of convergence, or novelty certification.
 The declared evaluation is closed. Prepare a complete result checkpoint and an
 evidence-led paper draft; do not retune these evaluation cases. Figures, source
 checks and timing definitions are archived alongside all original data/results.
+
+## 2026-11-04 (evidence pushed; Methods and Results drafting)
+
+The user pushed the full completed evidence checkpoint as
+4a64ed4cae0991bb957c18dd2bcea26162bd4e22 on broader-comparison-implementation.
+The local checkout matched its tracking branch and was clean before drafting.
+Methods and Results sections were prepared separately in `METHODS_DRAFT.md` and
+`RESULTS_DRAFT.md`; this is not yet a complete manuscript or a claim of publication
+novelty. All 24 method/stratum rows, all 24 planned paired contrasts and four
+timing rows were transferred directly from the archived CSVs. Input hashes and
+rounding rules are recorded in `audit/manuscript_table_sources.json`.
+
+No experiment, frozen source, primary analysis or archived outcome was changed.
+Next the author should check the problem, independence units, distinction
+between paired and marginal summaries, and the limits of the comparative claims.
+Related-work positioning and a current journal-fee/scope check remain necessary
+before a submission decision.
+
+## 2026-11-05 (related-work positioning and discussion)
+
+Prepared an Introduction draft, Discussion draft and explicit contribution
+assessment. A targeted primary-source search rechecked the nearest classical,
+inverse-PINN and backward-heat precedents. The additional NEXT preprint was
+screened through its formulation/inverse sections, with a five-question note
+and access limits in `audit/literature_update_2026-11-05.md`.
+
+The candidate contribution is a narrow comparative audit. Joint heat inversion,
+noisy inverse benchmarking and spectral/neural combinations already have
+precedents. A unique intersection was not certified, and no matched-tuning claim
+is made. The original literature memo remains a historical development document;
+its proposed matched-tuning design was not what the fixed evaluation implemented.
+
+`docs/NEXT_STEPS.md` sets out reading, explanation practice and a manual Git
+checkpoint. No models, raw outcomes, frozen sources or primary analyses changed.
+The new writing files remain local until the user commits and pushes them.
