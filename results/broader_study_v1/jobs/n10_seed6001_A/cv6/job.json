@@ -1,0 +1,32 @@
+{
+  "case_id": "n10_seed6001_A",
+  "n_obs": 10,
+  "data_seed": 6001,
+  "family": "A",
+  "method": "cv6",
+  "training_seed": null,
+  "run_started_utc": "2026-11-04T05:54:53.020123+00:00",
+  "artifact_path": "jobs/n10_seed6001_A/cv6",
+  "status": "completed",
+  "alpha_hat": 0.045938669723410076,
+  "selected_ridge": 1e-06,
+  "basis_modes": 6,
+  "at_bound": false,
+  "fit_time_s": 0.2231272000062745,
+  "selection_time_s": 9.754746000020532,
+  "nonselected_full_fit_diagnostics_time_s": 1.2907204999937676,
+  "field_relative_l2": 0.03462454984849552,
+  "ic_relative_l2": 0.08262515500100813,
+  "relative_alpha_error": 0.08122660553179853,
+  "data_mse": 3.0806137928520394e-05,
+  "evaluation_time_s": 0.05110510002123192,
+  "job_elapsed_s": 11.96155139998882,
+  "completed_utc": "2026-11-04T05:55:04.991672+00:00",
+  "artifact_sha256": {
+    "candidate_fits.npz": "244cb3a8840d8c743d207015c8395f3806e888e7a34173102e5ca6b80cb04a89",
+    "fold_scores.json": "d89240298b17b4af538fe5a2a9d070493e63cb3d5aab7470cbea50f30c43401d",
+    "model.npz": "4f18c666e92516a5336982ba4d3d8c4db137d97e6b19fe84a273b82287ed6e9b",
+    "predictions.npz": "144062ac95703d7422095e23074d537d0da4988d73f5c10bb4a414ad13f8fba8",
+    "selection.json": "92a9947de2548302260ac2b98f49da861663a0a6a7a52f6f2837df3f62424088"
+  }
+}

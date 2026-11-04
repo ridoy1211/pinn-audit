@@ -1,0 +1,3202 @@
+[
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6000_A",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6000_B",
+    "n_obs": 10,
+    "data_seed": 6000,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6001_A",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6001_B",
+    "n_obs": 10,
+    "data_seed": 6001,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6002_A",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6002_B",
+    "n_obs": 10,
+    "data_seed": 6002,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6003_A",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6003_B",
+    "n_obs": 10,
+    "data_seed": 6003,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6004_A",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6004_B",
+    "n_obs": 10,
+    "data_seed": 6004,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6005_A",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6005_B",
+    "n_obs": 10,
+    "data_seed": 6005,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6006_A",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6006_B",
+    "n_obs": 10,
+    "data_seed": 6006,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6007_A",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6007_B",
+    "n_obs": 10,
+    "data_seed": 6007,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6008_A",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6008_B",
+    "n_obs": 10,
+    "data_seed": 6008,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6009_A",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n10_seed6009_B",
+    "n_obs": 10,
+    "data_seed": 6009,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7000_A",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7000_B",
+    "n_obs": 50,
+    "data_seed": 7000,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7001_A",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7001_B",
+    "n_obs": 50,
+    "data_seed": 7001,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7002_A",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7002_B",
+    "n_obs": 50,
+    "data_seed": 7002,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7003_A",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7003_B",
+    "n_obs": 50,
+    "data_seed": 7003,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7004_A",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7004_B",
+    "n_obs": 50,
+    "data_seed": 7004,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7005_A",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7005_B",
+    "n_obs": 50,
+    "data_seed": 7005,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7006_A",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7006_B",
+    "n_obs": 50,
+    "data_seed": 7006,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7007_A",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7007_B",
+    "n_obs": 50,
+    "data_seed": 7007,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7008_A",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7008_B",
+    "n_obs": 50,
+    "data_seed": 7008,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7009_A",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "A",
+    "method": "pinn_1000",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "unreg6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "fixed6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "cv6",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "cv12",
+    "training_seed": null
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "pinn_200",
+    "training_seed": 103
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 101
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 102
+  },
+  {
+    "case_id": "n50_seed7009_B",
+    "n_obs": 50,
+    "data_seed": 7009,
+    "family": "B",
+    "method": "pinn_1000",
+    "training_seed": 103
+  }
+]

@@ -23,3 +23,6 @@ results/bounded_pinn_budget_check_v1/** -text
 results/pinn_budget_review_v1/** -text
 results/broader_smoke_user_v1/** -text
 results/broader_smoke_analysis_user_v1/** -text
+results/broader_study_v1/** -text
+results/broader_analysis_v1/** -text
+results/broader_results_review_v1/** -text

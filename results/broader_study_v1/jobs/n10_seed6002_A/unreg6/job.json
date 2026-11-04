@@ -1,0 +1,29 @@
+{
+  "case_id": "n10_seed6002_A",
+  "n_obs": 10,
+  "data_seed": 6002,
+  "family": "A",
+  "method": "unreg6",
+  "training_seed": null,
+  "run_started_utc": "2026-11-04T06:02:38.613519+00:00",
+  "artifact_path": "jobs/n10_seed6002_A/unreg6",
+  "status": "completed",
+  "alpha_hat": 0.04410456176028927,
+  "selected_ridge": 0.0,
+  "basis_modes": 6,
+  "at_bound": false,
+  "fit_time_s": 0.18853639997541904,
+  "selection_time_s": 0.0,
+  "nonselected_full_fit_diagnostics_time_s": 0.0,
+  "field_relative_l2": 0.6293775694098199,
+  "ic_relative_l2": 2.2943612962889897,
+  "relative_alpha_error": 0.11790876479421467,
+  "data_mse": 1.9156223101955307e-05,
+  "evaluation_time_s": 0.03587150000385009,
+  "job_elapsed_s": 0.2326242999988608,
+  "completed_utc": "2026-11-04T06:02:38.851947+00:00",
+  "artifact_sha256": {
+    "model.npz": "95ed4b40caa77f0eeba284f03b94adff97961275310c4a823877551e09849bc3",
+    "predictions.npz": "c88e14c95dd8c751483a9236d5fb1c979d9ad9e359ebc62d94ac356a65a64aa3"
+  }
+}

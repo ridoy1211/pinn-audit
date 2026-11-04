@@ -1,0 +1,10 @@
+{
+  "case_id": "n10_seed6007_A",
+  "n_obs": 10,
+  "data_seed": 6007,
+  "family": "A",
+  "method": "pinn_1000",
+  "training_seed": 103,
+  "run_started_utc": "2026-11-04T06:45:33.703768+00:00",
+  "artifact_path": "jobs/n10_seed6007_A/pinn_1000_train103"
+}

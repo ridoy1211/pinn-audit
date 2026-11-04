@@ -74,3 +74,11 @@ report/*.synctex.gz
 !results/broader_smoke_user_v1/**
 !results/broader_smoke_analysis_user_v1/
 !results/broader_smoke_analysis_user_v1/**
+
+# Completed fixed evaluation and its immutable analysis/evidence review.
+!results/broader_study_v1/
+!results/broader_study_v1/**
+!results/broader_analysis_v1/
+!results/broader_analysis_v1/**
+!results/broader_results_review_v1/
+!results/broader_results_review_v1/**

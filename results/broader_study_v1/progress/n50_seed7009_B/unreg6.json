@@ -1,0 +1,10 @@
+{
+  "case_id": "n50_seed7009_B",
+  "n_obs": 50,
+  "data_seed": 7009,
+  "family": "B",
+  "method": "unreg6",
+  "training_seed": null,
+  "run_started_utc": "2026-11-04T08:22:43.217133+00:00",
+  "artifact_path": "jobs/n50_seed7009_B/unreg6"
+}

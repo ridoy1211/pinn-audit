@@ -1,0 +1,112 @@
+[
+  {
+    "stage": "initial",
+    "adam_steps": 0,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.20000000000000015,
+    "loss": 9.021034143878548,
+    "data_mse": 0.7165336613593698,
+    "pde_mse": 1.85569753028485,
+    "elapsed_s": 0.005039400013629347
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 250,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.06099833811743551,
+    "loss": 0.05558634967562899,
+    "data_mse": 0.004162420903443432,
+    "pde_mse": 0.013962140641194672,
+    "elapsed_s": 3.204927899991162
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 500,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.0596305942590157,
+    "loss": 0.038636860285498786,
+    "data_mse": 0.0029445800562254336,
+    "pde_mse": 0.009191059723244452,
+    "elapsed_s": 6.446351199992932
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 750,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.06528710786815756,
+    "loss": 0.03142990722506805,
+    "data_mse": 0.0022854858267651835,
+    "pde_mse": 0.00857504895741621,
+    "elapsed_s": 9.742768900003284
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 1000,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.06842190903420359,
+    "loss": 0.029540682556437783,
+    "data_mse": 0.002076810460321922,
+    "pde_mse": 0.008772577953218565,
+    "elapsed_s": 12.997458800004097
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 1250,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.071843641359244,
+    "loss": 0.028912303224975695,
+    "data_mse": 0.0020456220364519417,
+    "pde_mse": 0.008456082860456276,
+    "elapsed_s": 16.139745499996934
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 1500,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.07442731559098546,
+    "loss": 0.028551111890040295,
+    "data_mse": 0.0020400399795606947,
+    "pde_mse": 0.008150712094433346,
+    "elapsed_s": 19.21120520000113
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 1750,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.07558425124763524,
+    "loss": 0.028284047174972973,
+    "data_mse": 0.0020308434719755277,
+    "pde_mse": 0.007975612455217697,
+    "elapsed_s": 22.279772100009723
+  },
+  {
+    "stage": "adam",
+    "adam_steps": 2000,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.07515946903283925,
+    "loss": 0.02802970657030745,
+    "data_mse": 0.0020072595339445326,
+    "pde_mse": 0.007957111230862126,
+    "elapsed_s": 25.429539600008866
+  },
+  {
+    "stage": "adam_end",
+    "adam_steps": 2000,
+    "lbfgs_closure_calls": 0,
+    "alpha": 0.07515946903283925,
+    "loss": 0.02802970657030745,
+    "data_mse": 0.0020072595339445326,
+    "pde_mse": 0.007957111230862126,
+    "elapsed_s": 25.443357200012542
+  },
+  {
+    "stage": "completed_budget",
+    "adam_steps": 2000,
+    "lbfgs_closure_calls": 1064,
+    "alpha": 0.051298208533849365,
+    "loss": 0.0009711814173234566,
+    "data_mse": 7.519528205946243e-05,
+    "pde_mse": 0.0002192285967288323,
+    "elapsed_s": 45.269891700008884
+  }
+]

@@ -568,3 +568,30 @@ main configuration is unchanged, its 400-job schedule is defined, and the freeze
 record/main evaluation output do not yet exist. Next checkpoint the verified
 implementation and smoke evidence, create and commit the prospective freeze, then
 run the fixed evaluation without retuning or replacing unfavorable outcomes.
+
+## 2026-11-04 (completed prospective evaluation and evidence review)
+
+The user committed implementation b9d2b3e and freeze dad8cd5, then completed the
+entire fixed evaluation: 400 jobs, 40 paired-family cases from 20 independent
+designs, no failed/timeout jobs, collection about 2.66 hours. Freeze creation and
+commit precede data generation. Fifteen source hashes, 2365 output hashes and the
+six analysis-output hashes match; original collection/analysis files are unchanged.
+
+Independent statistical reconstruction agrees with every dataset score and all
+paired bootstrap endpoints. A derived reviewer verified 2000 held-out CV
+predictions/selected penalties, reloaded 240 neural checkpoints, checked saved
+data predictions, and reconstructed the 24 saved dense neural grids. Exact
+spectral norms verify classical IC scores and quantify time-grid error. Three
+new post-evaluation numerical-review tests pass; they do not change the frozen
+analysis or model pipeline. See `docs/MAIN_STUDY_RESULTS_REVIEW.md`.
+
+The longer PINN's strongest favorable primary contrast is sparse family B.
+CV12's denser-family-B field comparison favors it over both budgets. Family A's
+diffusivity contrasts remain uncertain by the pointwise intervals. Six-mode
+family-B IC recovery has the expected 21.82% representation floor. Both budgets,
+all methods and tails are retained. These are conditional pipeline conclusions,
+not a universal ranking, proof of convergence, or novelty certification.
+
+The declared evaluation is closed. Prepare a complete result checkpoint and an
+evidence-led paper draft; do not retune these evaluation cases. Figures, source
+checks and timing definitions are archived alongside all original data/results.
