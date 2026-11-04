@@ -676,3 +676,15 @@ and the Markdown summary are byte-identical, and scientific analysis JSON is
 identical excluding its generation time. Original evaluation models and saved
 outputs were unchanged. This completes the isolated-analysis portion of Day 7;
 author review, final packaging and submission readiness remain outstanding.
+
+## 2026-11-05 (CI launch discrepancy after checkpoint 2816923)
+
+The user committed/pushed the repository audit as 2816923. GitHub run
+41903474469 passed install, lint and type checks but both Python jobs failed
+collection because bare pytest could not import scripts. Reproduced that entry-
+point failure locally and changed the CI Test step to python -m pytest, matching
+prior local validation. The corrected invocation passed all 227 tests in 63.76 s
+with 92% pinnaudit-source coverage. All 15 frozen sources remain unchanged.
+The one-line workflow repair and explanatory evidence are pending a new manual
+checkpoint; hosted success for that repair is not claimed yet. The SciSpace
+archive warning was verified as line-ending conversion only, with no text change.

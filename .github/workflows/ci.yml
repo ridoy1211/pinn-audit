@@ -37,7 +37,7 @@ jobs:
         run: mypy
 
       - name: Test
-        run: pytest --cov=pinnaudit --cov-report=term-missing
+        run: python -m pytest --cov=pinnaudit --cov-report=term-missing
 
       - name: Smoke experiment
         run: |
