@@ -140,9 +140,8 @@ The earlier finite-difference code remains available for its original tasks.
 
 ## Authorship and assistance
 
-AI tools supported software development and debugging, analysis automation,
-literature review, and manuscript preparation. The author retains responsibility
-for the research decisions, interpretation, verification of results and references,
-and the final manuscript.
+AI tools assisted with developing and debugging the Python code used for experiments and statistical analysis. Numerical calculations were performed by Python scripts.
+
+For the full research-assistance disclosure, see [Declarations](docs/DECLARATIONS_DRAFT.md).
 
 Licensed under the [MIT License](LICENSE).
