@@ -84,8 +84,8 @@ There is no observation-timing or high-dimensional study in this evaluation.
 - [Numerical review and figures](results/broader_results_review_v1/) and
   [critical result interpretation](docs/MAIN_STUDY_RESULTS_REVIEW.md).
 - [Complete author-review manuscript](docs/MANUSCRIPT_REVIEW_DRAFT.md), including
-+  abstract, conclusion and provisional declarations; [title-page preparation](docs/TITLE_PAGE_DRAFT.md).
-+- Draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
+  abstract, conclusion and provisional declarations; [title-page preparation](docs/TITLE_PAGE_DRAFT.md).
+- Draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
   [Methods](docs/METHODS_DRAFT.md), [Results](docs/RESULTS_DRAFT.md),
   [Discussion](docs/DISCUSSION_DRAFT.md). These are drafts, not an accepted paper.
 - Plain-language reading: [methods](docs/methods.md) and [results](docs/result.md).
@@ -140,11 +140,9 @@ The earlier finite-difference code remains available for its original tasks.
 
 ## Authorship and assistance
 
-The workflow used substantial AI assistance for implementation, debugging,
-analysis automation, literature triage and drafting. The human author must
-review and take responsibility for the final work; AI tools are not authors.
-The final manuscript's contribution and assistance statements must describe
-actual work accurately.
+AI tools supported software development and debugging, analysis automation,
+literature review, and manuscript preparation. The author retains responsibility
+for the research decisions, interpretation, verification of results and references,
+and the final manuscript.
 
-MIT licence. This repository is a research project, not a publication-acceptance
-claim or a completed particle-, quantum- or fusion-physics application.
+Licensed under the [MIT License](LICENSE).
