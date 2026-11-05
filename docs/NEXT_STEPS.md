@@ -1,60 +1,41 @@
-# Your next work — 5 November 2026
+# Current next step — independent scientific review
 
-The fixed experiment is complete and archived at 4a64ed4. This is a writing,
-understanding and contribution-review stage. No training command is needed now.
+The fixed experiment and its analysis are complete. The current task is to review
+the scientific argument and contribution before choosing a final submission route.
+Use [Research progress](RESEARCH_PROGRESS.md) for the stage-by-stage record.
+The earlier reading/commit tasks have been completed or superseded; do not repeat
+old commands simply because they remain in historical notes.
 
-## 1. Read the contribution assessment — about 15 minutes
+## One action for Ridoy now
 
-Open `NOVELTY_ASSESSMENT.md`. Our possible contribution is a careful example
-showing how comparison choices change conclusions. It is not the invention of
-joint heat inversion or a new PINN. Journal publication remains uncertain.
+Choose one professor or researcher who works on numerical PDEs, inverse problems
+or scientific machine learning. Ask whether they would critically assess the
+draft and advise on its contribution. Ask for scientific feedback first; do not
+offer authorship merely for a university name or presumed faster review.
 
-## 2. Read the new manuscript sections — about 30–45 minutes
+Suggested wording for you to send:
 
-Read `INTRODUCTION_DRAFT.md`, followed by `DISCUSSION_DRAFT.md`. The Introduction
-explains why we asked the question and how prior work relates. The Discussion
-explains what the results support and where their reach stops.
+> I have prepared an AI-assisted computational study comparing PINNs and spectral
+> methods for recovering heat diffusivity and an unknown initial temperature field.
+> Could you assess the physics, evaluation design and novelty, and advise what
+> further work it needs? I can share the manuscript and reproducible repository.
+> I would welcome discussing substantive collaboration if the topic interests you.
 
-Mark unclear wording and any statement you cannot yet explain. The existing
-plain-language guides `methods.md` and `result.md` are available for reference.
-Do not add claims merely because they sound impressive.
+Share [the review manuscript](MANUSCRIPT_REVIEW_DRAFT.md), [the contribution
+assessment](NOVELTY_ASSESSMENT.md), [the fixed protocol](BROADER_COMPARISON_PROTOCOL.md)
+and [the saved results](../results/broader_analysis_v1/summary.md). The author list
+and affiliation remain provisional. No message has been sent on your behalf.
 
-## 3. Write a short explanation in your own words — about 20 minutes
+While waiting, read the complete review manuscript and mark claims, equations or
+figures you cannot yet explain. Use [plain-language methods](methods.md) and
+[plain-language results](result.md) as aids. An AUTHOR_UNDERSTANDING.md note may
+be useful, but do not present assistant-written explanations as your own checks.
 
-Create your own `AUTHOR_UNDERSTANDING.md` in this docs folder. Answer:
+## After feedback
 
-1. What specific question does our study investigate?
-2. What do earlier papers already establish?
-3. Give one result favoring a PINN and one favoring CV12, stating the condition
-   and outcome for each.
-4. Name the two most important limits of our comparison.
-5. What can our completed study contribute without claiming a universal winner?
+Resolve substantive concerns, finalize the author list and venue, verify references
+and disclosures, then prepare the final submission files. If a new experiment is
+needed, document its question and protocol separately before running it.
 
-Five short paragraphs are sufficient. This is practice for explaining the work
-and finding concepts we should discuss together. It is not a condition for
-continuing the manuscript work.
-
-## 4. Save the writing checkpoint in Git
-
-From the same repository CMD window, after reading the drafts:
-
-```bat
-git add docs/METHODS_DRAFT.md docs/RESULTS_DRAFT.md docs/methods.md docs/result.md
-git add docs/INTRODUCTION_DRAFT.md docs/DISCUSSION_DRAFT.md docs/NOVELTY_ASSESSMENT.md docs/NEXT_STEPS.md
-git add docs/LOG.md audit/manuscript_table_sources.json audit/literature_update_2026-11-05.md
-git diff --cached --stat
-git commit -m "Draft research sections and document contribution limits"
-git push
-```
-
-If you created your own understanding note and want it versioned, stage that
-specific file too before the commit. The drafts remain local until you run the
-commit and push commands. These commands preserve the frozen experiment archive.
-
-## What comes after this checkpoint
-
-Review the assembled argument, check references and figures, then choose a
-suitable journal using its current official scope and fee policy. Prefer a route
-with zero mandatory author fees. Acceptance and review times cannot be promised.
-Prepare the abstract after the contribution and limitations are settled. A new
-experiment, if scientifically justified, needs a separate plan and fresh data.
+Do not rerun the completed evaluation or overwrite archived outputs. Publication
+readiness and acceptance remain unresolved; no new seven-day schedule is imposed.

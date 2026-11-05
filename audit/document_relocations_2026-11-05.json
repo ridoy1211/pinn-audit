@@ -1,0 +1,27 @@
+{
+  "classification": "documentation_navigation_cleanup_no_scientific_change",
+  "base_commit": "5000363a9bb2d45ed77b6d036b091ea0966b0f7c",
+  "moves": {
+    "DAY1_NOTES.md": {
+      "new_path": "docs/history/initial_supervision/RESEARCH_NOTES_2026-11-03.md",
+      "sha256": "4d2dc038a9d54bb397f4c2bf5328d17a15d18b7f1b75c71c4b084f147aadf42b",
+      "bytes_unchanged": true
+    },
+    "DAY1_STUDY_GUIDE.md": {
+      "new_path": "docs/history/initial_supervision/STUDY_GUIDE_2026-11-03.md",
+      "sha256": "edd17ac38c9926f6ccacf6846efc477eecb77df488978f703e7f00321c52210f",
+      "bytes_unchanged": true
+    },
+    "day1_environment.txt": {
+      "new_path": "docs/history/initial_supervision/environment_2026-11-03.txt",
+      "sha256": "4889f954860611f7ccf216df54ef22ab04d4eace5ce4dad057c590cc89878a4f",
+      "bytes_unchanged": true
+    },
+    "docs/SEVEN_DAY_PLAN_AND_PROGRESS.md": {
+      "new_path": "docs/history/SEVEN_DAY_PLAN_AND_PROGRESS_2026-11-05.md",
+      "sha256": "79e2e4a69b3654c0954f197ea3a3caba56f026795df6a28a9c1cb4e191d22bd2",
+      "bytes_unchanged_from_reviewed_main": true
+    }
+  },
+  "note": "Historical manifests and logs retain original paths. Resolve these four paths using this mapping; use the original commit for the original tree."
+}

@@ -54,5 +54,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: matrix.python-version == '3.12'
         with:
-          name: day1-figures
+          name: baseline-figures
           path: figures/

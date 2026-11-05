@@ -29,8 +29,8 @@ regularization need further investigation before a matched PINN comparison.
 
 - [Full pilot summary](../results/my_classical_pilot_v1/summary.md)
 - [Raw fit records](../results/my_classical_pilot_v1/records.json)
-- [Reading and research notes](../DAY1_NOTES.md)
-- [Study guide](../DAY1_STUDY_GUIDE.md)
+- [Reading and research notes](history/initial_supervision/RESEARCH_NOTES_2026-11-03.md)
+- [Study guide](history/initial_supervision/STUDY_GUIDE_2026-11-03.md)
 - [Original-source audit](../audit/code_audit.md)
 - [Run review](../audit/user_run_evidence/day1_pilot_review.md)
 - [Input/output hashes](../audit/user_run_evidence/day1_pilot_review.json)

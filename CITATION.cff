@@ -1,12 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "pinn-audit: a reproducible audit of when physics-informed neural networks beat classical PDE solvers"
+title: "pinn-audit: a controlled audit of PINNs and spectral methods for joint heat inversion"
 abstract: >-
-  A single-repository benchmark testing the claim that physics-informed neural
-  networks are competitive with classical numerical methods. Forward and inverse
-  problems for the heat, wave, Burgers and Poisson equations are scored against
-  closed-form analytic solutions on accuracy, wall-clock cost, and robustness to
-  sparse and noisy observations.
+  A reproducible computational comparison of physics-informed neural networks
+  and spectral inverse methods for recovering a scalar heat diffusivity and an
+  unknown initial temperature field from sparse noisy synthetic observations.
+  The fixed study varies observation count, initial-field representation and
+  neural optimization budget. Results support conditional pipeline comparisons,
+  not a universal method-class ranking. Earlier forward-problem work is retained
+  as historical material.
 authors:
   - family-names: Hasan
     given-names: Ridoy

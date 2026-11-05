@@ -1,5 +1,10 @@
 # Publication-route review — 5 November 2026
 
+> Historical checkpoint review. Its outstanding tasks and branch status describe
+> the checkpoint below. For current status use [Research progress](RESEARCH_PROGRESS.md)
+> and [Next steps](NEXT_STEPS.md); for the later SIAM/JOSS assessment use
+> [the venue review](SIAM_JOSS_AND_COAUTHOR_REVIEW.md).
+
 ## Recommendation
 
 Use **SN Computer Science as a provisional journal for manuscript preparation**,

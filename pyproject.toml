@@ -1,7 +1,7 @@
 [project]
 name = "pinnaudit"
 version = "0.1.0"
-description = "A reproducible audit of when physics-informed neural networks beat classical PDE solvers"
+description = "A reproducible audit of PINNs and spectral methods for joint heat inversion"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
@@ -23,8 +23,8 @@ dependencies = [
   "matplotlib>=3.8",
 ]
 
-# torch is a heavy install and is not needed until Day 2's PINN, so it is an
-# extra. This keeps the classical-baseline test suite fast in CI.
+# Torch is optional for classical-only use. Install the nn extra to run neural
+# experiments and the full test suite.
 [project.optional-dependencies]
 nn = ["torch>=2.2", "scikit-learn>=1.4"]
 dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.4", "mypy>=1.9"]

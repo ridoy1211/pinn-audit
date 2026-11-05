@@ -688,3 +688,52 @@ with 92% pinnaudit-source coverage. All 15 frozen sources remain unchanged.
 The one-line workflow repair and explanatory evidence are pending a new manual
 checkpoint; hosted success for that repair is not claimed yet. The SciSpace
 archive warning was verified as line-ending conversion only, with no text change.
+
+## 2026-11-05 (author information and provisional title page)
+
+The author supplied the publication name Ridoy Hasan, location Comilla,
+Bangladesh, corresponding email hasanridoy@stud.cou.ac.bd and BSc (Honours)
+in Physics from Comilla University. Coauthors remain pending. Because the
+project was described as independent of the BSc and no current university
+research role was reported, the title-page draft proposes Unaffiliated and
+records the degree as educational background rather than institutional
+affiliation. Funding, interests, final contributions and author approval
+remain unconfirmed. See docs/TITLE_PAGE_DRAFT.md. No remote changes were made.
+
+## 2026-11-05 (funding and interests confirmed; integrated review draft)
+
+Ridoy Hasan confirmed no external funding and no competing interests. Added
+those statements to the declarations draft and title-page preparation record.
+Combined the body, structured abstract, conclusion, author details, declarations,
+existing figures and references in docs/MANUSCRIPT_REVIEW_DRAFT.md. All 52
+Results-table data rows and all 15 frozen source hashes are unchanged. The
+author list remains provisional, and no final human approval is asserted.
+
+The packaged Word renderer probe failed because LibreOffice soffice.exe was
+unavailable. No unrendered DOCX was delivered. Editable Markdown is available;
+Word formatting/render verification remains pending alongside final citations
+and author review. No remote changes or new experiments were performed.
+
+
+## 2026-11-05 (main-branch reconciliation and milestone navigation)
+
+The user requested direct correction of confusing Day 1 files and a check of
+GitHub main. Remote main is the PR #3 merge 5000363; its CI run 41974830481 passed.
+This supersedes the earlier snapshots saying the study/CI fix had not reached main.
+The initial Day 1 notes/guide/environment and committed schedule reconciliation
+were relocated unchanged into docs/history, with path/hash mappings recorded.
+Historical log entries, manifests and user-run records retain original wording.
+
+Current progress is tracked by research milestone in docs/RESEARCH_PROGRESS.md.
+Updated stale README/NEXT_STEPS and overbroad citation/package descriptions;
+included the previously local integrated review draft and author/declaration/venue
+preparation files. The author confirmed funding/interests, but coauthors,
+affiliation confirmation and final author approval remain unresolved. The venue
+review is a fit assessment, not a journal decision. No professor was contacted.
+
+Scientific sources, frozen protocol, completed runs and result tables are unchanged.
+The documentation validation record reports checks for this reconciliation.
+
+Validation: 227 tests passed in 155.07 s; all 15 frozen source hashes and 2851
+saved result blobs match their archived versions; 54 current Markdown links
+resolve and the review manuscript preserves all 52 table data rows.

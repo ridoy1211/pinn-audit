@@ -1,0 +1,23 @@
+{
+  "classification": "documentation_metadata_and_navigation_validation_no_evaluation_retraining",
+  "reviewed_main": "5000363a9bb2d45ed77b6d036b091ea0966b0f7c",
+  "reviewed_main_ci": {
+    "run_id": 41974830481,
+    "conclusion": "success"
+  },
+  "frozen_source_hashes_verified": 15,
+  "saved_result_blobs_verified_unchanged": 2851,
+  "relocated_files_identical_to_reviewed_main": 4,
+  "current_local_markdown_links_checked": 54,
+  "manuscript_table_data_rows_preserved": 52,
+  "review_manuscript_assembly_hashes_verified": true,
+  "toml_metadata_parses": true,
+  "assembler_ruff_check_and_format": "passed",
+  "git_diff_check": "passed",
+  "limitations": "This does not certify scientific novelty, convergence, final human approval or journal acceptance. Historical day labels and old paths remain in original records.",
+  "full_test_suite": {
+    "passed": 227,
+    "seconds": 155.07,
+    "evaluation_models_retrained": false
+  }
+}

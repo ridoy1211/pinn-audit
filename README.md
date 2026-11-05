@@ -4,11 +4,12 @@ A controlled computational audit of physics-informed neural networks and classic
 spectral inversion for the heat equation, with unknown diffusivity and an unknown
 initial temperature field.
 
-**Current study:** the fixed evaluation completed all 400 scheduled jobs. At the
-5 November repository review, the complete archive was on
-`broader-comparison-implementation` and `main` ended at an earlier exploratory
-checkpoint. The pinned evidence commits below identify the study independently
-of later branch moves or merges.
+**Current study:** all 400 scheduled evaluation jobs are complete. PR #3 merged
+the study and manuscript sections into `main` at `5000363`; CI passed for that
+merge. The complete manuscript is an author-review draft, not a submission-ready
+or accepted paper. See [research progress](docs/RESEARCH_PROGRESS.md) and
+[the current next step](docs/NEXT_STEPS.md). Work is tracked by research stage;
+earlier day-based notes are preserved in [the history archive](docs/history/README.md).
 
 ## What was investigated
 
@@ -82,7 +83,9 @@ There is no observation-timing or high-dimensional study in this evaluation.
   [prespecified analysis](results/broader_analysis_v1/).
 - [Numerical review and figures](results/broader_results_review_v1/) and
   [critical result interpretation](docs/MAIN_STUDY_RESULTS_REVIEW.md).
-- Draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
+- [Complete author-review manuscript](docs/MANUSCRIPT_REVIEW_DRAFT.md), including
++  abstract, conclusion and provisional declarations; [title-page preparation](docs/TITLE_PAGE_DRAFT.md).
++- Draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
   [Methods](docs/METHODS_DRAFT.md), [Results](docs/RESULTS_DRAFT.md),
   [Discussion](docs/DISCUSSION_DRAFT.md). These are drafts, not an accepted paper.
 - Plain-language reading: [methods](docs/methods.md) and [results](docs/result.md).
@@ -115,11 +118,11 @@ outcomes; it does not retrain the models. Historical collection commands are in
 [the workflow record](docs/BROADER_STUDY_COMMANDS.md). Preserve completed runs and
 frozen sources rather than overwriting them or selecting a preferred outcome.
 
-CI is configured for pushes to `main` and `broader-comparison-implementation`,
-and for pull requests. The latter push trigger was added in the local repository
-review patch; it takes effect after that patch is pushed. A CI success from an
-older commit does not verify a later research head. Local execution evidence and
-GitHub checks should be identified by their exact commit.
+CI runs on pushes to `main` and `broader-comparison-implementation`, and on pull
+requests. [The merged-study check](https://github.com/ridoy1211/pinn-audit/actions/runs/41974830481)
+passed at `5000363`. Each later checkpoint needs its own check; an earlier success
+does not certify later edits. The saved-analysis replay is documented separately
+in [the reproducibility audit](audit/github_repository_check_2026-11-05.json).
 
 ## Earlier work and provenance boundary
 

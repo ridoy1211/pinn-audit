@@ -6,7 +6,8 @@
 *.npz binary
 results/my_classical_pilot_v1/** -text
 audit/user_run_evidence/** -text
-day1_environment.txt -text
+docs/history/initial_supervision/** -text
+docs/history/SEVEN_DAY_PLAN_AND_PROGRESS_2026-11-05.md -text
 
 # Preserve the exploratory diagnostic output bytes.
 results/sparse_inverse_diagnostic_v1/** -text
