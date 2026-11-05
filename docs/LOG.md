@@ -737,3 +737,51 @@ The documentation validation record reports checks for this reconciliation.
 Validation: 227 tests passed in 155.07 s; all 15 frozen source hashes and 2851
 saved result blobs match their archived versions; 54 current Markdown links
 resolve and the review manuscript preserves all 52 table data rows.
+
+## 2026-11-05 (editable LaTeX formatting checkpoint)
+
+After user checkpoint 206d808, found that the declaration source had been saved
+after assembly: its hash differed and the generated copy retained a duplicate
+heading. Regenerated from current components, preserving the author's wording.
+Prepared an uncompiled neutral LaTeX review package for the provisional SNCS
+route, with numbered published references and preprint attribution in the text.
+Static checks preserve all 52 result rows, 10 display equations, both vector
+figures and all 15 frozen source hashes. Four publisher reference records and
+the versioned arXiv metadata were checked; no new full-text literature appraisal
+is claimed. See docs/SNCS_FORMATTING_CHECKPOINT.md. No evaluation, commit, push
+or submission was performed. Compilation and page inspection remain pending.
+
+## 2026-11-06 (first Overleaf PDF inspected)
+
+The author supplied an 11-page LuaLaTeX PDF compiled from the review package.
+Rendered and visually inspected all pages; extracted all 52 result-table rows,
+equations numbered 1-10 and references 1-4. The converter had escaped a heading
+without a preceding blank line and incorrectly numbered declaration subsections
+under Conclusion. Fixed those conversion defects and shortened cramped table
+headers. Prepared package v2 without altering the earlier ZIP, result values,
+mathematical expressions, declared author wording, original figures or 15 frozen
+sources. Static checks and lint pass. The updated source is uncompiled; a fresh
+PDF must be checked before layout approval. No evaluation, Git commit, push or
+journal submission was performed. See audit/overleaf_pdf_review_2026-11-06.json.
+
+## 2026-11-06 (current editor compile check)
+
+The built-in editor initially could not find TeX Gyre Termes. Added a Times
+New Roman fallback in the existing main.tex and its builder, preserving all
+other source text. The built-in compile_latex_document tool then reported
+success. The editor stayed open; no replacement document or separate PDF was
+exported. Updated source-integrity and compilation records. The newly rendered
+PDF still needs visual review; compilation is not layout approval. No scientific
+source, numerical result, Git commit, push or journal submission changed.
+
+## 2026-11-06 (corrected Overleaf PDF review checkpoint)
+
+The author supplied the corrected 11-page PDF. Six rendered pages are pixel-
+identical to the previously reviewed version; inspected all five changed pages.
+The literal Markdown heading and inherited declaration numbering are fixed,
+and table headings are clearer. Verified all 52 numeric table rows and equation/
+reference numbering in extracted PDF text. Archived the PDF unchanged under
+manuscript/reviews and recorded its SHA-256 and checks. This is suitable for a
+scientific-review draft checkpoint; dense Figure 1 labels can still be improved
+for publication. Scientific peer review, human approval and final submission
+readiness remain unresolved. No new experiment, Git commit or push was made.

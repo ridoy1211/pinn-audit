@@ -1,0 +1,13 @@
+{
+  "classification": "built_in_editor_compilation_check_not_visual_pdf_approval",
+  "review_date_dhaka": "2026-11-06",
+  "source_path": "manuscript\\sncs_review\\main.tex",
+  "source_sha256": "b4d01946e0e64c58796e0021bda338430f0b6eb401422973ac92179f2ce78754",
+  "initial_failure": "TeX Gyre Termes not found by local fontspec",
+  "repair": "Prefer TeX Gyre Termes; fall back to Times New Roman",
+  "compiler_result": "success",
+  "compiler_message": "The current source compiled successfully with the desktop editor compiler.",
+  "new_pdf_visually_verified": false,
+  "document_kept_open": true,
+  "separate_pdf_exported": false
+}

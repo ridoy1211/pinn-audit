@@ -1,0 +1,22 @@
+{
+  "classification": "uncompiled_latex_formatting_draft_no_scientific_change",
+  "source_path": "docs/MANUSCRIPT_REVIEW_DRAFT.md",
+  "source_sha256": "378de7ab4e5e70059c894eee3a221e006ab8654a22396cfeb1d28fb056a4181a",
+  "output_sha256": {
+    "manuscript/sncs_review/README.md": "e76b7f9ac54d41d17883cde5804213db29f9453954958a07995ec7baca737ec1",
+    "manuscript/sncs_review/main.tex": "b4d01946e0e64c58796e0021bda338430f0b6eb401422973ac92179f2ce78754",
+    "manuscript/sncs_review/figures/method_errors.pdf": "eca47210646a93cd0dff04aa8acb711fae72f354d635b63a1a23a4f9546ff7c6",
+    "manuscript/sncs_review/figures/paired_contrasts.pdf": "9562d4b6f50596b8f3fc3c701412b3e2c2d5b37d9a300f6e2f53ce2e90a7aa50"
+  },
+  "table_data_rows_preserved": 52,
+  "published_reference_entries": 4,
+  "preprint_attribution": "retained_in_text_2509.20191v2",
+  "compiled": true,
+  "visually_verified": false,
+  "compiler": "Codex built-in document editor; font fallback used",
+  "font_portability_edit": "Prefer TeX Gyre Termes; fall back to Times New Roman for local editor",
+  "earlier_zip_package": "sncs_review_package_v2.zip preserved before the local font fallback",
+  "compilation_record": "audit/editor_latex_compile_2026-11-06.json",
+  "overleaf_pdf_review_record": "audit/overleaf_pdf_v2_review_2026-11-06.json",
+  "visual_verification_note": "Supplied Overleaf PDF visually reviewed; exact local font-fallback render has not been exported for visual comparison."
+}

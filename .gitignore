@@ -35,6 +35,15 @@ report/*.fls
 report/*.fdb_latexmk
 report/*.synctex.gz
 
+# Local compilation products for the editable manuscript draft.
+manuscript/sncs_review/*.aux
+manuscript/sncs_review/*.log
+manuscript/sncs_review/*.out
+manuscript/sncs_review/*.fls
+manuscript/sncs_review/*.fdb_latexmk
+manuscript/sncs_review/*.synctex.gz
+manuscript/sncs_review/main.pdf
+
 # Audit checkpoint: explicitly archive the small exploratory pilot.
 !results/my_classical_pilot_v1/
 !results/my_classical_pilot_v1/**

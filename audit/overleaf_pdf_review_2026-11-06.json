@@ -1,0 +1,59 @@
+{
+  "classification": "visual_and_text_review_of_user_compiled_v1_pdf",
+  "review_date_dhaka": "2026-11-06",
+  "input_path": "C:\\Users\\HP\\Downloads\\PINN Audit all\\Regularization__Initial_State_Representation__and_Optimization_Budget_in_a_Controlled_Audit_of_Physics_Informed_Heat_Inversion.pdf",
+  "input_sha256": "06a92eadf6f3f33941f9a79bddd3a9bf7a9b8cc83894c8eb31b2856e524e36fe",
+  "pages": 11,
+  "compiled_engine": "LuaTeX-1.24.0",
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "rendering": "Bundled Poppler to 1400-pixel page PNGs; every page inspected",
+  "all_52_result_table_rows_found_in_pdf_text": true,
+  "equation_numbers_1_through_10_found": true,
+  "published_reference_numbers_1_through_4_found": true,
+  "missing_citation_placeholders_found": false,
+  "problems": [
+    {
+      "page": 9,
+      "issue": "Author contributions and approval escaped as literal Markdown heading because no blank line preceded it",
+      "source_fix": "Recognize heading boundaries while collecting a paragraph"
+    },
+    {
+      "pages": [
+        8,
+        9
+      ],
+      "issue": "Declaration subsections numbered under Conclusion section 5",
+      "source_fix": "Use unnumbered declaration subheadings"
+    },
+    {
+      "pages": [
+        5,
+        6,
+        7
+      ],
+      "issue": "Cramped/hyphenated table headers",
+      "source_fix": "Widen Family column and shorten headers with W/T/L defined in caption"
+    }
+  ],
+  "figure_review": "Both figures present on page 10; dense multi-panel labels remain a candidate for further print-size readability improvement",
+  "replacement_source": "manuscript/sncs_review/main.tex",
+  "replacement_source_sha256": "1d723d32fe1fc4b1d330908317e423a3eef5ae3c8074a984a9d8f1d66a61fc3b",
+  "replacement_package": "C:\\Users\\HP\\Documents\\Codex\\2026-11-02\\act-as-my-academic-research-supervisor\\outputs\\sncs_review_package_v2.zip",
+  "replacement_source_static_checks": "passed, preserving 52 rows, 10 equations and original figure hashes",
+  "replacement_pdf_compiled": false,
+  "replacement_pdf_visually_verified": false,
+  "scientific_peer_review_complete": false,
+  "evaluation_rerun": false
+}

@@ -1,0 +1,35 @@
+{
+  "classification": "visual_and_text_review_of_updated_user_supplied_overleaf_pdf",
+  "review_date_dhaka": "2026-11-06",
+  "input_path": "C:\\Users\\HP\\Downloads\\Regularization__Initial_State_Representation__and_Optimization_Budget_in_a_Controlled_Audit_of_Physics_Informed_Heat_Inversion.pdf",
+  "archived_pdf": "manuscript/reviews/overleaf_v2_2026-11-06.pdf",
+  "pdf_sha256": "637266cd76e5e814d9991b2e2e449d10ee079830b2d32c8985b259ab831e297a",
+  "pages": 11,
+  "producer": "LuaTeX-1.24.0",
+  "pixel_identical_to_previously_inspected_pages": [
+    1,
+    2,
+    3,
+    4,
+    10,
+    11
+  ],
+  "changed_pages_rendered_and_visually_inspected": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "all_52_result_table_rows_found_unchanged": true,
+  "equations_1_to_10_and_references_1_to_4_present": true,
+  "literal_markdown_heading_fixed": true,
+  "declaration_subheadings_unnumbered": true,
+  "table_headings_improved_and_WTL_defined": true,
+  "visible_clipping_or_overlap_found_on_changed_pages": false,
+  "review_checkpoint": "suitable_for_scientific_review_draft_not_final_submission_approval",
+  "remaining_layout_consideration": "Dense Figure 1 labels may benefit from a larger or split publication layout.",
+  "scope_limit": "This is not independent scientific peer review, a novelty verdict or author approval. Exact sources for this Overleaf PDF were not exported; local source includes an additional font fallback.",
+  "frozen_source_hashes_unchanged": 15,
+  "new_experiments": false
+}

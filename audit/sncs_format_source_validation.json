@@ -1,0 +1,26 @@
+{
+  "classification": "static_source_validation_not_latex_compilation_or_visual_review",
+  "markdown_source_sha256": "378de7ab4e5e70059c894eee3a221e006ab8654a22396cfeb1d28fb056a4181a",
+  "latex_source_sha256": "b4d01946e0e64c58796e0021bda338430f0b6eb401422973ac92179f2ce78754",
+  "abstract_words_excluding_labels_whitespace_count": 202,
+  "keywords": 6,
+  "table_data_rows_verified_in_latex": 52,
+  "display_equations_preserved": 10,
+  "inline_math_delimiters_preserved": true,
+  "duplicate_assistance_heading_removed_in_generated_copy": true,
+  "published_references": 4,
+  "preprint": "Jekic arXiv2509.20191v2 retained in text, not numbered bibliography",
+  "original_vector_figures_byte_identical": 2,
+  "frozen_source_hashes_unchanged": 15,
+  "compiled": false,
+  "visually_verified": false,
+  "bibliography_check": "Primary publisher/arXiv metadata checked, not a new full-text literature appraisal",
+  "journal_instructions": "https://link.springer.com/journal/42979/submission-guidelines",
+  "reference_metadata_sources": [
+    "https://academic.oup.com/imamat/issue/89/1?browseBy=volume",
+    "https://link.springer.com/article/10.1007/s40314-026-03818-x",
+    "https://www.nature.com/articles/s41598-022-19157-w",
+    "https://onlinelibrary.wiley.com/doi/10.1002/mma.4245",
+    "https://arxiv.org/abs/2509.20191v2"
+  ]
+}
