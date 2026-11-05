@@ -21,7 +21,6 @@ experiment archive is preserved at commit
 [`4a64ed4cae0991bb957c18dd2bcea26162bd4e22`](https://github.com/ridoy1211/pinn-audit/tree/4a64ed4cae0991bb957c18dd2bcea26162bd4e22).
 Later documentation and CI fixes do not change that archived experiment.
 
-## Use of AI assistance
 
 ## Use of AI assistance
 
