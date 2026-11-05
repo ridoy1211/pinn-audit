@@ -1,0 +1,42 @@
+{
+  "case_id": "n10_seed6006_B",
+  "n_obs": 10,
+  "data_seed": 6006,
+  "family": "B",
+  "method": "pinn_200",
+  "training_seed": 101,
+  "run_started_utc": "2026-11-04T06:38:54.926060+00:00",
+  "artifact_path": "jobs/n10_seed6006_B/pinn_200_train101",
+  "status": "completed",
+  "alpha_hat": 0.10379236388953278,
+  "fit_time_s": 30.01360730000306,
+  "selection_time_s": 0.0,
+  "checkpoint_reload_verified": true,
+  "independent_pde_mse": 0.0007586839179492061,
+  "boundary_max_abs": 0.0,
+  "final_training_trace": {
+    "stage": "completed_budget",
+    "adam_steps": 2000,
+    "lbfgs_closure_calls": 206,
+    "alpha": 0.10379236388953278,
+    "loss": 0.002832731195419919,
+    "data_mse": 0.00021244916520508556,
+    "pde_mse": 0.0007082395433690634,
+    "elapsed_s": 30.009258299978683
+  },
+  "lbfgs_iterations": 200,
+  "at_bound": false,
+  "field_relative_l2": 0.3205326416390562,
+  "ic_relative_l2": 0.6294060553562646,
+  "relative_alpha_error": 1.0758472777906554,
+  "data_mse": 0.00021244916520508556,
+  "evaluation_time_s": 0.1920444999996107,
+  "job_elapsed_s": 30.24609130001045,
+  "completed_utc": "2026-11-04T06:39:25.179711+00:00",
+  "artifact_sha256": {
+    "checkpoint.pt": "e119279d37d0eec81caacfc83194b165617ae49381416e7bd1aa934a0a8fb174",
+    "independent_residual.npz": "2712c31fa94a3522e65c49ff4326f5e0462a308d0c4b15cf32eed4ea6b2a2d60",
+    "predictions.npz": "085f607714750825ca20a580095e8e0301692022456b383936e8b458e1a4b2ab",
+    "trace.json": "c28d9b0967ac0944a0beceeb786b30bd6aae0fe76082a3f4981bc7ba61065bbd"
+  }
+}

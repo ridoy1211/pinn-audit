@@ -1,224 +1,147 @@
 # pinn-audit
 
-> Supervision repair, 3 November 2026: this working copy adds a regularized spectral
-> inverse baseline and provenance safeguards. Historical tables below have not been
-> independently regenerated in this audit. See [the repair/evidence note](docs/SUPERVISOR_AUDIT.md)
-> before treating old chronology or the new classical-only pilot as confirmed evidence.
+A controlled computational audit of physics-informed neural networks and classical
+spectral inversion for the heat equation, with unknown diffusivity and an unknown
+initial temperature field.
 
-![ci](https://github.com/ridoy1211/pinn-audit/actions/workflows/ci.yml/badge.svg)
+**Current study:** the fixed evaluation completed all 400 scheduled jobs. At the
+5 November repository review, the complete archive was on
+`broader-comparison-implementation` and `main` ended at an earlier exploratory
+checkpoint. The pinned evidence commits below identify the study independently
+of later branch moves or merges.
 
-**When does a physics-informed neural network beat a classical solver?**
-A reproducible audit of accuracy per unit of compute on forward problems, on inverse
-problems, and (in progress) as the dimension grows.
+## What was investigated
 
-**Scope.** Smooth, linear PDEs in one space dimension with exact solutions (heat and
-wave), and one inverse parameter (the heat diffusivity). Nothing here yet covers
-nonlinear PDEs, shocks, complex geometry or high dimension, and the conclusions below
-should not be read beyond that.
+We estimate a constant diffusivity and the unobserved starting temperature from
+10 or 50 noisy interior observations on the unit space-time square, with known
+zero Dirichlet boundaries. The synthetic truth has alpha=0.05 and absolute noise
+SD=0.01. Initial field A contains sine modes 1 and 3; B adds mode 7.
 
-![Accuracy against cost on held-out seeds](figures/accuracy_vs_time_heldout.png)
+Four spectral procedures distinguish six/twelve-mode representations and absent,
+fixed or observation-cross-validated regularization. Two hard-boundary PINN
+procedures use the same architecture and 200 or 1000 L-BFGS iterations after
+2000 Adam steps. Neural architecture is not varied. All procedures receive the
+same observations and diffusivity bounds within a case.
 
-## The question
+There are 40 cases from **20 independent observation/noise designs**, shared
+across initial-field families. Each neural case uses three starts and both
+budgets: 240 neural fits plus 160 reported classical pipeline outputs. There are
+ten independent designs in each observation-count/family stratum; neural starts
+are not additional independent datasets.
 
-Numerical solvers have handled partial differential equations reliably for about
-seventy years. Since 2019, physics-informed neural networks (PINNs) have been pitched
-as a rival with three promises: flexibility, tolerance of messy and sparse data, and a
-way past the curse of dimensionality. Published evidence is scattered across papers
-with different problems, metrics and baselines, so the practical question has no
-single answer: when does the network actually win?
+## Findings and limits
 
-This repository tests the promises one at a time against exact solutions, with strong
-classical baselines, cost reported next to error, and predictions written down before
-the runs and scored afterwards.
+- At N=10/B, PINN-1000 has lower diffusivity and initial-field errors than CV12
+  in nine of ten designs each, and lower full-field error in eight.
+- At N=50/B, CV12 has lower full-field error than PINN-1000 in eight designs and
+  PINN-200 in all ten. The longer-budget diffusivity/initial-field contrasts
+  remain uncertain by the pointwise intervals.
+- Several other comparisons are uncertain. No overall method-class winner,
+  structural-identifiability theorem or convergence certificate is established.
+- Six-mode fitting cannot express B's seventh component: its initial-field
+  relative-L2 error floor is 21.82%. The richer classical representation contains
+  the truth and is favorable to that reference.
 
-## The answer so far
+Selected marginal median errors (%) are below. Every condition has ten designs;
+neural scores first take the median over three starts separately per outcome.
+These are not ensemble predictions or the best initialization. The paired effects
+are computed within designs and differ from subtracting marginal medians.
 
-| Promise | Result on smooth linear 1D problems |
-|---|---|
-| Better forward solver | **No.** The classical solver wins on accuracy per second by roughly 10^5 to 10^6 |
-| Better with sparse, noisy data (inverse problems) | **Mostly no.** Classical wins when the model is fully specified. A PINN had the lower median error in one regime only (10 noisy observations, initial condition unknown), where both methods were unreliable |
-| Better as dimension grows | **Not yet tested** (next) |
+| N | initial field | procedure | diffusivity error | field error | initial-field error |
+|---|---|---|---:|---:|---:|
+| 10 | A | CV12 | 4.755 | 3.942 | 10.900 |
+| 10 | A | PINN-1000 | 2.580 | 3.842 | 8.963 |
+| 10 | B | CV12 | 11.752 | 7.402 | 26.111 |
+| 10 | B | PINN-1000 | 3.400 | 6.071 | 23.368 |
+| 50 | A | CV12 | 1.607 | 0.889 | 2.919 |
+| 50 | A | PINN-1000 | 1.494 | 0.909 | 2.366 |
+| 50 | B | CV12 | 1.902 | 2.191 | 10.882 |
+| 50 | B | PINN-1000 | 2.334 | 3.703 | 16.482 |
 
-## How the comparison is kept fair
+[All six procedures and 24 paired contrasts](results/broader_analysis_v1/summary.md)
+retain favorable, unfavorable and uncertain outcomes. Intervals are pointwise
+95% percentile bootstrap intervals from ten designs per stratum, without
+multiplicity correction. All jobs completed; some finite fits still have large
+recovery errors. Completion does not certify convergence.
 
-- **Exact answers.** Every problem has a closed-form solution, so error is measured
-  against the truth and not against another approximation.
-- **Verified baselines.** Each classical scheme reproduces its theoretical convergence
-  order before it is used, and is run at five grid sizes so the PINN meets a
-  cost-and-accuracy curve and not one point.
-- **One scoreboard.** Relative L2 error and wall-clock time, on one CPU thread in
-  float64, for every method.
-- **Repeats and controls.** Five development seeds per setting, and ten held-out seeds for
-  the headline forward results. A network with no physics term, and a PINN given the same
-  observations, show what the physics is worth.
-- **Written predictions.** Predictions are recorded before runs and scored afterwards,
-  wrong ones included. [`docs/PROTOCOL.md`](docs/PROTOCOL.md) separates what was fixed
-  in advance from what was decided after seeing data, and
-  `python scripts/check_chronology.py` checks the commit times against the run times.
+![All prespecified paired comparisons](results/broader_results_review_v1/paired_contrasts.png)
 
-## Forward problems
+This is a specified-pipeline comparison, not equal-compute or equally tuned
+method classes. Classical regularization uses cross-validation; neural settings
+are fixed from development. One domain, one true diffusivity, one noise level,
+finite spectral truths and limited initialization sampling restrict scope.
+There is no observation-timing or high-dimensional study in this evaluation.
 
-Median over ten held-out seeds (5 to 14), which were not used to choose any setting.
-Neural solvers are scored on a 41-point grid. The classical solvers were timed in the same
-session.
+## Evidence and manuscript guide
 
-| Method | Heat error | Heat time | Wave error | Wave time |
-|---|---|---|---|---|
-| Finite differences, 21 points | 2.12e-3 | 0.66 ms | 1.65e-2 | 0.27 ms |
-| Finite differences, 41 points | 5.31e-4 | 0.74 ms | 4.15e-3 | 0.49 ms |
-| Finite differences, 81 points | 1.33e-4 | 1.4 ms | 1.04e-3 | 1.0 ms |
-| PINN | 1.86e-3 | 147 s | 0.501 | 227 s |
-| Best PINN variant (L-BFGS on heat; loss weight 100 + L-BFGS on wave) | 3.55e-4 | 175 s | 4.30e-2 | 271 s |
+- [Fixed protocol](docs/BROADER_COMPARISON_PROTOCOL.md) and
+  [committed freeze](docs/BROADER_COMPARISON_FREEZE.json): versioned before
+  evaluation data generation; not formal preregistration. The protocol's
+  pre-run wording is preserved as frozen evidence.
+- [Main data/models/manifest](results/broader_study_v1/) and
+  [prespecified analysis](results/broader_analysis_v1/).
+- [Numerical review and figures](results/broader_results_review_v1/) and
+  [critical result interpretation](docs/MAIN_STUDY_RESULTS_REVIEW.md).
+- Draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
+  [Methods](docs/METHODS_DRAFT.md), [Results](docs/RESULTS_DRAFT.md),
+  [Discussion](docs/DISCUSSION_DRAFT.md). These are drafts, not an accepted paper.
+- Plain-language reading: [methods](docs/methods.md) and [results](docs/result.md).
+- [Contribution limits](docs/NOVELTY_ASSESSMENT.md) and
+  [verified related-work notes](audit/literature_review.md).
 
-- **The classical solver wins on both problems.** On heat, the best PINN (3.55e-4 in 175 s)
-  is beaten by an 81-point grid (1.33e-4 in 1.4 ms), about 10^5 times faster. On the wave
-  equation, the best tuned PINN has a median error 2.6 times that of the coarsest grid I ran
-  (0.043 against 0.0165; 21 points, 0.27 ms) and takes about a million times longer.
-- **The optimiser and the loss balance matter a great deal.** L-BFGS cut the heat error 5.2
-  times (1.86e-3 to 3.55e-4), and on the wave problem loss weight 100 plus L-BFGS cut the
-  mean error about 11 times (0.50 to 0.045). Each beat the plain PINN in all ten seeds
-  (exact paired p = 0.002). That L-BFGS helps PINN training is known (Rathore et al., 2024).
-- **The development seeds were optimistic.** The tuned wave PINN's median was 0.023 on the
-  seeds used to choose its settings and 0.043 on held-out seeds, as expected when settings are
-  selected and reported on the same seeds. Ten seeds still leave wide intervals (95% bootstrap
-  0.024 to 0.060 for that median).
+Implementation checkpoint: `b9d2b3e`; committed freeze: `dad8cd5`; complete
+experiment archive: `4a64ed4`; section-draft checkpoint: `0977887`.
 
-Exploratory results from the development seeds (0 to 4), not re-run on held-out seeds:
+## Reproduce the saved analysis
 
-- On the wave problem, rebalancing the loss weights and adding L-BFGS together cut the mean
-  error 15 times (0.51 to 0.033), more than the product of the separate effects (2.9 and 1.4
-  times). Only the combined effect was re-measured on held-out seeds (about 11 times).
-- A weight tuned on the wave problem made the heat PINN worse than L-BFGS alone (1.2e-3
-  against 4.1e-4), and heat was not tuned separately.
-- 200 exact observations did not help the heat PINN. A network with no physics term was
-  worse than the PINN on heat (2.3e-2) but better on the wave (8.4e-2) until the loss
-  weights were rebalanced.
-- The plain wave PINN misses the third harmonic (its share of the error is 0.44). With
-  balanced weights and L-BFGS it is learned (0.013, better than the no-physics network's
-  0.043), so the failure was one of loss balance for that mode. Higher frequencies were not
-  tested.
+Python 3.11 or newer is the package's declared minimum. The main collection used
+Python 3.14.6 and Torch 2.15.0+cpu; see the saved run manifest for actual metadata.
+The commands below install declared dependencies; they are not a complete
+version-pinned reconstruction of the collection environment.
 
-![Which Fourier modes carry the error on the wave problem](figures/wave_modes_weights.png)
-
-## Inverse problem
-
-Recover the heat diffusivity (true value 0.05) from noisy observations at random
-points. The classical method is a nonlinear least-squares fit of a numerical solver.
-The PINN learns the solution and the diffusivity together. Both start from the same
-wrong guess (0.2) and see identical data. Setting A gives both methods the initial
-condition; in setting B it is unknown, so the classical fit also estimates six sine-mode
-amplitudes and the PINN drops its initial-condition term. Median over five seeds:
-
-| Setting | Observations | Noise | Classical error | PINN error | Classical time | PINN time |
-|---|---|---|---|---|---|---|
-| Initial condition known | 50 | 0% | 0.0056% | 0.19% | 0.09 s | 120 s |
-| Initial condition known | 50 | 5% | 0.81% | 0.99% | 0.11 s | 112 s |
-| Initial condition unknown | 50 | 5% | 0.40% | 0.77% | 0.29 s | 95 s |
-| Initial condition unknown | 10 | 5% | 25% | 12% | 0.65 s | 99 s |
-
-- **With the model fully specified, the classical fit wins every cell,** and the PINN is
-  about a thousand times slower. Once there is noise both are limited by it, and the
-  PINN's error is 1.2 to 2.2 times the classical one.
-- **With the initial condition unknown, the PINN had the lower median only at 10 noisy
-  observations,** where both methods are unreliable (the classical fit reaches 25% to
-  35% error), the ranges overlap, and the classical baseline is unregularised. I read
-  this as suggestive and not conclusive.
-
-![Error in the recovered diffusivity against noise](figures/inverse_error_vs_noise.png)
-
-## Limitations
-
-- Scope: two linear problems in 1D and one inverse parameter (see the top of this page).
-- Settings were chosen on seeds 0 to 4. The headline forward results held on ten held-out
-  seeds (5 to 14), but the tuned wave PINN's error was about twice its development estimate.
-  The inverse results and the exploratory forward results are still development-seed results.
-- The PINN received more tuning than the classical solvers, which needed none.
-- Timings come from one machine and vary by up to about two-fold between sessions. Neural
-  timings are medians, because one run was paused while the laptop slept, so read time
-  ratios as orders of magnitude.
-- Ten seeds give medians with wide bootstrap intervals, not strong significance claims.
-
-The full list, with how each was or will be handled, is in
-[`docs/PROTOCOL.md`](docs/PROTOCOL.md).
-
-## Status
-
-| Step | Status |
-|---|---|
-| Exact solutions and verified classical baselines | done |
-| Forward heat and wave, classical against PINN, five development seeds | done |
-| What helps the PINN: optimiser, data, loss weights | done |
-| Inverse problem, initial condition known and unknown | done |
-| Confirmation of the headline forward results on ten held-out seeds (5 to 14) | done |
-| Regularised classical baseline for the unknown-initial-condition inverse setting | next |
-| Dimension study: Poisson in 1 to 5 dimensions | next |
-| Written report | planned |
-| Burgers' equation (shocks) | optional, future work |
-
-## Reproduce
-
-Python 3.11 or newer.
-
-```bash
-git clone https://github.com/ridoy1211/pinn-audit
+```bat
+git clone https://github.com/ridoy1211/pinn-audit.git
 cd pinn-audit
+git checkout 09778874da8c14f4103d6b41dc31aff4b154aba8
 python -m venv .venv
-.venv\Scripts\activate            # macOS / Linux: source .venv/bin/activate
-pip install -e ".[dev,nn]"
-
-pytest                            # tests, including convergence-order and autograd checks
-pinnaudit sweep --config configs/sweeps/forward_heat.yaml --n-seeds 1
-pinnaudit summary --name forward_heat
-pinnaudit inverse --config configs/inverse/heat_known_ic.yaml --method lsq
-python scripts/plot_pareto.py --name forward_heat forward_wave
+.venv\Scripts\activate
+python -m pip install -e ".[dev,nn]"
+python -m pytest
+python scripts/analyze_broader_study.py --results results\broader_study_v1 --out-dir results\broader_analysis_replay_01
 ```
 
-Classical runs take milliseconds. Each neural run takes minutes on a laptop CPU, so a
-full five-seed sweep takes hours. Sweeps are resumable.
+Use a fresh analysis output directory every time. This command analyzes saved
+outcomes; it does not retrain the models. Historical collection commands are in
+[the workflow record](docs/BROADER_STUDY_COMMANDS.md). Preserve completed runs and
+frozen sources rather than overwriting them or selecting a preferred outcome.
 
-## Repository
+CI is configured for pushes to `main` and `broader-comparison-implementation`,
+and for pull requests. The latter push trigger was added in the local repository
+review patch; it takes effect after that patch is pushed. A CI success from an
+older commit does not verify a later research head. Local execution evidence and
+GitHub checks should be identified by their exact commit.
 
-```
-src/pinnaudit/
-  problems/     PDEs with exact solutions
-  solvers/      finite differences, PINN, no-physics control, one shared interface
-  identify.py   inverse problem: observations and the classical fit
-  inverse.py    inverse sweep runner;  inverse_pinn.py is the PINN estimator
-  sweep.py      resumable multi-seed experiments
-  modes.py      Fourier-mode breakdown of a solver's error
-  metrics.py    error measures and observed convergence order
-  cli.py        pinnaudit run | sweep | summary | modes | inverse | inverse-summary
-configs/        one YAML file per experiment; sweeps/ and inverse/ hold the larger ones
-tests/          exact solutions, convergence order, autograd residuals, sweeps, inverse
-scripts/        figures and the chronology check
-docs/PROTOCOL.md    what was fixed in advance and what was decided afterwards
-docs/LOG.md         dated lab notes, including the wrong predictions
-docs/REFERENCES.md  the eight papers behind the design
-```
+## Earlier work and provenance boundary
 
-## Related work
+The repository began with forward heat/wave tests and exploratory inverse
+comparisons. Its historical README is preserved
+[at the section-draft checkpoint](https://github.com/ridoy1211/pinn-audit/blob/09778874da8c14f4103d6b41dc31aff4b154aba8/README.md),
+and the original dated entries remain in [the lab log](docs/LOG.md).
+Historical neural tables could not be independently regenerated during the
+initial audit because their original raw run records were unavailable. They
+must not be treated as verified by the new inverse study or reused as its
+current headline results. See [the original evidence boundary](docs/SUPERVISOR_AUDIT.md).
 
-The forward comparison follows Grossmann et al. (2023), who found PINNs did not
-outperform the finite element method on other problems, and the inverse comparison
-follows Jekic et al. (2025). Rathore et al. (2024) explain the optimiser results, and
-Hao et al. (2024, PINNacle) benchmark PINN variants far more broadly than this repo.
-The results here are consistent with that work, and add a small, strict protocol with
-controls and written predictions. They are not a new method or a new discovery. See
-[`docs/REFERENCES.md`](docs/REFERENCES.md).
+The current classical procedure is spectral inversion, not a FEM/FDM benchmark.
+The earlier finite-difference code remains available for its original tasks.
 
-## Why I built it
+## Authorship and assistance
 
-I finished a physics degree this year and spent the summer on machine-learning
-pipelines. PINNs sit exactly between those two, and I wanted to understand where the
-hype ends by measuring it myself. Disagree with a baseline or think a test problem is
-missing? Open an issue.
+The workflow used substantial AI assistance for implementation, debugging,
+analysis automation, literature triage and drafting. The human author must
+review and take responsibility for the final work; AI tools are not authors.
+The final manuscript's contribution and assistance statements must describe
+actual work accurately.
 
-Ridoy Hasan · [LinkedIn](https://www.linkedin.com/in/ridoy-hasan7/) · MIT licence
-
-## Reproducibility audit and regularized inverse pilot (2026-11-03)
-
-See [the audit checkpoint](docs/REGULARIZED_INVERSE_AUDIT.md) for provenance repairs,
-the 180-test validation record, complete small pilot dataset, and limitations.
-This continues the regularized inverse baseline already listed as open in the lab
-log. A lower median error concealed a 98% error on one dataset; this is exploratory
-evidence, not a PINN superiority or confirmation claim.
+MIT licence. This repository is a research project, not a publication-acceptance
+claim or a completed particle-, quantum- or fusion-physics application.

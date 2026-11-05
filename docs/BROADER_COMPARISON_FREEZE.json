@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "classification": "prospective_versioned_protocol_not_formal_preregistration",
+  "created_utc": "2026-11-04T05:46:00.422642+00:00",
+  "implementation_commit": "b9d2b3e24446827127b67ce41f1c1c12c1f7dfdf",
+  "config_path": "configs/inverse/broader_comparison.json",
+  "config_sha256": "464192e174a6205fe68b2472ade75acc5bc172d0b715730578c9193195b17488",
+  "source_sha256": {
+    "configs/inverse/broader_comparison.json": "464192e174a6205fe68b2472ade75acc5bc172d0b715730578c9193195b17488",
+    "docs/BROADER_COMPARISON_PROTOCOL.md": "ea89f7a99abbd22c9c04e8a46db6eb1be2b6fc97f8e03cf57d217abe17b88fb7",
+    "scripts/analyze_broader_study.py": "f03a40f96bc11c68c43f77d6fe46c6178f4166cd2a5c79c313dcbd401e60d11f",
+    "scripts/broader_analysis.py": "a39be143cc361ac06570c443b2ed05bf4a96b3bb094e36b23def54e90e21fbdc",
+    "scripts/broader_common.py": "29c9079ca0659949ca25af15d1497937844c4858d95d568f202671b788367616",
+    "scripts/broader_provenance.py": "5d2545def943435d12a136d575e643c242889bc142c19f35568e2f7e995f3972",
+    "scripts/freeze_broader_study.py": "17b43bfb0fa37486c84193c680fc60d2facf631ecfb4e6189292d71e2641cfb2",
+    "scripts/pilot_bounded_pinn.py": "3053d118344c84ce2f3e5b76e4ebae5ea69bba0b3c043887004b2bfd2db7299b",
+    "scripts/run_broader_study.py": "0f5b5aae4f2118c2abf84025e897b8b19a7e8e279ea340c475ab18ff051c7ad1",
+    "scripts/score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "src/pinnaudit/config.py": "4de5c1123a96278db9082c59ddb164231a8b7c2757d5d4af51b93e0b399b5983",
+    "src/pinnaudit/io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "src/pinnaudit/problems/base.py": "e4a534ecc42c29f4bd6ca7befa1b4a9cdc47d1ff87fd4c685c821c231107c293",
+    "src/pinnaudit/solvers/neural.py": "76fdc3f5f10429a7fe377c66ef40d70a73466183e16eccce1bdbc6c440395f26",
+    "src/pinnaudit/spectral_inverse.py": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81"
+  },
+  "instruction": "Commit this freeze record before generating evaluation data"
+}

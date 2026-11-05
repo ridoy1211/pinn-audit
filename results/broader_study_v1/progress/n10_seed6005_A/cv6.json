@@ -1,0 +1,10 @@
+{
+  "case_id": "n10_seed6005_A",
+  "n_obs": 10,
+  "data_seed": 6005,
+  "family": "A",
+  "method": "cv6",
+  "training_seed": null,
+  "run_started_utc": "2026-11-04T06:25:14.323655+00:00",
+  "artifact_path": "jobs/n10_seed6005_A/cv6"
+}

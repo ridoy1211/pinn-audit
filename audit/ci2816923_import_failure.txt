@@ -1,0 +1,79 @@
+Job 126831769633
+==================================== ERRORS ====================================
+2026-11-04T20:08:15.2244815Z _______________ ERROR collecting tests/test_broader_analysis.py ________________
+2026-11-04T20:08:15.2245860Z ImportError while importing test module '/home/runner/work/pinn-audit/pinn-audit/tests/test_broader_analysis.py'.
+2026-11-04T20:08:15.2246892Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-04T20:08:15.2247513Z Traceback:
+2026-11-04T20:08:15.2248223Z /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/importlib/__init__.py:126: in import_module
+2026-11-04T20:08:15.2249196Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-04T20:08:15.2249848Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T20:08:15.2250411Z tests/test_broader_analysis.py:5: in <module>
+2026-11-04T20:08:15.2251157Z     from scripts.broader_analysis import METHODS, NN_METHODS, SCORE_METRICS, summarize_study
+2026-11-04T20:08:15.2251717Z E   ModuleNotFoundError: No module named 'scripts'
+2026-11-04T20:08:15.2252602Z ________________ ERROR collecting tests/test_broader_common.py _________________
+2026-11-04T20:08:15.2253559Z ImportError while importing test module '/home/runner/work/pinn-audit/pinn-audit/tests/test_broader_common.py'.
+2026-11-04T20:08:15.2254363Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-04T20:08:15.2254753Z Traceback:
+2026-11-04T20:08:15.2255157Z /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/importlib/__init__.py:126: in import_module
+2026-11-04T20:08:15.2255734Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-04T20:08:15.2256106Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T20:08:15.2256419Z tests/test_broader_common.py:8: in <module>
+2026-11-04T20:08:15.2256746Z     from scripts import broader_common as common
+2026-11-04T20:08:15.2257090Z E   ModuleNotFoundError: No module named 'scripts'
+2026-11-04T20:08:15.2257512Z ______________ ERROR collecting tests/test_broader_provenance.py _______________
+2026-11-04T20:08:15.2258183Z ImportError while importing test module '/home/runner/work/pinn-audit/pinn-audit/tests/test_broader_provenance.py'.
+2026-11-04T20:08:15.2258803Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-04T20:08:15.2259153Z Traceback:
+2026-11-04T20:08:15.2259539Z /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/importlib/__init__.py:126: in import_module
+2026-11-04T20:08:15.2260080Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-04T20:08:15.2260480Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T20:08:15.2260799Z tests/test_broader_provenance.py:7: in <module>
+2026-11-04T20:08:15.2261152Z     from scripts import broader_provenance as provenance
+2026-11-04T20:08:15.2261516Z E   ModuleNotFoundError: No module named 'scripts'
+2026-11-04T20:08:15.2261879Z =========================== short test summary info ============================
+2026-11-04T20:08:15.2262234Z ERROR tests/test_broader_analysis.py
+2026-11-04T20:08:15.2262780Z ERROR tests/test_broader_common.py
+2026-11-04T20:08:15.2263082Z ERROR tests/test_broader_provenance.py
+2026-11-04T20:08:15.2263699Z !!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+2026-11-04T20:08:15.2264080Z 3 errors in 3.93s
+2026-11-04T20:08:15.6236042Z ##[error]Process completed with exit code 2.
+
+Job 126831770031
+==================================== ERRORS ====================================
+2026-11-04T20:08:40.3729330Z _______________ ERROR collecting tests/test_broader_analysis.py ________________
+2026-11-04T20:08:40.3730477Z ImportError while importing test module '/home/runner/work/pinn-audit/pinn-audit/tests/test_broader_analysis.py'.
+2026-11-04T20:08:40.3731511Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-04T20:08:40.3732086Z Traceback:
+2026-11-04T20:08:40.3732713Z /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-04T20:08:40.3733597Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-04T20:08:40.3734642Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T20:08:40.3735430Z tests/test_broader_analysis.py:5: in <module>
+2026-11-04T20:08:40.3736202Z     from scripts.broader_analysis import METHODS, NN_METHODS, SCORE_METRICS, summarize_study
+2026-11-04T20:08:40.3736972Z E   ModuleNotFoundError: No module named 'scripts'
+2026-11-04T20:08:40.3737635Z ________________ ERROR collecting tests/test_broader_common.py _________________
+2026-11-04T20:08:40.3738681Z ImportError while importing test module '/home/runner/work/pinn-audit/pinn-audit/tests/test_broader_common.py'.
+2026-11-04T20:08:40.3739646Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-04T20:08:40.3740183Z Traceback:
+2026-11-04T20:08:40.3740776Z /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-04T20:08:40.3741618Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-04T20:08:40.3742178Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T20:08:40.3742647Z tests/test_broader_common.py:8: in <module>
+2026-11-04T20:08:40.3743126Z     from scripts import broader_common as common
+2026-11-04T20:08:40.3743650Z E   ModuleNotFoundError: No module named 'scripts'
+2026-11-04T20:08:40.3744325Z ______________ ERROR collecting tests/test_broader_provenance.py _______________
+2026-11-04T20:08:40.3745605Z ImportError while importing test module '/home/runner/work/pinn-audit/pinn-audit/tests/test_broader_provenance.py'.
+2026-11-04T20:08:40.3746599Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-04T20:08:40.3747128Z Traceback:
+2026-11-04T20:08:40.3748007Z /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-04T20:08:40.3748928Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-04T20:08:40.3749552Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T20:08:40.3750169Z tests/test_broader_provenance.py:7: in <module>
+2026-11-04T20:08:40.3750798Z     from scripts import broader_provenance as provenance
+2026-11-04T20:08:40.3751431Z E   ModuleNotFoundError: No module named 'scripts'
+2026-11-04T20:08:40.3752063Z =========================== short test summary info ============================
+2026-11-04T20:08:40.3752682Z ERROR tests/test_broader_analysis.py
+2026-11-04T20:08:40.3753579Z ERROR tests/test_broader_common.py
+2026-11-04T20:08:40.3754122Z ERROR tests/test_broader_provenance.py
+2026-11-04T20:08:40.3754788Z !!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+2026-11-04T20:08:40.3755774Z 3 errors in 5.40s
+2026-11-04T20:08:40.8552485Z ##[error]Process completed with exit code 2.

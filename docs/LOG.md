@@ -534,3 +534,157 @@ paired IC-family controls and explicit failure/statistical rules. It is a draft
 pending implementation verification and a final prospective freeze; its proposed
 evaluation seeds have not been generated or inspected. No new experiment is
 requested merely to replace the already-completed budget check.
+
+## 2026-11-04 (broader workflow implementation and software verification)
+
+Following merged PR 2 and the user's portability checkpoint 8f3ac82, implemented
+the broader data generator, two-basis observation-only CV, both fixed neural
+budgets, generic exact scoring/refinement, failure retention, integrity-checked
+resume, source/config freeze gate, and separate paired analysis. The final protocol
+is `docs/BROADER_COMPARISON_PROTOCOL.md`; commands are documented separately.
+
+The assistant ran only software seeds 987100/987101, never the reserved evaluation
+designs. Forty software jobs complete, followed by verified analysis of four cases
+from two independent designs. All ten-design bootstrap intervals are suppressed
+for this smoke run. The complete suite passed 224 tests in 33.35 seconds on the
+workspace Python 3.12.14 environment. See `audit/broader_implementation_verification.md`.
+
+Next reproduce the software workflow in the user's environment, then commit the
+verified implementation/protocol and smoke evidence, create and commit the freeze
+record, and only then generate evaluation data. No prospective result is claimed
+by this implementation entry.
+
+## 2026-11-04 (user-environment broader software validation)
+
+The user reproduced 224 passing tests in 81.82 seconds on Python 3.14.6, then
+completed all 40 software jobs and the separate analysis. The assistant verified
+all current frozen-source identities, 241 run-output and six analysis-output
+hashes, paired coordinate/noise/fold reuse, method completeness, and suppression
+of bootstrap intervals for the single design per stratum. Evidence is preserved
+in the user's two smoke folders and `audit/user_run_evidence`.
+
+These values are software diagnostics, excluded from scientific evaluation. The
+main configuration is unchanged, its 400-job schedule is defined, and the freeze
+record/main evaluation output do not yet exist. Next checkpoint the verified
+implementation and smoke evidence, create and commit the prospective freeze, then
+run the fixed evaluation without retuning or replacing unfavorable outcomes.
+
+## 2026-11-04 (completed prospective evaluation and evidence review)
+
+The user committed implementation b9d2b3e and freeze dad8cd5, then completed the
+entire fixed evaluation: 400 jobs, 40 paired-family cases from 20 independent
+designs, no failed/timeout jobs, collection about 2.66 hours. Freeze creation and
+commit precede data generation. Fifteen source hashes, 2365 output hashes and the
+six analysis-output hashes match; original collection/analysis files are unchanged.
+
+Independent statistical reconstruction agrees with every dataset score and all
+paired bootstrap endpoints. A derived reviewer verified 2000 held-out CV
+predictions/selected penalties, reloaded 240 neural checkpoints, checked saved
+data predictions, and reconstructed the 24 saved dense neural grids. Exact
+spectral norms verify classical IC scores and quantify time-grid error. Three
+new post-evaluation numerical-review tests pass; they do not change the frozen
+analysis or model pipeline. See `docs/MAIN_STUDY_RESULTS_REVIEW.md`.
+
+The longer PINN's strongest favorable primary contrast is sparse family B.
+CV12's denser-family-B field comparison favors it over both budgets. Family A's
+diffusivity contrasts remain uncertain by the pointwise intervals. Six-mode
+family-B IC recovery has the expected 21.82% representation floor. Both budgets,
+all methods and tails are retained. These are conditional pipeline conclusions,
+not a universal ranking, proof of convergence, or novelty certification.
+
+The declared evaluation is closed. Prepare a complete result checkpoint and an
+evidence-led paper draft; do not retune these evaluation cases. Figures, source
+checks and timing definitions are archived alongside all original data/results.
+
+## 2026-11-04 (evidence pushed; Methods and Results drafting)
+
+The user pushed the full completed evidence checkpoint as
+4a64ed4cae0991bb957c18dd2bcea26162bd4e22 on broader-comparison-implementation.
+The local checkout matched its tracking branch and was clean before drafting.
+Methods and Results sections were prepared separately in `METHODS_DRAFT.md` and
+`RESULTS_DRAFT.md`; this is not yet a complete manuscript or a claim of publication
+novelty. All 24 method/stratum rows, all 24 planned paired contrasts and four
+timing rows were transferred directly from the archived CSVs. Input hashes and
+rounding rules are recorded in `audit/manuscript_table_sources.json`.
+
+No experiment, frozen source, primary analysis or archived outcome was changed.
+Next the author should check the problem, independence units, distinction
+between paired and marginal summaries, and the limits of the comparative claims.
+Related-work positioning and a current journal-fee/scope check remain necessary
+before a submission decision.
+
+## 2026-11-05 (related-work positioning and discussion)
+
+Prepared an Introduction draft, Discussion draft and explicit contribution
+assessment. A targeted primary-source search rechecked the nearest classical,
+inverse-PINN and backward-heat precedents. The additional NEXT preprint was
+screened through its formulation/inverse sections, with a five-question note
+and access limits in `audit/literature_update_2026-11-05.md`.
+
+The candidate contribution is a narrow comparative audit. Joint heat inversion,
+noisy inverse benchmarking and spectral/neural combinations already have
+precedents. A unique intersection was not certified, and no matched-tuning claim
+is made. The original literature memo remains a historical development document;
+its proposed matched-tuning design was not what the fixed evaluation implemented.
+
+`docs/NEXT_STEPS.md` sets out reading, explanation practice and a manual Git
+checkpoint. No models, raw outcomes, frozen sources or primary analyses changed.
+The new writing files remain local until the user commits and pushes them.
+
+## 2026-11-05 (assembled manuscript body)
+
+Following the author's reading of the Introduction and Discussion, assembled
+the four existing academic sections in `docs/MANUSCRIPT_BODY_DRAFT.md`. Added
+the two existing figures and one entry for each of the five cited primary works.
+All 52 data rows across the three Results tables are preserved verbatim, with
+source hashes checked against the archived table-source record. The assembly
+script preserves subsequent author edits rather than overwriting them silently.
+Assembly inputs and the output hash are recorded in `audit/manuscript_assembly.json`.
+
+The abstract, final conclusion, author details, current journal selection and
+submission formatting remain outstanding. No experiment or primary analysis
+changed. The combined body and the SciSpace review assessment are local work
+pending a later manual Git checkpoint.
+
+## 2026-11-05 (publication route and abstract preparation)
+
+Checked current official scope and publishing routes for SN Computer Science
+and Computational and Applied Mathematics, and JOSS's distinct software scope.
+Both Springer journals state no APC for their subscription route. SN Computer
+Science is a provisional formatting candidate, not an acceptance prediction;
+COAM's explicit novelty threshold is a material concern for this narrow audit.
+See `docs/PUBLICATION_ROUTE_REVIEW.md` for sources and qualifications.
+
+Prepared a structured abstract and conclusion from the archived outcomes in
+`docs/ABSTRACT_AND_CONCLUSION_DRAFT.md`. The abstract fits the provisional
+150-250-word instruction. Author/title-page information and factual declarations
+remain outstanding. No submission, journal contact or experiment was performed.
+
+## 2026-11-05 (GitHub discrepancy audit and isolated replay)
+
+GitHub API access confirms main=99586c4 and research head=0977887, five commits
+ahead with no PR covering them and no head check runs. The current README still
+foregrounded older unverified historical tables on both branches. Local repairs
+replace the front page with the fixed-study summary, preserve historical claims
+in Git history, scope the environment record, label collection commands as
+historical, and enable pushes to the research branch in CI. No remote mutation
+was performed. See `docs/GITHUB_REPOSITORY_REVIEW.md`.
+
+An isolated archive export of the exact remote head passed 227 tests in 52.38 s.
+Analysis replay verified all 15 source and 2365 run-output hashes; all four CSVs
+and the Markdown summary are byte-identical, and scientific analysis JSON is
+identical excluding its generation time. Original evaluation models and saved
+outputs were unchanged. This completes the isolated-analysis portion of Day 7;
+author review, final packaging and submission readiness remain outstanding.
+
+## 2026-11-05 (CI launch discrepancy after checkpoint 2816923)
+
+The user committed/pushed the repository audit as 2816923. GitHub run
+41903474469 passed install, lint and type checks but both Python jobs failed
+collection because bare pytest could not import scripts. Reproduced that entry-
+point failure locally and changed the CI Test step to python -m pytest, matching
+prior local validation. The corrected invocation passed all 227 tests in 63.76 s
+with 92% pinnaudit-source coverage. All 15 frozen sources remain unchanged.
+The one-line workflow repair and explanatory evidence are pending a new manual
+checkpoint; hosted success for that repair is not claimed yet. The SciSpace
+archive warning was verified as line-ending conversion only, with no text change.

@@ -1,0 +1,252 @@
+[
+  {
+    "candidate_index": 0,
+    "ridge": 1e-10,
+    "fold": 0,
+    "n_validation": 10,
+    "validation_sse": 0.0018811097556579242,
+    "alpha_hat": 0.05100331161681439,
+    "at_bound": false,
+    "fit_wall_time_s": 0.30116470000939444
+  },
+  {
+    "candidate_index": 0,
+    "ridge": 1e-10,
+    "fold": 1,
+    "n_validation": 10,
+    "validation_sse": 0.0008197776475376409,
+    "alpha_hat": 0.049898193898594144,
+    "at_bound": false,
+    "fit_wall_time_s": 0.334728100016946
+  },
+  {
+    "candidate_index": 0,
+    "ridge": 1e-10,
+    "fold": 2,
+    "n_validation": 10,
+    "validation_sse": 0.0012485441038598026,
+    "alpha_hat": 0.05074940405029546,
+    "at_bound": false,
+    "fit_wall_time_s": 0.3178522000089288
+  },
+  {
+    "candidate_index": 0,
+    "ridge": 1e-10,
+    "fold": 3,
+    "n_validation": 10,
+    "validation_sse": 0.0017231787491795631,
+    "alpha_hat": 0.04998087373826984,
+    "at_bound": false,
+    "fit_wall_time_s": 0.3770123000140302
+  },
+  {
+    "candidate_index": 0,
+    "ridge": 1e-10,
+    "fold": 4,
+    "n_validation": 10,
+    "validation_sse": 0.0020122747414000825,
+    "alpha_hat": 0.050131607041460656,
+    "at_bound": false,
+    "fit_wall_time_s": 0.3332051000033971
+  },
+  {
+    "candidate_index": 1,
+    "ridge": 1e-08,
+    "fold": 0,
+    "n_validation": 10,
+    "validation_sse": 0.001878821251750437,
+    "alpha_hat": 0.05099980218287105,
+    "at_bound": false,
+    "fit_wall_time_s": 0.4504638999933377
+  },
+  {
+    "candidate_index": 1,
+    "ridge": 1e-08,
+    "fold": 1,
+    "n_validation": 10,
+    "validation_sse": 0.0008200320856467701,
+    "alpha_hat": 0.0498968507975298,
+    "at_bound": false,
+    "fit_wall_time_s": 0.34151399999973364
+  },
+  {
+    "candidate_index": 1,
+    "ridge": 1e-08,
+    "fold": 2,
+    "n_validation": 10,
+    "validation_sse": 0.0012483746446376484,
+    "alpha_hat": 0.05074824392220652,
+    "at_bound": false,
+    "fit_wall_time_s": 0.31117050000466406
+  },
+  {
+    "candidate_index": 1,
+    "ridge": 1e-08,
+    "fold": 3,
+    "n_validation": 10,
+    "validation_sse": 0.0017233751425251701,
+    "alpha_hat": 0.049979445450693744,
+    "at_bound": false,
+    "fit_wall_time_s": 0.3002580000029411
+  },
+  {
+    "candidate_index": 1,
+    "ridge": 1e-08,
+    "fold": 4,
+    "n_validation": 10,
+    "validation_sse": 0.002012791229585898,
+    "alpha_hat": 0.050128348536952576,
+    "at_bound": false,
+    "fit_wall_time_s": 0.31942159999744035
+  },
+  {
+    "candidate_index": 2,
+    "ridge": 1e-06,
+    "fold": 0,
+    "n_validation": 10,
+    "validation_sse": 0.00168318413877358,
+    "alpha_hat": 0.05067902627459115,
+    "at_bound": false,
+    "fit_wall_time_s": 0.32613600001786835
+  },
+  {
+    "candidate_index": 2,
+    "ridge": 1e-06,
+    "fold": 1,
+    "n_validation": 10,
+    "validation_sse": 0.0008455022514258993,
+    "alpha_hat": 0.04976709192361869,
+    "at_bound": false,
+    "fit_wall_time_s": 0.41609079999034293
+  },
+  {
+    "candidate_index": 2,
+    "ridge": 1e-06,
+    "fold": 2,
+    "n_validation": 10,
+    "validation_sse": 0.0012345104325497546,
+    "alpha_hat": 0.05063040454799313,
+    "at_bound": false,
+    "fit_wall_time_s": 0.4385325000039302
+  },
+  {
+    "candidate_index": 2,
+    "ridge": 1e-06,
+    "fold": 3,
+    "n_validation": 10,
+    "validation_sse": 0.001742481897581357,
+    "alpha_hat": 0.04984140544284516,
+    "at_bound": false,
+    "fit_wall_time_s": 0.3313114000193309
+  },
+  {
+    "candidate_index": 2,
+    "ridge": 1e-06,
+    "fold": 4,
+    "n_validation": 10,
+    "validation_sse": 0.002070353256549136,
+    "alpha_hat": 0.049842711070655236,
+    "at_bound": false,
+    "fit_wall_time_s": 0.38764239998999983
+  },
+  {
+    "candidate_index": 3,
+    "ridge": 0.0001,
+    "fold": 0,
+    "n_validation": 10,
+    "validation_sse": 0.003069271271570614,
+    "alpha_hat": 0.04352278727804985,
+    "at_bound": false,
+    "fit_wall_time_s": 0.4461283000127878
+  },
+  {
+    "candidate_index": 3,
+    "ridge": 0.0001,
+    "fold": 1,
+    "n_validation": 10,
+    "validation_sse": 0.00426915119492984,
+    "alpha_hat": 0.044293093740560875,
+    "at_bound": false,
+    "fit_wall_time_s": 0.39625349998823367
+  },
+  {
+    "candidate_index": 3,
+    "ridge": 0.0001,
+    "fold": 2,
+    "n_validation": 10,
+    "validation_sse": 0.001914020840044608,
+    "alpha_hat": 0.044513766602119614,
+    "at_bound": false,
+    "fit_wall_time_s": 0.31370299999252893
+  },
+  {
+    "candidate_index": 3,
+    "ridge": 0.0001,
+    "fold": 3,
+    "n_validation": 10,
+    "validation_sse": 0.005402583595652684,
+    "alpha_hat": 0.04433149372878837,
+    "at_bound": false,
+    "fit_wall_time_s": 0.2989047000010032
+  },
+  {
+    "candidate_index": 3,
+    "ridge": 0.0001,
+    "fold": 4,
+    "n_validation": 10,
+    "validation_sse": 0.021376394869033095,
+    "alpha_hat": 0.03930929053956407,
+    "at_bound": false,
+    "fit_wall_time_s": 0.490398499998264
+  },
+  {
+    "candidate_index": 4,
+    "ridge": 0.01,
+    "fold": 0,
+    "n_validation": 10,
+    "validation_sse": 0.07324117383487426,
+    "alpha_hat": 0.03563307459991735,
+    "at_bound": false,
+    "fit_wall_time_s": 0.5249856000009459
+  },
+  {
+    "candidate_index": 4,
+    "ridge": 0.01,
+    "fold": 1,
+    "n_validation": 10,
+    "validation_sse": 0.09173534834439839,
+    "alpha_hat": 0.034773111624887124,
+    "at_bound": false,
+    "fit_wall_time_s": 0.3637089000258129
+  },
+  {
+    "candidate_index": 4,
+    "ridge": 0.01,
+    "fold": 2,
+    "n_validation": 10,
+    "validation_sse": 0.037197424932841255,
+    "alpha_hat": 0.038030830478784285,
+    "at_bound": false,
+    "fit_wall_time_s": 0.37323499997728504
+  },
+  {
+    "candidate_index": 4,
+    "ridge": 0.01,
+    "fold": 3,
+    "n_validation": 10,
+    "validation_sse": 0.12415266491507344,
+    "alpha_hat": 0.040507673022720674,
+    "at_bound": false,
+    "fit_wall_time_s": 0.4097732000227552
+  },
+  {
+    "candidate_index": 4,
+    "ridge": 0.01,
+    "fold": 4,
+    "n_validation": 10,
+    "validation_sse": 0.2315230976907415,
+    "alpha_hat": 0.01606691179245804,
+    "at_bound": false,
+    "fit_wall_time_s": 0.3808300999808125
+  }
+]

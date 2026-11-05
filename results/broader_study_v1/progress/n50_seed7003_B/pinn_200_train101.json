@@ -1,0 +1,10 @@
+{
+  "case_id": "n50_seed7003_B",
+  "n_obs": 50,
+  "data_seed": 7003,
+  "family": "B",
+  "method": "pinn_200",
+  "training_seed": 101,
+  "run_started_utc": "2026-11-04T07:30:33.676698+00:00",
+  "artifact_path": "jobs/n50_seed7003_B/pinn_200_train101"
+}
