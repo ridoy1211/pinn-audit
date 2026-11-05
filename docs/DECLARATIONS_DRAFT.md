@@ -23,13 +23,9 @@ Later documentation and CI fixes do not change that archived experiment.
 
 ## Use of AI assistance
 
-Large language model tools, including Claude and Codex/ChatGPT, assisted code
-development, debugging, experiment automation, literature triage, analysis
-scripting and manuscript drafting. Computational checks and source-verification
-notes are retained in the repository. These checks do not replace the human
-author's responsibility for the accuracy, interpretation and integrity of the
-work. AI tools are not listed as authors.
+## Use of AI assistance
 
+Claude and ChatGPT assisted with developing and debugging Python code for experiments and statistical analysis. Numerical calculations were performed by Python scripts. The author reviewed the references, prepared and revised the manuscript, and retains responsibility for the accuracy and integrity of the final work.
 ## Author contributions and approval
 
 The contribution statement and final author approval remain to be completed
