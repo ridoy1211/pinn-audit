@@ -1,0 +1,203 @@
+{
+  "study_id": "joint_heat_timing_evaluation_v1",
+  "length": 1.0,
+  "final_time": 1.0,
+  "alpha_true_generation_and_scoring_only": 0.05,
+  "families": {
+    "A": [
+      {
+        "n": 1,
+        "amplitude": 1.0
+      },
+      {
+        "n": 3,
+        "amplitude": 0.5
+      }
+    ],
+    "B": [
+      {
+        "n": 1,
+        "amplitude": 1.0
+      },
+      {
+        "n": 3,
+        "amplitude": 0.5
+      },
+      {
+        "n": 7,
+        "amplitude": 0.25
+      }
+    ]
+  },
+  "designs": {
+    "10": [
+      906000,
+      906001,
+      906002,
+      906003,
+      906004,
+      906005,
+      906006,
+      906007,
+      906008,
+      906009,
+      906010,
+      906011,
+      906012,
+      906013,
+      906014,
+      906015,
+      906016,
+      906017,
+      906018,
+      906019,
+      906020,
+      906021,
+      906022,
+      906023,
+      906024,
+      906025,
+      906026,
+      906027,
+      906028,
+      906029
+    ],
+    "50": [
+      907000,
+      907001,
+      907002,
+      907003,
+      907004,
+      907005,
+      907006,
+      907007,
+      907008,
+      907009,
+      907010,
+      907011,
+      907012,
+      907013,
+      907014,
+      907015,
+      907016,
+      907017,
+      907018,
+      907019,
+      907020,
+      907021,
+      907022,
+      907023,
+      907024,
+      907025,
+      907026,
+      907027,
+      907028,
+      907029
+    ]
+  },
+  "noise_sigma_absolute": 0.01,
+  "fold_seed_offset": 30000,
+  "folds": 5,
+  "ridges": [
+    1e-14,
+    1e-12,
+    1e-10,
+    1e-08,
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "classical_modes": [
+    6,
+    12
+  ],
+  "fixed_ridge": 1e-06,
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "profile_points": 1601,
+  "training_seeds": [
+    101
+  ],
+  "neural_budgets": {
+    "pinn_1000": {
+      "lbfgs_iters": 1000,
+      "lbfgs_max_eval": 1250
+    }
+  },
+  "neural": {
+    "alpha_bounds": [
+      1e-05,
+      1.0
+    ],
+    "alpha0": 0.2,
+    "width": 32,
+    "depth": 3,
+    "adam_steps": 2000,
+    "lr": 0.001,
+    "alpha_lr_factor": 10.0,
+    "lbfgs_history_size": 50,
+    "tolerance_grad": 1e-12,
+    "tolerance_change": 1e-14,
+    "data_weight": 10.0,
+    "pde_weight": 1.0,
+    "trace_every": 250,
+    "max_train_seconds": 600.0
+  },
+  "collocation_seed": 314159,
+  "collocation_points": 512,
+  "residual_eval_seed": 271828,
+  "residual_eval_points": 2048,
+  "grid_points": 401,
+  "refinement_grid_points": 801,
+  "save_dense_fields_for_first_design_only": true,
+  "bootstrap_reps": 10000,
+  "bootstrap_seed_offset": 42000,
+  "min_complete_pairs": 30,
+  "phase": "evaluation",
+  "classical_methods": [
+    "cv12"
+  ],
+  "timing_schedules": {
+    "early": {
+      "window": [
+        0.01,
+        0.1
+      ]
+    },
+    "mixed": {
+      "early_window": [
+        0.01,
+        0.1
+      ],
+      "late_window": [
+        0.2,
+        0.8
+      ],
+      "early_fraction": 0.5
+    },
+    "late": {
+      "window": [
+        0.2,
+        0.8
+      ]
+    }
+  },
+  "analysis_plan": {
+    "primary_stratum": {
+      "n_obs": 10,
+      "family": "B"
+    },
+    "primary_outcome": "diffusivity_relative_absolute_error_percent",
+    "primary_contrast": "median_of_blockwise_D_mixed_minus_D_late",
+    "D_definition": "PINN_error_percent_minus_CV12_error_percent",
+    "bootstrap_unit": "whole_design_noise_block_within_observation_count",
+    "bootstrap_reps": 10000,
+    "bootstrap_seed": 908000,
+    "interval": "percentile_95_percent",
+    "secondary_intervals": "pointwise_not_simultaneous",
+    "missing_estimates": "report_failures_and_conditional_complete_block_contrasts",
+    "finite_capped_estimates": "include_and_flag"
+  }
+}
