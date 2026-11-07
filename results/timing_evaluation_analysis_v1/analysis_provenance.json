@@ -1,0 +1,31 @@
+{
+  "input_manifest_sha256": "c4da0d3dbb323679dd1a08958e56204ba1c17a091d4e98d3cebf2232953859aa",
+  "analysis_script_sha256": "b97eb9463b595eadc72b997ecf9247762b6511f9e4df284b23d3fab696d98514",
+  "analysis_plan": {
+    "primary_stratum": {
+      "n_obs": 10,
+      "family": "B"
+    },
+    "primary_outcome": "diffusivity_relative_absolute_error_percent",
+    "primary_contrast": "median_of_blockwise_D_mixed_minus_D_late",
+    "D_definition": "PINN_error_percent_minus_CV12_error_percent",
+    "bootstrap_unit": "whole_design_noise_block_within_observation_count",
+    "bootstrap_reps": 10000,
+    "bootstrap_seed": 908000,
+    "interval": "percentile_95_percent",
+    "secondary_intervals": "pointwise_not_simultaneous",
+    "missing_estimates": "report_failures_and_conditional_complete_block_contrasts",
+    "finite_capped_estimates": "include_and_flag"
+  },
+  "numpy_version": "2.5.4",
+  "output_sha256": {
+    "absolute_errors.csv": "75f68e08d58fd97d284e97a68c06be72b98957cfd3be5f4c5861829e1b652913",
+    "diagnostics.csv": "0def1576893f72176334d58bbbad487c4a6b78f69ba36c90bc82d4565fd663a8",
+    "paired_blocks.csv": "75a034f44a832ec5cc4ce64828770a696b7bfb97cbbf27d7b423a688fcab24b3",
+    "paired_differences.csv": "00f5e2786ba61cb756adc0a9ddfe6928081eca612b31f010bf5fda0af2e912cf",
+    "paired_diffusivity.png": "2ce1b7aef39dcde316bde5767bc65119d54c40317ea01af8f79a3b8f77dd13dc",
+    "paired_diffusivity.svg": "30bd2676dfa6d2ab2a072d115136f8d8635c5e56f42446b5835a561850257b11",
+    "summary.md": "4ffef605a4a12e63bddecc6509042f40f9ecb6acae66e417bfbb3f65245c3a31",
+    "timing_interactions.csv": "c06d3c21b4393fc2783c18c2fe7edb0848627cc6cad1e33670c426eb7e4ff9e6"
+  }
+}
