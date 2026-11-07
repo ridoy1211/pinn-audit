@@ -1,0 +1,240 @@
+{
+  "classification": "prospective_local_freeze_not_formal_preregistration",
+  "created_utc": "2026-11-07T08:47:57.418151+00:00",
+  "implementation_commit": "42d51d6bad44deca9cff703b073ba1411a47ecf5",
+  "source_sha256": {
+    "configs/inverse/timing_evaluation.json": "c526112014cdf1da2dc0497006b31033da2616e6663014b77723800abe7b3733",
+    "docs/BROADER_COMPARISON_PROTOCOL.md": "ea89f7a99abbd22c9c04e8a46db6eb1be2b6fc97f8e03cf57d217abe17b88fb7",
+    "scripts/analyze_broader_study.py": "f03a40f96bc11c68c43f77d6fe46c6178f4166cd2a5c79c313dcbd401e60d11f",
+    "scripts/broader_analysis.py": "a39be143cc361ac06570c443b2ed05bf4a96b3bb094e36b23def54e90e21fbdc",
+    "scripts/broader_common.py": "29c9079ca0659949ca25af15d1497937844c4858d95d568f202671b788367616",
+    "scripts/broader_provenance.py": "5d2545def943435d12a136d575e643c242889bc142c19f35568e2f7e995f3972",
+    "scripts/freeze_broader_study.py": "17b43bfb0fa37486c84193c680fc60d2facf631ecfb4e6189292d71e2641cfb2",
+    "scripts/pilot_bounded_pinn.py": "3053d118344c84ce2f3e5b76e4ebae5ea69bba0b3c043887004b2bfd2db7299b",
+    "scripts/run_broader_study.py": "0f5b5aae4f2118c2abf84025e897b8b19a7e8e279ea340c475ab18ff051c7ad1",
+    "scripts/score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "src/pinnaudit/config.py": "4de5c1123a96278db9082c59ddb164231a8b7c2757d5d4af51b93e0b399b5983",
+    "src/pinnaudit/io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "src/pinnaudit/problems/base.py": "e4a534ecc42c29f4bd6ca7befa1b4a9cdc47d1ff87fd4c685c821c231107c293",
+    "src/pinnaudit/solvers/neural.py": "76fdc3f5f10429a7fe377c66ef40d70a73466183e16eccce1bdbc6c440395f26",
+    "src/pinnaudit/spectral_inverse.py": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81",
+    "scripts/run_timing_evaluation.py": "13e87f94ace4ec1d8e1400bb4f41417b2b2f711ba8c644b52f60148b6313d4b5",
+    "scripts/run_timing_study.py": "325ea8e8588e754ff555de574499b97e6356b6b2afca12865cf63df7888c786a",
+    "scripts/timing_common.py": "c0c43c621824ff890fba079d2f02456725d50cc9d214fe7961c5672998f30f0b",
+    "configs/inverse/timing_development.json": "b7b310a64e2f8854822141c83eb53cb7ecbdadbdd050664fcac99f11db3cf099",
+    "configs/inverse/broader_comparison.json": "464192e174a6205fe68b2472ade75acc5bc172d0b715730578c9193195b17488",
+    "docs/TIMING_PROTOCOL.md": "e01635b1a7d7f2b8cb1518f61901dbe1f32d00aa240a689ae037a205e5be12b1",
+    "docs/TIMING_DEVELOPMENT_DECISIONS.md": "550a2594e1f4280766c29762b9a269c5a0b406deccb53a5645d6c387ee81b6c6"
+  },
+  "config": {
+    "study_id": "joint_heat_timing_evaluation_v1",
+    "length": 1.0,
+    "final_time": 1.0,
+    "alpha_true_generation_and_scoring_only": 0.05,
+    "families": {
+      "A": [
+        {
+          "n": 1,
+          "amplitude": 1.0
+        },
+        {
+          "n": 3,
+          "amplitude": 0.5
+        }
+      ],
+      "B": [
+        {
+          "n": 1,
+          "amplitude": 1.0
+        },
+        {
+          "n": 3,
+          "amplitude": 0.5
+        },
+        {
+          "n": 7,
+          "amplitude": 0.25
+        }
+      ]
+    },
+    "designs": {
+      "10": [
+        906000,
+        906001,
+        906002,
+        906003,
+        906004,
+        906005,
+        906006,
+        906007,
+        906008,
+        906009,
+        906010,
+        906011,
+        906012,
+        906013,
+        906014,
+        906015,
+        906016,
+        906017,
+        906018,
+        906019,
+        906020,
+        906021,
+        906022,
+        906023,
+        906024,
+        906025,
+        906026,
+        906027,
+        906028,
+        906029
+      ],
+      "50": [
+        907000,
+        907001,
+        907002,
+        907003,
+        907004,
+        907005,
+        907006,
+        907007,
+        907008,
+        907009,
+        907010,
+        907011,
+        907012,
+        907013,
+        907014,
+        907015,
+        907016,
+        907017,
+        907018,
+        907019,
+        907020,
+        907021,
+        907022,
+        907023,
+        907024,
+        907025,
+        907026,
+        907027,
+        907028,
+        907029
+      ]
+    },
+    "noise_sigma_absolute": 0.01,
+    "fold_seed_offset": 30000,
+    "folds": 5,
+    "ridges": [
+      1e-14,
+      1e-12,
+      1e-10,
+      1e-08,
+      1e-06,
+      0.0001,
+      0.01
+    ],
+    "classical_modes": [
+      6,
+      12
+    ],
+    "fixed_ridge": 1e-06,
+    "alpha_bounds": [
+      1e-05,
+      1.0
+    ],
+    "profile_points": 1601,
+    "training_seeds": [
+      101
+    ],
+    "neural_budgets": {
+      "pinn_1000": {
+        "lbfgs_iters": 1000,
+        "lbfgs_max_eval": 1250
+      }
+    },
+    "neural": {
+      "alpha_bounds": [
+        1e-05,
+        1.0
+      ],
+      "alpha0": 0.2,
+      "width": 32,
+      "depth": 3,
+      "adam_steps": 2000,
+      "lr": 0.001,
+      "alpha_lr_factor": 10.0,
+      "lbfgs_history_size": 50,
+      "tolerance_grad": 1e-12,
+      "tolerance_change": 1e-14,
+      "data_weight": 10.0,
+      "pde_weight": 1.0,
+      "trace_every": 250,
+      "max_train_seconds": 600.0
+    },
+    "collocation_seed": 314159,
+    "collocation_points": 512,
+    "residual_eval_seed": 271828,
+    "residual_eval_points": 2048,
+    "grid_points": 401,
+    "refinement_grid_points": 801,
+    "save_dense_fields_for_first_design_only": true,
+    "bootstrap_reps": 10000,
+    "bootstrap_seed_offset": 42000,
+    "min_complete_pairs": 30,
+    "phase": "evaluation",
+    "classical_methods": [
+      "cv12"
+    ],
+    "timing_schedules": {
+      "early": {
+        "window": [
+          0.01,
+          0.1
+        ]
+      },
+      "mixed": {
+        "early_window": [
+          0.01,
+          0.1
+        ],
+        "late_window": [
+          0.2,
+          0.8
+        ],
+        "early_fraction": 0.5
+      },
+      "late": {
+        "window": [
+          0.2,
+          0.8
+        ]
+      }
+    },
+    "analysis_plan": {
+      "primary_stratum": {
+        "n_obs": 10,
+        "family": "B"
+      },
+      "primary_outcome": "diffusivity_relative_absolute_error_percent",
+      "primary_contrast": "median_of_blockwise_D_mixed_minus_D_late",
+      "D_definition": "PINN_error_percent_minus_CV12_error_percent",
+      "bootstrap_unit": "whole_design_noise_block_within_observation_count",
+      "bootstrap_reps": 10000,
+      "bootstrap_seed": 908000,
+      "interval": "percentile_95_percent",
+      "secondary_intervals": "pointwise_not_simultaneous",
+      "missing_estimates": "report_failures_and_conditional_complete_block_contrasts",
+      "finite_capped_estimates": "include_and_flag"
+    }
+  },
+  "environment": {
+    "python": "3.14.6",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.14.1+cpu",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "schedule_sha256": "020249f8162aa58476dc9d76bd8c6cd632377a084f234809a28235b754240b2b"
+}
