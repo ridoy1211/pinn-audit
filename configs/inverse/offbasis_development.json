@@ -1,0 +1,117 @@
+{
+  "study_id": "offbasis_heat_development_v1",
+  "length": 1.0,
+  "final_time": 1.0,
+  "alpha_true_generation_and_scoring_only": 0.05,
+  "designs": {
+    "10": [
+      1006000,
+      1006001
+    ],
+    "50": [
+      1007000,
+      1007001
+    ]
+  },
+  "noise_sigma_absolute": 0.01,
+  "fold_seed_offset": 30000,
+  "folds": 5,
+  "ridges": [
+    1e-14,
+    1e-12,
+    1e-10,
+    1e-08,
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "classical_modes": [
+    6,
+    12
+  ],
+  "fixed_ridge": 1e-06,
+  "alpha_bounds": [
+    1e-05,
+    1.0
+  ],
+  "profile_points": 1601,
+  "training_seeds": [
+    101
+  ],
+  "neural_budgets": {
+    "pinn_1000": {
+      "lbfgs_iters": 1000,
+      "lbfgs_max_eval": 1250
+    }
+  },
+  "neural": {
+    "alpha_bounds": [
+      1e-05,
+      1.0
+    ],
+    "alpha0": 0.2,
+    "width": 32,
+    "depth": 3,
+    "adam_steps": 2000,
+    "lr": 0.001,
+    "alpha_lr_factor": 10.0,
+    "lbfgs_history_size": 50,
+    "tolerance_grad": 1e-12,
+    "tolerance_change": 1e-14,
+    "data_weight": 10.0,
+    "pde_weight": 1.0,
+    "trace_every": 250,
+    "max_train_seconds": 600.0
+  },
+  "collocation_seed": 314159,
+  "collocation_points": 512,
+  "residual_eval_seed": 271828,
+  "residual_eval_points": 2048,
+  "grid_points": 401,
+  "refinement_grid_points": 801,
+  "save_dense_fields_for_first_design_only": true,
+  "bootstrap_reps": 10000,
+  "bootstrap_seed_offset": 42000,
+  "min_complete_pairs": 2,
+  "phase": "development",
+  "classical_methods": [
+    "cv12"
+  ],
+  "timing_schedules": {
+    "mixed": {
+      "early_window": [
+        0.01,
+        0.1
+      ],
+      "late_window": [
+        0.2,
+        0.8
+      ],
+      "early_fraction": 0.5
+    },
+    "late": {
+      "window": [
+        0.2,
+        0.8
+      ]
+    }
+  },
+  "truth": {
+    "label": "C_localized",
+    "definition": "x*(1-x)*exp(-(x-center)^2/(2*width^2))/normalization",
+    "center": 0.35,
+    "width": 0.04,
+    "peak_location": 0.352075063581849,
+    "normalization": 0.22781146596160096,
+    "spectral_modes": 256,
+    "quadrature_points": 1024,
+    "initial_scoring": "direct_definition",
+    "verified_generator_sha256": "a6f5e1f03f27eb2225ae4d1febff2ef9bdc3dc0f7bb270db31d870890406fd66",
+    "verification_provenance_sha256": "7f5fa30f42d5e018e014087c6cce795cbcd2b037be53ccf9cb776311e9574fef"
+  },
+  "scoring": {
+    "initial_field": "direct_definition",
+    "full_field": "verified_spectral_solution_with_direct_t0",
+    "report_signal_rms_over_noise_sigma": true
+  }
+}
