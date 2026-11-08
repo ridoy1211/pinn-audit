@@ -1,0 +1,25 @@
+{
+  "input_provenance_sha256": {
+    "timing_identifiability_v1": "74e024df6e7a7911c90eea4c9de39dffdab9371c867b674a0257524eb5fb5b8f",
+    "timing_basis_flexibility_v1": "b9e18b42c675981643c074228d0963518c62c8aba24361f6892540c4fe4ebc5b",
+    "timing_rollout_v1": "6520f28a535bd733a29f999cd994ddc1d18090e0558393788ba7dd5dd6c0a683",
+    "timing_rollout_refinement_v1": "0c7401d126735bafbcc37bcd7307ded68337f54837e77e3ac9c4104a1440a2dd",
+    "evaluation_manifest": "c4da0d3dbb323679dd1a08958e56204ba1c17a091d4e98d3cebf2232953859aa"
+  },
+  "script_sha256": "dddd5a0a4b4f3ddbf448d6fd048ae5dafe57febeb780a598872189bd4c24ec98",
+  "example_selection": "field_B_first_seed_per_N_all_schedules",
+  "output_sha256": {
+    "basis_sensitivity.png": "2513bece55b79b16a844967817d082b0ab0e4b67c59a1da826747182bd045f06",
+    "basis_sensitivity.svg": "cc13b31386affb2762c3fdb412e7d6ed923d3115f552e54b0fcd643d0adaeefe",
+    "basis_summary.csv": "7aac0359676ebc19e84c366aa49678a59026b981c1af29136853440c8a8aa93d",
+    "physical_consistency.png": "e77e3f444087a1fcebe0392cdcad9d6af295e25a65fe8541c8253643eff1de79",
+    "physical_consistency.svg": "309368dd5ecd31ee54c76101995b61c7ddcfcfb8014c4e9b990187262453f6a5",
+    "profile_examples.png": "db58661c4f9222abae0931b150b08f79a1910acc83c167abc94f090da1d5bb63",
+    "profile_examples.svg": "1de46e0993982b6107ca2104013a83b2acaf99d724f87a0aa37aaa937a92a839",
+    "rank_summary.csv": "01f653fb9d4699eaab86e5b6ed13d5a8ad10ab3ddd924ac013ec7924184b2500",
+    "regularization_range_summary.csv": "a22403ef00d5b8c88579a4ad33671e929355a66e7cf31537c9dc7dafc9cfe754",
+    "REPORT.md": "2f99c90b8c42ca114091f6f970d6e03669891896bcc458f90ee45a221b8b31f6",
+    "rollout_all_models.csv": "d39944ae6acb2edde3616d9e0d9c619a9459cea1622b0c49db73af855ef6014c",
+    "rollout_summary.csv": "2cf555cf3706eda7ab85ee2e046b63135829c3b0bed2ec8132d5c96c1102f2cf"
+  }
+}

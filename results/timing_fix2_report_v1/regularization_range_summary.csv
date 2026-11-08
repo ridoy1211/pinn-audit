@@ -1,0 +1,13 @@
+n_obs,family,timing,median_max_over_min_alpha_across_grid,note
+10,A,early,4612.995723418442,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+10,A,mixed,30.651132807415774,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+10,A,late,4155.5359210804145,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+10,B,early,3933.394423199202,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+10,B,mixed,31.634547868464104,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+10,B,late,4158.53005510838,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+50,A,early,5048.210224594579,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+50,A,mixed,1.903684357805735,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+50,A,late,4983.483581059994,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+50,B,early,4972.642483839436,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+50,B,mixed,1.8025696969121425,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
+50,B,late,4982.772849951549,"All candidate penalties, including poorly validating candidates; not estimator uncertainty."
