@@ -1,0 +1,55 @@
+{
+  "status": "draft_not_uploaded_or_download_verified",
+  "scope": "Completed timing, identifiability, rollout and off-basis evidence",
+  "reviewed_repository_commit": "2f0bb2f65fcfd8b2260ae9605308f9438d15e151",
+  "original_results_commit": "1a4a790fc44991b47f8b815458215577e7aec259",
+  "inventory_git_bytes_sha256": "2568d654673f3c267d066f118121d5a9f5d97108d37c90f8897183fca90bdb0c",
+  "source_addendum_git_bytes_sha256": "5b9649bc245a9475dab9fcac35dd2ce6b77fdf885470c45630c73bb8c2a331f8",
+  "assets": [
+    {
+      "filename": "fix1-results-b6906ae.zip",
+      "bytes": 328000107,
+      "sha256": "c561451cfd831766910de702f1bf37923d8c84298aadf8216c8b1e71f51cc54c",
+      "zip_crc_verified": true,
+      "files": 5856,
+      "uncompressed_bytes": 575604760,
+      "result_folders": {
+        "timing_development_v1": 508,
+        "timing_evaluation_analysis_v1": 9,
+        "timing_evaluation_v1": 5045,
+        "timing_ridge_check_v1": 294
+      }
+    },
+    {
+      "filename": "fix2-evidence-v1.zip",
+      "bytes": 1261508106,
+      "sha256": "49c950029e9aa04767a45d2ac0e9d38a668aeedb51b220e7bdf9ce85be0bbbcc",
+      "zip_crc_verified": true,
+      "files": 5076,
+      "uncompressed_bytes": 1641702401,
+      "result_folders": {
+        "timing_basis_flexibility_v1": 4324,
+        "timing_fix2_report_v1": 13,
+        "timing_identifiability_v1": 365,
+        "timing_rollout_pilot_v1": 6,
+        "timing_rollout_refinement_v1": 4,
+        "timing_rollout_v1": 364
+      }
+    },
+    {
+      "filename": "fix3-evidence-v1.zip",
+      "bytes": 97979869,
+      "sha256": "0cfdbcf7ae36c51ab65789786aaf3c13c5ab3d2242debce33a6b86274a77adb2",
+      "zip_crc_verified": true,
+      "files": 1799,
+      "uncompressed_bytes": 173298904,
+      "result_folders": {
+        "offbasis_analysis_v1": 7,
+        "offbasis_development_v1": 101,
+        "offbasis_evaluation_v1": 1685,
+        "offbasis_truth_verification_v1": 6
+      }
+    }
+  ],
+  "note": "Archive hashes copied from the committed verified inventory; this preparation command does not rehash archives or upload files."
+}
