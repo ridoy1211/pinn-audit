@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-11-08T19:57:39.261520+00:00",
+  "classification": "post-evaluation local archive inventory",
+  "publication_status": "local_only_no_public_download_verified",
+  "scope": "Archive checksums, ZIP integrity and folder coverage only; not scientific validation or completeness certification.",
+  "archives": [
+    {
+      "filename": "fix1-code-b6906ae.bundle",
+      "bytes": 106035256,
+      "sha256": "d7b20f30b41ea0891a29340251292ff8633440aa06316e83e6f95cb3d422539b",
+      "note": "Checksum recorded; this command does not verify Git bundle history."
+    },
+    {
+      "filename": "fix1-results-b6906ae.zip",
+      "bytes": 328000107,
+      "sha256": "c561451cfd831766910de702f1bf37923d8c84298aadf8216c8b1e71f51cc54c",
+      "zip_crc_verified": true,
+      "files": 5856,
+      "uncompressed_bytes": 575604760,
+      "result_folders": {
+        "timing_development_v1": 508,
+        "timing_evaluation_analysis_v1": 9,
+        "timing_evaluation_v1": 5045,
+        "timing_ridge_check_v1": 294
+      }
+    },
+    {
+      "filename": "fix2-code-v1.bundle",
+      "bytes": 107545728,
+      "sha256": "16c0d177ad409df3d9de05849cc8efb79ce4ccaba11fa205a81d2f98f35d3120",
+      "note": "Checksum recorded; this command does not verify Git bundle history."
+    },
+    {
+      "filename": "fix2-evidence-v1.zip",
+      "bytes": 1261508106,
+      "sha256": "49c950029e9aa04767a45d2ac0e9d38a668aeedb51b220e7bdf9ce85be0bbbcc",
+      "zip_crc_verified": true,
+      "files": 5076,
+      "uncompressed_bytes": 1641702401,
+      "result_folders": {
+        "timing_basis_flexibility_v1": 4324,
+        "timing_fix2_report_v1": 13,
+        "timing_identifiability_v1": 365,
+        "timing_rollout_pilot_v1": 6,
+        "timing_rollout_refinement_v1": 4,
+        "timing_rollout_v1": 364
+      }
+    },
+    {
+      "filename": "fix3-code-v1.bundle",
+      "bytes": 107589008,
+      "sha256": "d6cca09fa2f9cc7f2ee61a59cdd84b506f3cfbb7f97b91750579fb684b778d19",
+      "note": "Checksum recorded; this command does not verify Git bundle history."
+    },
+    {
+      "filename": "fix3-evidence-v1.zip",
+      "bytes": 97979869,
+      "sha256": "0cfdbcf7ae36c51ab65789786aaf3c13c5ab3d2242debce33a6b86274a77adb2",
+      "zip_crc_verified": true,
+      "files": 1799,
+      "uncompressed_bytes": 173298904,
+      "result_folders": {
+        "offbasis_analysis_v1": 7,
+        "offbasis_development_v1": 101,
+        "offbasis_evaluation_v1": 1685,
+        "offbasis_truth_verification_v1": 6
+      }
+    }
+  ]
+}
