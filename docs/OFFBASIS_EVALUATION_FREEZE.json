@@ -1,0 +1,231 @@
+{
+  "classification": "prospective_local_freeze_not_formal_preregistration",
+  "created_utc": "2026-11-08T07:13:25.421168+00:00",
+  "implementation_commit": "36e999a4f5729005038096e7305731f382a0967b",
+  "source_sha256": {
+    "configs/inverse/offbasis_evaluation.json": "60ed1e99ca3f171b31251a6d302daffbce58a2295b82c5ffc41767199e8e000b",
+    "docs/BROADER_COMPARISON_PROTOCOL.md": "ea89f7a99abbd22c9c04e8a46db6eb1be2b6fc97f8e03cf57d217abe17b88fb7",
+    "scripts/analyze_broader_study.py": "f03a40f96bc11c68c43f77d6fe46c6178f4166cd2a5c79c313dcbd401e60d11f",
+    "scripts/broader_analysis.py": "a39be143cc361ac06570c443b2ed05bf4a96b3bb094e36b23def54e90e21fbdc",
+    "scripts/broader_common.py": "29c9079ca0659949ca25af15d1497937844c4858d95d568f202671b788367616",
+    "scripts/broader_provenance.py": "5d2545def943435d12a136d575e643c242889bc142c19f35568e2f7e995f3972",
+    "scripts/freeze_broader_study.py": "17b43bfb0fa37486c84193c680fc60d2facf631ecfb4e6189292d71e2641cfb2",
+    "scripts/pilot_bounded_pinn.py": "3053d118344c84ce2f3e5b76e4ebae5ea69bba0b3c043887004b2bfd2db7299b",
+    "scripts/run_broader_study.py": "0f5b5aae4f2118c2abf84025e897b8b19a7e8e279ea340c475ab18ff051c7ad1",
+    "scripts/score_sparse_diagnostic.py": "71cd2cfb467815ca82072b806395f51cdf8fee6892f9711875a5dbd3117971f5",
+    "src/pinnaudit/config.py": "4de5c1123a96278db9082c59ddb164231a8b7c2757d5d4af51b93e0b399b5983",
+    "src/pinnaudit/io.py": "85dec4f7e97cb72b75c5c6e716847a1d356003ce538e5ee59da55fd221660583",
+    "src/pinnaudit/problems/base.py": "e4a534ecc42c29f4bd6ca7befa1b4a9cdc47d1ff87fd4c685c821c231107c293",
+    "src/pinnaudit/solvers/neural.py": "76fdc3f5f10429a7fe377c66ef40d70a73466183e16eccce1bdbc6c440395f26",
+    "src/pinnaudit/spectral_inverse.py": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81",
+    "scripts/run_offbasis_evaluation.py": "a0a5e9662e639a9df6fa8c96e6bbb916beded65e0eff06db291be589b95c8988",
+    "scripts/run_offbasis_development.py": "c028a75e230ff08db0927cbf793fe0bff62272491ab4acec721b72957a0c59e8",
+    "scripts/run_timing_study.py": "325ea8e8588e754ff555de574499b97e6356b6b2afca12865cf63df7888c786a",
+    "scripts/timing_common.py": "c0c43c621824ff890fba079d2f02456725d50cc9d214fe7961c5672998f30f0b",
+    "scripts/offbasis_truth.py": "a6f5e1f03f27eb2225ae4d1febff2ef9bdc3dc0f7bb270db31d870890406fd66",
+    "scripts/verify_offbasis_truth.py": "e821459a7204b136af4046fa401944522e740a4e0e734431c7a437ea05c929fa",
+    "configs/inverse/offbasis_development.json": "137e1e16a0ad7fe9841ccf974df598f353c27c4b5d93aa51097df8b43c4a4b3f",
+    "configs/inverse/timing_evaluation.json": "c526112014cdf1da2dc0497006b31033da2616e6663014b77723800abe7b3733",
+    "docs/OFFBASIS_PROTOCOL.md": "12a94f1b017236c1346235bb7b456e32c95155eedb91519f355297ffec8c9a62",
+    "docs/OFFBASIS_DEVELOPMENT_DECISIONS.md": "423843434b6bbcf20d8714f9516030a727facfa14a41daa2e9e2370ae63a48c1"
+  },
+  "config": {
+    "study_id": "offbasis_heat_evaluation_v1",
+    "length": 1.0,
+    "final_time": 1.0,
+    "alpha_true_generation_and_scoring_only": 0.05,
+    "designs": {
+      "10": [
+        1106000,
+        1106001,
+        1106002,
+        1106003,
+        1106004,
+        1106005,
+        1106006,
+        1106007,
+        1106008,
+        1106009,
+        1106010,
+        1106011,
+        1106012,
+        1106013,
+        1106014,
+        1106015,
+        1106016,
+        1106017,
+        1106018,
+        1106019,
+        1106020,
+        1106021,
+        1106022,
+        1106023,
+        1106024,
+        1106025,
+        1106026,
+        1106027,
+        1106028,
+        1106029
+      ],
+      "50": [
+        1107000,
+        1107001,
+        1107002,
+        1107003,
+        1107004,
+        1107005,
+        1107006,
+        1107007,
+        1107008,
+        1107009,
+        1107010,
+        1107011,
+        1107012,
+        1107013,
+        1107014,
+        1107015,
+        1107016,
+        1107017,
+        1107018,
+        1107019,
+        1107020,
+        1107021,
+        1107022,
+        1107023,
+        1107024,
+        1107025,
+        1107026,
+        1107027,
+        1107028,
+        1107029
+      ]
+    },
+    "noise_sigma_absolute": 0.01,
+    "fold_seed_offset": 30000,
+    "folds": 5,
+    "ridges": [
+      1e-14,
+      1e-12,
+      1e-10,
+      1e-08,
+      1e-06,
+      0.0001,
+      0.01
+    ],
+    "classical_modes": [
+      6,
+      12
+    ],
+    "fixed_ridge": 1e-06,
+    "alpha_bounds": [
+      1e-05,
+      1.0
+    ],
+    "profile_points": 1601,
+    "training_seeds": [
+      101
+    ],
+    "neural_budgets": {
+      "pinn_1000": {
+        "lbfgs_iters": 1000,
+        "lbfgs_max_eval": 1250
+      }
+    },
+    "neural": {
+      "alpha_bounds": [
+        1e-05,
+        1.0
+      ],
+      "alpha0": 0.2,
+      "width": 32,
+      "depth": 3,
+      "adam_steps": 2000,
+      "lr": 0.001,
+      "alpha_lr_factor": 10.0,
+      "lbfgs_history_size": 50,
+      "tolerance_grad": 1e-12,
+      "tolerance_change": 1e-14,
+      "data_weight": 10.0,
+      "pde_weight": 1.0,
+      "trace_every": 250,
+      "max_train_seconds": 600.0
+    },
+    "collocation_seed": 314159,
+    "collocation_points": 512,
+    "residual_eval_seed": 271828,
+    "residual_eval_points": 2048,
+    "grid_points": 401,
+    "refinement_grid_points": 801,
+    "save_dense_fields_for_first_design_only": true,
+    "bootstrap_reps": 10000,
+    "bootstrap_seed_offset": 42000,
+    "min_complete_pairs": 30,
+    "phase": "evaluation",
+    "classical_methods": [
+      "cv12"
+    ],
+    "timing_schedules": {
+      "mixed": {
+        "early_window": [
+          0.01,
+          0.1
+        ],
+        "late_window": [
+          0.2,
+          0.8
+        ],
+        "early_fraction": 0.5
+      },
+      "late": {
+        "window": [
+          0.2,
+          0.8
+        ]
+      }
+    },
+    "truth": {
+      "label": "C_localized",
+      "definition": "x*(1-x)*exp(-(x-center)^2/(2*width^2))/normalization",
+      "center": 0.35,
+      "width": 0.04,
+      "peak_location": 0.352075063581849,
+      "normalization": 0.22781146596160096,
+      "spectral_modes": 256,
+      "quadrature_points": 1024,
+      "initial_scoring": "direct_definition",
+      "verified_generator_sha256": "a6f5e1f03f27eb2225ae4d1febff2ef9bdc3dc0f7bb270db31d870890406fd66",
+      "verification_provenance_sha256": "7f5fa30f42d5e018e014087c6cce795cbcd2b037be53ccf9cb776311e9574fef"
+    },
+    "scoring": {
+      "initial_field": "direct_definition",
+      "full_field": "verified_spectral_solution_with_direct_t0",
+      "report_signal_rms_over_noise_sigma": true
+    },
+    "analysis_plan": {
+      "classification": "secondary_offbasis_robustness",
+      "main_outcome": "diffusivity_relative_absolute_error_percent",
+      "other_outcomes": [
+        "initial_field_relative_L2_percent",
+        "full_field_relative_L2_percent"
+      ],
+      "D": "PINN_error_minus_CV12_error_within_block_and_schedule",
+      "I": "D_mixed_minus_D_late_within_block",
+      "estimator": "median_of_paired_block_differences",
+      "bootstrap_unit": "whole_design_noise_block_within_N",
+      "bootstrap_reps": 10000,
+      "bootstrap_seed": 1108000,
+      "interval": "95_percent_percentile_pointwise_not_simultaneous",
+      "failed_estimates": "report_failures_and_conditional_complete_block_contrasts",
+      "finite_capped_estimates": "include_and_flag",
+      "relation_to_original": "does_not_replace_original_primary_test"
+    }
+  },
+  "environment": {
+    "python": "3.14.6",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.14.1+cpu",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "schedule_sha256": "c6e547f945afe610c0ebcde7e0546dcf038310ddf71b09c0aef6df06a8bce06d"
+}
