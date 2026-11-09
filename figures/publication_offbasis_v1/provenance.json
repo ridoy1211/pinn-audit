@@ -1,0 +1,17 @@
+{
+  "classification": "publication display and descriptive sensor diagnostic",
+  "inputs": {
+    "evaluation_manifest_sha256": "92e427525ca5168352e000874eae142d880d7e3fb5b16e2f9452870024cb42ff",
+    "analysis_provenance_sha256": "2dcf3bc020536abf2ea397cb6f135e0e5cba12f422f9601812bf818d0b489972",
+    "truth_verification_provenance_sha256": "7f5fa30f42d5e018e014087c6cce795cbcd2b037be53ccf9cb776311e9574fef"
+  },
+  "script_sha256": "e4d1a4d263fabc52b717ed668cc63f74772d609358ca7c28564dc6c171c58cfa",
+  "numpy_version": "2.5.4",
+  "matplotlib_version": "3.11.2",
+  "output_sha256": {
+    "offbasis.png": "d5b0a4144cecdf5ed35abc848223e62e5444743655cf12455628ebf7ab3660a6",
+    "offbasis.svg": "ab4a119cb77a9e88750f6c222992a5fd023788bb7ec100f64118448322ad7a0d",
+    "REPORT.md": "e938836a7b0a50b3006ac3d0d12a570f2ed48a7642824af7c2140a8242deccb2",
+    "sensor_tail.csv": "1dff5133e1e70d017146332d36f27da22d064b0c423709ea8d8869441f3ec920"
+  }
+}
