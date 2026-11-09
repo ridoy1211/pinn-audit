@@ -1,0 +1,22 @@
+{
+  "study_id": "joint_heat_timing_evaluation_v1",
+  "analysis_role": "post-evaluation descriptive display of the frozen timing estimates",
+  "input_sha256": {
+    "repository/results/timing_fix2_report_v1/provenance.json": "ed7542981b636bed54dc2b6befc395b4b12e2953f180ec5f733bf61808acc3f2",
+    "repository/configs/inverse/timing_evaluation.json": "c526112014cdf1da2dc0497006b31033da2616e6663014b77723800abe7b3733",
+    "repository/scripts/analyze_timing_evaluation.py": "b39233cacb007f971e7866314d496f06eca4e4fc270a040d9fa4f14ff87686f8",
+    "evidence/timing_evaluation_v1/manifest.json": "c4da0d3dbb323679dd1a08958e56204ba1c17a091d4e98d3cebf2232953859aa",
+    "evidence/timing_evaluation_v1/config.json": "c526112014cdf1da2dc0497006b31033da2616e6663014b77723800abe7b3733",
+    "evidence/timing_evaluation_v1/records.json": "5255db6d710bd7deeb8aa44800b2fb40884765a412704d1ef0e24c1dfb468ac4",
+    "evidence/timing_identifiability_v1/provenance.json": "74e024df6e7a7911c90eea4c9de39dffdab9371c867b674a0257524eb5fb5b8f",
+    "evidence/timing_identifiability_v1/boundary_distances.csv": "643fc33f7468b065d84e78477c49d4b1f0cd95ee06e351e2d4df43aa41159dd7"
+  },
+  "script_sha256": "a30e78fdac2834e2235a34cd93f618456d1bf30f738d8d448129dc232404d835",
+  "numpy_version": "2.5.4",
+  "matplotlib_version": "3.11.2",
+  "output_sha256": {
+    "bounds.png": "2c2dc1c55dd0b4ff3fbff070ddb4434a1dd5cf7e07688fa21b0abcbd7dbdf169",
+    "bounds.svg": "584f4ee1e7c31521b0eb89a5331d4144790ae9ca779aae8b2bbe4db3d017d0f4",
+    "REPORT.md": "2a92b5ba27758a5b86949b6adbf92f727ac2a0936811ae402df0e542457d49a5"
+  }
+}
