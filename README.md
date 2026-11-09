@@ -1,147 +1,90 @@
 # pinn-audit
 
-A controlled computational audit of physics-informed neural networks and classical
-spectral inversion for the heat equation, with unknown diffusivity and an unknown
-initial temperature field.
+A computational study of joint heat inversion. We compare how observation
+timing and initial-state representation affect recovery of thermal diffusivity
+and an unknown initial temperature from sparse, noisy synthetic observations
+of a one-dimensional heat equation.
 
-**Current study:** all 400 scheduled evaluation jobs are complete. PR #3 merged
-the study and manuscript sections into `main` at `5000363`; CI passed for that
-merge. The complete manuscript is an author-review draft, not a submission-ready
-or accepted paper. See [research progress](docs/RESEARCH_PROGRESS.md) and
-[the current next step](docs/NEXT_STEPS.md). Work is tracked by research stage;
-earlier day-based notes are preserved in [the history archive](docs/history/README.md).
+## Controlled timing and robustness studies
 
-## What was investigated
+The follow-up evaluations compare cross-validated twelve-mode spectral
+inversion (CV12) with a physics-informed neural network (PINN-1000). The PINN
+uses one prespecified training start, 2,000 Adam steps and an L-BFGS budget of
+1,000 iterations. Each evaluation uses 30 independent design and noise blocks
+per observation count. Schedules share spatial locations and noise draws within
+each block. The timing study also shares blocks across initial fields A and B.
 
-We estimate a constant diffusivity and the unobserved starting temperature from
-10 or 50 noisy interior observations on the unit space-time square, with known
-zero Dirichlet boundaries. The synthetic truth has alpha=0.05 and absolute noise
-SD=0.01. Initial field A contains sine modes 1 and 3; B adds mode 7.
+| Stage | Design | Evidence |
+|---|---|---|
+| Controlled timing | 360 datasets and 720 fits. Early, mixed and late observations at N=10 and N=50 for initial fields A and B. | [Protocol](docs/TIMING_PROTOCOL.md), [analysis](results/timing_evaluation_analysis_v1/summary.md), [paired diffusivity figure](results/timing_evaluation_analysis_v1/paired_diffusivity.png) |
+| Explanatory diagnostics | Post-evaluation diffusivity profiles, conditioning and 6/12/24-mode sensitivity. An independent heat-equation solution uses the initial field and diffusivity recovered by each of the 360 timing PINNs. | [Diagnostic report](results/timing_fix2_report_v1/REPORT.md), [rollout figure](results/timing_fix2_report_v1/physical_consistency.png) |
+| Off-basis evaluation | 120 datasets and 240 fits. One localized initial field outside the twelve-mode span, with mixed and late schedules at both observation counts. | [Protocol](docs/OFFBASIS_PROTOCOL.md), [analysis](results/offbasis_analysis_v1/REPORT.md) |
 
-Four spectral procedures distinguish six/twelve-mode representations and absent,
-fixed or observation-cross-validated regularization. Two hard-boundary PINN
-procedures use the same architecture and 200 or 1000 L-BFGS iterations after
-2000 Adam steps. Neural architecture is not varied. All procedures receive the
-same observations and diffusivity bounds within a case.
+For N=10 and field B, the prespecified primary contrast was the within-block
+PINN-minus-CV12 diffusivity error gap under mixed observations minus the gap
+under late observations. The median contrast was 3.7322 percentage points (95%
+percentile bootstrap interval [−0.0947, 56.2421]), leaving the interaction
+inconclusive. The [publication claims record](docs/PUBLICATION_CLAIMS.md)
+describes the interpretation limits and relationship to prior work.
 
-There are 40 cases from **20 independent observation/noise designs**, shared
-across initial-field families. Each neural case uses three starts and both
-budgets: 240 neural fits plus 160 reported classical pipeline outputs. There are
-ten independent designs in each observation-count/family stratum; neural starts
-are not additional independent datasets.
+## Replay the follow-up analyses
 
-## Findings and limits
+Use a checkout of `experiment/controlled-timing` containing commit `84a1ac6`.
+The reports and figures linked above are tracked in Git. Replaying them requires
+the three ZIP archives listed in the [evidence manifest](docs/evidence_release_v1/release_manifest.json).
+Local restoration and replay have been verified. Public archive downloads are
+pending verification.
 
-- At N=10/B, PINN-1000 has lower diffusivity and initial-field errors than CV12
-  in nine of ten designs each, and lower full-field error in eight.
-- At N=50/B, CV12 has lower full-field error than PINN-1000 in eight designs and
-  PINN-200 in all ten. The longer-budget diffusivity/initial-field contrasts
-  remain uncertain by the pointwise intervals.
-- Several other comparisons are uncertain. No overall method-class winner,
-  structural-identifiability theorem or convergence certificate is established.
-- Six-mode fitting cannot express B's seventh component: its initial-field
-  relative-L2 error floor is 21.82%. The richer classical representation contains
-  the truth and is favorable to that reference.
+Follow the [restoration instructions](docs/evidence_release_v1/RELEASE_NOTES.md)
+to verify the archives and extract them into `..\heat-evidence-restored`. The
+[source provenance addendum](docs/source_provenance_addendum_v1/README.md)
+relates the frozen source hashes to the corresponding Git files.
 
-Selected marginal median errors (%) are below. Every condition has ten designs;
-neural scores first take the median over three starts separately per outcome.
-These are not ensemble predictions or the best initialization. The paired effects
-are computed within designs and differ from subtracting marginal medians.
+After restoration, use the root of the `experiment/controlled-timing` checkout
+for the commands below. Run them in Windows CMD with an active Python
+environment. The verified replay used Python 3.14.6, NumPy 2.5.4 and
+Matplotlib 3.11.2. Install the replay dependencies if needed.
 
-| N | initial field | procedure | diffusivity error | field error | initial-field error |
-|---|---|---|---:|---:|---:|
-| 10 | A | CV12 | 4.755 | 3.942 | 10.900 |
-| 10 | A | PINN-1000 | 2.580 | 3.842 | 8.963 |
-| 10 | B | CV12 | 11.752 | 7.402 | 26.111 |
-| 10 | B | PINN-1000 | 3.400 | 6.071 | 23.368 |
-| 50 | A | CV12 | 1.607 | 0.889 | 2.919 |
-| 50 | A | PINN-1000 | 1.494 | 0.909 | 2.366 |
-| 50 | B | CV12 | 1.902 | 2.191 | 10.882 |
-| 50 | B | PINN-1000 | 2.334 | 3.703 | 16.482 |
-
-[All six procedures and 24 paired contrasts](results/broader_analysis_v1/summary.md)
-retain favorable, unfavorable and uncertain outcomes. Intervals are pointwise
-95% percentile bootstrap intervals from ten designs per stratum, without
-multiplicity correction. All jobs completed; some finite fits still have large
-recovery errors. Completion does not certify convergence.
-
-![All prespecified paired comparisons](results/broader_results_review_v1/paired_contrasts.png)
-
-This is a specified-pipeline comparison, not equal-compute or equally tuned
-method classes. Classical regularization uses cross-validation; neural settings
-are fixed from development. One domain, one true diffusivity, one noise level,
-finite spectral truths and limited initialization sampling restrict scope.
-There is no observation-timing or high-dimensional study in this evaluation.
-
-## Evidence and manuscript guide
-
-- [Fixed protocol](docs/BROADER_COMPARISON_PROTOCOL.md) and
-  [committed freeze](docs/BROADER_COMPARISON_FREEZE.json): versioned before
-  evaluation data generation; not formal preregistration. The protocol's
-  pre-run wording is preserved as frozen evidence.
-- [Main data/models/manifest](results/broader_study_v1/) and
-  [prespecified analysis](results/broader_analysis_v1/).
-- [Numerical review and figures](results/broader_results_review_v1/) and
-  [critical result interpretation](docs/MAIN_STUDY_RESULTS_REVIEW.md).
-- [Complete author-review manuscript](docs/MANUSCRIPT_REVIEW_DRAFT.md), including
-  abstract, conclusion and provisional declarations; [title-page preparation](docs/TITLE_PAGE_DRAFT.md).
-- Draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
-  [Methods](docs/METHODS_DRAFT.md), [Results](docs/RESULTS_DRAFT.md),
-  [Discussion](docs/DISCUSSION_DRAFT.md). These are drafts, not an accepted paper.
-- Plain-language reading: [methods](docs/methods.md) and [results](docs/result.md).
-- [Contribution limits](docs/NOVELTY_ASSESSMENT.md) and
-  [verified related-work notes](audit/literature_review.md).
-
-Implementation checkpoint: `b9d2b3e`; committed freeze: `dad8cd5`; complete
-experiment archive: `4a64ed4`; section-draft checkpoint: `0977887`.
-
-## Reproduce the saved analysis
-
-Python 3.11 or newer is the package's declared minimum. The main collection used
-Python 3.14.6 and Torch 2.15.0+cpu; see the saved run manifest for actual metadata.
-The commands below install declared dependencies; they are not a complete
-version-pinned reconstruction of the collection environment.
-
-```bat
-git clone https://github.com/ridoy1211/pinn-audit.git
-cd pinn-audit
-git checkout 09778874da8c14f4103d6b41dc31aff4b154aba8
-python -m venv .venv
-.venv\Scripts\activate
-python -m pip install -e ".[dev,nn]"
-python -m pytest
-python scripts/analyze_broader_study.py --results results\broader_study_v1 --out-dir results\broader_analysis_replay_01
+```cmd
+python -m pip install numpy==2.5.4 matplotlib==3.11.2
 ```
 
-Use a fresh analysis output directory every time. This command analyzes saved
-outcomes; it does not retrain the models. Historical collection commands are in
-[the workflow record](docs/BROADER_STUDY_COMMANDS.md). Preserve completed runs and
-frozen sources rather than overwriting them or selecting a preferred outcome.
+Use a new output directory for each analysis. These commands regenerate the
+reports from saved fits.
 
-CI runs on pushes to `main` and `broader-comparison-implementation`, and on pull
-requests. [The merged-study check](https://github.com/ridoy1211/pinn-audit/actions/runs/41974830481)
-passed at `5000363`. Each later checkpoint needs its own check; an earlier success
-does not certify later edits. The saved-analysis replay is documented separately
-in [the reproducibility audit](audit/github_repository_check_2026-11-05.json).
+```cmd
+set "EVIDENCE_RESULTS=..\heat-evidence-restored\results"
+python scripts\analyze_timing_evaluation.py --results "%EVIDENCE_RESULTS%\timing_evaluation_v1" --out-dir "..\heat-timing-replay"
+python scripts\report_timing_fix2.py --results "%EVIDENCE_RESULTS%" --out-dir "..\heat-diagnostic-replay"
+python scripts\analyze_offbasis_evaluation.py --results "%EVIDENCE_RESULTS%\offbasis_evaluation_v1" --out-dir "..\heat-offbasis-replay"
+```
 
-## Earlier work and provenance boundary
+The five CSV tables and Markdown report from each analysis matched the archived
+copies byte for byte in the verified replay. For example, compare the primary
+timing table with the restored copy.
 
-The repository began with forward heat/wave tests and exploratory inverse
-comparisons. Its historical README is preserved
-[at the section-draft checkpoint](https://github.com/ridoy1211/pinn-audit/blob/09778874da8c14f4103d6b41dc31aff4b154aba8/README.md),
-and the original dated entries remain in [the lab log](docs/LOG.md).
-Historical neural tables could not be independently regenerated during the
-initial audit because their original raw run records were unavailable. They
-must not be treated as verified by the new inverse study or reused as its
-current headline results. See [the original evidence boundary](docs/SUPERVISOR_AUDIT.md).
+```cmd
+fc /b "%EVIDENCE_RESULTS%\timing_evaluation_analysis_v1\timing_interactions.csv" "..\heat-timing-replay\timing_interactions.csv"
+```
 
-The current classical procedure is spectral inversion, not a FEM/FDM benchmark.
-The earlier finite-difference code remains available for its original tasks.
+## Earlier broader comparison
 
-## Authorship and assistance
+The earlier 400-job study compared four spectral procedures and two PINN
+budgets across 40 cases. Its neural summaries use outcome-wise medians over
+three starts. Its [protocol](docs/BROADER_COMPARISON_PROTOCOL.md),
+[paired results](results/broader_analysis_v1/summary.md) and
+[reproduction commands](docs/BROADER_STUDY_COMMANDS.md) cover that study.
+The [author-review manuscript](docs/MANUSCRIPT_REVIEW_DRAFT.md) describes this
+earlier comparison. The [lab log](docs/LOG.md) and
+[history archive](docs/history/README.md) record the preceding pilots.
 
-AI tools assisted with developing and debugging the Python code used for experiments and statistical analysis. Numerical calculations were performed by Python scripts.
+## Citation, assistance and license
 
-For the full research-assistance disclosure, see [Declarations](docs/DECLARATIONS_DRAFT.md).
+Use [CITATION.cff](CITATION.cff) for the repository's citation metadata.
+
+AI tools assisted with developing and debugging the Python code used for
+experiments and statistical analysis. Numerical calculations were performed by
+Python scripts. See the draft [Declarations](docs/DECLARATIONS_DRAFT.md) for
+the research-assistance disclosure.
 
 Licensed under the [MIT License](LICENSE).
