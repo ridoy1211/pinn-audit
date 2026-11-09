@@ -1,0 +1,27 @@
+{
+  "classification": "publication display of post-evaluation conditioning diagnostics",
+  "example": {
+    "n_obs": 10,
+    "family": "B",
+    "seed": 906000,
+    "selection": "first listed seed"
+  },
+  "inputs": {
+    "evaluation_manifest_sha256": "c4da0d3dbb323679dd1a08958e56204ba1c17a091d4e98d3cebf2232953859aa",
+    "diagnostic_provenance_sha256": "74e024df6e7a7911c90eea4c9de39dffdab9371c867b674a0257524eb5fb5b8f",
+    "design_source_sha256": "419b19367a70365108053c8a5107db2850bcb6f91ab45c3cadfecc307c571d81",
+    "observation_sha256": {
+      "data/n10_seed906000_B_early.npz": "0c8bac4f54f46d677b02f0d42b3d65dbe01e2187103f56c4da0740bbb6f10373",
+      "data/n10_seed906000_B_mixed.npz": "e82173c3bccd9f4ccdab395ac8fb750bc3bbab7d6d0479ff6a003f0fc9beed71",
+      "data/n10_seed906000_B_late.npz": "e96d932239224fbaf8e060226e2b5b2348b0bd51cf44dee5b19bfb1863737c15"
+    }
+  },
+  "script_sha256": "057bd49176fb89693562309ca09daf24c9e3cc7cf44f33986ee1de6ff79f80aa",
+  "numpy_version": "2.5.4",
+  "matplotlib_version": "3.11.2",
+  "output_sha256": {
+    "conditioning.png": "1843d59f2e76362d603d44aad4edca97d318d376eceb5bc9bd00fc08dc8dac52",
+    "conditioning.svg": "9d522ef19bf0cd48cac977076e227ddb8bc4c655a691b870caf8c13e143a8a4e",
+    "REPORT.md": "f342b9b447653e716860acd323100cad430c240473209c97a52caf82e8face0a"
+  }
+}
