@@ -1,0 +1,19 @@
+{
+  "classification": "publication display of the archived prespecified analysis",
+  "inputs": {
+    "config_sha256": "c526112014cdf1da2dc0497006b31033da2616e6663014b77723800abe7b3733",
+    "analysis_provenance_sha256": "3c7d272db4f8a68f6d49dd2ebb36720f8eb101fcf906ccc9a5a40c505e97ea46",
+    "analysis_output_sha256": {
+      "paired_blocks.csv": "75a034f44a832ec5cc4ce64828770a696b7bfb97cbbf27d7b423a688fcab24b3",
+      "timing_interactions.csv": "c06d3c21b4393fc2783c18c2fe7edb0848627cc6cad1e33670c426eb7e4ff9e6"
+    }
+  },
+  "script_sha256": "05db6c718418f0f49215a30b664596bb458b6349aebc063767a988f5d91eb01e",
+  "numpy_version": "2.5.4",
+  "matplotlib_version": "3.11.2",
+  "output_sha256": {
+    "primary_timing.png": "7b98179b2414dfdadebf8032c6d0c93216cb609f707b6441bf76cd7a1e73c37c",
+    "primary_timing.svg": "714dfbbe32787dde14d948ab6501139b6f41068398b9f9b12e40c1aea5b39054",
+    "REPORT.md": "56ca9c204b897da904af2c6e1202204d59af6fd67064373ff11a71c0dc037b6f"
+  }
+}
