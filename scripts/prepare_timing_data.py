@@ -3,7 +3,7 @@
 import hashlib
 import json
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import numpy as np
@@ -11,7 +11,6 @@ import numpy as np
 from broader_common import make_dataset
 from run_timing_study import build_jobs, load_config
 from timing_common import generate_timing_designs
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,9 +26,7 @@ def main():
 
     out = ROOT / "results/timing_development_v1"
     if out.exists():
-        raise FileExistsError(
-            f"Output already exists; refusing to overwrite: {out}"
-        )
+        raise FileExistsError(f"Output already exists; refusing to overwrite: {out}")
 
     source_names = [
         "configs/inverse/timing_development.json",
@@ -40,9 +37,7 @@ def main():
         "scripts/run_timing_study.py",
         "scripts/prepare_timing_data.py",
     ]
-    source_hashes = {
-        name: sha256(ROOT / name) for name in source_names
-    }
+    source_hashes = {name: sha256(ROOT / name) for name in source_names}
     revision = subprocess.check_output(
         ["git", "-C", str(ROOT), "rev-parse", "HEAD"],
         text=True,
@@ -58,9 +53,7 @@ def main():
 
     for n in (10, 50):
         for seed in cfg["designs"][str(n)]:
-            designs = generate_timing_designs(
-                n, seed, cfg["fold_seed_offset"]
-            )
+            designs = generate_timing_designs(n, seed, cfg["fold_seed_offset"])
             for family, modes in cfg["families"].items():
                 for timing, design in designs.items():
                     case_id = f"n{n}_seed{seed}_{family}_{timing}"
@@ -94,7 +87,7 @@ def main():
     manifest = {
         "study_id": cfg["study_id"],
         "phase": "development",
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "git_revision": revision,
         "git_status_at_generation": git_status,
         "source_sha256": source_hashes,

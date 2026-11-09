@@ -60,9 +60,7 @@ class RestoreTests(unittest.TestCase):
         target = self.root / "restored"
         receipt = module.restore(manifest, self.root, target)
         self.assertEqual(receipt["indexed_hash_entries_checked"], 1)
-        self.assertEqual(
-            (target / "results/example/data.txt").read_bytes(), b"original evidence\n"
-        )
+        self.assertEqual((target / "results/example/data.txt").read_bytes(), b"original evidence\n")
         self.assertTrue((target / "RESTORE_VERIFICATION.json").is_file())
         with self.assertRaises(FileExistsError):
             module.restore(manifest, self.root, target)

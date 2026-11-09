@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-PROTOCOL = r'''# Off-basis initial-temperature robustness study
+PROTOCOL = r"""# Off-basis initial-temperature robustness study
 
 Status: Development protocol; final evaluation has not begun.
 Classification: A new robustness study motivated by the preceding audit.
@@ -110,20 +110,20 @@ simultaneous intervals. Do not replace the original primary test.
 The goal is to quantify sensitivity to this one off-basis truth, not to certify
 that the original conclusions are universal. A reversal is a valid result.
 Known-versus-unknown initial temperature remains a separate optional control.
-'''
+"""
 
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    path = root / 'docs/OFFBASIS_PROTOCOL.md'
+    path = root / "docs/OFFBASIS_PROTOCOL.md"
     if path.exists():
-        raise FileExistsError(f'Refusing to overwrite: {path}')
-    path.write_text(PROTOCOL, encoding='utf-8', newline='\n')
-    print(f'Created: {path}')
-    print('Proposed localized field: center 0.35, width 0.04, peak normalized to one.')
-    print('Development: 8 datasets; planned evaluation: 120 datasets.')
-    print('No observations generated or fitting performed. Forward verification comes next.')
+        raise FileExistsError(f"Refusing to overwrite: {path}")
+    path.write_text(PROTOCOL, encoding="utf-8", newline="\n")
+    print(f"Created: {path}")
+    print("Proposed localized field: center 0.35, width 0.04, peak normalized to one.")
+    print("Development: 8 datasets; planned evaluation: 120 datasets.")
+    print("No observations generated or fitting performed. Forward verification comes next.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

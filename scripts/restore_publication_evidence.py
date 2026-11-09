@@ -78,9 +78,7 @@ def restore(manifest_path, archives, destination=None):
         # Detect file/directory collisions before writing anything.
         for _, info in members:
             parts = safe_parts(info.filename)
-            if any(
-                "/".join(parts[:i]).casefold() in seen for i in range(1, len(parts))
-            ):
+            if any("/".join(parts[:i]).casefold() in seen for i in range(1, len(parts))):
                 raise ValueError(f"File/directory collision: {info.filename}")
         if destination is not None:
             parent = destination.absolute().parent
@@ -88,9 +86,7 @@ def restore(manifest_path, archives, destination=None):
                 raise FileNotFoundError(f"Destination parent must exist: {parent}")
             needed = sum(i.file_size for _, i in members) + 512 * 1024**2
             if shutil.disk_usage(parent).free < needed:
-                raise OSError(
-                    f"Need at least {needed} free bytes for restore and margin."
-                )
+                raise OSError(f"Need at least {needed} free bytes for restore and margin.")
             destination.mkdir(exist_ok=False)
         hashes = {}
         for number, (z, info) in enumerate(members, 1):
@@ -128,9 +124,7 @@ def restore(manifest_path, archives, destination=None):
                 safe_parts(relative)
                 key = (base / relative).as_posix()
                 if hashes.get(key) != expected:
-                    raise ValueError(
-                        f"Indexed artifact mismatch: {index_name}: {relative}"
-                    )
+                    raise ValueError(f"Indexed artifact mismatch: {index_name}: {relative}")
                 checked += 1
         if not indexes:
             raise ValueError("No output-hash indexes found.")
@@ -147,9 +141,7 @@ def restore(manifest_path, archives, destination=None):
         ),
     }
     if destination is not None:
-        with (destination / "RESTORE_VERIFICATION.json").open(
-            "x", encoding="utf-8"
-        ) as f:
+        with (destination / "RESTORE_VERIFICATION.json").open("x", encoding="utf-8") as f:
             json.dump(receipt, f, indent=2)
             f.write("\n")
     print(json.dumps(receipt, indent=2))
@@ -165,9 +157,7 @@ def main():
     mode.add_argument("--destination", type=Path)
     args = parser.parse_args()
     restore(args.manifest, args.archives, args.destination)
-    print(
-        "EVIDENCE VERIFICATION COMPLETE. Original archives and research results unchanged."
-    )
+    print("EVIDENCE VERIFICATION COMPLETE. Original archives and research results unchanged.")
 
 
 if __name__ == "__main__":

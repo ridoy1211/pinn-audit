@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: [main, broader-comparison-implementation]
+    branches: [main, broader-comparison-implementation, experiment/controlled-timing]
   pull_request:
   workflow_dispatch:
 
@@ -38,6 +38,12 @@ jobs:
 
       - name: Test
         run: python -m pytest --cov=pinnaudit --cov-report=term-missing
+
+      - name: Check timing and off-basis plans
+        run: |
+          python scripts/run_timing_evaluation.py --plan
+          python scripts/run_offbasis_evaluation.py --plan
+          python scripts/check_timing_data.py
 
       - name: Smoke experiment
         run: |

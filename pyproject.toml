@@ -43,6 +43,18 @@ packages = ["src/pinnaudit"]
 line-length = 100
 target-version = "py311"
 src = ["src", "tests", "scripts"]
+# Archived drivers whose bytes are part of the study freezes.
+# tests/test_frozen_sources.py checks these against the provenance record.
+force-exclude = true
+extend-exclude = [
+  "scripts/offbasis_truth.py",
+  "scripts/run_offbasis_development.py",
+  "scripts/run_offbasis_evaluation.py",
+  "scripts/run_timing_evaluation.py",
+  "scripts/run_timing_study.py",
+  "scripts/timing_common.py",
+  "scripts/verify_offbasis_truth.py",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "NPY", "RUF"]

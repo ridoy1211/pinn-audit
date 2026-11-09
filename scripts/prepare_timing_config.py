@@ -10,24 +10,16 @@ def main():
     destination = root / "configs/inverse/timing_development.json"
 
     if destination.exists():
-        raise FileExistsError(
-            f"Refusing to overwrite an existing configuration: {destination}"
-        )
+        raise FileExistsError(f"Refusing to overwrite an existing configuration: {destination}")
 
     cfg = json.loads(source.read_text(encoding="utf-8"))
 
-    original_seeds = {
-        seed for seeds in cfg["designs"].values() for seed in seeds
-    }
+    original_seeds = {seed for seeds in cfg["designs"].values() for seed in seeds}
     development_designs = {
         "10": [806000, 806001, 806002],
         "50": [807000, 807001, 807002],
     }
-    development_seeds = {
-        seed
-        for seeds in development_designs.values()
-        for seed in seeds
-    }
+    development_seeds = {seed for seeds in development_designs.values() for seed in seeds}
     assert development_seeds.isdisjoint(original_seeds)
     assert development_seeds.isdisjoint({876543, 876544})
 
@@ -36,9 +28,7 @@ def main():
     cfg["designs"] = development_designs
     cfg["classical_methods"] = ["cv12"]
     cfg["training_seeds"] = [101]
-    cfg["neural_budgets"] = {
-        "pinn_1000": cfg["neural_budgets"]["pinn_1000"]
-    }
+    cfg["neural_budgets"] = {"pinn_1000": cfg["neural_budgets"]["pinn_1000"]}
     cfg["timing_schedules"] = {
         "early": {"window": [0.01, 0.10]},
         "mixed": {
