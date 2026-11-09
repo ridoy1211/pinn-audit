@@ -1,0 +1,26 @@
+{
+  "analytic_discrete_sine_test_max_abs": 3.4322258923857873e-09,
+  "spectral_refinement_max_abs": 1.5210055437364645e-14,
+  "further_spectral_refinement_max_abs": 2.686739719592879e-13,
+  "initial_l2_norm": 0.26515682505492727,
+  "twelve_mode_projection_relative_l2": 0.17860523757773472,
+  "spectral_initial_reconstruction_max_abs": 3.7192471324942744e-14,
+  "peak_location": 0.352075063581849,
+  "normalization": 0.22781146596160096,
+  "fd_intervals": [
+    256,
+    512,
+    1024
+  ],
+  "fd_max_abs_errors": [
+    0.00022529077866562108,
+    5.629478721469461e-05,
+    1.4073224051336375e-05
+  ],
+  "observed_spatial_orders": [
+    2.0007150211909988,
+    2.000048462668875
+  ],
+  "time_tolerance_refinement_max_abs": 1.641599634005786e-09,
+  "passed": true
+}

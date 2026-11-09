@@ -1,0 +1,12 @@
+{
+  "truth_source_sha256": "a6f5e1f03f27eb2225ae4d1febff2ef9bdc3dc0f7bb270db31d870890406fd66",
+  "verification_script_sha256": "e821459a7204b136af4046fa401944522e740a4e0e734431c7a437ea05c929fa",
+  "output_sha256": {
+    "fd_1024.npz": "0e6dd3294a4fe3cf5074cb837afc4487e7dd7bc50f9aa196f4fb48c697995f66",
+    "fd_256.npz": "ad541e2b77ed969629ddcfb514ed21042d0ff99c815f574dd2919603381639a5",
+    "fd_512.npz": "019382062a5c2ca64a0045e45f908f847a26d2a077a4ef48523366dd29c843c9",
+    "initial_field.npz": "3bea93565e29eeff0d4916283afc64e5e401c1d69e53fd7c1c173f69870637a7",
+    "verification.json": "e51e1a8c9eae8f2272bc355447710f2f8a8f6cf23a06e7dc28cb55bad94d0ebe"
+  },
+  "note": "Numerical verification on stated grids/times, not a global error bound."
+}

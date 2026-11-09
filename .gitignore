@@ -91,3 +91,7 @@ manuscript/sncs_review/main.pdf
 !results/broader_analysis_v1/**
 !results/broader_results_review_v1/
 !results/broader_results_review_v1/**
+
+# Original numerical verification required by off-basis planning.
+!results/offbasis_truth_verification_v1/
+!results/offbasis_truth_verification_v1/**
