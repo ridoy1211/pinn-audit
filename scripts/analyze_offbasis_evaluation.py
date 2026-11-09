@@ -1,4 +1,6 @@
 """Prespecified secondary paired analysis of the off-basis evaluation."""
+
+import argparse
 import csv
 import hashlib
 import json
@@ -24,10 +26,26 @@ def interval(v,indices):
 
 
 def main():
-    source=ROOT/'results/offbasis_evaluation_v1'
-    out=ROOT/'results/offbasis_analysis_v1'
+    parser = argparse.ArgumentParser(description="Replay the off-basis analysis from saved results.")
+    parser.add_argument(
+        "--results",
+        type=Path,
+        default=ROOT / "results/offbasis_evaluation_v1",
+        help="Saved off-basis evaluation directory containing manifest.json and records.json.",
+    )
+    parser.add_argument(
+        "--out-dir",
+        type=Path,
+        default=ROOT / "results/offbasis_analysis_v1",
+        help="New output directory outside the saved evaluation directory.",
+    )
+    args = parser.parse_args()
+    source = args.results.resolve()
+    out = args.out_dir.resolve()
+    if out.is_relative_to(source):
+        parser.error("--out-dir must be outside --results.")
     if out.exists():
-        raise FileExistsError(f'Preserve existing analysis: {out}')
+        parser.error(f"--out-dir already exists: {out}. Choose a new directory.")
     manifest=json.loads((source/'manifest.json').read_text())
     print('Verifying evaluation artifacts...',flush=True)
     if manifest['status']!='complete':
