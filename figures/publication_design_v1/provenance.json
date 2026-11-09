@@ -1,0 +1,36 @@
+{
+  "analysis_role": "study design schematic from frozen configurations and saved points",
+  "example_seed": 906000,
+  "offbasis_pairing_check_seed": 1106000,
+  "input_sha256": {
+    "repository/results/timing_evaluation_analysis_v1/analysis_provenance.json": "3c7d272db4f8a68f6d49dd2ebb36720f8eb101fcf906ccc9a5a40c505e97ea46",
+    "evidence/timing_evaluation_v1/manifest.json": "c4da0d3dbb323679dd1a08958e56204ba1c17a091d4e98d3cebf2232953859aa",
+    "evidence/timing_evaluation_v1/config.json": "c526112014cdf1da2dc0497006b31033da2616e6663014b77723800abe7b3733",
+    "repository/configs/inverse/timing_evaluation.json": "c526112014cdf1da2dc0497006b31033da2616e6663014b77723800abe7b3733",
+    "evidence/timing_evaluation_v1/pde_points.npz": "acf34799cc17fcc6a4dad72cc1a2f0cef3ae558469f8c13836043acbe22c5c3c",
+    "repository/results/offbasis_analysis_v1/provenance.json": "2dcf3bc020536abf2ea397cb6f135e0e5cba12f422f9601812bf818d0b489972",
+    "evidence/offbasis_evaluation_v1/manifest.json": "92e427525ca5168352e000874eae142d880d7e3fb5b16e2f9452870024cb42ff",
+    "evidence/offbasis_evaluation_v1/config.json": "60ed1e99ca3f171b31251a6d302daffbce58a2295b82c5ffc41767199e8e000b",
+    "repository/configs/inverse/offbasis_evaluation.json": "60ed1e99ca3f171b31251a6d302daffbce58a2295b82c5ffc41767199e8e000b",
+    "evidence/offbasis_evaluation_v1/pde_points.npz": "acf34799cc17fcc6a4dad72cc1a2f0cef3ae558469f8c13836043acbe22c5c3c",
+    "repository/results/offbasis_truth_verification_v1/provenance.json": "7f5fa30f42d5e018e014087c6cce795cbcd2b037be53ccf9cb776311e9574fef",
+    "repository/results/offbasis_truth_verification_v1/initial_field.npz": "3bea93565e29eeff0d4916283afc64e5e401c1d69e53fd7c1c173f69870637a7",
+    "evidence/timing_evaluation_v1/data/n10_seed906000_A_early.npz": "42052b1a3b8c602d4f91fcf97cce9c652c03f817b6a47efefbb5ad3ab712a03c",
+    "evidence/timing_evaluation_v1/data/n10_seed906000_A_mixed.npz": "2fd5574da91d97431574fe756a26d3aa4f4e89c55efcf6923e86f67d59df17e3",
+    "evidence/timing_evaluation_v1/data/n10_seed906000_A_late.npz": "823a90bcad55ef565b370faaf42beb159babf7e62ce46f8f20f7257c714402d3",
+    "evidence/timing_evaluation_v1/data/n10_seed906000_B_early.npz": "0c8bac4f54f46d677b02f0d42b3d65dbe01e2187103f56c4da0740bbb6f10373",
+    "evidence/timing_evaluation_v1/data/n10_seed906000_B_mixed.npz": "e82173c3bccd9f4ccdab395ac8fb750bc3bbab7d6d0479ff6a003f0fc9beed71",
+    "evidence/timing_evaluation_v1/data/n10_seed906000_B_late.npz": "e96d932239224fbaf8e060226e2b5b2348b0bd51cf44dee5b19bfb1863737c15",
+    "evidence/offbasis_evaluation_v1/data/n10_seed1106000_C_mixed.npz": "df131632fb67bad5a4ad4ee9073552870c84a55d220b7fe3a32322bc35291be6",
+    "evidence/offbasis_evaluation_v1/data/n10_seed1106000_C_late.npz": "8a6dab110c0ea39178881315a5c98b4a009136a8cbb76d3a0608e1e5517e4681",
+    "repository/scripts/analyze_timing_evaluation.py": "b39233cacb007f971e7866314d496f06eca4e4fc270a040d9fa4f14ff87686f8"
+  },
+  "script_sha256": "41181abbf31e00bbc7c65ec89354b58343d09e63f15961507ffb3cbefd9dfd28",
+  "numpy_version": "2.5.4",
+  "matplotlib_version": "3.11.2",
+  "output_sha256": {
+    "design.png": "27c508de056ea5a0984e59986bcd887ccaf9a84041d61abf1b34507a14d386a9",
+    "design.svg": "456e4dda7f0accb38ff341d998b046986d74e24b8786977721f86ccf95c22000",
+    "REPORT.md": "d1550d43179ec21bf333297fd36fd09e7f8e14897452999c488b17df92ea1897"
+  }
+}
