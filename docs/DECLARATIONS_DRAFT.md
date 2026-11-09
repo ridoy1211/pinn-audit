@@ -24,7 +24,7 @@ Later documentation and CI fixes do not change that archived experiment.
 
 ## Use of AI assistance
 
-Claude and ChatGPT assisted with developing and debugging Python code for experiments and statistical analysis. Numerical calculations were performed by Python scripts. The author reviewed the references, prepared and revised the manuscript, and retains responsibility for the accuracy and integrity of the final work.
+Claude and ChatGPT assisted with developing and debugging Python code for experiments and statistical analysis. Numerical calculations were performed by Python scripts. The author identified and provided the relevant references, prepared and critically revised the manuscript, and assumes full responsibility for the accuracy, integrity, and scholarly content of the final work.
 ## Author contributions and approval
 
 The contribution statement and final author approval remain to be completed
