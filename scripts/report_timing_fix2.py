@@ -1,5 +1,6 @@
 """Consolidate post-evaluation identifiability and physical-consistency evidence."""
 
+import argparse
 import csv
 import hashlib
 import json
@@ -43,21 +44,38 @@ def figure_save(fig, out, name):
 
 
 def main():
-    out = RESULTS / 'timing_fix2_report_v1'
+    parser = argparse.ArgumentParser(description="Replay the timing diagnostic report.")
+    parser.add_argument(
+        "--results",
+        type=Path,
+        default=RESULTS,
+        help="Results directory containing the saved timing evaluation and diagnostic directories.",
+    )
+    parser.add_argument(
+        "--out-dir",
+        type=Path,
+        help="New report directory. Defaults to timing_fix2_report_v1 under --results.",
+    )
+    args = parser.parse_args()
+    results = args.results.resolve()
+    out = (args.out_dir or results / "timing_fix2_report_v1").resolve()
     if out.exists():
-        raise FileExistsError(f'Preserve previous report: {out}')
+        parser.error(f"--out-dir already exists: {out}. Choose a new directory.")
     inputs = {}
     names = ('timing_identifiability_v1', 'timing_basis_flexibility_v1',
              'timing_rollout_v1', 'timing_rollout_refinement_v1')
+    input_folders = (*names, "timing_evaluation_v1")
+    if any(out.is_relative_to((results / name).resolve()) for name in input_folders):
+        parser.error("--out-dir must be outside the input evidence directories.")
     for name in names:
-        folder = RESULTS / name
+        folder = results / name
         print(f'Verifying {name}...', flush=True)
         provenance = read(folder / 'provenance.json')
         for filename, expected in provenance['output_sha256'].items():
             if sha(folder / filename) != expected:
                 raise RuntimeError(f'Changed diagnostic artifact: {name}/{filename}')
         inputs[name] = sha(folder / 'provenance.json')
-    evaluation = RESULTS / 'timing_evaluation_v1'
+    evaluation = results / 'timing_evaluation_v1'
     manifest = read(evaluation / 'manifest.json')
     for filename in ('config.json', 'records.json'):
         if sha(evaluation / filename) != manifest['output_sha256'][filename]:
@@ -65,12 +83,12 @@ def main():
     inputs['evaluation_manifest'] = sha(evaluation / 'manifest.json')
     cfg = read(evaluation / 'config.json')
     reference = [r for r in read(evaluation / 'records.json') if r['method'] == 'cv12']
-    basis = read(RESULTS / 'timing_basis_flexibility_v1/records.json')
+    basis = read(results / 'timing_basis_flexibility_v1/records.json')
     if len(basis) != 720 or any(r['status'] != 'completed' for r in basis):
         raise RuntimeError('This report expects all 720 basis fits completed.')
     basis += [{**r, 'modes': 12} for r in reference]
-    rollout = read(RESULTS / 'timing_rollout_v1/records.json')
-    refinements = read(RESULTS / 'timing_rollout_refinement_v1/records.json')
+    rollout = read(results / 'timing_rollout_v1/records.json')
+    refinements = read(results / 'timing_rollout_refinement_v1/records.json')
     replacements = {r['case_id']: r for r in refinements}
     failed = {r['case_id'] for r in rollout if not r['refinement_screen_pass']}
     if set(replacements) != failed:
@@ -79,8 +97,8 @@ def main():
                 'used_refined_result': r['case_id'] in replacements} for r in rollout]
     if len(rollout) != 360 or not all(r['refinement_screen_pass'] for r in rollout):
         raise RuntimeError('Unresolved rollout numerical screens.')
-    ranks = csv_read(RESULTS / 'timing_identifiability_v1/rank_profiles.csv')
-    sensitivities = csv_read(RESULTS / 'timing_identifiability_v1/regularization_sensitivity.csv')
+    ranks = csv_read(results / 'timing_identifiability_v1/rank_profiles.csv')
+    sensitivities = csv_read(results / 'timing_identifiability_v1/regularization_sensitivity.csv')
     out.mkdir()
     basis_summary, rollout_summary, rank_summary, lambda_summary = [], [], [], []
     for n in (10, 50):
@@ -155,7 +173,7 @@ def main():
         seed=cfg['designs'][str(n)][0]
         for col,t in enumerate(TIMINGS):
             ax=axes[row,col]; case=f'n{n}_seed{seed}_B_{t}'
-            with np.load(RESULTS/'timing_identifiability_v1/profiles'/f'{case}.npz') as p:
+            with np.load(results/'timing_identifiability_v1/profiles'/f'{case}.npz') as p:
                 for i,ridge in enumerate(p['ridges']):
                     ax.loglog(p[f'ridge_{i}_alpha'],np.maximum(p[f'ridge_{i}_objective'],1e-30),label=f'{ridge:g}')
                 ax.loglog(p['unregularized_alpha'],np.maximum(p['unregularized_mse'],1e-30),'k--',label='unregularized')
