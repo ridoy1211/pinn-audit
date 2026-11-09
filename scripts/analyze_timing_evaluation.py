@@ -1,5 +1,6 @@
 """Verify evaluation artifacts and perform the prespecified paired analysis."""
 
+import argparse
 import csv
 import hashlib
 import json
@@ -44,10 +45,26 @@ def interval(values, indices):
 
 
 def main():
-    source = ROOT / 'results/timing_evaluation_v1'
-    out = ROOT / 'results/timing_evaluation_analysis_v1'
+    parser = argparse.ArgumentParser(description="Replay the timing analysis from saved results.")
+    parser.add_argument(
+        "--results",
+        type=Path,
+        default=ROOT / "results/timing_evaluation_v1",
+        help="Saved timing evaluation directory containing manifest.json and records.json.",
+    )
+    parser.add_argument(
+        "--out-dir",
+        type=Path,
+        default=ROOT / "results/timing_evaluation_analysis_v1",
+        help="New output directory outside the saved evaluation directory.",
+    )
+    args = parser.parse_args()
+    source = args.results.resolve()
+    out = args.out_dir.resolve()
+    if out.is_relative_to(source):
+        parser.error("--out-dir must be outside --results.")
     if out.exists():
-        raise FileExistsError(f'Preserve the existing analysis directory: {out}')
+        parser.error(f"--out-dir already exists: {out}. Choose a new directory.")
     manifest = read(source / 'manifest.json')
     if manifest['status'] != 'complete':
         raise RuntimeError('This analysis requires the reported complete, failure-free run.')
