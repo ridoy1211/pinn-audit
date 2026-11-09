@@ -6,15 +6,15 @@ results are recorded at commit `1a4a790fc44991b47f8b815458215577e7aec259`.
 
 | Archive | Contents | Files |
 |---|---|---:|
-| `fix1-results-b6906ae.zip` | Timing development, ridge-grid checks, frozen evaluation, and timing analysis | 5,856 |
-| `fix2-evidence-v1.zip` | Identifiability, basis sensitivity, independent rollout, rollout refinement, and diagnostic report | 5,076 |
-| `fix3-evidence-v1.zip` | Off-basis truth verification, development, frozen evaluation, and analysis | 1,799 |
+| `controlled-timing-evidence-v1.zip` | Timing development, ridge-grid checks, frozen evaluation, and timing analysis | 5,856 |
+| `identifiability-and-rollout-evidence-v1.zip` | Identifiability, basis sensitivity, independent rollout, rollout refinement, and diagnostic report | 5,076 |
+| `off-basis-robustness-evidence-v1.zip` | Off-basis truth verification, development, frozen evaluation, and analysis | 1,799 |
 
 ## Verify and restore
 
 Download the three ZIPs from the release assets into a folder named
-`heat-evidence-downloads` next to the repository checkout. Use the source at the
-release tag. Its `docs/evidence_release_v1/release_manifest.json` lists archive
+`heat-evidence-downloads` next to the repository checkout. Use the source at tag
+`heat-inversion-evidence-v1.0.0`. Its `docs/evidence_release_v1/release_manifest.json` lists archive
 sizes, SHA256 digests, and folder counts. The accompanying `SHA256SUMS.txt`
 provides the same archive digests for independent checks.
 
@@ -40,16 +40,12 @@ keep the partial directory and choose a new destination for the next attempt.
 
 ## Verification record and scope
 
-The complete local restoration passed on Windows. The restore receipt's manifest
-digest was checked against the committed manifest at `7b21bfc`. The restore
-utility and its four filesystem tests were also checked using the Git snapshot
-at that commit. The release manifest records its preparation state, while the
-verification procedure checks the bytes readers obtain from the release.
+A complete local restoration passed on Windows using the manifest at `7b21bfc`.
+The descriptive release filenames refer to the same ZIP bytes and SHA256 digests.
 
 The verifier checks archive digests, ZIP CRCs, archive inventory, and recorded
-output hashes. The original training and analysis scripts retain their historical
-environment and path requirements. Use the restored directory to inspect the
-saved evidence. Portable analysis replay is a separate step.
+output hashes. The [analysis replay instructions](../../README.md#replay-the-follow-up-analyses)
+use the restored evidence to rebuild the tables and reports from saved fits.
 
 The [source provenance addendum](../source_provenance_addendum_v1/README.md)
 documents the correspondence between the original freeze hashes and the Git

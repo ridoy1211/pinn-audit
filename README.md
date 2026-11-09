@@ -29,7 +29,8 @@ describes the interpretation limits and relationship to prior work.
 
 ## Replay the follow-up analyses
 
-Use a checkout of `experiment/controlled-timing` containing commit `84a1ac6`.
+Use the source at tag `heat-inversion-evidence-v1.0.0` for archive verification
+and analysis replay.
 The reports and figures linked above are tracked in Git. Replaying them requires
 the three ZIP archives listed in the [evidence manifest](docs/evidence_release_v1/release_manifest.json).
 Local restoration and replay have been verified. Public archive downloads are
@@ -40,9 +41,8 @@ to verify the archives and extract them into `..\heat-evidence-restored`. The
 [source provenance addendum](docs/source_provenance_addendum_v1/README.md)
 relates the frozen source hashes to the corresponding Git files.
 
-After restoration, use the root of the `experiment/controlled-timing` checkout
-for the commands below. Run them in Windows CMD with an active Python
-environment. The verified replay used Python 3.14.6, NumPy 2.5.4 and
+After restoration, run these commands from the checkout root in Windows CMD
+with an active Python environment. The verified replay used Python 3.14.6, NumPy 2.5.4 and
 Matplotlib 3.11.2. Install the replay dependencies if needed.
 
 ```cmd

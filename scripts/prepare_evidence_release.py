@@ -28,16 +28,23 @@ def main():
     provenance = json.loads(provenance_raw)
     if provenance["unexplained_mismatches"] != 0:
         raise ValueError("Unresolved source provenance.")
-    names = ("fix1-results-b6906ae.zip", "fix2-evidence-v1.zip", "fix3-evidence-v1.zip")
+    release_filenames = {
+        "fix1-results-b6906ae.zip": "controlled-timing-evidence-v1.zip",
+        "fix2-evidence-v1.zip": "identifiability-and-rollout-evidence-v1.zip",
+        "fix3-evidence-v1.zip": "off-basis-robustness-evidence-v1.zip",
+    }
     by_name = {r["filename"]: r for r in inventory["archives"]}
-    assets = [by_name[n] for n in names]
+    assets = [
+        {**by_name[local_name], "filename": release_name}
+        for local_name, release_name in release_filenames.items()
+    ]
     folders = [folder for r in assets for folder in r["result_folders"]]
     if len(folders) != 14 or len(set(folders)) != 14:
         raise ValueError("Unexpected or overlapping result-folder coverage.")
     if not all(r["zip_crc_verified"] for r in assets):
         raise ValueError("Missing recorded archive integrity verification.")
     manifest = {
-        "status": "draft_not_uploaded_or_download_verified",
+        "status": "release_metadata_prepared",
         "scope": "Completed timing, identifiability, rollout and off-basis evidence",
         "reviewed_repository_commit": commit,
         "original_results_commit": "1a4a790fc44991b47f8b815458215577e7aec259",

@@ -1,13 +1,13 @@
 {
-  "status": "draft_not_uploaded_or_download_verified",
+  "status": "release_metadata_prepared",
   "scope": "Completed timing, identifiability, rollout and off-basis evidence",
-  "reviewed_repository_commit": "2f0bb2f65fcfd8b2260ae9605308f9438d15e151",
+  "reviewed_repository_commit": "588d1cbdc655290ccc4ee0f9b981beb29b0023bc",
   "original_results_commit": "1a4a790fc44991b47f8b815458215577e7aec259",
   "inventory_git_bytes_sha256": "2568d654673f3c267d066f118121d5a9f5d97108d37c90f8897183fca90bdb0c",
   "source_addendum_git_bytes_sha256": "5b9649bc245a9475dab9fcac35dd2ce6b77fdf885470c45630c73bb8c2a331f8",
   "assets": [
     {
-      "filename": "fix1-results-b6906ae.zip",
+      "filename": "controlled-timing-evidence-v1.zip",
       "bytes": 328000107,
       "sha256": "c561451cfd831766910de702f1bf37923d8c84298aadf8216c8b1e71f51cc54c",
       "zip_crc_verified": true,
@@ -21,7 +21,7 @@
       }
     },
     {
-      "filename": "fix2-evidence-v1.zip",
+      "filename": "identifiability-and-rollout-evidence-v1.zip",
       "bytes": 1261508106,
       "sha256": "49c950029e9aa04767a45d2ac0e9d38a668aeedb51b220e7bdf9ce85be0bbbcc",
       "zip_crc_verified": true,
@@ -37,7 +37,7 @@
       }
     },
     {
-      "filename": "fix3-evidence-v1.zip",
+      "filename": "off-basis-robustness-evidence-v1.zip",
       "bytes": 97979869,
       "sha256": "0cfdbcf7ae36c51ab65789786aaf3c13c5ab3d2242debce33a6b86274a77adb2",
       "zip_crc_verified": true,
