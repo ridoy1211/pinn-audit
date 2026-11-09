@@ -29,12 +29,11 @@ describes the interpretation limits and relationship to prior work.
 
 ## Replay the follow-up analyses
 
+Download the three ZIP archives and `SHA256SUMS.txt` from the
+[public evidence release](https://github.com/ridoy1211/pinn-audit/releases/tag/heat-inversion-evidence-v1.0.0).
+The [evidence manifest](docs/evidence_release_v1/release_manifest.json) lists their sizes and SHA-256 digests.
 Use the source at tag `heat-inversion-evidence-v1.0.0` for archive verification
 and analysis replay.
-The reports and figures linked above are tracked in Git. Replaying them requires
-the three ZIP archives listed in the [evidence manifest](docs/evidence_release_v1/release_manifest.json).
-Local restoration and replay have been verified. Public archive downloads are
-pending verification.
 
 Follow the [restoration instructions](docs/evidence_release_v1/RELEASE_NOTES.md)
 to verify the archives and extract them into `..\heat-evidence-restored`. The
