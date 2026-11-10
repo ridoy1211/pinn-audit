@@ -8,7 +8,7 @@ This project began with a comparison of neural and classical methods for estimat
 
 The [follow-up study](https://github.com/ridoy1211/pinn-audit/tree/experiment/controlled-timing) builds on that work by comparing early, late, and mixed measurement schedules. It also tests both methods on a starting temperature with a localized warm region. The [evidence release](https://github.com/ridoy1211/pinn-audit/releases/tag/heat-inversion-evidence-v1.0.0) contains the saved data, results, and instructions.
 
-The table, figure, and manuscript draft below describe the earlier comparison, which included 400 evaluation runs.
+
 ## What was investigated
 
 We estimate a constant diffusivity and the unobserved starting temperature from
