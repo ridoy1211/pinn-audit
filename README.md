@@ -4,7 +4,9 @@ A controlled computational audit of physics-informed neural networks and classic
 spectral inversion for the heat equation, with unknown diffusivity and an unknown
 initial temperature field.
 
-The [latest study](https://github.com/ridoy1211/pinn-audit/tree/experiment/controlled-timing) compares early, late, and mixed temperature measurements to see how timing affects estimates of heat diffusivity when the starting temperature is unknown. A separate test uses a starting temperature with a localized warm region. The [data, results, and instructions](https://github.com/ridoy1211/pinn-audit/releases/tag/heat-inversion-evidence-v1.0.0) are available to download.
+This project began with a comparison of neural and classical methods for estimating heat diffusivity and an unknown starting temperature from noisy measurements. The table, figure, and manuscript draft below describe that comparison, which included 400 evaluation runs.
+
+The [follow-up study](https://github.com/ridoy1211/pinn-audit/tree/experiment/controlled-timing) builds on that work by comparing early, late, and mixed measurement schedules. It also tests both methods on a starting temperature with a localized warm region. The [evidence release](https://github.com/ridoy1211/pinn-audit/releases/tag/heat-inversion-evidence-v1.0.0) contains the saved data, results, and instructions.
 
 The table, figure, and manuscript draft below describe the earlier comparison, which included 400 evaluation runs.
 ## What was investigated
