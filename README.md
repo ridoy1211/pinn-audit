@@ -16,7 +16,7 @@ each block. The timing study also shares blocks across initial fields A and B.
 
 | Stage | Design | Evidence |
 |---|---|---|
-[Main timing figure and explanation](figures/publication_timing_v1/REPORT.md)
+| Controlled timing | 360 datasets and 720 fits. Early, mixed and late observations at N=10 and N=50 for initial fields A and B. | [Protocol](docs/TIMING_PROTOCOL.md), [analysis](results/timing_evaluation_analysis_v1/summary.md), [Main timing figure and explanation](figures/publication_timing_v1/REPORT.md) |
 | Explanatory diagnostics | Post-evaluation diffusivity profiles, conditioning and 6/12/24-mode sensitivity. An independent heat-equation solution uses the initial field and diffusivity recovered by each of the 360 timing PINNs. | [Diagnostic report](results/timing_fix2_report_v1/REPORT.md), [rollout figure](results/timing_fix2_report_v1/physical_consistency.png) |
 | Off-basis evaluation | 120 datasets and 240 fits. One localized initial field outside the twelve-mode span, with mixed and late schedules at both observation counts. | [Protocol](docs/OFFBASIS_PROTOCOL.md), [analysis](results/offbasis_analysis_v1/REPORT.md) |
 
