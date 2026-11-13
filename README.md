@@ -4,12 +4,24 @@ A controlled computational audit of physics-informed neural networks and classic
 spectral inversion for the heat equation, with unknown diffusivity and an unknown
 initial temperature field.
 
-This project began with a comparison of neural and classical methods for estimating heat diffusivity and an unknown starting temperature from noisy measurements. The table, figure, and manuscript draft below describe that comparison, which included 400 evaluation runs.
+The [integrated manuscript](manuscript/integrated/README.md) presents one paper
+connecting the original 400-job comparison, the controlled observation-timing
+evaluation, explanatory checks and a localized initial-temperature test.
+Read the [PDF](manuscript/integrated/manuscript.pdf) or the
+[evidence map](docs/MANUSCRIPT_INTEGRATION.md).
 
-The [follow-up study](https://github.com/ridoy1211/pinn-audit/tree/experiment/controlled-timing) builds on that work by comparing early, late, and mixed measurement schedules. It also tests both methods on a starting temperature with a localized warm region. The [evidence release](https://github.com/ridoy1211/pinn-audit/releases/tag/heat-inversion-evidence-v1.0.0) contains the saved data, results, and instructions.
+The original comparison asks how regularization, initial-state representation
+and neural optimization budget affect recovery. The follow-up asks how early,
+mixed and late temperature measurements change that comparison. Its primary
+timing interaction remains uncertain: 3.7322 percentage points, with a 95%
+percentile bootstrap interval of [-0.0947, 56.2421].
 
+The [follow-up code and reports](https://github.com/ridoy1211/pinn-audit/tree/02af8a24de9d536f5f6b68352ab8fc980a37819b)
+and [saved data and models](https://github.com/ridoy1211/pinn-audit/releases/tag/heat-inversion-evidence-v1.0.0)
+are available separately. The table and figure below retain the original
+400-job comparison. The manuscript is an author-review draft.
 
-## What was investigated
+## Original comparison: design
 
 We estimate a constant diffusivity and the unobserved starting temperature from
 10 or 50 noisy interior observations on the unit space-time square, with known
@@ -28,7 +40,7 @@ budgets: 240 neural fits plus 160 reported classical pipeline outputs. There are
 ten independent designs in each observation-count/family stratum; neural starts
 are not additional independent datasets.
 
-## Findings and limits
+## Original comparison: findings and limits
 
 - At N=10/B, PINN-1000 has lower diffusivity and initial-field errors than CV12
   in nine of ten designs each, and lower full-field error in eight.
@@ -69,7 +81,7 @@ This is a specified-pipeline comparison, not equal-compute or equally tuned
 method classes. Classical regularization uses cross-validation; neural settings
 are fixed from development. One domain, one true diffusivity, one noise level,
 finite spectral truths and limited initialization sampling restrict scope.
-There is no observation-timing or high-dimensional study in this evaluation.
+Observation timing is evaluated in the separate follow-up; neither stage is a high-dimensional study.
 
 ## Evidence and manuscript guide
 
@@ -81,13 +93,16 @@ There is no observation-timing or high-dimensional study in this evaluation.
   [prespecified analysis](results/broader_analysis_v1/).
 - [Numerical review and figures](results/broader_results_review_v1/) and
   [critical result interpretation](docs/MAIN_STUDY_RESULTS_REVIEW.md).
-- [Complete author-review manuscript](docs/MANUSCRIPT_REVIEW_DRAFT.md), including
-  abstract, conclusion and provisional declarations; [title-page preparation](docs/TITLE_PAGE_DRAFT.md).
-- Draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
+- [Integrated manuscript and PDF](manuscript/integrated/README.md): all three
+  evaluation stages and the explanatory diagnostics in one paper.
+- [Earlier manuscript](docs/MANUSCRIPT_REVIEW_DRAFT.md) and
+  [title-page draft](docs/TITLE_PAGE_DRAFT.md): historical drafts for the original
+  comparison, retained for provenance.
+- Original-comparison draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
   [Methods](docs/METHODS_DRAFT.md), [Results](docs/RESULTS_DRAFT.md),
   [Discussion](docs/DISCUSSION_DRAFT.md). These are drafts, not an accepted paper.
 - Plain-language reading: [methods](docs/methods.md) and [results](docs/result.md).
-- [Contribution limits](docs/NOVELTY_ASSESSMENT.md) and
+- [Original contribution limits](docs/NOVELTY_ASSESSMENT.md) and
   [verified related-work notes](audit/literature_review.md).
 
 Implementation checkpoint: `b9d2b3e`; committed freeze: `dad8cd5`; complete
@@ -138,8 +153,10 @@ The earlier finite-difference code remains available for its original tasks.
 
 ## Authorship and assistance
 
-AI tools assisted with developing and debugging the Python code used for experiments and statistical analysis. Numerical calculations were performed by Python scripts.
-
-For the full research-assistance disclosure, see [Declarations](docs/DECLARATIONS_DRAFT.md).
+AI tools assisted with developing and debugging the Python code and with
+drafting and revising the integrated manuscript. Numerical calculations were
+performed by Python scripts. The integrated manuscript contains the current
+assistance disclosure; the [earlier declaration draft](docs/DECLARATIONS_DRAFT.md)
+is retained for provenance.
 
 Licensed under the [MIT License](LICENSE).
