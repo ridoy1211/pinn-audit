@@ -21,10 +21,10 @@ Suggested wording for you to send:
 > further work it needs? I can share the manuscript and reproducible repository.
 > I would welcome discussing substantive collaboration if the topic interests you.
 
-Share [the review manuscript](MANUSCRIPT_REVIEW_DRAFT.md), [the contribution
-assessment](NOVELTY_ASSESSMENT.md), [the fixed protocol](BROADER_COMPARISON_PROTOCOL.md)
-and [the saved results](../results/broader_analysis_v1/summary.md). The author list
-and affiliation remain provisional. No message has been sent on your behalf.
+Share [the integrated manuscript](../manuscript/integrated/README.md),
+[the evidence map](MANUSCRIPT_INTEGRATION.md), [the original fixed protocol](BROADER_COMPARISON_PROTOCOL.md)
+and [the saved original results](../results/broader_analysis_v1/summary.md).
+The manuscript remains an author-review draft. No message has been sent on your behalf.
 
 While waiting, read the complete review manuscript and mark claims, equations or
 figures you cannot yet explain. Use [plain-language methods](methods.md) and

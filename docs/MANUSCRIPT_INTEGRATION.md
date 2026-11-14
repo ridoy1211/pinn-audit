@@ -57,8 +57,11 @@ tables and updated here with the two close references. All 168 marginal-median
 table entries were checked against the existing reports. The five existing
 figures and all four table-source files are copied without changing their bytes.
 
-Earlier manuscript files, freezes, experimental sources and released evidence
-are preserved. No experiments were run or results selected for this integration.
+Earlier manuscript versions and their assembly tools remain in
+[Git history](https://github.com/ridoy1211/pinn-audit/tree/444ed73be37e56de8dcaffb060174fb4b36ba1fe).
+They were removed from the current branch to leave one manuscript version.
+Freezes, experimental sources and released evidence are unchanged. No experiments
+were run or results selected for this integration.
 The optional known-versus-unknown initial-temperature control remains future
 work. The author must review the argument, cited sources and declarations before
 submission; a journal-ready submission package is a later formatting step.
