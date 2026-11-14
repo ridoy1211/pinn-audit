@@ -1,5 +1,12 @@
 # Manuscript formatting checkpoint — 5 November 2026
 
+**Historical record for the earlier manuscript.** The old package, PDF and
+assembly tools referenced below are retained at the
+[archived checkpoint](https://github.com/ridoy1211/pinn-audit/tree/444ed73be37e56de8dcaffb060174fb4b36ba1fe).
+They are no longer current-branch files. Use the
+[integrated manuscript](../manuscript/integrated/README.md) for the current draft;
+the instructions below describe the earlier formatting work.
+
 **Latest review, 6 November:** the corrected Overleaf PDF is archived unchanged
 at `manuscript/reviews/overleaf_v2_2026-11-06.pdf`. Six pages are pixel-identical
 to the previously inspected PDF; the five changed pages were rendered and

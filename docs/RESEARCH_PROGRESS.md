@@ -1,8 +1,10 @@
 # Research progress — 5 November 2026
 
-This is the current progress guide. The project now uses research stages rather
-than day numbers. Earlier plans are in [the history archive](history/README.md).
-This does not claim seven days or 56 hours of actual work were measured.
+This is a historical checkpoint for the original 400-job study. For the current
+manuscript and subsequent evaluations, see the [integrated manuscript](../manuscript/integrated/README.md)
+and [evidence map](MANUSCRIPT_INTEGRATION.md). Earlier plans are in
+[the history archive](history/README.md). This does not claim seven days or
+56 hours of actual work were measured.
 
 | Stage | Evidence and outcome | Status |
 |---|---|---|
@@ -14,8 +16,8 @@ This does not claim seven days or 56 hours of actual work were measured.
 | Manuscript and author preparation | Main text, abstract, conclusion, title-page preparation and declarations integrated in the review draft | Draft available; final author review, coauthors, affiliation, citations and submission formatting unresolved |
 | Reproducibility and release | Isolated analysis replay at 0977887; 227 tests passed; PR #3 merged as 5000363 and its main CI passed | Analysis replay completed; final submission package and human approval pending |
 
-The [review manuscript](MANUSCRIPT_REVIEW_DRAFT.md) is the complete reading copy.
-It is not an approved submission. The component sections remain editable sources.
+The review manuscript and its component sections from this checkpoint are
+retained in [Git history](https://github.com/ridoy1211/pinn-audit/tree/444ed73be37e56de8dcaffb060174fb4b36ba1fe).
 See [Next steps](NEXT_STEPS.md) for the current action.
 
 ## Decisions and changes in scope

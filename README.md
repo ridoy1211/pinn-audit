@@ -95,12 +95,6 @@ Observation timing is evaluated in the separate follow-up; neither stage is a hi
   [critical result interpretation](docs/MAIN_STUDY_RESULTS_REVIEW.md).
 - [Integrated manuscript and PDF](manuscript/integrated/README.md): all three
   evaluation stages and the explanatory diagnostics in one paper.
-- [Earlier manuscript](docs/MANUSCRIPT_REVIEW_DRAFT.md) and
-  [title-page draft](docs/TITLE_PAGE_DRAFT.md): historical drafts for the original
-  comparison, retained for provenance.
-- Original-comparison draft sections: [Introduction](docs/INTRODUCTION_DRAFT.md),
-  [Methods](docs/METHODS_DRAFT.md), [Results](docs/RESULTS_DRAFT.md),
-  [Discussion](docs/DISCUSSION_DRAFT.md). These are drafts, not an accepted paper.
 - Plain-language reading: [methods](docs/methods.md) and [results](docs/result.md).
 - [Original contribution limits](docs/NOVELTY_ASSESSMENT.md) and
   [verified related-work notes](audit/literature_review.md).
@@ -156,7 +150,6 @@ The earlier finite-difference code remains available for its original tasks.
 AI tools assisted with developing and debugging the Python code and with
 drafting and revising the integrated manuscript. Numerical calculations were
 performed by Python scripts. The integrated manuscript contains the current
-assistance disclosure; the [earlier declaration draft](docs/DECLARATIONS_DRAFT.md)
-is retained for provenance.
+assistance disclosure.
 
 Licensed under the [MIT License](LICENSE).

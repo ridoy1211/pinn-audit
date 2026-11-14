@@ -7,8 +7,8 @@ evaluation. It does not change the completed experiments.
 Read the [manuscript PDF](manuscript.pdf). Edit [main.tex](main.tex) and
 [references.bib](references.bib) for the next revision. The
 [evidence map](../../docs/MANUSCRIPT_INTEGRATION.md) explains each stage's role.
-The [earlier manuscript](../../docs/MANUSCRIPT_REVIEW_DRAFT.md) covers the
-original 400-job comparison and remains a historical draft.
+Earlier drafts are retained in Git history. This directory contains the current
+manuscript version.
 
 ## Build
 
